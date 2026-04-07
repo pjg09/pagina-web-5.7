@@ -1,43 +1,111 @@
-# Astro Starter Kit: Minimal
+# 5.7 / Onda Creativa Launch — Sitio Web
 
-```sh
-pnpm create astro@latest -- --template minimal
-```
+Sitio web institucional y de conversión para **5.7 / Onda Creativa Launch**, agencia colombiana de servicios digitales para artistas musicales y empresas/marcas.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-## 🚀 Project Structure
+## Stack tecnológico
 
-Inside of your Astro project, you'll see the following folders and files:
+| Capa | Herramienta |
+|------|-------------|
+| Framework | Astro (sitio estático) |
+| Hosting | Vercel |
+| Agendamientos | Calendly |
+| Pagos | Stripe / MercadoPago (pendiente de definir) |
+| Analytics | Google Analytics 4 |
+| Email marketing | Brevo o Mailchimp (implementación futura) |
+| Gestor de paquetes | pnpm |
+| Lenguaje | TypeScript |
 
-```text
-/
-├── public/
+---
+
+## Estructura del proyecto
+
+pagina-web-5.7/
+├── public/                  # Archivos estáticos (imágenes, fuentes, favicon)
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/          # Componentes reutilizables
+│   │   ├── CTAWhatsApp.astro
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   ├── Hero.astro
+│   │   └── ServiceCard.astro
+│   ├── data/                # Datos del sitio separados de los componentes
+│   │   ├── constantes.ts    # URLs, teléfonos, links de Calendly, precios
+│   │   └── servicios.ts     # Listado de servicios para artistas y empresas
+│   ├── layouts/
+│   │   └── BaseLayout.astro # Estructura HTML base heredada por todas las páginas
+│   ├── pages/               # Cada archivo es una ruta del sitio
+│   │   ├── index.astro      # /
+│   │   ├── empresas.astro   # /empresas
+│   │   ├── artistas.astro   # /artistas
+│   │   ├── agendamientos.astro # /agendamientos
+│   │   └── contacto.astro   # /contacto
+│   └── styles/
+│       └── global.css       # Estilos globales
+├── astro.config.mjs
+├── tsconfig.json
+└── pnpm-lock.yaml
+
+---
+
+## Páginas
+
+| Ruta | Objetivo |
+|------|----------|
+| `/` | Explicar qué es 5.7 y segmentar al visitante (artista o empresa) |
+| `/empresas` | Convertir empresas en clientes |
+| `/artistas` | Convertir artistas en clientes, incluye flujo pago → agendamiento |
+| `/agendamientos` | Dos flujos: asesoría artistas (pago + Calendly) y diagnóstico empresas (solo Calendly) |
+| `/contacto` | WhatsApp, correo y redes sociales |
+
+---
+
+## Servicios externos
+
+- **Calendly** — un calendario con dos tipos de evento: con pago obligatorio para artistas, sin pago para empresas
+- **Stripe / MercadoPago** — cobro de asesoría estratégica para artistas ($150.000 COP / $50 USD)
+- **Google Analytics 4** — tracking de visitas y eventos (clics artistas vs empresas)
+- **Brevo o Mailchimp** — formulario de captura para campañas de email (implementación futura)
+
+---
+
+## Buenas prácticas
+
+- Los componentes solo presentan, no tienen lógica de negocio
+- Todos los datos (textos, precios, URLs, servicios) viven en `src/data/`, no hardcodeados en componentes
+- Constantes centralizadas en `constantes.ts`: WhatsApp, Calendly, precios
+- Sin abstracciones anticipadas — estructura suficiente para ser mantenible
+- Arquitectura abierta a CMS headless futuro (Contentful o Sanity) sin reescribir componentes
+
+---
+
+## Decisiones pendientes
+
+- [ ] Stripe vs MercadoPago vs ambos
+- [ ] Ítems del formulario previo al agendamiento de artistas
+- [ ] Formulario de captura email marketing
+
+---
+
+## Desarrollo local
+
+```bash
+# Instalar dependencias
+pnpm install
+
+# Servidor de desarrollo
+pnpm dev
+
+# Build de producción
+pnpm build
+
+# Preview del build
+pnpm preview
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Despliegue
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+El sitio se despliega automáticamente en Vercel al hacer push a `main`.
