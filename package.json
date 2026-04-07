@@ -13,5 +13,10 @@
   },
   "dependencies": {
     "astro": "^6.1.4"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "semantic-release": "^25.0.3"
   }
 }
