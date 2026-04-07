@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.0.1...v1.1.0) (2026-04-07)
+
+### Features
+
+* layout vacio de la estructura definida inicialmente ([a3ecd3a](https://github.com/pjg09/pagina-web-5.7/commit/a3ecd3a066aea01537f472977107c05cf266a8cb))
+
 ## [1.0.1](https://github.com/pjg09/pagina-web-5.7/compare/v1.0.0...v1.0.1) (2026-04-07)
 
 ## 1.0.0 (2026-04-07)
