@@ -1,0 +1,72 @@
+# ============================================================
+# ASTRO
+# ============================================================
+dist/
+.astro/
+.vercel/
+.netlify/
+
+# ============================================================
+# NODE / NPM / PNPM / YARN
+# ============================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+package-lock.json   
+yarn.lock         
+pnpm-lock.yaml    
+
+# ============================================================
+# VARIABLES DE ENTORNO Y SECRETOS
+# ============================================================
+.env
+.env.*
+!.env.example       # Mantiene el archivo de ejemplo como referencia
+
+# ============================================================
+# HTML / JS / CSS — BUILD ARTIFACTS
+# ============================================================
+*.min.js
+*.min.css
+*.map               # Source maps 
+/public/build/
+/public/dist/
+
+# ============================================================
+# UBUNTU / LINUX
+# ============================================================
+*~                  # Archivos de respaldo de editores como nano/gedit
+.fuse_hidden*
+.directory          # Archivos de Dolphin (KDE)
+.Trash-*
+.nfs*               # Archivos temporales de NFS
+
+# ============================================================
+# VSCODE
+# ============================================================
+.vscode/*
+!.vscode/extensions.json   
+!.vscode/settings.json     
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+
+# ============================================================
+# SISTEMAS OPERATIVOS (prevención general)
+# ============================================================
+.DS_Store           # macOS
+Thumbs.db           # Windows
+Desktop.ini
+
+# ============================================================
+# MISCELÁNEOS
+# ============================================================
+*.log
+*.tmp
+*.swp
+*.swo
+.cache/
+.temp/
