@@ -20,7 +20,7 @@ Sitio web institucional y de conversión para **5.7 / Onda Creativa Launch**, ag
 ---
 
 ## Estructura del proyecto
-
+```
 pagina-web-5.7/
 ├── public/                  # Archivos estáticos (imágenes, fuentes, favicon)
 ├── src/
@@ -46,6 +46,7 @@ pagina-web-5.7/
 ├── astro.config.mjs
 ├── tsconfig.json
 └── pnpm-lock.yaml
+```
 
 ---
 
