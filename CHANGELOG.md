@@ -1,3 +1,9 @@
+## [1.1.4](https://github.com/pjg09/pagina-web-5.7/compare/v1.1.3...v1.1.4) (2026-04-08)
+
+### Bug Fixes
+
+* Pagina de resumen para complementar el layout de navegacion del flujo de pago ([1f8b50b](https://github.com/pjg09/pagina-web-5.7/commit/1f8b50b099d313fb2d0fc19b9e72684f0565da84))
+
 ## [1.1.3](https://github.com/pjg09/pagina-web-5.7/compare/v1.1.2...v1.1.3) (2026-04-08)
 
 ## [1.1.2](https://github.com/pjg09/pagina-web-5.7/compare/v1.1.1...v1.1.2) (2026-04-08)
