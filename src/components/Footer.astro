@@ -1,0 +1,177 @@
+---
+import {
+    NAV_LINKS,
+    WHATSAPP_1,
+    WHATSAPP_2,
+    EMAIL,
+    INSTAGRAM,
+} from "../data/constantes";
+---
+
+<footer class="footer">
+    <div class="section-line"></div>
+    <div class="container footer__inner">
+        <!-- Logo + tagline -->
+        <div class="footer__brand">
+            <a href="/" aria-label="Inicio">
+                <img
+                    src="/images/logo.png"
+                    alt="Onda Creativa Launch 5.7"
+                    height="40"
+                    width="auto"
+                />
+            </a>
+            <p class="footer__tagline">Construimos marcas con dirección.</p>
+        </div>
+
+        <!-- Nav -->
+        <nav class="footer__nav" aria-label="Mapa del sitio">
+            <p class="footer__nav-title">Páginas</p>
+            <ul>
+                {
+                    NAV_LINKS.map((link) => (
+                        <li>
+                            <a href={link.href} class="footer__nav-link">
+                                {link.label}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </nav>
+
+        <!-- Contacto -->
+        <div class="footer__contact">
+            <p class="footer__nav-title">Contacto</p>
+            <ul>
+                <li>
+                    <a
+                        href={`https://wa.me/${WHATSAPP_1.replace(/\D/g, "")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="footer__nav-link"
+                    >
+                        +57 321 286 5200
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href={`https://wa.me/${WHATSAPP_2.replace(/\D/g, "")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="footer__nav-link"
+                    >
+                        +57 312 544 8302
+                    </a>
+                </li>
+                <li>
+                    <a href={`mailto:${EMAIL}`} class="footer__nav-link"
+                        >{EMAIL}</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href={INSTAGRAM}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="footer__nav-link"
+                    >
+                        @ondacreativalaunch5.7
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer__bottom">
+        <div class="container">
+            <p class="footer__copy">
+                © {new Date().getFullYear()} 5.7 / Onda Creativa Launch. Todos los
+                derechos reservados.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .footer {
+        background: var(--bg-surface);
+        padding-top: clamp(3rem, 6vw, 5rem);
+    }
+
+    .footer__inner {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 3rem;
+        padding-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    .footer__brand {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .footer__tagline {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        max-width: 22ch;
+        font-style: italic;
+    }
+
+    .footer__nav-title {
+        font-family: var(--font-display);
+        font-size: 0.8rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+    }
+
+    .footer__nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .footer__nav-link {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        transition: color var(--t-fast) var(--ease);
+    }
+    .footer__nav-link:hover {
+        color: var(--cyan);
+    }
+
+    .footer__contact ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .footer__bottom {
+        border-top: 1px solid var(--border);
+        padding-block: 1.25rem;
+    }
+
+    .footer__copy {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        .footer__inner {
+            grid-template-columns: 1fr 1fr;
+        }
+        .footer__brand {
+            grid-column: 1 / -1;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .footer__inner {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
