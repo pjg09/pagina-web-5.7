@@ -1,3 +1,9 @@
+## [1.2.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.1.6...v1.2.0) (2026-04-11)
+
+### Features
+
+* Index completo ([e142333](https://github.com/pjg09/pagina-web-5.7/commit/e1423332e8b3ddadc5a7a2549bc8ce6f51c6bf40))
+
 ## [1.1.6](https://github.com/pjg09/pagina-web-5.7/compare/v1.1.5...v1.1.6) (2026-04-08)
 
 ## [1.1.5](https://github.com/pjg09/pagina-web-5.7/compare/v1.1.4...v1.1.5) (2026-04-08)
