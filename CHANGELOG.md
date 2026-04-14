@@ -1,3 +1,9 @@
+## [1.2.1](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.0...v1.2.1) (2026-04-14)
+
+### Bug Fixes
+
+* breakpoint en resoluciones especificas y gradiente ([a16bbad](https://github.com/pjg09/pagina-web-5.7/commit/a16bbadaf843cbabe81692be1f9d1a54fa0bc7be))
+
 ## [1.2.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.1.6...v1.2.0) (2026-04-11)
 
 ### Features
