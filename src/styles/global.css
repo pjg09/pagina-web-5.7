@@ -249,8 +249,19 @@ body::before {
 }
 
 /* GRADIENT TEXT */
+
+/* Gradiente alternativo original con el magenta
 .gradient-text {
     background: linear-gradient(135deg, var(--cyan) 0%, var(--magenta) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+*/
+
+.gradient-text {
+    display: inline;
+    background: linear-gradient(135deg, #00CFDD 0%, #0A2FA8 35%, #FF0035 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
