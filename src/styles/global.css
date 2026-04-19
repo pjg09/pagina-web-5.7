@@ -13,17 +13,27 @@
     --magenta: #d400ff;
     --cyan-dim: rgba(0, 194, 255, 0.15);
     --magenta-dim: rgba(212, 0, 255, 0.15);
+    --cyan-subtle: rgba(0, 194, 255, 0.06);
     --cyan-glow: 0 0 24px rgba(0, 194, 255, 0.4);
+    --cyan-glow-strong: 0 0 32px rgba(0, 194, 255, 0.6);
     --magenta-glow: 0 0 24px rgba(212, 0, 255, 0.4);
 
     /* Texto */
     --text-primary: #ffffff;
+    --text-high: rgba(255, 255, 255, 0.95);
     --text-secondary: rgba(255, 255, 255, 0.9);
+    --text-dim: rgba(255, 255, 255, 0.7);
     --text-muted: #55556a;
+    --color-on-accent: #000;
 
     /* Bordes */
     --border: rgba(255, 255, 255, 0.07);
     --border-accent: rgba(0, 194, 255, 0.3);
+    --border-accent-magenta: rgba(212, 0, 255, 0.3);
+
+    /* Overlays */
+    --bg-base-scrolled: rgba(8, 8, 16, 0.9);
+    --overlay-bg: rgba(0, 0, 0, 0.7);
 
     /* Tipografía */
     --font-display: 'Bebas Neue', sans-serif;
@@ -153,13 +163,13 @@ ol {
 
 .btn--primary {
     background: var(--cyan);
-    color: #000;
+    color: var(--color-on-accent);
     box-shadow: var(--cyan-glow);
 }
 
 .btn--primary:hover {
     background: #fff;
-    box-shadow: 0 0 32px rgba(0, 194, 255, 0.6);
+    box-shadow: var(--cyan-glow-strong);
     transform: translateY(-2px);
 }
 
