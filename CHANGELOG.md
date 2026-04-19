@@ -1,3 +1,9 @@
+## [1.2.2](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.1...v1.2.2) (2026-04-19)
+
+### Bug Fixes
+
+* review de colores hardcodeados para parametrizarlos ([11bd485](https://github.com/pjg09/pagina-web-5.7/commit/11bd485c951a619affcbd45f7de197be051bc71d))
+
 ## [1.2.1](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.0...v1.2.1) (2026-04-14)
 
 ### Bug Fixes
