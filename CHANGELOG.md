@@ -1,3 +1,9 @@
+## [1.2.6](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.5...v1.2.6) (2026-04-22)
+
+### Bug Fixes
+
+* Cambios del index al 80% ([3bfe8fc](https://github.com/pjg09/pagina-web-5.7/commit/3bfe8fc7c5660269d41b346beb162e2c266887dd))
+
 ## [1.2.5](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.4...v1.2.5) (2026-04-22)
 
 ### Bug Fixes
