@@ -24,7 +24,7 @@ import { WHATSAPP_CTA } from "../data/constantes";
 			<h1 class="display display--xl hero__title reveal reveal-delay-1">
 				ESTRUCTURA Y CRECIMIENTO PARA TU <span class="gradient-text"
 					>MARCA</span
-				> O TU <span class="gradient-text">MUSICA</span>
+				> O TU <span class="gradient-text">MÚSICA</span>
 			</h1>
 
 			<p class="body--lg hero__sub reveal reveal-delay-2">
@@ -41,7 +41,7 @@ import { WHATSAPP_CTA } from "../data/constantes";
 					/>
 					Soy empresa
 				</a>
-				<a href="/artistas" class="btn btn--primary">
+				<a href="/artistas" class="btn hero__btn-artista">
 					<img
 						src="/images/BotonArtista.png"
 						alt=""
@@ -208,9 +208,6 @@ import { WHATSAPP_CTA } from "../data/constantes";
 							<p>Acompañamos crecimiento real.</p>
 						</li>
 					</ul>
-					<a href="/artistas" class="btn btn--outline reveal"
-						>Ver cómo trabajamos</a
-					>
 				</div>
 
 				<div class="que-hacemos__visual reveal reveal-delay-2">
@@ -447,6 +444,19 @@ import { WHATSAPP_CTA } from "../data/constantes";
 		gap: 1rem;
 		flex-wrap: wrap;
 		margin-top: 0.5rem;
+	}
+
+	.hero__btn-artista {
+		background: #000;
+		color: var(--text-primary);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+	}
+
+	.hero__btn-artista:hover {
+		background: #fff;
+		color: #000;
+		border-color: #fff;
+		transform: translateY(-2px);
 	}
 
 	.hero__btn-icon {

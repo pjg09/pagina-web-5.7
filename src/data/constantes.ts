@@ -28,7 +28,7 @@ export const NAV_LINKS = [
     { label: "Inicio", href: "/" },
     { label: "Empresas", href: "/empresas" },
     { label: "Artistas", href: "/artistas" },
-    { label: "Seguridad y Movilidad", href: "/seguridad-movilidad" },
+    { label: "SEGURIDAD VIP", href: "/seguridad-movilidad" },
     { label: "Agendamientos", href: "/agendamientos" },
     { label: "Contacto", href: "/contacto" },
 ];
