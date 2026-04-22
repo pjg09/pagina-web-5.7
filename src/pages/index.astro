@@ -32,7 +32,7 @@ import { WHATSAPP_CTA } from "../data/constantes";
 				estrategia y ejecución para avanzar correctamente.
 			</p>
 			<div class="hero__ctas reveal reveal-delay-3">
-				<a href="/empresas" class="btn btn--outline">
+				<a href="/empresas" class="btn hero__btn-empresa">
 					<img
 						src="/images/BotonEmpresa.png"
 						alt=""
@@ -102,7 +102,7 @@ import { WHATSAPP_CTA } from "../data/constantes";
 					<div class="id-card__body">
 						<span class="id-card__icon" aria-hidden="true">🏢</span>
 						<h2 class="display display--sm id-card__title">
-							Para marcas
+							MARCAS
 						</h2>
 						<p class="id-card__text">
 							Tienes un negocio en marcha. Estás vendiendo,
@@ -121,7 +121,6 @@ import { WHATSAPP_CTA } from "../data/constantes";
 							style="background: linear-gradient(90deg, var(--magenta), var(--cyan));"
 						>
 						</div>
-						<p class="body--sm">Ahí es donde entra 5.7.</p>
 						<a
 							href="/empresas"
 							class="btn btn--outline id-card__btn"
@@ -143,7 +142,7 @@ import { WHATSAPP_CTA } from "../data/constantes";
 					<div class="id-card__body">
 						<span class="id-card__icon" aria-hidden="true">🎤</span>
 						<h2 class="display display--sm id-card__title">
-							Para artistas
+							ARTISTAS
 						</h2>
 						<p class="id-card__text">
 							Eres artista y tienes música en movimiento. Estás
@@ -155,7 +154,6 @@ import { WHATSAPP_CTA } from "../data/constantes";
 							<strong>Aquí es donde todo cambia.</strong>
 						</p>
 						<div class="divider"></div>
-						<p class="body--sm">Ahí es donde entra 5.7.</p>
 						<a
 							href="/artistas"
 							class="btn btn--primary id-card__btn"
@@ -237,114 +235,64 @@ import { WHATSAPP_CTA } from "../data/constantes";
 
 			<div class="problema__grid">
 				<!-- Artistas -->
-				<article class="problema-card reveal">
-					<div class="problema-card__image">
-						<img
-							src="/images/_05.jpeg"
-							alt="Artista sin visibilidad digital"
-							loading="lazy"
-						/>
-						<div class="problema-card__badge">🎤 Artistas</div>
-					</div>
-					<div class="problema-card__body">
-						<ul class="problema-card__list">
-							<li>No logran visibilidad real</li>
-							<li>Lanzan sin estrategia</li>
-							<li>No saben cómo posicionar su música</li>
-							<li>No tienen estructura profesional</li>
-							<li>No generan credibilidad digital</li>
-						</ul>
-						<p class="problema-card__message">
-							El talento sin estrategia no se posiciona.
-						</p>
-						<a href="/artistas" class="btn btn--primary"
-							>Ver soluciones para artistas</a
-						>
-					</div>
-				</article>
+				<div class="problema-card-outer reveal">
+					<div class="problema-card__badge">🎤 Artistas</div>
+					<article class="problema-card">
+						<div class="problema-card__image">
+							<img
+								src="/images/_05.jpeg"
+								alt="Artista sin visibilidad digital"
+								loading="lazy"
+							/>
+						</div>
+						<div class="problema-card__body">
+							<ul class="problema-card__list">
+								<li>No logran visibilidad real</li>
+								<li>Lanzan sin estrategia</li>
+								<li>No saben cómo posicionar su música</li>
+								<li>No tienen estructura profesional</li>
+								<li>No generan credibilidad digital</li>
+							</ul>
+							<p class="problema-card__message">
+								El talento sin estrategia no se posiciona.
+							</p>
+							<a href="/artistas" class="btn btn--primary"
+								>Ver soluciones para artistas</a
+							>
+						</div>
+					</article>
+				</div>
 
 				<!-- Empresas -->
-				<article class="problema-card reveal reveal-delay-2">
-					<div class="problema-card__image">
-						<img
-							src="/images/_06.jpeg"
-							alt="Empresa sin presencia digital estructurada"
-							loading="lazy"
-						/>
-						<div
-							class="problema-card__badge problema-card__badge--magenta"
-						>
-							🏢 Empresas
+				<div class="problema-card-outer reveal reveal-delay-2">
+					<div class="problema-card__badge problema-card__badge--magenta">🏢 Empresas</div>
+					<article class="problema-card">
+						<div class="problema-card__image">
+							<img
+								src="/images/_06.jpeg"
+								alt="Empresa sin presencia digital estructurada"
+								loading="lazy"
+							/>
 						</div>
-					</div>
-					<div class="problema-card__body">
-						<ul class="problema-card__list">
-							<li>Publican sin dirección estratégica</li>
-							<li>No proyectan profesionalismo</li>
-							<li>No generan autoridad digital</li>
-							<li>No aprovechan el video</li>
-							<li>No tienen presencia digital estructurada</li>
-						</ul>
-						<p
-							class="problema-card__message problema-card__message--magenta"
-						>
-							La visibilidad sin estructura no posiciona.
-						</p>
-						<a href="/empresas" class="btn btn--outline"
-							>Ver soluciones para empresas</a
-						>
-					</div>
-				</article>
-			</div>
-		</div>
-	</section>
-
-	<div class="section-line"></div>
-
-	<!-- SECCIÓN 5 — LÍNEAS DE SERVICIO -->
-	<section class="servicios" aria-label="Líneas de servicio">
-		<div class="container">
-			<div class="servicios__header reveal">
-				<span class="label">Lo que ofrecemos</span>
-				<h2 class="display display--lg">
-					Líneas de<br /><span class="gradient-text">servicio</span>
-				</h2>
-			</div>
-
-			<div class="servicios__grid">
-				<article class="servicio-card reveal">
-					<div class="servicio-card__icon" aria-hidden="true">🎤</div>
-					<h3 class="display display--sm servicio-card__title">
-						Artistas musicales
-					</h3>
-					<p class="servicio-card__text">
-						Impulsamos temas musicales y artistas que desean crecer
-						con estrategia y estructura profesional.
-					</p>
-					<a
-						href="/artistas"
-						class="btn btn--primary servicio-card__btn"
-						>Ver soluciones</a
-					>
-				</article>
-
-				<article
-					class="servicio-card servicio-card--magenta reveal reveal-delay-2"
-				>
-					<div class="servicio-card__icon" aria-hidden="true">🏢</div>
-					<h3 class="display display--sm servicio-card__title">
-						Marcas y negocios
-					</h3>
-					<p class="servicio-card__text">
-						Acompañamos empresas que necesitan verse profesionales,
-						atraer clientes y fortalecer su presencia digital.
-					</p>
-					<a
-						href="/empresas"
-						class="btn btn--outline servicio-card__btn"
-						>Ver soluciones</a
-					>
-				</article>
+						<div class="problema-card__body">
+							<ul class="problema-card__list">
+								<li>Publican sin dirección estratégica</li>
+								<li>No proyectan profesionalismo</li>
+								<li>No generan autoridad digital</li>
+								<li>No aprovechan el video</li>
+								<li>No tienen presencia digital estructurada</li>
+							</ul>
+							<p
+								class="problema-card__message problema-card__message--magenta"
+							>
+								La visibilidad sin estructura no posiciona.
+							</p>
+							<a href="/empresas" class="btn btn--outline"
+								>Ver soluciones para empresas</a
+							>
+						</div>
+					</article>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -446,17 +394,22 @@ import { WHATSAPP_CTA } from "../data/constantes";
 		margin-top: 0.5rem;
 	}
 
-	.hero__btn-artista {
-		background: #000;
-		color: var(--text-primary);
-		border: 1px solid rgba(255, 255, 255, 0.15);
-	}
-
-	.hero__btn-artista:hover {
+	.hero__btn-artista,
+	.hero__btn-empresa {
 		background: #fff;
 		color: #000;
-		border-color: #fff;
+		border: none;
+	}
+
+	.hero__btn-artista:hover,
+	.hero__btn-empresa:hover {
+		background: #fff;
+		border: 2px solid var(--cyan);
 		transform: translateY(-2px);
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
 	}
 
 	.hero__btn-icon {
@@ -689,17 +642,22 @@ import { WHATSAPP_CTA } from "../data/constantes";
 		gap: 1.5rem;
 	}
 
+	.problema-card-outer {
+		display: flex;
+		flex-direction: column;
+	}
+
 	.problema-card {
 		background: var(--bg-card);
 		border: 1px solid var(--border);
-		border-radius: var(--radius-lg);
-		overflow: hidden;
+		border-radius: 0 var(--radius-lg) var(--radius-lg) var(--radius-lg);
 		transition: border-color var(--t-med) var(--ease);
+		overflow: hidden;
 	}
-	.problema-card:hover {
+	.problema-card-outer:hover .problema-card {
 		border-color: var(--border-accent);
 	}
-	.problema-card:last-child:hover {
+	.problema-card-outer:last-child:hover .problema-card {
 		border-color: var(--border-accent-magenta);
 	}
 
@@ -715,19 +673,22 @@ import { WHATSAPP_CTA } from "../data/constantes";
 	}
 
 	.problema-card__badge {
-		position: absolute;
-		top: 1rem;
-		left: 1rem;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
 		background: var(--cyan-dim);
 		border: 1px solid var(--border-accent);
+		border-bottom: none;
 		color: var(--cyan);
 		font-size: 0.75rem;
 		font-weight: 600;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
-		padding: 0.3rem 0.75rem;
-		border-radius: 2px;
-		backdrop-filter: blur(8px);
+		padding: 0.4rem 1rem;
+		border-radius: 6px 6px 0 0;
+		margin-left: 0;
+		position: relative;
+		z-index: 1;
 	}
 	.problema-card__badge--magenta {
 		background: var(--magenta-dim);
