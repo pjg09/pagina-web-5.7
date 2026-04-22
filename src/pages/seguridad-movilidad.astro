@@ -1,0 +1,84 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTAWhatsApp from "../components/CTAWhatsApp.astro";
+---
+
+<BaseLayout
+	title="Seguridad y Movilidad"
+	description="Soluciones de seguridad y movilidad para empresas y artistas con estructura y dirección."
+>
+	<!-- HERO -->
+	<section class="hero" aria-label="Seguridad y Movilidad">
+		<div class="hero__bg">
+			<div class="hero__overlay"></div>
+		</div>
+
+		<div class="container hero__content">
+			<span class="label reveal">Seguridad y Movilidad</span>
+			<h1 class="display display--xl hero__title reveal reveal-delay-1">
+				Seguridad<br />
+				<span class="gradient-text">y Movilidad</span>
+			</h1>
+			<p class="body--lg hero__sub reveal reveal-delay-2">
+				Próximamente disponible.
+			</p>
+			<div class="reveal reveal-delay-3">
+				<CTAWhatsApp label="Quiero más información" />
+			</div>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.hero {
+		position: relative;
+		min-height: 100svh;
+		display: flex;
+		align-items: flex-end;
+		padding-top: 140px;
+		padding-bottom: clamp(4rem, 8vw, 7rem);
+		overflow: hidden;
+		background: var(--bg-base);
+	}
+
+	.hero__bg {
+		position: absolute;
+		inset: 0;
+	}
+
+	.hero__overlay {
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(
+			ellipse at 60% 50%,
+			var(--cyan-subtle) 0%,
+			transparent 70%
+		);
+	}
+
+	.hero__content {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1.5rem;
+	}
+
+	.hero__title {
+		line-height: 0.92;
+	}
+
+	.hero__sub {
+		color: var(--text-high);
+		font-size: 1.55rem;
+		max-width: 52ch;
+		font-weight: 500;
+	}
+
+	@media (max-width: 768px) {
+		.hero__sub {
+			font-size: 1.2rem;
+		}
+	}
+</style>

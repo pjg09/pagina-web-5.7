@@ -115,7 +115,7 @@ ol {
 }
 
 .display--xl {
-    font-size: clamp(3.5rem, 10vw, 7.5rem);
+    font-size: clamp(2.5rem, 8vw, 5rem);
 }
 
 .display--lg {
