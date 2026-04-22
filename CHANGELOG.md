@@ -1,3 +1,9 @@
+## [1.2.7](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.6...v1.2.7) (2026-04-22)
+
+### Bug Fixes
+
+* buttons hgiligth testing ([e92122e](https://github.com/pjg09/pagina-web-5.7/commit/e92122edb611d09d4610f21a6c479301c28acd4f))
+
 ## [1.2.6](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.5...v1.2.6) (2026-04-22)
 
 ### Bug Fixes
