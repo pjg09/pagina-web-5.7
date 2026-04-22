@@ -1,3 +1,9 @@
+## [1.2.8](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.7...v1.2.8) (2026-04-22)
+
+### Bug Fixes
+
+* botones del hero ([c119a21](https://github.com/pjg09/pagina-web-5.7/commit/c119a21554349f160c69949134a54f60d6fb518b))
+
 ## [1.2.7](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.6...v1.2.7) (2026-04-22)
 
 ### Bug Fixes
