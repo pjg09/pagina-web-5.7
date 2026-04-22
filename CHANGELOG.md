@@ -1,3 +1,9 @@
+## [1.2.4](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.3...v1.2.4) (2026-04-22)
+
+### Bug Fixes
+
+* visualizacion en diferentes resoluciones de computador ([982affa](https://github.com/pjg09/pagina-web-5.7/commit/982affa44d9ee20b2e57679f0881160cc7978a75))
+
 ## [1.2.3](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.2...v1.2.3) (2026-04-19)
 
 ## [1.2.2](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.1...v1.2.2) (2026-04-19)
