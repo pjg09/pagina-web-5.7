@@ -1,3 +1,9 @@
+## [1.2.10](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.9...v1.2.10) (2026-04-23)
+
+### Bug Fixes
+
+* imagen de la seccion 3 ([bc99282](https://github.com/pjg09/pagina-web-5.7/commit/bc9928203be268e9a3f14132def8d2fbe9c678ba))
+
 ## [1.2.9](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.8...v1.2.9) (2026-04-23)
 
 ### Bug Fixes
