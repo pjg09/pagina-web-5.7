@@ -234,65 +234,143 @@ import { WHATSAPP_CTA } from "../data/constantes";
 			</div>
 
 			<div class="problema__grid">
-				<!-- Artistas -->
-				<div class="problema-card-outer reveal">
-					<div class="problema-card__badge">🎤 Artistas</div>
-					<article class="problema-card">
-						<div class="problema-card__image">
-							<img
-								src="/images/_05.jpeg"
-								alt="Artista sin visibilidad digital"
-								loading="lazy"
-							/>
-						</div>
-						<div class="problema-card__body">
-							<ul class="problema-card__list">
-								<li>No logran visibilidad real</li>
-								<li>Lanzan sin estrategia</li>
-								<li>No saben cómo posicionar su música</li>
-								<li>No tienen estructura profesional</li>
-								<li>No generan credibilidad digital</li>
-							</ul>
-							<p class="problema-card__message">
-								El talento sin estrategia no se posiciona.
-							</p>
-							<a href="/artistas" class="btn btn--primary"
-								>Ver soluciones para artistas</a
-							>
-						</div>
-					</article>
-				</div>
-
 				<!-- Empresas -->
 				<div class="problema-card-outer reveal reveal-delay-2">
-					<div class="problema-card__badge problema-card__badge--magenta">🏢 Empresas</div>
+					<div
+						class="problema-card__badge problema-card__badge--magenta"
+					>
+						Empresas
+					</div>
 					<article class="problema-card">
 						<div class="problema-card__image">
 							<img
-								src="/images/_06.jpeg"
+								src="/images/Empresas02.jpeg"
 								alt="Empresa sin presencia digital estructurada"
 								loading="lazy"
 							/>
 						</div>
 						<div class="problema-card__body">
+							<p
+								class="problema-card__subtitulo problema-card__subtitulo--magenta"
+							>
+								SIENTES QUE TU MARCA PODRÍA DAR MÁS RESULTADOS:
+							</p>
 							<ul class="problema-card__list">
-								<li>Publican sin dirección estratégica</li>
-								<li>No proyectan profesionalismo</li>
-								<li>No generan autoridad digital</li>
-								<li>No aprovechan el video</li>
-								<li>No tienen presencia digital estructurada</li>
+								<li>
+									Tienen presencia digital, pero sin
+									estructura
+								</li>
+								<li>Publican sin una estrategia clara</li>
+								<li>
+									No logran diferenciarse ni generar autoridad
+								</li>
+								<li>No convierten su contenido en clientes</li>
+								<li>
+									No aprovechan todo el potencial del entorno
+									digital
+								</li>
 							</ul>
 							<p
 								class="problema-card__message problema-card__message--magenta"
 							>
-								La visibilidad sin estructura no posiciona.
+								ESTAR EN DIGITAL NO ES SUFICIENTE. HAY QUE SABER
+								CÓMO CONVERTIRLO EN RESULTADOS.
 							</p>
 							<a href="/empresas" class="btn btn--outline"
-								>Ver soluciones para empresas</a
+								>Ver cómo fortalecer mi marca</a
 							>
 						</div>
 					</article>
 				</div>
+
+				<!-- Artistas -->
+				<div class="problema-card-outer reveal">
+					<div class="problema-card__badge">Artistas</div>
+					<article class="problema-card">
+						<div class="problema-card__image">
+							<img
+								src="/images/Artistas02.jpeg"
+								alt="Artista sin visibilidad digital"
+								loading="lazy"
+							/>
+						</div>
+						<div class="problema-card__body">
+							<p class="problema-card__subtitulo">
+								SIENTES QUE TU MÚSICA NO AVANZA COMO DEBERÍA:
+							</p>
+							<ul class="problema-card__list">
+								<li>Lanzan música sin una estructura clara</li>
+								<li>No logran el alcance que esperan</li>
+								<li>No saben cómo escalar sus resultados</li>
+								<li>
+									Dependen solo de subir contenido sin
+									estrategia
+								</li>
+								<li>
+									No tienen un plan sólido detrás de cada
+									lanzamiento
+								</li>
+							</ul>
+							<p class="problema-card__message">
+								EL TALENTO NO ES EL PROBLEMA. LA FALTA DE
+								DIRECCIÓN SÍ.
+							</p>
+							<p></p>
+							<p></p>
+							<a href="/artistas" class="btn btn--primary"
+								>Ver cómo posicionar mi música</a
+							>
+						</div>
+					</article>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- SECCIÓN 5 — LÍNEAS DE SERVICIO -->
+	<section class="servicios" aria-label="Líneas de servicio">
+		<div class="container">
+			<div class="servicios__header reveal">
+				<span class="label">Lo que ofrecemos</span>
+				<h2 class="display display--lg">
+					Líneas de<br /><span class="gradient-text">servicio</span>
+				</h2>
+			</div>
+
+			<div class="servicios__grid">
+				<article
+					class="servicio-card servicio-card--magenta reveal reveal-delay-2"
+				>
+					<div class="servicio-card__icon" aria-hidden="true">🏢</div>
+					<h3 class="display display--sm servicio-card__title">
+						Marcas y negocios
+					</h3>
+					<p class="servicio-card__text">
+						Acompañamos empresas que necesitan verse profesionales,
+						atraer clientes y fortalecer su presencia digital.
+					</p>
+					<a
+						href="/empresas"
+						class="btn btn--outline servicio-card__btn"
+						>Ver soluciones</a
+					>
+				</article>
+
+				<article class="servicio-card reveal">
+					<div class="servicio-card__icon" aria-hidden="true">🎤</div>
+					<h3 class="display display--sm servicio-card__title">
+						Artistas musicales
+					</h3>
+					<p class="servicio-card__text">
+						Impulsamos temas musicales y artistas que desean crecer
+						con estrategia y estructura profesional.
+					</p>
+					<a
+						href="/artistas"
+						class="btn btn--primary servicio-card__btn"
+						>Ver soluciones</a
+					>
+				</article>
 			</div>
 		</div>
 	</section>
@@ -650,7 +728,7 @@ import { WHATSAPP_CTA } from "../data/constantes";
 	.problema-card {
 		background: var(--bg-card);
 		border: 1px solid var(--border);
-		border-radius: 0 var(--radius-lg) var(--radius-lg) var(--radius-lg);
+		border-radius: 0;
 		transition: border-color var(--t-med) var(--ease);
 		overflow: hidden;
 	}
@@ -680,11 +758,11 @@ import { WHATSAPP_CTA } from "../data/constantes";
 		border: 1px solid var(--border-accent);
 		border-bottom: none;
 		color: var(--cyan);
-		font-size: 0.75rem;
+		font-size: 0.95rem;
 		font-weight: 600;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
-		padding: 0.4rem 1rem;
+		padding: 0.55rem 1.4rem;
 		border-radius: 6px 6px 0 0;
 		margin-left: 0;
 		position: relative;
@@ -701,6 +779,25 @@ import { WHATSAPP_CTA } from "../data/constantes";
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
+	}
+
+	.problema-card__body .btn {
+		margin-top: auto;
+		align-self: flex-start;
+	}
+
+	.problema-card__subtitulo {
+		font-family: var(--font-display);
+		font-size: 1.35rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--cyan);
+		line-height: 1.4;
+		margin-bottom: -0.25rem;
+	}
+
+	.problema-card__subtitulo--magenta {
+		color: var(--magenta);
 	}
 
 	.problema-card__list {
