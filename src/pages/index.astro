@@ -227,7 +227,7 @@ import { WHATSAPP_CTA } from "../data/constantes";
 	<section class="problema" aria-label="El problema que resolvemos">
 		<div class="container">
 			<div class="problema__header reveal">
-				<span class="label">El problema que resolvemos</span>
+				<span class="label">DONDE MUCHOS SE ESTANCAN</span>
 				<h2 class="display display--lg">
 					¿Te suena<br /><span class="gradient-text">familiar?</span>
 				</h2>
@@ -253,20 +253,21 @@ import { WHATSAPP_CTA } from "../data/constantes";
 							<p
 								class="problema-card__subtitulo problema-card__subtitulo--magenta"
 							>
-								SIENTES QUE TU MARCA PODRÍA DAR MÁS RESULTADOS:
+								ESTO ES LO QUE ESTÁ LIMITANDO LOS RESULTADOS DE
+								TU MARCA:
 							</p>
 							<ul class="problema-card__list">
 								<li>
-									Tienen presencia digital, pero sin
+									Tienes presencia digital, pero sin
 									estructura
 								</li>
-								<li>Publican sin una estrategia clara</li>
+								<li>Publicas sin una estrategia clara</li>
 								<li>
-									No logran diferenciarse ni generar autoridad
+									No logras diferenciarte ni generar autoridad
 								</li>
-								<li>No convierten su contenido en clientes</li>
+								<li>No conviertes tu contenido en clientes</li>
 								<li>
-									No aprovechan todo el potencial del entorno
+									No estás aprovechando todo el potencial
 									digital
 								</li>
 							</ul>
@@ -296,14 +297,15 @@ import { WHATSAPP_CTA } from "../data/constantes";
 						</div>
 						<div class="problema-card__body">
 							<p class="problema-card__subtitulo">
-								SIENTES QUE TU MÚSICA NO AVANZA COMO DEBERÍA:
+								ESTO ES LO QUÉ ESTÁ ENFRENTANDO EL CRECIMIENTO
+								DE TU MÚSICA:
 							</p>
 							<ul class="problema-card__list">
-								<li>Lanzan música sin una estructura clara</li>
-								<li>No logran el alcance que esperan</li>
-								<li>No saben cómo escalar sus resultados</li>
+								<li>Lanzas música sin una estructura clara</li>
+								<li>No logras el alcance que esperas</li>
+								<li>No sabes cómo escalar tus resultados</li>
 								<li>
-									Dependen solo de subir contenido sin
+									Dependes solo de subir contenido sin
 									estrategia
 								</li>
 								<li>
@@ -315,8 +317,6 @@ import { WHATSAPP_CTA } from "../data/constantes";
 								EL TALENTO NO ES EL PROBLEMA. LA FALTA DE
 								DIRECCIÓN SÍ.
 							</p>
-							<p></p>
-							<p></p>
 							<a href="/artistas" class="btn btn--primary"
 								>Ver cómo posicionar mi música</a
 							>
@@ -341,7 +341,6 @@ import { WHATSAPP_CTA } from "../data/constantes";
 				<article
 					class="servicio-card servicio-card--magenta reveal reveal-delay-2"
 				>
-					<div class="servicio-card__icon" aria-hidden="true">🏢</div>
 					<h3 class="display display--sm servicio-card__title">
 						Marcas y negocios
 					</h3>
@@ -351,13 +350,12 @@ import { WHATSAPP_CTA } from "../data/constantes";
 					</p>
 					<a
 						href="/empresas"
-						class="btn btn--outline servicio-card__btn"
+						class="btn servicio-card__btn servicio-card__btn--empresas"
 						>Ver soluciones</a
 					>
 				</article>
 
 				<article class="servicio-card reveal">
-					<div class="servicio-card__icon" aria-hidden="true">🎤</div>
 					<h3 class="display display--sm servicio-card__title">
 						Artistas musicales
 					</h3>
@@ -367,7 +365,7 @@ import { WHATSAPP_CTA } from "../data/constantes";
 					</p>
 					<a
 						href="/artistas"
-						class="btn btn--primary servicio-card__btn"
+						class="btn servicio-card__btn servicio-card__btn--artistas"
 						>Ver soluciones</a
 					>
 				</article>
@@ -683,8 +681,8 @@ import { WHATSAPP_CTA } from "../data/constantes";
 
 	.que-hacemos__visual {
 		position: relative;
-		transform: scale(1.2);
-		transform-origin: center center;
+		transform: scale(1.5);
+		transform-origin: left center;
 	}
 
 	.que-hacemos__img {
@@ -712,6 +710,10 @@ import { WHATSAPP_CTA } from "../data/constantes";
 
 	.problema__header {
 		margin-bottom: clamp(2.5rem, 5vw, 4rem);
+	}
+
+	.problema__header .label {
+		font-size: 0.91rem;
 	}
 
 	.problema__grid {
@@ -890,6 +892,24 @@ import { WHATSAPP_CTA } from "../data/constantes";
 	.servicio-card__btn {
 		align-self: flex-start;
 		margin-top: 0.5rem;
+	}
+
+	.servicio-card__btn--empresas,
+	.servicio-card__btn--artistas {
+		background: #fff;
+		color: #000;
+		border: none;
+	}
+
+	.servicio-card__btn--empresas:hover,
+	.servicio-card__btn--artistas:hover {
+		background: #fff;
+		border: 2px solid var(--cyan);
+		transform: translateY(-2px);
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
 	}
 
 	/* CIERRE */
