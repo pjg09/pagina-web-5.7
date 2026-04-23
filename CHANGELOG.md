@@ -1,3 +1,9 @@
+## [1.2.11](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.10...v1.2.11) (2026-04-23)
+
+### Bug Fixes
+
+* Size del visual de que hacemos ([b633cae](https://github.com/pjg09/pagina-web-5.7/commit/b633caeb279c380ab1521dd84ba5123355c3ac0a))
+
 ## [1.2.10](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.9...v1.2.10) (2026-04-23)
 
 ### Bug Fixes
