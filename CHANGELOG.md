@@ -1,3 +1,9 @@
+## [1.2.9](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.8...v1.2.9) (2026-04-23)
+
+### Bug Fixes
+
+* index completo hasta lineas de servicio ([9251518](https://github.com/pjg09/pagina-web-5.7/commit/92515182df7cbfbd84dfb62ccbd22ca7fdf5ca09))
+
 ## [1.2.8](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.7...v1.2.8) (2026-04-22)
 
 ### Bug Fixes
