@@ -1,3 +1,9 @@
+## [1.2.12](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.11...v1.2.12) (2026-04-23)
+
+### Bug Fixes
+
+* Size de la foto de la seccion 3 ([8dd622c](https://github.com/pjg09/pagina-web-5.7/commit/8dd622c3e65bc0a1011e7f548a0a8b42ae5b9d2e))
+
 ## [1.2.11](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.10...v1.2.11) (2026-04-23)
 
 ### Bug Fixes
