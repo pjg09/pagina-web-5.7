@@ -1,3 +1,9 @@
+## [1.3.6](https://github.com/pjg09/pagina-web-5.7/compare/v1.3.5...v1.3.6) (2026-04-27)
+
+### Bug Fixes
+
+* pagina de artistas completa pero sin terminar a nivel visual ([c3684c6](https://github.com/pjg09/pagina-web-5.7/commit/c3684c623559ec9c775bfbe3ff4dfea8e47773fa))
+
 ## [1.3.5](https://github.com/pjg09/pagina-web-5.7/compare/v1.3.4...v1.3.5) (2026-04-27)
 
 ### Bug Fixes
