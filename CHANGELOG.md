@@ -1,3 +1,9 @@
+## [1.3.5](https://github.com/pjg09/pagina-web-5.7/compare/v1.3.4...v1.3.5) (2026-04-27)
+
+### Bug Fixes
+
+* ultimas correcciones visuales al footer ([7208ec1](https://github.com/pjg09/pagina-web-5.7/commit/7208ec1477b41b1f6e1d42178844d0a951998a44))
+
 ## [1.3.4](https://github.com/pjg09/pagina-web-5.7/compare/v1.3.3...v1.3.4) (2026-04-27)
 
 ### Bug Fixes
