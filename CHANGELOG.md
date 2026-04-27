@@ -1,3 +1,9 @@
+## [1.2.14](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.13...v1.2.14) (2026-04-27)
+
+### Bug Fixes
+
+* index casi completo ([9889fc9](https://github.com/pjg09/pagina-web-5.7/commit/9889fc95c6f93f2b5f1a6d6aaba28b971658365b))
+
 ## [1.2.13](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.12...v1.2.13) (2026-04-23)
 
 ### Bug Fixes
