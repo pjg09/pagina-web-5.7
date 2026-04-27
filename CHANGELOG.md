@@ -1,3 +1,9 @@
+## [1.3.3](https://github.com/pjg09/pagina-web-5.7/compare/v1.3.2...v1.3.3) (2026-04-27)
+
+### Bug Fixes
+
+* color de las cards de empresas ([18f4708](https://github.com/pjg09/pagina-web-5.7/commit/18f470883f71b578c2cd4866b8e71869cc1744b2))
+
 ## [1.3.2](https://github.com/pjg09/pagina-web-5.7/compare/v1.3.1...v1.3.2) (2026-04-27)
 
 ### Bug Fixes
