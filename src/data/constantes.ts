@@ -3,6 +3,8 @@ export const WHATSAPP_1 = "https://wa.me/573212865200";
 export const WHATSAPP_2 = "https://wa.me/573125448302";
 export const EMAIL = "contacto@ocl57group.com";
 export const INSTAGRAM = "https://instagram.com/ondacreativalaunch5.7";
+export const FACEBOOK = "https://facebook.com/ondacreativalaunch5.7";
+export const TIKTOK = "https://tiktok.com/@ondacreativalaunch5.7";
 
 // Mensaje por defecto para CTA WhatsApp general
 export const WHATSAPP_DEFAULT_MSG = encodeURIComponent(
@@ -28,7 +30,7 @@ export const NAV_LINKS = [
     { label: "Inicio", href: "/" },
     { label: "Empresas", href: "/empresas" },
     { label: "Artistas", href: "/artistas" },
-    { label: "SEGURIDAD VIP", href: "/seguridad-movilidad" },
+    { label: "Seguridad VIP", href: "/seguridad-movilidad" },
     { label: "Agendamientos", href: "/agendamientos" },
     { label: "Contacto", href: "/contacto" },
 ];

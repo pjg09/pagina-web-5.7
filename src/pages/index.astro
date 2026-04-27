@@ -100,7 +100,6 @@ import { WHATSAPP_CTA } from "../data/constantes";
 						</div>
 					</div>
 					<div class="id-card__body">
-						<span class="id-card__icon" aria-hidden="true">🏢</span>
 						<h2 class="display display--sm id-card__title">
 							MARCAS
 						</h2>
@@ -121,9 +120,7 @@ import { WHATSAPP_CTA } from "../data/constantes";
 							style="background: linear-gradient(90deg, var(--magenta), var(--cyan));"
 						>
 						</div>
-						<a
-							href="/empresas"
-							class="btn btn--outline id-card__btn"
+						<a href="/empresas" class="btn id-card__btn"
 							>QUIERO FORTALECER MI MARCA</a
 						>
 					</div>
@@ -140,7 +137,6 @@ import { WHATSAPP_CTA } from "../data/constantes";
 						<div class="id-card__image-overlay"></div>
 					</div>
 					<div class="id-card__body">
-						<span class="id-card__icon" aria-hidden="true">🎤</span>
 						<h2 class="display display--sm id-card__title">
 							ARTISTAS
 						</h2>
@@ -154,22 +150,11 @@ import { WHATSAPP_CTA } from "../data/constantes";
 							<strong>Aquí es donde todo cambia.</strong>
 						</p>
 						<div class="divider"></div>
-						<a
-							href="/artistas"
-							class="btn btn--primary id-card__btn"
+						<a href="/artistas" class="btn id-card__btn"
 							>QUIERO IMPULSAR MI MÚSICA</a
 						>
 					</div>
 				</article>
-			</div>
-
-			<div class="id-frase reveal">
-				<p class="id-frase__texto">
-					<span class="gradient-text"
-						>NO IMPORTA EN QUÉ PUNTO ESTÉS.<br />
-						LO IMPORTANTE ES TENER DIRECCIÓN PARA EL SIGUIENTE NIVEL.</span
-					>
-				</p>
 			</div>
 		</div>
 	</section>
@@ -181,9 +166,8 @@ import { WHATSAPP_CTA } from "../data/constantes";
 		<div class="container">
 			<div class="que-hacemos__inner">
 				<div class="que-hacemos__text">
-					<span class="label reveal">Nuestro enfoque</span>
 					<h2 class="display display--lg reveal reveal-delay-1">
-						Qué<br /><span class="gradient-text">hacemos</span>
+						NUESTRO<br /><span class="gradient-text">ENFOQUE</span>
 					</h2>
 					<p class="que-hacemos__subtitulo reveal reveal-delay-1">
 						Esto es lo que hacemos cuando hay dirección:
@@ -317,6 +301,8 @@ import { WHATSAPP_CTA } from "../data/constantes";
 								EL TALENTO NO ES EL PROBLEMA. LA FALTA DE
 								DIRECCIÓN SÍ.
 							</p>
+							<p></p>
+							<p></p>
 							<a href="/artistas" class="btn btn--primary"
 								>Ver cómo posicionar mi música</a
 							>
@@ -331,7 +317,6 @@ import { WHATSAPP_CTA } from "../data/constantes";
 	<section class="servicios" aria-label="Líneas de servicio">
 		<div class="container">
 			<div class="servicios__header reveal">
-				<span class="label">Lo que ofrecemos</span>
 				<h2 class="display display--lg">
 					Líneas de<br /><span class="gradient-text">servicio</span>
 				</h2>
@@ -341,33 +326,55 @@ import { WHATSAPP_CTA } from "../data/constantes";
 				<article
 					class="servicio-card servicio-card--magenta reveal reveal-delay-2"
 				>
-					<h3 class="display display--sm servicio-card__title">
-						Marcas y negocios
-					</h3>
-					<p class="servicio-card__text">
-						Acompañamos empresas que necesitan verse profesionales,
-						atraer clientes y fortalecer su presencia digital.
-					</p>
-					<a
-						href="/empresas"
-						class="btn servicio-card__btn servicio-card__btn--empresas"
-						>Ver soluciones</a
-					>
+					<div class="servicio-card__image">
+						<img
+							src="/images/Empresas03.jpeg"
+							alt="Marcas y negocios"
+							loading="lazy"
+						/>
+					</div>
+					<div class="servicio-card__body">
+						<h3 class="display display--sm servicio-card__title">
+							EMPRESAS
+						</h3>
+						<p class="servicio-card__text">
+							Si tu marca no está bien estructurada en digital,
+							estás perdiendo oportunidades.<br /><br />Aquí
+							encuentras cómo convertir tu presencia en una
+							herramienta real de crecimiento.
+						</p>
+						<a
+							href="/empresas"
+							class="btn btn--outline servicio-card__btn"
+							>Ver cómo potenciar mi marca</a
+						>
+					</div>
 				</article>
 
 				<article class="servicio-card reveal">
-					<h3 class="display display--sm servicio-card__title">
-						Artistas musicales
-					</h3>
-					<p class="servicio-card__text">
-						Impulsamos temas musicales y artistas que desean crecer
-						con estrategia y estructura profesional.
-					</p>
-					<a
-						href="/artistas"
-						class="btn servicio-card__btn servicio-card__btn--artistas"
-						>Ver soluciones</a
-					>
+					<div class="servicio-card__image">
+						<img
+							src="/images/Artistas03.jpeg"
+							alt="Artistas musicales"
+							loading="lazy"
+						/>
+					</div>
+					<div class="servicio-card__body">
+						<h3 class="display display--sm servicio-card__title">
+							Artistas
+						</h3>
+						<p class="servicio-card__text">
+							No importa en qué etapa estés. Si no hay dirección,
+							la música no avanza.<br /><br />Aquí encuentras la
+							estructura, estrategia y ejecución para hacerlo
+							correctamente.
+						</p>
+						<a
+							href="/artistas"
+							class="btn btn--primary servicio-card__btn"
+							>Ver cómo trabajar mi música</a
+						>
+					</div>
 				</article>
 			</div>
 		</div>
@@ -379,8 +386,9 @@ import { WHATSAPP_CTA } from "../data/constantes";
 	<section class="cierre" aria-label="Llamada a la acción final">
 		<div class="container cierre__inner">
 			<h2 class="display display--lg cierre__title reveal">
-				Si vas a construir una marca,<br />
-				<span class="gradient-text">hazlo con dirección.</span>
+				<span class="gradient-text"
+					>SI VAS A CRECER, HAZLO CON DIRECCIÓN</span
+				>
 			</h2>
 			<div class="reveal reveal-delay-2">
 				<CTAWhatsApp />
@@ -527,19 +535,22 @@ import { WHATSAPP_CTA } from "../data/constantes";
 
 	.id-card {
 		background: var(--bg-card);
-		border: 1px solid var(--border);
+		border: 1px solid rgba(0, 194, 255, 0.25);
 		border-radius: var(--radius-lg);
 		overflow: hidden;
 		transition:
 			border-color var(--t-med) var(--ease),
 			transform var(--t-med) var(--ease);
 	}
+	.id-card--empresas {
+		border-color: rgba(255, 0, 53, 0.35);
+	}
 	.id-card:hover {
-		border-color: var(--border-accent);
+		border-color: var(--cyan);
 		transform: translateY(-4px);
 	}
 	.id-card--empresas:hover {
-		border-color: var(--border-accent-magenta);
+		border-color: #ff0035;
 	}
 
 	.id-card__image {
@@ -598,6 +609,38 @@ import { WHATSAPP_CTA } from "../data/constantes";
 	.id-card__btn {
 		margin-top: 0.5rem;
 		align-self: flex-start;
+		background: #fff;
+		color: #000;
+		border: none;
+	}
+
+	.id-card__btn:hover {
+		background: #fff;
+		border: 2px solid var(--cyan);
+		transform: translateY(-2px);
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
+	}
+
+	/* Override global btn styles → hero style para todos los botones del index */
+	.btn--primary,
+	.btn--outline {
+		background: #fff;
+		color: #000;
+		border: none;
+	}
+
+	.btn--primary:hover,
+	.btn--outline:hover {
+		background: #fff;
+		border: 2px solid var(--cyan);
+		transform: translateY(-2px);
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
 	}
 
 	/* FRASE — debajo de las tarjetas */
@@ -733,16 +776,19 @@ import { WHATSAPP_CTA } from "../data/constantes";
 
 	.problema-card {
 		background: var(--bg-card);
-		border: 1px solid var(--border);
+		border: 1px solid rgba(0, 194, 255, 0.25);
 		border-radius: 0;
 		transition: border-color var(--t-med) var(--ease);
 		overflow: hidden;
 	}
-	.problema-card-outer:hover .problema-card {
-		border-color: var(--border-accent);
+	.problema-card-outer:first-child .problema-card {
+		border-color: rgba(255, 0, 53, 0.35);
 	}
-	.problema-card-outer:last-child:hover .problema-card {
-		border-color: var(--border-accent-magenta);
+	.problema-card-outer:hover .problema-card {
+		border-color: var(--cyan);
+	}
+	.problema-card-outer:first-child:hover .problema-card {
+		border-color: #ff0035;
 	}
 
 	.problema-card__image {
@@ -775,9 +821,9 @@ import { WHATSAPP_CTA } from "../data/constantes";
 		z-index: 1;
 	}
 	.problema-card__badge--magenta {
-		background: var(--magenta-dim);
-		border-color: var(--border-accent-magenta);
-		color: var(--magenta);
+		background: rgba(255, 0, 53, 0.1);
+		border-color: rgba(255, 0, 53, 0.35);
+		color: #ff0035;
 	}
 
 	.problema-card__body {
@@ -859,26 +905,49 @@ import { WHATSAPP_CTA } from "../data/constantes";
 
 	.servicio-card {
 		background: var(--bg-card);
-		border: 1px solid var(--border);
+		border: 1px solid rgba(0, 194, 255, 0.25);
 		border-radius: var(--radius-lg);
-		padding: clamp(2rem, 4vw, 3rem);
+		overflow: hidden;
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
 		transition:
 			border-color var(--t-med) var(--ease),
 			transform var(--t-med) var(--ease);
 	}
+	.servicio-card--magenta {
+		border-color: rgba(255, 0, 53, 0.35);
+	}
 	.servicio-card:hover {
-		border-color: var(--border-accent);
+		border-color: var(--cyan);
 		transform: translateY(-4px);
 	}
 	.servicio-card--magenta:hover {
-		border-color: var(--border-accent-magenta);
+		border-color: #ff0035;
 	}
 
-	.servicio-card__icon {
-		font-size: 2.5rem;
+	.servicio-card__image {
+		aspect-ratio: 16/9;
+		overflow: hidden;
+	}
+
+	.servicio-card__image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		transition: transform var(--t-med) var(--ease);
+	}
+
+	.servicio-card:hover .servicio-card__image img {
+		transform: scale(1.04);
+	}
+
+	.servicio-card__body {
+		padding: clamp(1.5rem, 3vw, 2.5rem);
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		flex: 1;
 	}
 
 	.servicio-card__title {
@@ -896,24 +965,6 @@ import { WHATSAPP_CTA } from "../data/constantes";
 	.servicio-card__btn {
 		align-self: flex-start;
 		margin-top: 0.5rem;
-	}
-
-	.servicio-card__btn--empresas,
-	.servicio-card__btn--artistas {
-		background: #fff;
-		color: #000;
-		border: none;
-	}
-
-	.servicio-card__btn--empresas:hover,
-	.servicio-card__btn--artistas:hover {
-		background: #fff;
-		border: 2px solid var(--cyan);
-		transform: translateY(-2px);
-		background-clip: text;
-		-webkit-background-clip: text;
-		color: transparent;
-		background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
 	}
 
 	/* CIERRE */
@@ -963,9 +1014,11 @@ import { WHATSAPP_CTA } from "../data/constantes";
 			grid-template-columns: 1fr;
 		}
 
-		.que-hacemos__visual {
+		.que-hacemos__visual,
+		.que-hacemos__inner .que-hacemos__visual.visible {
 			order: -1;
 			transform: none;
+			transform-origin: center center;
 		}
 	}
 
