@@ -1,0 +1,181 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { WHATSAPP_CTA, CALENDLY_ARTISTAS } from "../data/constantes";
+---
+
+<BaseLayout
+	title="Artistas"
+	description="Estés empezando, lanzando o buscando crecer, aquí encuentras la estructura y el impulso que tu música necesita."
+>
+	<!-- SECCIÓN 1 — HERO -->
+	<section class="hero" aria-label="Hero artistas">
+		<div class="hero__bg">
+			<img
+				src="/images/HeroArtistas.jpeg"
+				alt="Artistas musicales con dirección"
+				class="hero__img"
+				fetchpriority="high"
+			/>
+			<div class="hero__overlay"></div>
+		</div>
+
+		<div class="container hero__content">
+			<h1 class="display display--xl hero__title reveal reveal-delay-1">
+				TU <span class="gradient-text">MÚSICA</span> NECESITA<br />
+				MÁS QUE TALENTO,<br />
+				NECESITA DIRECCIÓN.
+			</h1>
+
+			<p class="body--lg hero__sub reveal reveal-delay-2">
+				Estés empezando, lanzando o buscando crecer, aquí encuentras la
+				estructura y el impulso que tu música necesita.
+			</p>
+
+			<div class="hero__ctas reveal reveal-delay-3">
+				<a href="#soluciones" class="btn hero__btn">
+					Ver cómo impulsar mi música
+				</a>
+				<a
+					href={CALENDLY_ARTISTAS}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn hero__btn"
+				>
+					Agendar asesoría estratégica
+				</a>
+			</div>
+
+			<a
+				href="#soluciones"
+				class="hero__scroll reveal reveal-delay-4"
+				aria-label="Ver soluciones para artistas"
+			>
+				<span>Conocer más</span>
+				<svg
+					width="16"
+					height="16"
+					viewBox="0 0 16 16"
+					fill="none"
+					aria-hidden="true"
+				>
+					<path
+						d="M8 3v10M3 8l5 5 5-5"
+						stroke="currentColor"
+						stroke-width="1.5"
+						stroke-linecap="round"
+						stroke-linejoin="round"></path>
+				</svg>
+			</a>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	/* HERO */
+	.hero {
+		position: relative;
+		min-height: 100svh;
+		display: flex;
+		align-items: flex-end;
+		padding-top: 140px;
+		padding-bottom: clamp(4rem, 8vw, 7rem);
+		overflow: hidden;
+	}
+
+	.hero__bg {
+		position: absolute;
+		inset: 0;
+	}
+
+	.hero__img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center top;
+	}
+
+	.hero__overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			to left,
+			rgba(8, 8, 16, 0.1) 0%,
+			rgba(8, 8, 16, 0.7) 50%,
+			rgba(8, 8, 16, 0.88) 100%
+		);
+	}
+
+	.hero__content {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1.5rem;
+		max-width: 55%;
+		margin-left: 8%;
+		margin-right: auto;
+	}
+
+	@media (max-width: 768px) {
+		.hero__content {
+			max-width: 100%;
+		}
+	}
+
+	.hero__title {
+		line-height: 1.3;
+	}
+
+	.hero__sub {
+		color: var(--text-high);
+		font-size: 1.35rem;
+		max-width: 48ch;
+		font-weight: 500;
+	}
+
+	@media (max-width: 768px) {
+		.hero__sub {
+			font-size: 1.1rem;
+		}
+	}
+
+	.hero__ctas {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+		margin-top: 0.5rem;
+	}
+
+	.hero__btn {
+		background: #fff;
+		color: #000;
+		border: none;
+	}
+
+	.hero__btn:hover {
+		background: #fff;
+		border: 2px solid var(--cyan);
+		transform: translateY(-2px);
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
+	}
+
+	.hero__scroll {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.85rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--text-dim);
+		margin-top: 1rem;
+		transition: color var(--t-fast) var(--ease);
+	}
+
+	.hero__scroll:hover {
+		color: var(--cyan);
+	}
+</style>
