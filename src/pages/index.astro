@@ -310,8 +310,6 @@ import { WHATSAPP_CTA } from "../data/constantes";
 								EL TALENTO NO ES EL PROBLEMA. LA FALTA DE
 								DIRECCIÓN SÍ.
 							</p>
-							<p></p>
-							<p></p>
 							<a href="/artistas" class="btn btn--primary"
 								>Ver cómo posicionar mi música</a
 							>
@@ -552,14 +550,14 @@ import { WHATSAPP_CTA } from "../data/constantes";
 			transform var(--t-med) var(--ease);
 	}
 	.id-card--empresas {
-		border-color: rgba(224, 0, 79, 0.35);
+		border-color: rgba(181, 0, 95, 0.35);
 	}
 	.id-card:hover {
 		border-color: var(--cyan);
 		transform: translateY(-4px);
 	}
 	.id-card--empresas:hover {
-		border-color: #e0004f;
+		border-color: #b5005f;
 	}
 
 	.id-card__image {
@@ -602,6 +600,7 @@ import { WHATSAPP_CTA } from "../data/constantes";
 
 	.id-card__title {
 		color: var(--text-primary);
+		letter-spacing: 0.15em;
 	}
 
 	.id-card__text {
@@ -654,31 +653,27 @@ import { WHATSAPP_CTA } from "../data/constantes";
 
 	/* FRASE — debajo de las tarjetas */
 	.id-frase {
-		margin-top: 2.5rem;
-		padding: 1.25rem 2rem;
-		border: 1px solid var(--border-accent-magenta);
-		border-radius: var(--radius-lg);
-		background: var(--bg-surface);
+		margin-top: 3rem;
 		text-align: center;
-		transition: border-color var(--t-med) var(--ease);
-	}
-
-	.id-frase:hover {
-		border-color: var(--magenta);
 	}
 
 	.id-frase__texto {
 		font-family: var(--font-display);
-		font-size: clamp(1rem, 2.2vw, 1.45rem);
-		letter-spacing: 0.08em;
+		font-size: clamp(2.24rem, 5.6vw, 4.4rem);
+		letter-spacing: 0.06em;
 		text-transform: uppercase;
-		color: var(--text-secondary);
-		line-height: 1.5;
+		line-height: 1.15;
+	}
+
+	@media (max-width: 768px) {
+		.id-frase__texto {
+			font-size: 1.71rem;
+		}
 	}
 
 	/* QUÉ HACEMOS */
 	.que-hacemos {
-		padding-block: clamp(2.5rem, 5vw, 4.5rem) var(--section-gap);
+		padding-block: clamp(2.25rem, 4.5vw, 4rem) var(--section-gap);
 		background: var(--bg-surface);
 	}
 
@@ -796,13 +791,13 @@ import { WHATSAPP_CTA } from "../data/constantes";
 		overflow: hidden;
 	}
 	.problema-card-outer:first-child .problema-card {
-		border-color: rgba(224, 0, 79, 0.35);
+		border-color: rgba(181, 0, 95, 0.35);
 	}
 	.problema-card-outer:hover .problema-card {
 		border-color: var(--cyan);
 	}
 	.problema-card-outer:first-child:hover .problema-card {
-		border-color: #e0004f;
+		border-color: #b5005f;
 	}
 
 	.problema-card__image {
@@ -839,9 +834,9 @@ import { WHATSAPP_CTA } from "../data/constantes";
 			color var(--t-med) var(--ease);
 	}
 	.problema-card__badge--magenta {
-		background: rgba(224, 0, 79, 0.1);
-		border-color: rgba(224, 0, 79, 0.35);
-		color: #e0004f;
+		background: rgba(181, 0, 95, 0.1);
+		border-color: rgba(181, 0, 95, 0.35);
+		color: #b5005f;
 	}
 
 	.problema-card-outer:hover .problema-card__badge {
@@ -850,9 +845,9 @@ import { WHATSAPP_CTA } from "../data/constantes";
 		color: var(--cyan);
 	}
 	.problema-card-outer:first-child:hover .problema-card__badge--magenta {
-		border-color: #e0004f;
+		border-color: #b5005f;
 		background: rgba(224, 0, 79, 0.18);
-		color: #e0004f;
+		color: #b5005f;
 	}
 
 	.problema-card__body {
@@ -868,17 +863,18 @@ import { WHATSAPP_CTA } from "../data/constantes";
 	}
 
 	.problema-card__subtitulo {
-		font-family: var(--font-display);
+		font-family: var(--font-body);
 		font-size: 1.35rem;
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
-		color: var(--cyan);
+		color: var(--text-primary);
+		font-weight: 700;
 		line-height: 1.4;
 		margin-bottom: -0.25rem;
 	}
 
 	.problema-card__subtitulo--magenta {
-		color: #e0004f;
+		color: var(--text-primary);
 	}
 
 	.problema-card__list {
@@ -897,23 +893,24 @@ import { WHATSAPP_CTA } from "../data/constantes";
 		content: "·";
 		position: absolute;
 		left: 0;
-		color: #e0004f;
+		color: #b5005f;
 		font-weight: 700;
 	}
 	.problema-card:last-child .problema-card__list li::before {
-		color: #e0004f;
+		color: var(--cyan);
 	}
 
 	.problema-card__message {
-		font-family: var(--font-display);
+		font-family: var(--font-body);
 		font-size: 1.1rem;
 		letter-spacing: 0.04em;
-		color: var(--cyan);
 		text-transform: uppercase;
+		color: var(--text-primary);
+		font-weight: 700;
 		padding-top: 0.25rem;
 	}
 	.problema-card__message--magenta {
-		color: #e0004f;
+		color: var(--text-primary);
 	}
 
 	/* SERVICIOS */
@@ -944,14 +941,14 @@ import { WHATSAPP_CTA } from "../data/constantes";
 			transform var(--t-med) var(--ease);
 	}
 	.servicio-card--magenta {
-		border-color: rgba(224, 0, 79, 0.35);
+		border-color: rgba(181, 0, 95, 0.35);
 	}
 	.servicio-card:hover {
 		border-color: var(--cyan);
 		transform: translateY(-4px);
 	}
 	.servicio-card--magenta:hover {
-		border-color: #e0004f;
+		border-color: #b5005f;
 	}
 
 	.servicio-card__image {
@@ -981,6 +978,7 @@ import { WHATSAPP_CTA } from "../data/constantes";
 
 	.servicio-card__title {
 		color: var(--text-primary);
+		letter-spacing: 0.15em;
 	}
 
 	.servicio-card__text {
