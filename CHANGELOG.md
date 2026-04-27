@@ -1,3 +1,9 @@
+## [1.3.1](https://github.com/pjg09/pagina-web-5.7/compare/v1.3.0...v1.3.1) (2026-04-27)
+
+### Bug Fixes
+
+* ajustes a tonalidades del index ([2b65e28](https://github.com/pjg09/pagina-web-5.7/commit/2b65e28fc8dba51a0ebda917e14b776bc1be1e60))
+
 ## [1.3.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.14...v1.3.0) (2026-04-27)
 
 ### Features
