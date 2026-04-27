@@ -1,3 +1,9 @@
+## [1.3.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.14...v1.3.0) (2026-04-27)
+
+### Features
+
+* Comiezno pagina artistas ([ba6feec](https://github.com/pjg09/pagina-web-5.7/commit/ba6feec43567ca4dee4c6bae58b22e1c470342ca))
+
 ## [1.2.14](https://github.com/pjg09/pagina-web-5.7/compare/v1.2.13...v1.2.14) (2026-04-27)
 
 ### Bug Fixes
