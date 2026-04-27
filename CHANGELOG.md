@@ -1,3 +1,9 @@
+## [1.3.4](https://github.com/pjg09/pagina-web-5.7/compare/v1.3.3...v1.3.4) (2026-04-27)
+
+### Bug Fixes
+
+* cambios en el footer y logo de fenalco ([b3f895c](https://github.com/pjg09/pagina-web-5.7/commit/b3f895c931b3eef49fb00ed2a57f1472181cb120))
+
 ## [1.3.3](https://github.com/pjg09/pagina-web-5.7/compare/v1.3.2...v1.3.3) (2026-04-27)
 
 ### Bug Fixes
