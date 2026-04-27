@@ -30,6 +30,13 @@
     --border: rgba(255, 255, 255, 0.07);
     --border-accent: rgba(0, 194, 255, 0.3);
     --border-accent-magenta: rgba(212, 0, 255, 0.3);
+    --border-card: rgba(0, 194, 255, 0.25);
+
+    /* Empresa (color rosa intenso para cards/sección empresas) */
+    --empresa: #b5005f;
+    --empresa-dim: rgba(181, 0, 95, 0.35);
+    --empresa-subtle: rgba(181, 0, 95, 0.1);
+    --empresa-hover: rgba(224, 0, 79, 0.18);
 
     /* Overlays */
     --bg-base-scrolled: rgba(8, 8, 16, 0.9);

@@ -542,7 +542,7 @@ import { WHATSAPP_CTA } from "../data/constantes";
 
 	.id-card {
 		background: var(--bg-card);
-		border: 1px solid rgba(0, 194, 255, 0.25);
+		border: 1px solid var(--border-card);
 		border-radius: var(--radius-lg);
 		overflow: hidden;
 		transition:
@@ -550,14 +550,14 @@ import { WHATSAPP_CTA } from "../data/constantes";
 			transform var(--t-med) var(--ease);
 	}
 	.id-card--empresas {
-		border-color: rgba(181, 0, 95, 0.35);
+		border-color: var(--empresa-dim);
 	}
 	.id-card:hover {
 		border-color: var(--cyan);
 		transform: translateY(-4px);
 	}
 	.id-card--empresas:hover {
-		border-color: #b5005f;
+		border-color: var(--empresa);
 	}
 
 	.id-card__image {
@@ -785,19 +785,19 @@ import { WHATSAPP_CTA } from "../data/constantes";
 
 	.problema-card {
 		background: var(--bg-card);
-		border: 1px solid rgba(0, 194, 255, 0.25);
+		border: 1px solid var(--border-card);
 		border-radius: 0;
 		transition: border-color var(--t-med) var(--ease);
 		overflow: hidden;
 	}
 	.problema-card-outer:first-child .problema-card {
-		border-color: rgba(181, 0, 95, 0.35);
+		border-color: var(--empresa-dim);
 	}
 	.problema-card-outer:hover .problema-card {
 		border-color: var(--cyan);
 	}
 	.problema-card-outer:first-child:hover .problema-card {
-		border-color: #b5005f;
+		border-color: var(--empresa);
 	}
 
 	.problema-card__image {
@@ -834,9 +834,9 @@ import { WHATSAPP_CTA } from "../data/constantes";
 			color var(--t-med) var(--ease);
 	}
 	.problema-card__badge--magenta {
-		background: rgba(181, 0, 95, 0.1);
-		border-color: rgba(181, 0, 95, 0.35);
-		color: #b5005f;
+		background: var(--empresa-subtle);
+		border-color: var(--empresa-dim);
+		color: var(--empresa);
 	}
 
 	.problema-card-outer:hover .problema-card__badge {
@@ -845,9 +845,9 @@ import { WHATSAPP_CTA } from "../data/constantes";
 		color: var(--cyan);
 	}
 	.problema-card-outer:first-child:hover .problema-card__badge--magenta {
-		border-color: #b5005f;
-		background: rgba(224, 0, 79, 0.18);
-		color: #b5005f;
+		border-color: var(--empresa);
+		background: var(--empresa-hover);
+		color: var(--empresa);
 	}
 
 	.problema-card__body {
@@ -893,7 +893,7 @@ import { WHATSAPP_CTA } from "../data/constantes";
 		content: "·";
 		position: absolute;
 		left: 0;
-		color: #b5005f;
+		color: var(--empresa);
 		font-weight: 700;
 	}
 	.problema-card:last-child .problema-card__list li::before {
@@ -931,7 +931,7 @@ import { WHATSAPP_CTA } from "../data/constantes";
 
 	.servicio-card {
 		background: var(--bg-card);
-		border: 1px solid rgba(0, 194, 255, 0.25);
+		border: 1px solid var(--border-card);
 		border-radius: var(--radius-lg);
 		overflow: hidden;
 		display: flex;
@@ -941,14 +941,14 @@ import { WHATSAPP_CTA } from "../data/constantes";
 			transform var(--t-med) var(--ease);
 	}
 	.servicio-card--magenta {
-		border-color: rgba(181, 0, 95, 0.35);
+		border-color: var(--empresa-dim);
 	}
 	.servicio-card:hover {
 		border-color: var(--cyan);
 		transform: translateY(-4px);
 	}
 	.servicio-card--magenta:hover {
-		border-color: #b5005f;
+		border-color: var(--empresa);
 	}
 
 	.servicio-card__image {

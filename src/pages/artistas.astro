@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { WHATSAPP_CTA, CALENDLY_ARTISTAS } from "../data/constantes";
+import { WHATSAPP_CTA, CALENDLY_ARTISTAS, MP_ASESORIA_ARTISTAS } from "../data/constantes";
 ---
 
 <BaseLayout
@@ -100,58 +100,77 @@ import { WHATSAPP_CTA, CALENDLY_ARTISTAS } from "../data/constantes";
 
 	<div class="section-line"></div>
 
-	<!-- SECCIÓN 3 — ETAPAS + SERVICIOS -->
-	<section class="servicios-sec" aria-label="Servicios para artistas">
-		<!-- 3A — BLOQUEOS POR ETAPA -->
-		<div class="etapas">
-			<div class="container">
-				<div class="etapas__header reveal">
-					<span class="label">El patrón que se repite</span>
-					<h2 class="display display--lg etapas__titulo">
-						DIFERENTES ETAPAS,<br />LOS MISMOS <span
-							class="gradient-text">BLOQUEOS</span
-						>
-					</h2>
-				</div>
+	<!-- SECCIÓN 3 — DIFERENTES ETAPAS -->
+	<section class="etapas-sec" aria-label="Diferentes etapas">
+		<div class="container">
+			<div class="etapas__header reveal">
+				<span class="label">El patrón que se repite</span>
+				<h2 class="display display--lg etapas__titulo">
+					DIFERENTES ETAPAS,<br />LOS MISMOS <span
+						class="gradient-text">BLOQUEOS</span
+					>
+				</h2>
+			</div>
 
-				<div class="etapas__grid">
-					<div class="etapa-card reveal">
-						<h3 class="display display--sm etapa-card__titulo">
-							Artistas emergentes
-						</h3>
-						<ul class="etapa-card__lista">
-							<li>Sacan música, pero nadie la escucha</li>
-							<li>No saben cómo lanzar correctamente</li>
-							<li>Todo depende de "subir contenido"</li>
-						</ul>
-					</div>
-					<div class="etapa-card reveal reveal-delay-1">
-						<h3 class="display display--sm etapa-card__titulo">
-							Artistas en crecimiento
-						</h3>
-						<ul class="etapa-card__lista">
-							<li>Tienen equipo, pero no hay dirección clara</li>
-							<li>
-								Invierten, pero no ven resultados consistentes
-							</li>
-							<li>Su contenido no escala</li>
-						</ul>
-					</div>
-					<div class="etapa-card reveal reveal-delay-2">
-						<h3 class="display display--sm etapa-card__titulo">
-							Equipos y disqueras
-						</h3>
-						<ul class="etapa-card__lista">
-							<li>Falta de ejecución operativa</li>
-							<li>Procesos desordenados en lanzamientos</li>
-							<li>Necesidad de apoyo externo confiable</li>
-						</ul>
-					</div>
+			<div class="etapas__foto reveal">
+				<img
+					src="/images/InternaArtistas03.jpeg"
+					alt="Artistas en diferentes etapas"
+					loading="lazy"
+				/>
+			</div>
+
+			<div class="etapas__grid">
+				<div class="etapa-card reveal">
+					<h3 class="display display--sm etapa-card__titulo">
+						Artistas emergentes
+					</h3>
+					<ul class="etapa-card__lista">
+						<li>Sacan música, pero nadie la escucha</li>
+						<li>No saben cómo lanzar correctamente</li>
+						<li>Todo depende de "subir contenido"</li>
+					</ul>
+				</div>
+				<div class="etapa-card reveal reveal-delay-1">
+					<h3 class="display display--sm etapa-card__titulo">
+						Artistas en crecimiento
+					</h3>
+					<ul class="etapa-card__lista">
+						<li>Tienen equipo, pero no hay dirección clara</li>
+						<li>Invierten, pero no ven resultados consistentes</li>
+						<li>Su contenido no escala</li>
+					</ul>
+				</div>
+				<div class="etapa-card reveal reveal-delay-2">
+					<h3 class="display display--sm etapa-card__titulo">
+						Equipos y disqueras
+					</h3>
+					<ul class="etapa-card__lista">
+						<li>Falta de ejecución operativa</li>
+						<li>Procesos desordenados en lanzamientos</li>
+						<li>Necesidad de apoyo externo confiable</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="section-line"></div>
+
+	<!-- SECCIÓN 4 — SERVICIOS -->
+	<section class="servicios-sec" aria-label="Servicios para artistas">
+		<!-- Header sección 4 -->
+		<div class="servicios-header">
+			<div class="container">
+				<div class="reveal">
+					<h2 class="display display--lg">
+						NUESTROS <span class="gradient-text">SERVICIOS</span>
+					</h2>
 				</div>
 			</div>
 		</div>
 
-		<!-- 3B — FRASE PIVOTE -->
+		<!-- 4A — FRASE PIVOTE -->
 		<div class="pivote">
 			<div class="container">
 				<p class="pivote__texto reveal">
@@ -162,7 +181,7 @@ import { WHATSAPP_CTA, CALENDLY_ARTISTAS } from "../data/constantes";
 			</div>
 		</div>
 
-		<!-- 3C — SERVICIO 1: LANZAMIENTO (texto + imagen) -->
+		<!-- 4B — SERVICIO 1: LANZAMIENTO (texto + imagen) -->
 		<div class="servicio-bloque servicio-bloque--imagen-derecha">
 			<div class="container servicio-bloque__inner">
 				<div class="servicio-bloque__texto reveal">
@@ -213,7 +232,7 @@ import { WHATSAPP_CTA, CALENDLY_ARTISTAS } from "../data/constantes";
 			</div>
 		</div>
 
-		<!-- 3D — SERVICIO 2: VISIBILIDAD (ancho completo) -->
+		<!-- 4C — SERVICIO 2: VISIBILIDAD (ancho completo) -->
 		<div class="servicio-bloque servicio-bloque--full">
 			<div class="container">
 				<div class="servicio-full__header reveal">
@@ -282,7 +301,7 @@ import { WHATSAPP_CTA, CALENDLY_ARTISTAS } from "../data/constantes";
 			</div>
 		</div>
 
-		<!-- 3E — SERVICIO 3: PRODUCCIÓN (imagen + texto) -->
+		<!-- 4D — SERVICIO 3: PRODUCCIÓN (imagen + texto) -->
 		<div class="servicio-bloque servicio-bloque--imagen-izquierda">
 			<div class="container servicio-bloque__inner">
 				<div class="servicio-bloque__imagen reveal">
@@ -351,7 +370,7 @@ import { WHATSAPP_CTA, CALENDLY_ARTISTAS } from "../data/constantes";
 			</div>
 		</div>
 
-		<!-- 3F — SERVICIO 4: MEDIOS (ancho completo) -->
+		<!-- 4E — SERVICIO 4: MEDIOS (ancho completo) -->
 		<div class="servicio-bloque servicio-bloque--full">
 			<div class="container">
 				<div class="servicio-full__header reveal">
@@ -410,7 +429,7 @@ import { WHATSAPP_CTA, CALENDLY_ARTISTAS } from "../data/constantes";
 			</div>
 		</div>
 
-		<!-- 3G — FRASE FINAL -->
+		<!-- 4F — FRASE FINAL -->
 		<div class="cierre-sec">
 			<div class="container">
 				<p class="cierre-sec__texto reveal">
@@ -421,6 +440,182 @@ import { WHATSAPP_CTA, CALENDLY_ARTISTAS } from "../data/constantes";
 				</p>
 			</div>
 		</div>
+	</section>
+
+	<div class="section-line"></div>
+
+	<!-- SECCIÓN 5 — ASESORÍA ESTRATÉGICA -->
+	<section class="asesoria-sec" aria-label="Asesoría estratégica para artistas">
+
+		<!-- 5A — HEADER + DESCRIPCIÓN + IMAGEN -->
+		<div class="asesoria-header">
+			<div class="container asesoria-header__inner">
+				<div class="asesoria-header__texto reveal">
+					<span class="label">Servicio pago</span>
+					<h2 class="display display--lg asesoria-titulo">
+						ASESORÍA ESTRATÉGICA PARA ARTISTAS QUE QUIEREN <span class="gradient-text">AVANZAR EN SERIO</span>
+					</h2>
+					<p class="asesoria-desc">
+						Sesión personalizada diseñada para analizar tu proyecto musical, evaluar tu situación actual y brindarte una orientación estratégica clara para el crecimiento de tu carrera.
+					</p>
+					<div class="asesoria-listas">
+						<div class="asesoria-lista">
+							<p class="asesoria-lista__titulo">Durante esta sesión trabajaremos en:</p>
+							<ul>
+								<li>Revisión de tu proyecto artístico</li>
+								<li>Análisis de presencia digital</li>
+								<li>Evaluación de tu posicionamiento actual</li>
+								<li>Identificación de oportunidades de crecimiento</li>
+							</ul>
+						</div>
+						<div class="asesoria-lista">
+							<p class="asesoria-lista__titulo">Incluye:</p>
+							<ul>
+								<li>Diagnóstico previo del proyecto</li>
+								<li>Orientación estratégica durante la sesión</li>
+								<li>Informe posterior con recomendaciones generales <span class="asesoria-nota">(Costo adicional, se indica en reunión)</span></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="asesoria-header__imagen reveal reveal-delay-2">
+					<img
+						src="/images/InternaArtistas04.jpeg"
+						alt="Asesoría estratégica para artistas"
+						loading="lazy"
+					/>
+				</div>
+			</div>
+		</div>
+
+		<!-- 5B — PRICING -->
+		<div class="asesoria-pricing">
+			<div class="container asesoria-pricing__inner">
+				<div class="asesoria-pricing__item reveal">
+					<span class="asesoria-pricing__label">Duración</span>
+					<span class="asesoria-pricing__valor">60 minutos</span>
+				</div>
+				<div class="asesoria-pricing__divider"></div>
+				<div class="asesoria-pricing__item reveal reveal-delay-1">
+					<span class="asesoria-pricing__label">Modalidad</span>
+					<span class="asesoria-pricing__valor">Virtual</span>
+				</div>
+				<div class="asesoria-pricing__divider"></div>
+				<div class="asesoria-pricing__item reveal reveal-delay-2">
+					<span class="asesoria-pricing__label">Inversión</span>
+					<div class="asesoria-pricing__precios">
+						<span>Colombia: <strong>$150.000 COP</strong></span>
+						<span>Otro país: <strong>60 USD</strong></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 5C — PASOS: PAGO → FORMULARIO → AGENDAMIENTO -->
+		<div class="asesoria-pasos">
+			<div class="container">
+
+				<!-- Paso 1: Pago -->
+				<div class="asesoria-paso reveal">
+					<div class="asesoria-paso__num">01</div>
+					<div class="asesoria-paso__contenido">
+						<h3 class="display display--sm asesoria-paso__titulo">Pagar asesoría estratégica</h3>
+						<p class="asesoria-paso__desc">Realiza tu pago para reservar tu lugar y acceder al formulario de diagnóstico previo.</p>
+						<a
+							href={MP_ASESORIA_ARTISTAS}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="btn asesoria-paso__btn"
+						>
+							Pagar asesoría estratégica
+						</a>
+					</div>
+				</div>
+
+				<!-- Paso 2: Formulario -->
+				<div class="asesoria-paso reveal">
+					<div class="asesoria-paso__num">02</div>
+					<div class="asesoria-paso__contenido">
+						<h3 class="display display--sm asesoria-paso__titulo">Formulario previo</h3>
+						<p class="asesoria-paso__desc">Completa esta información para que podamos preparar tu sesión.</p>
+						<form class="asesoria-form" action="#" method="post">
+							<div class="asesoria-form__campo">
+								<label for="nombre-artistico">Nombre artístico</label>
+								<input type="text" id="nombre-artistico" name="nombre_artistico" placeholder="Tu nombre artístico" />
+							</div>
+							<div class="asesoria-form__campo">
+								<label for="redes-sociales">Redes sociales</label>
+								<input type="text" id="redes-sociales" name="redes_sociales" placeholder="Usuarios de Instagram / TikTok" />
+							</div>
+							<div class="asesoria-form__campo">
+								<label for="plataformas">Plataformas musicales</label>
+								<input type="text" id="plataformas" name="plataformas" placeholder="Usuarios de YouTube / Spotify" />
+							</div>
+							<div class="asesoria-form__campo">
+								<label for="descripcion">Descripción de su proyecto</label>
+								<textarea id="descripcion" name="descripcion" rows="4" placeholder="Breve descripción de su proyecto, indicando país, género, tiempo de carrera, logros o avances, entre otros"></textarea>
+							</div>
+							<div class="asesoria-form__campo">
+								<label for="objetivos">Objetivos actuales</label>
+								<textarea id="objetivos" name="objetivos" rows="3" placeholder="¿Cuáles son tus objetivos actuales?"></textarea>
+							</div>
+							<button type="submit" class="btn asesoria-form__submit">Enviar formulario</button>
+						</form>
+					</div>
+				</div>
+
+				<!-- Paso 3: Agendamiento -->
+				<div class="asesoria-paso reveal">
+					<div class="asesoria-paso__num">03</div>
+					<div class="asesoria-paso__contenido">
+						<h3 class="display display--sm asesoria-paso__titulo">Agendamiento</h3>
+						<p class="asesoria-paso__desc">Después del pago podrás acceder al calendario para agendar tu sesión.</p>
+						<a
+							href={CALENDLY_ARTISTAS}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="btn btn--outline"
+						>
+							Agendar mi sesión
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- 5D — NORMATIVAS -->
+		<div class="asesoria-normativas">
+			<div class="container">
+				<div class="asesoria-normativas__inner reveal">
+					<h3 class="display display--sm asesoria-normativas__titulo">Normativas</h3>
+					<ul class="asesoria-normativas__lista">
+						<li>La sesión debe agendarse posteriormente a realizar el pago, si no se pierde la oportunidad de programar su reunión.</li>
+						<li>El tiempo de espera máximo el día de la sesión es de 10 minutos.</li>
+						<li>En caso de inasistencia sin aviso previo de mínimo 12 horas, la inversión se pierde en su totalidad.</li>
+						<li>La asesoría es individual y no transferible.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- 5E — CTA CIERRE -->
+		<div class="asesoria-cierre">
+			<div class="container asesoria-cierre__inner reveal">
+				<p class="display display--lg asesoria-cierre__titulo">
+					SI TE TOMAS TU MÚSICA EN SERIO,<br />ESTE ES EL <span class="gradient-text">SIGUIENTE PASO</span>
+				</p>
+				<a
+					href={WHATSAPP_CTA}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn btn--primary"
+				>
+					Hablemos por WhatsApp
+				</a>
+			</div>
+		</div>
+
 	</section>
 
 	<div class="section-line"></div>
@@ -590,8 +785,8 @@ import { WHATSAPP_CTA, CALENDLY_ARTISTAS } from "../data/constantes";
 		background: var(--bg-base);
 	}
 
-	/* ETAPAS */
-	.etapas {
+	/* SECCIÓN 3 — ETAPAS */
+	.etapas-sec {
 		padding-block: var(--section-gap);
 		background: var(--bg-base);
 	}
@@ -604,6 +799,33 @@ import { WHATSAPP_CTA, CALENDLY_ARTISTAS } from "../data/constantes";
 	.etapas__titulo {
 		margin-top: 0.75rem;
 		line-height: 1.05;
+	}
+
+	.etapas__foto {
+		border-radius: var(--radius-lg);
+		overflow: hidden;
+		aspect-ratio: 21/9;
+		margin-bottom: clamp(2rem, 4vw, 3rem);
+	}
+
+	.etapas__foto img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	@media (max-width: 900px) {
+		.etapas__foto {
+			aspect-ratio: 16/9;
+		}
+	}
+
+	/* SECCIÓN 4 HEADER */
+	.servicios-header {
+		padding-block: clamp(3rem, 6vw, 5rem);
+		background: var(--bg-base);
+		text-align: center;
 	}
 
 	.etapas__grid {
@@ -650,7 +872,7 @@ import { WHATSAPP_CTA, CALENDLY_ARTISTAS } from "../data/constantes";
 		content: "·";
 		position: absolute;
 		left: 0;
-		color: #e0004f;
+		color: var(--cyan);
 		font-weight: 700;
 	}
 
@@ -788,18 +1010,18 @@ import { WHATSAPP_CTA, CALENDLY_ARTISTAS } from "../data/constantes";
 
 	.servicio-item--card {
 		background: var(--bg-card);
-		border: 1px solid rgba(0, 194, 255, 0.2);
+		border: 1px solid var(--empresa-dim);
 		border-radius: var(--radius-lg);
 		padding: 1.5rem;
 		transition: border-color var(--t-med) var(--ease);
 	}
 
 	.servicio-item--card:hover {
-		border-color: var(--cyan);
+		border-color: var(--empresa);
 	}
 
 	.servicio-item--card .servicio-item__nombre {
-		color: var(--cyan);
+		color: var(--text-primary);
 		margin-bottom: 0.5rem;
 	}
 
@@ -858,6 +1080,367 @@ import { WHATSAPP_CTA, CALENDLY_ARTISTAS } from "../data/constantes";
 
 		.servicio-full__grid--3col {
 			grid-template-columns: 1fr;
+		}
+	}
+
+	/* SECCIÓN 5 — ASESORÍA ESTRATÉGICA */
+	.asesoria-sec {
+		background: var(--bg-base);
+	}
+
+	.asesoria-header {
+		padding-block: var(--section-gap);
+		background: var(--bg-surface);
+		border-top: 1px solid var(--border);
+	}
+
+	.asesoria-header__inner {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: clamp(3rem, 6vw, 6rem);
+		align-items: start;
+	}
+
+	.asesoria-header__imagen {
+		border-radius: var(--radius-lg);
+		overflow: hidden;
+		aspect-ratio: 4/3;
+		position: sticky;
+		top: 120px;
+	}
+
+	.asesoria-header__imagen img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	.asesoria-titulo {
+		line-height: 1.05;
+		margin-top: 0.75rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.asesoria-desc {
+		font-size: 1.05rem;
+		color: var(--text-secondary);
+		line-height: 1.7;
+		margin-bottom: 2rem;
+	}
+
+	.asesoria-listas {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.asesoria-lista__titulo {
+		font-weight: 600;
+		color: var(--text-primary);
+		margin-bottom: 0.75rem;
+		font-size: 0.9rem;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+
+	.asesoria-lista ul {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 0;
+		list-style: none;
+	}
+
+	.asesoria-lista ul li {
+		font-size: 0.95rem;
+		color: var(--text-secondary);
+		padding-left: 1.2rem;
+		position: relative;
+		line-height: 1.5;
+	}
+
+	.asesoria-lista ul li::before {
+		content: "·";
+		position: absolute;
+		left: 0;
+		color: var(--cyan);
+		font-weight: 700;
+	}
+
+	.asesoria-nota {
+		color: var(--text-dim);
+		font-style: italic;
+		font-size: 0.875rem;
+	}
+
+	/* PRICING */
+	.asesoria-pricing {
+		background: var(--bg-base);
+		border-top: 1px solid var(--border);
+		border-bottom: 1px solid var(--border);
+		padding-block: clamp(2rem, 4vw, 3rem);
+	}
+
+	.asesoria-pricing__inner {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 4rem;
+	}
+
+	.asesoria-pricing__divider {
+		width: 1px;
+		height: 60px;
+		background: var(--border);
+		flex-shrink: 0;
+	}
+
+	.asesoria-pricing__item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+		text-align: center;
+	}
+
+	.asesoria-pricing__label {
+		font-family: var(--font-display);
+		font-size: 0.8rem;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+	}
+
+	.asesoria-pricing__valor {
+		font-size: 1.1rem;
+		font-weight: 600;
+		color: var(--text-primary);
+	}
+
+	.asesoria-pricing__precios {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		font-size: 0.95rem;
+		color: var(--text-secondary);
+	}
+
+	.asesoria-pricing__precios strong {
+		color: var(--cyan);
+	}
+
+	/* PASOS */
+	.asesoria-pasos {
+		padding-block: var(--section-gap);
+		background: var(--bg-surface);
+	}
+
+	.asesoria-paso {
+		display: grid;
+		grid-template-columns: 80px 1fr;
+		gap: 2.5rem;
+		align-items: start;
+		padding-block: 3rem;
+		border-bottom: 1px solid var(--border);
+	}
+
+	.asesoria-paso:first-child {
+		padding-top: 0;
+	}
+
+	.asesoria-paso:last-child {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+
+	.asesoria-paso__num {
+		font-family: var(--font-display);
+		font-size: 5rem;
+		line-height: 1;
+		background: linear-gradient(135deg, #00cfdd 0%, #0a2fa8 35%, #e0004f 100%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	.asesoria-paso__titulo {
+		color: var(--text-primary);
+		margin-bottom: 0.75rem;
+	}
+
+	.asesoria-paso__desc {
+		font-size: 1rem;
+		color: var(--text-secondary);
+		line-height: 1.6;
+		margin-bottom: 1.5rem;
+	}
+
+	.asesoria-paso__btn {
+		background: #fff;
+		color: #000;
+		border: none;
+	}
+
+	.asesoria-paso__btn:hover {
+		background: #fff;
+		border: 2px solid var(--cyan);
+		transform: translateY(-2px);
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
+	}
+
+	/* FORM */
+	.asesoria-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		max-width: 600px;
+	}
+
+	.asesoria-form__campo {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.asesoria-form__campo label {
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: var(--text-primary);
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	.asesoria-form__campo input,
+	.asesoria-form__campo textarea {
+		background: var(--bg-card);
+		border: 1px solid var(--border-accent);
+		border-radius: var(--radius);
+		padding: 0.85rem 1rem;
+		font-family: var(--font-body);
+		font-size: 0.95rem;
+		color: var(--text-primary);
+		transition: border-color var(--t-fast) var(--ease);
+		resize: vertical;
+		width: 100%;
+	}
+
+	.asesoria-form__campo input::placeholder,
+	.asesoria-form__campo textarea::placeholder {
+		color: var(--text-dim);
+	}
+
+	.asesoria-form__campo input:focus,
+	.asesoria-form__campo textarea:focus {
+		outline: none;
+		border-color: var(--cyan);
+	}
+
+	.asesoria-form__submit {
+		align-self: flex-start;
+		background: var(--cyan);
+		color: var(--color-on-accent);
+		border: none;
+		font-weight: 700;
+	}
+
+	.asesoria-form__submit:hover {
+		transform: translateY(-2px);
+		box-shadow: var(--cyan-glow);
+	}
+
+	/* NORMATIVAS */
+	.asesoria-normativas {
+		padding-block: clamp(3rem, 6vw, 5rem);
+		background: var(--bg-base);
+	}
+
+	.asesoria-normativas__inner {
+		background: var(--bg-card);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+		padding: clamp(1.5rem, 3vw, 2.5rem);
+		max-width: 760px;
+		margin-inline: auto;
+	}
+
+	.asesoria-normativas__titulo {
+		color: var(--text-primary);
+		margin-bottom: 1.25rem;
+	}
+
+	.asesoria-normativas__lista {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		list-style: none;
+		padding: 0;
+	}
+
+	.asesoria-normativas__lista li {
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+		padding-left: 1.2rem;
+		position: relative;
+		line-height: 1.6;
+	}
+
+	.asesoria-normativas__lista li::before {
+		content: "·";
+		position: absolute;
+		left: 0;
+		color: var(--text-dim);
+		font-weight: 700;
+	}
+
+	/* CIERRE */
+	.asesoria-cierre {
+		padding-block: clamp(4rem, 8vw, 7rem);
+		background: var(--bg-surface);
+		border-top: 1px solid var(--border);
+		text-align: center;
+	}
+
+	.asesoria-cierre__inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2.5rem;
+	}
+
+	.asesoria-cierre__titulo {
+		line-height: 1.1;
+	}
+
+	@media (max-width: 900px) {
+		.asesoria-header__inner {
+			grid-template-columns: 1fr;
+		}
+
+		.asesoria-header__imagen {
+			position: static;
+		}
+
+		.asesoria-pricing__inner {
+			flex-direction: column;
+			gap: 2rem;
+		}
+
+		.asesoria-pricing__divider {
+			width: 60px;
+			height: 1px;
+		}
+
+		.asesoria-paso {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+
+		.asesoria-paso__num {
+			font-size: 3.5rem;
 		}
 	}
 </style>
