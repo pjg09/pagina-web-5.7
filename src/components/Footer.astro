@@ -24,6 +24,11 @@ import {
                 />
             </a>
             <p class="footer__tagline">Construimos marcas con dirección.</p>
+            <img
+                src="/images/LogoFenalco.png"
+                alt="Fenalco"
+                class="footer__fenalco"
+            />
         </div>
 
         <!-- Nav -->
@@ -46,24 +51,21 @@ import {
         <div class="footer__contact">
             <p class="footer__nav-title">Contacto</p>
             <div class="footer__social">
-                <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" class="footer__social-link">
-                    <div class="footer__social-icon-wrap">
-                        <img src="/images/Instagram.png" alt="Instagram" class="footer__social-icon" />
+                <!-- Grupo horizontal: Instagram + Facebook + WhatsApp -->
+                <div class="footer__social-group">
+                    <div class="footer__social-row">
+                        <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" class="footer__social-icon-wrap" aria-label="Instagram">
+                            <img src="/images/Instagram.png" alt="Instagram" class="footer__social-icon" />
+                        </a>
+                        <a href={FACEBOOK} target="_blank" rel="noopener noreferrer" class="footer__social-icon-wrap" aria-label="Facebook">
+                            <img src="/images/Facebook.png" alt="Facebook" class="footer__social-icon" />
+                        </a>
+                        <a href={TIKTOK} target="_blank" rel="noopener noreferrer" class="footer__social-icon-wrap" aria-label="TikTok">
+                            <img src="/images/Tiktok.png" alt="TikTok" class="footer__social-icon" />
+                        </a>
                     </div>
                     <span class="footer__social-label">@ondacreativalaunch5.7</span>
-                </a>
-                <a href={FACEBOOK} target="_blank" rel="noopener noreferrer" class="footer__social-link">
-                    <div class="footer__social-icon-wrap">
-                        <img src="/images/Facebook.png" alt="Facebook" class="footer__social-icon" />
-                    </div>
-                    <span class="footer__social-label">Onda Creativa Launch 5.7</span>
-                </a>
-                <a href={TIKTOK} target="_blank" rel="noopener noreferrer" class="footer__social-link">
-                    <div class="footer__social-icon-wrap">
-                        <img src="/images/Tiktok.png" alt="TikTok" class="footer__social-icon" />
-                    </div>
-                    <span class="footer__social-label">@ondacreativalaunch5.7</span>
-                </a>
+                </div>
                 <a href={`https://wa.me/${WHATSAPP_1.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer" class="footer__social-link">
                     <div class="footer__social-icon-wrap">
                         <img src="/images/Whatsapp.png" alt="WhatsApp" class="footer__social-icon" />
@@ -113,6 +115,12 @@ import {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+    }
+
+    .footer__fenalco {
+        max-width: 120px;
+        height: auto;
+        align-self: flex-start;
     }
 
     .footer__tagline {
@@ -197,6 +205,26 @@ import {
         font-size: 0.875rem;
         color: var(--text-secondary);
         transition: color var(--t-fast) var(--ease);
+    }
+
+    .footer__social-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .footer__social-row {
+        display: flex;
+        gap: 0.6rem;
+    }
+
+    .footer__social-row .footer__social-icon-wrap:hover {
+        border-color: var(--cyan);
+        background: var(--bg-card-hover);
+    }
+
+    .footer__social-group:has(.footer__social-icon-wrap:hover) .footer__social-label {
+        color: var(--cyan);
     }
 
     .footer__bottom {
