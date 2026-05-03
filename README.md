@@ -72,34 +72,48 @@ pagina-web-5.7/
 
 ## Flujo de pago — Asesoría artistas
 
-**Flujo automatizado vía Make. Sin backend propio.**
+**Flujo automatizado vía Make con token por email. Sin backend propio. Compatible con MercadoPago y Stripe.**
 
 ```
-Usuario
+Artista
   → clic en "Pagar asesoría"
-  → link de pago MercadoPago
-  → pago completado
-  → back_url redirige a /formulario?payment_id=TRANSACTION_ID
-  → usuario llena formulario (redes, plataformas, descripción, objetivos)
-  → formulario hace POST a webhook de Make con datos + payment_id
-  → formulario redirige a Calendly?utm_content=TRANSACTION_ID
-  → usuario agenda su sesión en Calendly
-  → Calendly redirige a /resumen (con datos de agendamiento en URL params)
-  → /resumen muestra: resumen del pago + datos de la sesión agendada + CTA WhatsApp
-  → usuario confirma por WhatsApp con el equipo
+  → procesador de pago (MercadoPago COP / Stripe internacional)
+  → pago aprobado
+  → Make detecta el pago vía webhook
+  → Make genera token único (UUID) y lo guarda en Google Sheets con el payment_id
+  → Make envía correo al artista con enlace personalizado: /formulario?token=UUID
+  → artista abre el correo y hace clic en el enlace
+  → /formulario valida que el token exista en Google Sheets
+  → artista llena el formulario (proyecto, redes, plataformas, objetivos)
+  → formulario POST a Make webhook con datos + token
+  → Make registra el formulario en Google Sheets cruzando con el pago
+  → artista es redirigido a Calendly con token como parámetro de correlación
+  → artista agenda su sesión
+  → Calendly notifica a Make (webhook)
+  → Make cruza los tres registros (pago + formulario + agendamiento) en Google Sheets
+  → Make envía correo de confirmación automático al artista
+  → Make envía notificación consolidada al equipo
+  → artista llega a /resumen con resumen de su sesión agendada
 ```
+
+**Por qué token en lugar de payment_id directo:**
+Usar el `payment_id` crudo en la URL permite que cualquier persona que conozca la estructura acceda al formulario sin haber pagado. El token UUID generado por Make es de un solo uso, no predecible, y se puede invalidar desde Google Sheets.
 
 **Notificaciones al equipo vía Make:**
 
-Make escucha tres webhooks y correlaciona todo por `payment_id`:
+Make escucha tres webhooks y correlaciona todo por `token`:
 
-- **Webhook 1 — MercadoPago:** notifica pago recibido, registra datos del pagador, monto, `payment_id` y timestamp en Google Sheets
-- **Webhook 2 — Formulario:** recibe datos del formulario + `payment_id`, los registra en Google Sheets cruzando con el registro de pago
-- **Webhook 3 — Calendly:** recibe datos del agendamiento + `payment_id` (vía `utm_content`), cruza con los registros anteriores en Google Sheets y envía correo consolidado al equipo con: datos del formulario + comprobante de pago + comprobante de reserva
+- **Webhook 1 — Procesador de pago:** pago aprobado → genera token UUID → guarda en Sheets → envía correo al artista con enlace
+- **Webhook 2 — Formulario:** recibe datos del artista + token → valida token → registra en Sheets cruzando con el pago
+- **Webhook 3 — Calendly:** recibe datos del agendamiento + token → cruza los tres registros → envía correo de confirmación al artista + notificación al equipo
 
-**Caso edge conocido:** si el usuario paga pero no completa el formulario o no agenda en Calendly (abandona el flujo), la página `/resumen` no se genera. El equipo recibe igualmente la notificación de pago vía Make y gestiona el caso manualmente.
+**Compatibilidad con procesadores de pago:**
+El flujo es idéntico para MercadoPago y Stripe. Solo cambia el trigger del Webhook 1 en Make. Al agregar Stripe se añade un segundo trigger apuntando al mismo escenario de Make.
 
-**Evolución futura** (cuando el volumen lo justifique): reemplazar Make con webhook de MercadoPago → función serverless en Vercel. Los links de pago y Calendly están aislados en `constantes.ts` para facilitar este cambio sin modificar componentes.
+**Caso edge — artista paga pero abandona el flujo:**
+Make recibe el pago y genera el token. Si el artista no abre el correo, no llena el formulario o no agenda, el equipo recibe igual la notificación del pago y gestiona el caso manualmente (reenvío del correo o contacto directo).
+
+**Evolución futura:** reemplazar Make con webhooks directos a funciones serverless en Vercel cuando el volumen lo justifique. Los links de pago y Calendly están aislados en `constantes.ts` para facilitar ese cambio sin tocar componentes.
 
 ---
 
