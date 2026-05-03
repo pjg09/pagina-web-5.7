@@ -1,3 +1,9 @@
+## [1.3.9](https://github.com/pjg09/pagina-web-5.7/compare/v1.3.8...v1.3.9) (2026-05-03)
+
+### Bug Fixes
+
+* seccion 5C re-estructurada segun el flujo real de pago y agendamiento decidido ([c949b5f](https://github.com/pjg09/pagina-web-5.7/commit/c949b5fceaf0e0706f5d9140ea5bf11850aa1b98))
+
 ## [1.3.8](https://github.com/pjg09/pagina-web-5.7/compare/v1.3.7...v1.3.8) (2026-05-03)
 
 ## [1.3.7](https://github.com/pjg09/pagina-web-5.7/compare/v1.3.6...v1.3.7) (2026-05-03)
