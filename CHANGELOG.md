@@ -1,3 +1,9 @@
+## [1.3.7](https://github.com/pjg09/pagina-web-5.7/compare/v1.3.6...v1.3.7) (2026-05-03)
+
+### Bug Fixes
+
+* reside;o de la seccion 5 de la pagina de artistas ([06d0bd4](https://github.com/pjg09/pagina-web-5.7/commit/06d0bd47967f13b202ee9bf0bb5eaf84f1c58e34))
+
 ## [1.3.6](https://github.com/pjg09/pagina-web-5.7/compare/v1.3.5...v1.3.6) (2026-04-27)
 
 ### Bug Fixes
