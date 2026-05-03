@@ -540,19 +540,17 @@ import {
 			</div>
 		</div>
 
-		<!-- 5C — PASOS: PAGO → FORMULARIO → AGENDAMIENTO -->
+		<!-- 5C — GUÍA DE PASOS -->
 		<div class="asesoria-pasos">
 			<div class="container">
+
 				<!-- Paso 1: Pago -->
 				<div class="asesoria-paso reveal">
 					<div class="asesoria-paso__num">01</div>
 					<div class="asesoria-paso__contenido">
-						<h3 class="display display--sm asesoria-paso__titulo">
-							Pagar asesoría estratégica
-						</h3>
+						<h3 class="display display--sm asesoria-paso__titulo">Realizar el pago</h3>
 						<p class="asesoria-paso__desc">
-							Realiza tu pago para reservar tu lugar y acceder al
-							formulario de diagnóstico previo.
+							Haz clic en el botón de pago y completa la transacción a través de MercadoPago. Aceptamos tarjetas de crédito, débito y otros medios disponibles en la plataforma.
 						</p>
 						<a
 							href={MP_ASESORIA_ARTISTAS}
@@ -565,108 +563,75 @@ import {
 					</div>
 				</div>
 
-				<!-- Paso 2: Formulario -->
+				<!-- Paso 2: Correo -->
 				<div class="asesoria-paso reveal">
 					<div class="asesoria-paso__num">02</div>
 					<div class="asesoria-paso__contenido">
-						<h3 class="display display--sm asesoria-paso__titulo">
-							Formulario previo
-						</h3>
+						<h3 class="display display--sm asesoria-paso__titulo">Revisar tu correo electrónico</h3>
 						<p class="asesoria-paso__desc">
-							Completa esta información para que podamos preparar
-							tu sesión.
+							Una vez confirmado el pago, recibirás un correo con un enlace personal e intransferible para completar tu agendamiento. Revisa también tu carpeta de spam si no lo encuentras en los primeros minutos.
 						</p>
-						<form
-							class="asesoria-form"
-							id="asesoria-form"
-							action="#"
-							method="post"
-						>
-							<div class="asesoria-form__campo">
-								<label for="nombre-artistico"
-									>Nombre artístico</label
-								>
-								<input
-									type="text"
-									id="nombre-artistico"
-									name="nombre_artistico"
-									placeholder="Tu nombre artístico"
-								/>
-							</div>
-							<div class="asesoria-form__campo">
-								<label for="redes-sociales"
-									>Redes sociales</label
-								>
-								<input
-									type="text"
-									id="redes-sociales"
-									name="redes_sociales"
-									placeholder="Usuarios de Instagram / TikTok"
-								/>
-							</div>
-							<div class="asesoria-form__campo">
-								<label for="plataformas"
-									>Plataformas musicales</label
-								>
-								<input
-									type="text"
-									id="plataformas"
-									name="plataformas"
-									placeholder="Usuarios de YouTube / Spotify"
-								/>
-							</div>
-							<div class="asesoria-form__campo">
-								<label for="descripcion"
-									>Descripción de su proyecto</label
-								>
-								<textarea
-									id="descripcion"
-									name="descripcion"
-									rows="4"
-									placeholder="Breve descripción de su proyecto, indicando país, género, tiempo de carrera, logros o avances, entre otros"
-								></textarea>
-							</div>
-							<div class="asesoria-form__campo">
-								<label for="objetivos">Objetivos actuales</label
-								>
-								<textarea
-									id="objetivos"
-									name="objetivos"
-									rows="3"
-									placeholder="¿Cuáles son tus objetivos actuales?"
-								></textarea>
-							</div>
-							<button
-								type="submit"
-								class="btn asesoria-form__submit"
-								id="asesoria-submit"
-								disabled>Enviar formulario</button
-							>
-						</form>
+						<div class="asesoria-paso__aviso">
+							<span>Si el correo no llega, escríbenos por WhatsApp y te enviamos el enlace directamente.</span>
+						</div>
 					</div>
 				</div>
 
-				<!-- Paso 3: Agendamiento -->
+				<!-- Paso 3: Formulario (ilustrativo) -->
 				<div class="asesoria-paso reveal">
 					<div class="asesoria-paso__num">03</div>
 					<div class="asesoria-paso__contenido">
-						<h3 class="display display--sm asesoria-paso__titulo">
-							Agendamiento
-						</h3>
+						<h3 class="display display--sm asesoria-paso__titulo">Completar el formulario previo</h3>
 						<p class="asesoria-paso__desc">
-							Después del pago podrás acceder al calendario para
-							agendar tu sesión.
+							Desde el enlace del correo accederás a un formulario donde deberás completar la siguiente información para que podamos preparar tu sesión:
 						</p>
-						<a
-							href={CALENDLY_ARTISTAS}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="btn btn--outline"
-						>
-							Agendar mi sesión
-						</a>
+						<div class="asesoria-form asesoria-form--preview">
+							<div class="asesoria-form__campo">
+								<span class="asesoria-form__label">Nombre artístico</span>
+								<div class="asesoria-form__input-preview">Tu nombre artístico</div>
+							</div>
+							<div class="asesoria-form__campo">
+								<span class="asesoria-form__label">Redes sociales</span>
+								<div class="asesoria-form__input-preview">Usuarios de Instagram / TikTok</div>
+							</div>
+							<div class="asesoria-form__campo">
+								<span class="asesoria-form__label">Plataformas musicales</span>
+								<div class="asesoria-form__input-preview">Usuarios de YouTube / Spotify</div>
+							</div>
+							<div class="asesoria-form__campo">
+								<span class="asesoria-form__label">Descripción del proyecto</span>
+								<div class="asesoria-form__input-preview asesoria-form__input-preview--tall">País, género, tiempo de carrera, logros o avances, entre otros</div>
+							</div>
+							<div class="asesoria-form__campo">
+								<span class="asesoria-form__label">Objetivos actuales</span>
+								<div class="asesoria-form__input-preview">¿Qué quieres lograr con tu música?</div>
+							</div>
+						</div>
 					</div>
 				</div>
+
+				<!-- Paso 4: Agendamiento -->
+				<div class="asesoria-paso reveal">
+					<div class="asesoria-paso__num">04</div>
+					<div class="asesoria-paso__contenido">
+						<h3 class="display display--sm asesoria-paso__titulo">Agendar tu sesión</h3>
+						<p class="asesoria-paso__desc">
+							Al enviar el formulario serás redirigido automáticamente al calendario para elegir la fecha y hora disponible que mejor se adapte a ti.
+						</p>
+					</div>
+				</div>
+
+				<!-- Paso 5: Confirmación -->
+				<div class="asesoria-paso reveal">
+					<div class="asesoria-paso__num">05</div>
+					<div class="asesoria-paso__contenido">
+						<h3 class="display display--sm asesoria-paso__titulo">Recibir confirmación</h3>
+						<p class="asesoria-paso__desc">
+							Una vez agendada la sesión recibirás un correo de confirmación con la fecha, hora y enlace de la videollamada. El equipo también quedará notificado y listo para atenderte.
+						</p>
+					</div>
+				</div>
+
 			</div>
 		</div>
 
@@ -718,28 +683,6 @@ import {
 	</section>
 </BaseLayout>
 
-<script>
-	const form = document.getElementById("asesoria-form") as HTMLFormElement;
-	const submit = document.getElementById(
-		"asesoria-submit",
-	) as HTMLButtonElement;
-
-	if (form && submit) {
-		const fields = form.querySelectorAll<
-			HTMLInputElement | HTMLTextAreaElement
-		>("input, textarea");
-
-		function checkForm() {
-			const allFilled = Array.from(fields).every(
-				(f) => f.value.trim() !== "",
-			);
-			submit.disabled = !allFilled;
-		}
-
-		fields.forEach((f) => f.addEventListener("input", checkForm));
-		checkForm();
-	}
-</script>
 
 <style>
 	/* HERO */
@@ -1446,29 +1389,39 @@ import {
 	}
 
 	/* FORM */
-	.asesoria-form {
-		display: flex;
-		flex-direction: column;
-		gap: 1.25rem;
-		max-width: 620px;
+	.asesoria-paso__aviso {
+		display: inline-flex;
+		align-items: flex-start;
+		gap: 0.6rem;
 		background: var(--bg-card);
-		border: 1px solid var(--empresa-dim);
-		border-radius: var(--radius-lg);
-		padding: 2rem 2.5rem;
-		transition: border-color var(--t-med) var(--ease);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		padding: 0.75rem 1rem;
+		font-size: 0.875rem;
+		color: var(--text-dim);
+		line-height: 1.5;
+		max-width: 520px;
 	}
 
-	.asesoria-form:focus-within {
-		border-color: var(--empresa);
+	.asesoria-form--preview {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		max-width: 560px;
+		background: var(--bg-card);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+		padding: 1.75rem 2rem;
+		margin-top: 0.5rem;
 	}
 
 	.asesoria-form__campo {
 		display: flex;
 		flex-direction: column;
-		gap: 0.45rem;
+		gap: 0.4rem;
 	}
 
-	.asesoria-form__campo label {
+	.asesoria-form__label {
 		font-size: 0.75rem;
 		font-weight: 700;
 		color: var(--text-secondary);
@@ -1476,51 +1429,20 @@ import {
 		text-transform: uppercase;
 	}
 
-	.asesoria-form__campo input,
-	.asesoria-form__campo textarea {
+	.asesoria-form__input-preview {
 		background: var(--bg-base);
 		border: 1px solid var(--border);
 		border-radius: var(--radius);
-		padding: 0.85rem 1rem;
-		font-family: var(--font-body);
-		font-size: 0.95rem;
-		color: var(--text-primary);
-		transition: border-color var(--t-fast) var(--ease);
-		resize: vertical;
-		width: 100%;
-	}
-
-	.asesoria-form__campo input::placeholder,
-	.asesoria-form__campo textarea::placeholder {
+		padding: 0.75rem 1rem;
+		font-size: 0.9rem;
 		color: var(--text-dim);
+		font-style: italic;
+		line-height: 1.4;
 	}
 
-	.asesoria-form__campo input:focus,
-	.asesoria-form__campo textarea:focus {
-		outline: none;
-		border-color: var(--cyan);
-	}
-
-	.asesoria-form__submit {
-		align-self: flex-start;
-		background: var(--cyan);
-		color: var(--color-on-accent);
-		border: none;
-		font-weight: 700;
-		transition:
-			opacity var(--t-fast) var(--ease),
-			transform var(--t-fast) var(--ease),
-			box-shadow var(--t-fast) var(--ease);
-	}
-
-	.asesoria-form__submit:hover:not(:disabled) {
-		transform: translateY(-2px);
-		box-shadow: var(--cyan-glow);
-	}
-
-	.asesoria-form__submit:disabled {
-		opacity: 0.35;
-		cursor: not-allowed;
+	.asesoria-form__input-preview--tall {
+		padding-block: 1rem;
+		min-height: 80px;
 	}
 
 	/* 5D — NORMATIVAS */
@@ -1666,8 +1588,8 @@ import {
 			position: static;
 		}
 
-		.asesoria-form {
-			padding: 1.5rem;
+		.asesoria-form--preview {
+			padding: 1.25rem;
 		}
 	}
 </style>

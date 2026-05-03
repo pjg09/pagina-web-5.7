@@ -52,7 +52,7 @@ Make envía notificación al equipo con:
 datos del formulario + comprobante de pago + comprobante de reserva
     ↓
 [/resumen]
-Artista ve el resumen de su sesión agendada
+Artista ve el resumen de su sesión agendada y se le abre un CTA a WhatsApp opcional para que confirme su reunion
 ```
 
 ---
