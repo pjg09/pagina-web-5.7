@@ -1,3 +1,9 @@
+## [1.4.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.3.9...v1.4.0) (2026-05-04)
+
+### Features
+
+* pagina de empresas completa ([a7c5925](https://github.com/pjg09/pagina-web-5.7/commit/a7c59258b8acbf9d78dd585343f6324b2d76eaf0))
+
 ## [1.3.9](https://github.com/pjg09/pagina-web-5.7/compare/v1.3.8...v1.3.9) (2026-05-03)
 
 ### Bug Fixes
