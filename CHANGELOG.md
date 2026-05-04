@@ -1,3 +1,9 @@
+## [1.4.1](https://github.com/pjg09/pagina-web-5.7/compare/v1.4.0...v1.4.1) (2026-05-04)
+
+### Bug Fixes
+
+* eliminacion del label de la seccion 5 de la pagina de empresas ([dd01530](https://github.com/pjg09/pagina-web-5.7/commit/dd01530785f616ebc33a32ea36b55596fc0f5a8c))
+
 ## [1.4.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.3.9...v1.4.0) (2026-05-04)
 
 ### Features
