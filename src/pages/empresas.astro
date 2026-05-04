@@ -536,12 +536,13 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
     <div class="section-line"></div>
 
     <!-- SECCIÓN 5 — DIAGNÓSTICO ESTRATÉGICO -->
-    <section class="diagnostico" aria-label="Diagnóstico estratégico para tu empresa">
+    <section
+        class="diagnostico"
+        aria-label="Diagnóstico estratégico para tu empresa"
+    >
         <div class="container diagnostico__inner">
-
             <!-- Lado izquierdo: título + textos + logística -->
             <div class="diagnostico__texto reveal">
-                <span class="label">Sin costo</span>
                 <h2 class="display display--lg diagnostico__titulo">
                     DIAGNÓSTICO ESTRATÉGICO<br />
                     PARA TU <span class="gradient-text">EMPRESA</span>
@@ -555,11 +556,15 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
                 <div class="diagnostico__logistica">
                     <div class="diagnostico__dato">
                         <span class="diagnostico__dato-label">Duración</span>
-                        <span class="diagnostico__dato-valor">40–50 minutos</span>
+                        <span class="diagnostico__dato-valor"
+                            >40–50 minutos</span
+                        >
                     </div>
                     <div class="diagnostico__dato">
                         <span class="diagnostico__dato-label">Modalidad</span>
-                        <span class="diagnostico__dato-valor">Virtual o presencial</span>
+                        <span class="diagnostico__dato-valor"
+                            >Virtual o presencial</span
+                        >
                     </div>
                 </div>
             </div>
@@ -602,7 +607,9 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
     <section class="cierre-empresas" aria-label="Llamada a la acción final">
         <div class="container cierre-empresas__inner">
             <p class="display display--lg cierre-empresas__mensaje reveal">
-                <span class="gradient-text">Tu marca necesita<br />estructura digital real</span>
+                <span class="gradient-text"
+                    >Tu marca necesita<br />estructura digital real</span
+                >
             </p>
             <div class="reveal reveal-delay-2">
                 <a
@@ -1359,7 +1366,11 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
         content: "";
         position: absolute;
         inset: 0;
-        background: radial-gradient(ellipse at 50% 100%, var(--empresa-subtle) 0%, transparent 65%);
+        background: radial-gradient(
+            ellipse at 50% 100%,
+            var(--empresa-subtle) 0%,
+            transparent 65%
+        );
         pointer-events: none;
     }
 
