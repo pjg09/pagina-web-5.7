@@ -1,0 +1,1398 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
+---
+
+<BaseLayout
+    title="Empresas"
+    description="Construimos una presencia digital clara, profesional y enfocada en resultados para empresas y marcas."
+>
+    <!-- SECCIÓN 1 — HERO -->
+    <section class="hero" aria-label="Hero empresas">
+        <div class="hero__bg">
+            <img
+                src="/images/HeroEmpresas.jpg"
+                alt="Empresas y marcas con dirección"
+                class="hero__img"
+                fetchpriority="high"
+            />
+            <div class="hero__overlay"></div>
+        </div>
+
+        <div class="container hero__content">
+            <h1 class="display display--xl hero__title reveal reveal-delay-1">
+                HACEMOS QUE TU MARCA<br />
+                SE VEA <span class="gradient-text">PROFESIONAL</span>,<br />
+                CONECTE Y <span class="gradient-text">VENDA</span>
+            </h1>
+
+            <p class="body--lg hero__sub reveal reveal-delay-2">
+                Construimos una presencia digital clara, profesional y enfocada
+                en resultados.
+            </p>
+
+            <div class="hero__ctas reveal reveal-delay-3">
+                <a href="#soluciones" class="btn hero__btn">
+                    Ver cómo potenciar mi marca
+                </a>
+                <a
+                    href={CALENDLY_EMPRESAS}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn hero__btn hero__btn--secondary"
+                >
+                    Agendar diagnóstico sin costo
+                </a>
+            </div>
+
+            <a
+                href="#soluciones"
+                class="hero__scroll reveal reveal-delay-4"
+                aria-label="Ver soluciones para empresas"
+            >
+                <span>Conocer más</span>
+                <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M8 3v10M3 8l5 5 5-5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <div class="section-line"></div>
+
+    <!-- SECCIÓN 2 — PROPÓSITO / LA BASE -->
+    <section class="base" id="soluciones" aria-label="La base para tu marca">
+        <div class="container">
+            <div class="base__grid">
+                <div class="base__visual reveal">
+                    <div class="base__img-wrapper">
+                        <img
+                            src="/images/InternaEmpresas01.jpeg"
+                            alt="Equipo trabajando en estrategia de marca"
+                            loading="lazy"
+                            class="base__img"
+                        />
+                        <div class="base__img-overlay"></div>
+                    </div>
+                </div>
+
+                <div class="base__text reveal reveal-delay-2">
+                    <div class="divider"></div>
+                    <h2 class="display display--md base__title">
+                        LA BASE PARA QUE TU MARCA <span class="gradient-text"
+                            >SE VEA, CONECTE Y VENDA</span
+                        >
+                    </h2>
+                    <p class="body--lg base__body">
+                        Hoy no se trata solo de estar en internet. Se trata de
+                        tener una estructura clara que te permita verte
+                        profesional, generar confianza y convertir atención en
+                        clientes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-line"></div>
+
+    <!-- SECCIÓN 3 — EL PROBLEMA -->
+    <section
+        class="problema"
+        aria-label="Lo que frena el crecimiento de tu marca"
+    >
+        <!-- 3A — Texto centrado, sin imagen -->
+        <div class="container">
+            <div class="problema__content">
+                <div class="reveal">
+                    <h2 class="display display--lg problema__titulo">
+                        LO QUE ESTÁ FRENANDO<br />
+                        EL CRECIMIENTO DE<br />
+                        TU <span class="gradient-text">MARCA</span>
+                    </h2>
+                </div>
+                <ul class="problema__lista reveal reveal-delay-1">
+                    <li>Presencia digital débil o desordenada</li>
+                    <li>Redes sociales sin dirección estratégica</li>
+                    <li>Contenido visual poco profesional</li>
+                    <li>Baja conexión con la audiencia</li>
+                    <li>Dificultad para convertir visibilidad en ventas</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 3B — Mensaje cierre -->
+        <div class="problema__cierre">
+            <div class="container">
+                <p class="problema__mensaje reveal">
+                    <span class="gradient-text"
+                        >LA VISIBILIDAD SIN ESTRUCTURA NO CONVIERTE</span
+                    >
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4 — SOLUCIONES -->
+    <section class="soluciones" aria-label="Soluciones para tu marca">
+        <!-- 4A — HEADER SIN IMAGEN -->
+        <div class="sol-intro">
+            <div class="container sol-intro__inner">
+                <h2 class="display display--lg reveal reveal-delay-1">
+                    SOLUCIONES QUE <br />HACEN QUE TU <br /><span
+                        class="gradient-text">MARCA</span
+                    > AVANCE
+                </h2>
+                <p class="sol-intro__texto reveal reveal-delay-2">
+                    Esto es lo que construimos para que tu marca crezca con
+                    dirección:
+                </p>
+            </div>
+        </div>
+
+        <!-- 4B — INFRAESTRUCTURA DIGITAL + imagen derecha -->
+        <div class="sol-cat sol-cat--surface">
+            <div class="container">
+                <div class="sol-cat__header reveal">
+                    <span class="sol-cat__num">01</span>
+                    <h3 class="display display--md sol-cat__titulo">
+                        INFRAESTRUCTURA DIGITAL
+                    </h3>
+                    <p class="sol-cat__desc">
+                        Desarrollamos la base digital de tu marca para que
+                        puedas ser encontrado, comunicarte mejor y proyectarte
+                        de forma profesional.
+                    </p>
+                </div>
+                <div class="sol-cat__layout">
+                    <div class="sol-cat__services">
+                        <div class="sol-grid sol-grid--2">
+                            <div class="sol-item reveal">
+                                <img
+                                    src="/images/PaginaWeb.png"
+                                    alt=""
+                                    class="sol-item__icono"
+                                    aria-hidden="true"
+                                />
+                                <h4 class="sol-item__titulo">
+                                    Diseño y creación<br />de páginas web
+                                </h4>
+                                <p class="sol-item__desc">
+                                    Desarrollamos tu página web profesional para
+                                    que tu marca tenga presencia sólida, clara y
+                                    confiable en internet.
+                                </p>
+                            </div>
+                            <div class="sol-item reveal reveal-delay-1">
+                                <img
+                                    src="/images/LandingPage.png"
+                                    alt=""
+                                    class="sol-item__icono"
+                                    aria-hidden="true"
+                                />
+                                <h4 class="sol-item__titulo">
+                                    Diseño y creación<br />de landing pages
+                                </h4>
+                                <p class="sol-item__desc">
+                                    Creamos páginas enfocadas en convertir
+                                    visitas en contactos o ventas de forma
+                                    directa.
+                                </p>
+                            </div>
+                            <div class="sol-item reveal reveal-delay-2">
+                                <img
+                                    src="/images/BioLink.png"
+                                    alt=""
+                                    class="sol-item__icono"
+                                    aria-hidden="true"
+                                />
+                                <h4 class="sol-item__titulo">
+                                    Bio link<br />profesional
+                                </h4>
+                                <p class="sol-item__desc">
+                                    Organizamos todos tus enlaces en un solo
+                                    lugar con una imagen limpia y estratégica.
+                                </p>
+                            </div>
+                            <div class="sol-item reveal">
+                                <img
+                                    src="/images/GoogleProfile.png"
+                                    alt=""
+                                    class="sol-item__icono"
+                                    aria-hidden="true"
+                                />
+                                <h4 class="sol-item__titulo">
+                                    Google Business<br />Profile
+                                </h4>
+                                <p class="sol-item__desc">
+                                    Creamos u optimizamos tu negocio para que
+                                    aparezcas en búsquedas y mapas, facilitando
+                                    que te encuentren.
+                                </p>
+                            </div>
+                            <div class="sol-item reveal reveal-delay-1">
+                                <img
+                                    src="/images/WhatsappBusiness.png"
+                                    alt=""
+                                    class="sol-item__icono"
+                                    aria-hidden="true"
+                                />
+                                <h4 class="sol-item__titulo">
+                                    WhatsApp<br />Business
+                                </h4>
+                                <p class="sol-item__desc">
+                                    Configuramos tu canal de contacto para
+                                    atención rápida, organizada y profesional.
+                                </p>
+                            </div>
+                            <div class="sol-item reveal reveal-delay-2">
+                                <img
+                                    src="/images/PortafolioDigital.png"
+                                    alt=""
+                                    class="sol-item__icono"
+                                    aria-hidden="true"
+                                />
+                                <h4 class="sol-item__titulo">
+                                    Diseño de portafolios<br />comerciales
+                                    digitales
+                                </h4>
+                                <p class="sol-item__desc">
+                                    Creamos presentaciones claras y bien
+                                    estructuradas para mostrar tus servicios o
+                                    productos.
+                                </p>
+                            </div>
+                            <div class="sol-item reveal">
+                                <img
+                                    src="/images/AuditoriaDigital.png"
+                                    alt=""
+                                    class="sol-item__icono"
+                                    aria-hidden="true"
+                                />
+                                <h4 class="sol-item__titulo">
+                                    Auditoría de<br />Presencia Digital
+                                </h4>
+                                <p class="sol-item__desc">
+                                    Analizamos tu estado actual y detectamos
+                                    oportunidades claras de mejora.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sol-cat__cta reveal">
+                            <a
+                                href={CALENDLY_EMPRESAS}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn sol-btn"
+                                >Quiero estructurar mi marca</a
+                            >
+                        </div>
+                    </div>
+                    <div class="sol-cat__imagen reveal reveal-delay-2">
+                        <img
+                            src="/images/InternaEmpresas02.jpeg"
+                            alt="Infraestructura digital para marcas"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4C — REDES SOCIALES + imagen izquierda -->
+        <div class="sol-cat sol-cat--base">
+            <div class="container">
+                <div class="sol-cat__header reveal">
+                    <span class="sol-cat__num">02</span>
+                    <h3 class="display display--md sol-cat__titulo">
+                        REDES SOCIALES
+                    </h3>
+                    <p class="sol-cat__desc">
+                        Hacemos que tu marca se vea activa, coherente y con
+                        dirección, conectando con tu audiencia.
+                    </p>
+                </div>
+                <div class="sol-cat__layout sol-cat__layout--reverse">
+                    <div class="sol-cat__imagen reveal">
+                        <img
+                            src="/images/InternaEmpresas03.jpeg"
+                            alt="Redes sociales con estrategia"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="sol-cat__services">
+                        <div class="sol-grid sol-grid--1">
+                            <div class="sol-item sol-item--card reveal">
+                                <img
+                                    src="/images/AdministrarRedes.png"
+                                    alt=""
+                                    class="sol-item__icono"
+                                    aria-hidden="true"
+                                />
+                                <h4 class="sol-item__titulo">
+                                    Administración<br />de redes
+                                </h4>
+                                <p class="sol-item__desc">
+                                    Gestionamos tu contenido para que tu marca
+                                    se vea activa, organizada y profesional.
+                                </p>
+                            </div>
+                            <div
+                                class="sol-item sol-item--card reveal reveal-delay-1"
+                            >
+                                <img
+                                    src="/images/PautaPublicitaria.png"
+                                    alt=""
+                                    class="sol-item__icono"
+                                    aria-hidden="true"
+                                />
+                                <h4 class="sol-item__titulo">
+                                    Pauta<br />publicitaria
+                                </h4>
+                                <p class="sol-item__desc">
+                                    Creamos campañas para llegar a más personas
+                                    y atraer clientes potenciales.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sol-cat__cta reveal">
+                            <a
+                                href={CALENDLY_EMPRESAS}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn sol-btn">Quiero activar mis redes</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4D — PRODUCCIÓN AUDIOVISUAL + imagen derecha -->
+        <div class="sol-cat sol-cat--surface">
+            <div class="container">
+                <div class="sol-cat__header reveal">
+                    <span class="sol-cat__num">03</span>
+                    <h3 class="display display--md sol-cat__titulo">
+                        PRODUCCIÓN AUDIOVISUAL
+                    </h3>
+                    <p class="sol-cat__desc">
+                        Creamos contenido visual que eleva la percepción de tu
+                        marca y transmite confianza.
+                    </p>
+                </div>
+                <div class="sol-cat__layout">
+                    <div class="sol-cat__services">
+                        <div class="sol-grid sol-grid--1">
+                            <div class="sol-item reveal">
+                                <img
+                                    src="/images/Fotografia.png"
+                                    alt=""
+                                    class="sol-item__icono"
+                                    aria-hidden="true"
+                                />
+                                <h4 class="sol-item__titulo">
+                                    Fotografía<br />profesional
+                                </h4>
+                                <p class="sol-item__desc">
+                                    Imágenes que transmiten calidad y elevan la
+                                    percepción de tu marca.
+                                </p>
+                            </div>
+                            <div class="sol-item reveal reveal-delay-1">
+                                <img
+                                    src="/images/VideosCorporativos.png"
+                                    alt=""
+                                    class="sol-item__icono"
+                                    aria-hidden="true"
+                                />
+                                <h4 class="sol-item__titulo">
+                                    Videos<br />corporativos
+                                </h4>
+                                <p class="sol-item__desc">
+                                    Contenido que presenta tu marca de forma
+                                    clara, profesional y confiable.
+                                </p>
+                            </div>
+                            <div class="sol-item reveal reveal-delay-2">
+                                <img
+                                    src="/images/VideosRedes.png"
+                                    alt=""
+                                    class="sol-item__icono"
+                                    aria-hidden="true"
+                                />
+                                <h4 class="sol-item__titulo">
+                                    Videos<br />para redes
+                                </h4>
+                                <p class="sol-item__desc">
+                                    Piezas diseñadas para captar atención y
+                                    generar interacción en plataformas
+                                    digitales.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sol-cat__cta reveal">
+                            <a
+                                href={CALENDLY_EMPRESAS}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn sol-btn">Quiero mejorar mi imagen</a
+                            >
+                        </div>
+                    </div>
+                    <div class="sol-cat__imagen reveal reveal-delay-2">
+                        <img
+                            src="/images/InternaEmpresas04.jpeg"
+                            alt="Producción audiovisual profesional"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4E — INFLUENCERS + imagen izquierda -->
+        <div class="sol-cat sol-cat--base">
+            <div class="container">
+                <div class="sol-cat__header reveal">
+                    <span class="sol-cat__num">04</span>
+                    <h3 class="display display--md sol-cat__titulo">
+                        INFLUENCERS
+                    </h3>
+                    <p class="sol-cat__desc">
+                        Aumentamos tu alcance conectando tu marca con creadores
+                        que generan visibilidad y credibilidad.
+                    </p>
+                </div>
+                <div class="sol-cat__layout sol-cat__layout--reverse">
+                    <div class="sol-cat__imagen reveal">
+                        <img
+                            src="/images/InternaEmpresas05.jpeg"
+                            alt="Influencers y colaboraciones"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="sol-cat__services">
+                        <div class="sol-grid sol-grid--1">
+                            <div class="sol-item sol-item--card reveal">
+                                <img
+                                    src="/images/GestionInfluencers.png"
+                                    alt=""
+                                    class="sol-item__icono"
+                                    aria-hidden="true"
+                                />
+                                <h4 class="sol-item__titulo">
+                                    Gestión de influencers<br />para campañas
+                                    publicitarias
+                                </h4>
+                                <p class="sol-item__desc">
+                                    Conectamos tu marca con creadores que
+                                    amplifican tu alcance.
+                                </p>
+                            </div>
+                            <div
+                                class="sol-item sol-item--card reveal reveal-delay-1"
+                            >
+                                <img
+                                    src="/images/Colaboraciones.png"
+                                    alt=""
+                                    class="sol-item__icono"
+                                    aria-hidden="true"
+                                />
+                                <h4 class="sol-item__titulo">
+                                    Colaboraciones<br />estratégicas
+                                </h4>
+                                <p class="sol-item__desc">
+                                    Diseñamos acciones con influencers para
+                                    generar visibilidad y confianza.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sol-cat__cta reveal">
+                            <a
+                                href={CALENDLY_EMPRESAS}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn sol-btn">Quiero más alcance</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-line"></div>
+
+    <!-- SECCIÓN 5 — DIAGNÓSTICO ESTRATÉGICO -->
+    <section class="diagnostico" aria-label="Diagnóstico estratégico para tu empresa">
+        <div class="container diagnostico__inner">
+
+            <!-- Lado izquierdo: título + textos + logística -->
+            <div class="diagnostico__texto reveal">
+                <span class="label">Sin costo</span>
+                <h2 class="display display--lg diagnostico__titulo">
+                    DIAGNÓSTICO ESTRATÉGICO<br />
+                    PARA TU <span class="gradient-text">EMPRESA</span>
+                </h2>
+                <p class="diagnostico__intro">
+                    Si sabes que tu marca puede crecer más, pero no tienes claro
+                    cómo estructurarla correctamente, esta reunión es el
+                    siguiente paso.
+                </p>
+
+                <div class="diagnostico__logistica">
+                    <div class="diagnostico__dato">
+                        <span class="diagnostico__dato-label">Duración</span>
+                        <span class="diagnostico__dato-valor">40–50 minutos</span>
+                    </div>
+                    <div class="diagnostico__dato">
+                        <span class="diagnostico__dato-label">Modalidad</span>
+                        <span class="diagnostico__dato-valor">Virtual o presencial</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lado derecho: evaluación + conclusión + botón -->
+            <div class="diagnostico__contenido reveal reveal-delay-1">
+                <div class="diagnostico__bloque">
+                    <p class="diagnostico__bloque-intro">
+                        Durante esta conversación evaluaremos:
+                    </p>
+                    <ul class="diagnostico__lista">
+                        <li>Presencia digital actual</li>
+                        <li>Canales de contacto</li>
+                        <li>Comunicación visual de la marca</li>
+                        <li>Oportunidades de mejora</li>
+                    </ul>
+                </div>
+
+                <p class="diagnostico__conclusion">
+                    Al finalizar la reunión podremos definir si existe una
+                    oportunidad real de trabajo conjunto y qué soluciones serían
+                    más adecuadas para tu empresa.
+                </p>
+
+                <a
+                    href={CALENDLY_EMPRESAS}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn diagnostico__btn"
+                >
+                    Agendar reunión
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-line"></div>
+
+    <!-- SECCIÓN 6 — CIERRE -->
+    <section class="cierre-empresas" aria-label="Llamada a la acción final">
+        <div class="container cierre-empresas__inner">
+            <p class="display display--lg cierre-empresas__mensaje reveal">
+                <span class="gradient-text">Tu marca necesita<br />estructura digital real</span>
+            </p>
+            <div class="reveal reveal-delay-2">
+                <a
+                    href={WHATSAPP_CTA}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn cierre-empresas__btn"
+                >
+                    Hablemos por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+</BaseLayout>
+
+<style>
+    /* HERO */
+    .hero {
+        position: relative;
+        min-height: 100svh;
+        display: flex;
+        align-items: flex-end;
+        padding-top: 140px;
+        padding-bottom: clamp(4rem, 8vw, 7rem);
+        overflow: hidden;
+    }
+
+    .hero__bg {
+        position: absolute;
+        inset: 0;
+    }
+
+    .hero__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+    }
+
+    .hero__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to right,
+            rgba(8, 8, 16, 0.92) 0%,
+            rgba(8, 8, 16, 0.65) 50%,
+            rgba(8, 8, 16, 0.1) 100%
+        );
+    }
+
+    .hero__content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        max-width: 55%;
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    @media (max-width: 768px) {
+        .hero__content {
+            max-width: 100%;
+        }
+    }
+
+    .hero__title {
+        line-height: 1.05;
+    }
+
+    .hero__sub {
+        color: var(--text-high);
+        font-size: 1.35rem;
+        max-width: 44ch;
+        font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+        .hero__sub {
+            font-size: 1.1rem;
+        }
+    }
+
+    .hero__ctas {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+    }
+
+    .hero__btn {
+        background: #fff;
+        color: #000;
+        border: none;
+    }
+
+    .hero__btn:hover {
+        background: #fff;
+        border: 2px solid var(--empresa);
+        transform: translateY(-2px);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-image: linear-gradient(90deg, var(--empresa), #ff6b9d);
+    }
+
+    .hero__btn--secondary {
+        background: transparent;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .hero__btn--secondary:hover {
+        background: transparent;
+        border: 2px solid var(--empresa);
+        color: var(--empresa);
+        background-image: none;
+        background-clip: unset;
+        -webkit-background-clip: unset;
+    }
+
+    .hero__scroll {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-dim);
+        margin-top: 1rem;
+        transition: color var(--t-fast) var(--ease);
+    }
+
+    .hero__scroll:hover {
+        color: var(--empresa);
+    }
+
+    /* SECCIÓN 2 — LA BASE */
+    .base {
+        padding-block: var(--section-gap);
+        background: var(--bg-surface);
+    }
+
+    .base__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(3rem, 6vw, 6rem);
+        align-items: center;
+    }
+
+    .base__img-wrapper {
+        position: relative;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid var(--empresa-dim);
+    }
+
+    .base__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        aspect-ratio: 4 / 5;
+        transition: transform 0.8s var(--ease);
+    }
+
+    .base__visual:hover .base__img {
+        transform: scale(1.03);
+    }
+
+    .base__img-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to top,
+            rgba(8, 8, 16, 0.45) 0%,
+            transparent 60%
+        );
+    }
+
+    .base__text {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .base__title {
+        line-height: 1.05;
+    }
+
+    .base__accent {
+        color: var(--empresa);
+    }
+
+    .base__body {
+        color: var(--text-secondary);
+        max-width: 48ch;
+        line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+        .base__grid {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        .base__img {
+            aspect-ratio: 16 / 9;
+        }
+
+        .base__body {
+            max-width: 100%;
+        }
+    }
+
+    /* SECCIÓN 3 — EL PROBLEMA */
+    .problema {
+        background: var(--bg-surface);
+        padding-top: var(--section-gap);
+        padding-bottom: 0;
+        padding-top: clamp(3rem, 6vw, 5rem);
+    }
+
+    .problema__content {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        max-width: 760px;
+    }
+
+    .problema__titulo {
+        line-height: 1.05;
+        margin-top: 0.75rem;
+    }
+
+    .problema__lista {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        list-style: none;
+        padding: 0;
+        border-left: 2px solid var(--empresa-dim);
+        padding-left: 1.5rem;
+    }
+
+    .problema__lista li {
+        font-size: 1.15rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+        font-weight: 500;
+        position: relative;
+        transition: color var(--t-fast) var(--ease);
+    }
+
+    .problema__lista li::before {
+        content: "·";
+        position: absolute;
+        left: -1.5rem;
+        color: var(--empresa);
+        font-size: 1.5em;
+        line-height: 0.85;
+        font-weight: 700;
+    }
+
+    .problema__lista li:hover {
+        color: var(--text-primary);
+    }
+
+    .problema__imagen {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .problema__imagen img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        transition: transform 0.8s var(--ease);
+    }
+
+    .problema__split:hover .problema__imagen img {
+        transform: scale(1.03);
+    }
+
+    .problema__imagen-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to right,
+            rgba(14, 14, 26, 0.3) 0%,
+            transparent 60%
+        );
+    }
+
+    /* 3B — Cierre */
+    .problema__cierre {
+        background: var(--bg-base);
+        padding-block: clamp(4rem, 8vw, 6rem);
+        margin-top: clamp(3rem, 6vw, 5rem);
+        border-top: 1px solid var(--border);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .problema__cierre::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            ellipse at 50% 100%,
+            var(--empresa-subtle) 0%,
+            transparent 65%
+        );
+        pointer-events: none;
+    }
+
+    .problema__mensaje {
+        font-family: var(--font-display);
+        font-size: clamp(1.6rem, 4vw, 3.2rem);
+        letter-spacing: 0.05em;
+        position: relative;
+        z-index: 1;
+    }
+
+    @media (max-width: 900px) {
+        .problema__split {
+            grid-template-columns: 1fr;
+            min-height: unset;
+        }
+
+        .problema__texto {
+            border-right: none;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .problema__imagen {
+            aspect-ratio: 16 / 9;
+            height: auto;
+        }
+    }
+
+    /* SECCIÓN 4 — SOLUCIONES */
+    .soluciones {
+        background: var(--bg-base);
+    }
+
+    /* Header sin imagen */
+    .sol-intro {
+        background: var(--bg-surface);
+        padding-block: clamp(3.5rem, 7vw, 6rem);
+        border-top: 1px solid var(--border);
+    }
+
+    .sol-intro__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        max-width: 700px;
+    }
+
+    .sol-intro__texto {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        line-height: 1.7;
+        max-width: 55ch;
+    }
+
+    /* Layout imagen + servicios dentro de cada subsección */
+    .sol-cat__layout {
+        display: grid;
+        grid-template-columns: 1fr 380px;
+        gap: clamp(2.5rem, 5vw, 4rem);
+        align-items: start;
+    }
+
+    .sol-cat__layout--reverse {
+        grid-template-columns: 380px 1fr;
+    }
+
+    .sol-cat__services {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .sol-cat__imagen {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        aspect-ratio: 3/4;
+    }
+
+    .sol-cat__imagen img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.8s var(--ease);
+    }
+
+    .sol-cat__layout:hover .sol-cat__imagen img {
+        transform: scale(1.03);
+    }
+
+    /* Grid de 1 columna */
+    .sol-grid--1 {
+        grid-template-columns: 1fr;
+    }
+
+    /* Bloques de categoría */
+    .sol-cat {
+        padding-block: var(--section-gap);
+        border-top: 1px solid var(--border);
+    }
+
+    .sol-cat--surface {
+        background: var(--bg-surface);
+    }
+
+    .sol-cat--base {
+        background: var(--bg-base);
+    }
+
+    .sol-cat__header {
+        margin-bottom: clamp(2.5rem, 5vw, 4rem);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .sol-cat__num {
+        font-family: var(--font-display);
+        font-size: 4.5rem;
+        line-height: 0.85;
+        background: linear-gradient(
+            135deg,
+            #00cfdd 0%,
+            #0a2fa8 35%,
+            var(--empresa) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: block;
+    }
+
+    .sol-cat__titulo {
+        color: var(--text-primary);
+        line-height: 1.05;
+    }
+
+    .sol-cat__desc {
+        font-size: 1.15rem;
+        color: var(--text-secondary);
+        line-height: 1.7;
+        max-width: 62ch;
+    }
+
+    .sol-cat__cta {
+        margin-top: clamp(2rem, 4vw, 3rem);
+    }
+
+    /* Último item solo en grid de 2 col → centrado abarcando ambas columnas */
+    .sol-grid--2 .sol-item:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        max-width: calc(50% - 0.625rem);
+        margin-inline: auto;
+    }
+
+    /* Botón centrado en la subsección de infraestructura */
+    .sol-cat__services .sol-cat__cta {
+        text-align: center;
+    }
+
+    /* Grids de servicios */
+    .sol-grid {
+        display: grid;
+        gap: 1.25rem;
+    }
+
+    .sol-grid--3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .sol-grid--2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Item de servicio — modo bloque (sin fondo) */
+    .sol-item {
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 0.85rem;
+        row-gap: 0.65rem;
+        padding: 1.5rem;
+        border-top: 1px solid var(--empresa-dim);
+        transition: border-color var(--t-med) var(--ease);
+    }
+
+    .sol-item:hover {
+        border-color: var(--empresa);
+    }
+
+    /* Item de servicio — modo card (con fondo) */
+    .sol-item--card {
+        background: var(--bg-card);
+        border: 1px solid var(--empresa-dim);
+        border-radius: var(--radius-lg);
+        border-top: 1px solid var(--empresa-dim);
+        transition:
+            border-color var(--t-med) var(--ease),
+            transform var(--t-med) var(--ease);
+    }
+
+    .sol-item--card:hover {
+        border-color: var(--empresa);
+        transform: translateY(-3px);
+    }
+
+    .sol-item__icono {
+        width: 44px;
+        height: 44px;
+        object-fit: contain;
+        grid-column: 1;
+        grid-row: 1;
+        align-self: center;
+    }
+
+    .sol-item__titulo {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        line-height: 1.3;
+        grid-column: 2;
+        grid-row: 1;
+        align-self: center;
+    }
+
+    .sol-item__desc {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        line-height: 1.65;
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    /* Botón CTA servicios */
+    .sol-btn {
+        background: #fff;
+        color: #000;
+        border: none;
+    }
+
+    .sol-btn:hover {
+        background: #fff;
+        border: 2px solid var(--empresa);
+        transform: translateY(-2px);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-image: linear-gradient(90deg, var(--empresa), #ff6b9d);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+        .sol-grid--3 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .sol-cat__layout,
+        .sol-cat__layout--reverse {
+            grid-template-columns: 1fr;
+        }
+
+        .sol-cat__layout--reverse .sol-cat__imagen {
+            order: -1;
+        }
+
+        .sol-cat__imagen {
+            position: static;
+            aspect-ratio: 16 / 9;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .sol-grid--3,
+        .sol-grid--2 {
+            grid-template-columns: 1fr;
+        }
+
+        .sol-grid--2 .sol-item:last-child:nth-child(odd) {
+            grid-column: auto;
+            max-width: none;
+            margin-inline: 0;
+        }
+    }
+
+    /* SECCIÓN 5 — DIAGNÓSTICO */
+    .diagnostico {
+        background: var(--bg-surface);
+        padding-block: var(--section-gap);
+    }
+
+    .diagnostico__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        max-width: 860px;
+    }
+
+    .diagnostico__titulo {
+        line-height: 1.05;
+        margin-top: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .diagnostico__intro {
+        font-size: 1.15rem;
+        color: var(--text-secondary);
+        line-height: 1.75;
+        margin-bottom: 2rem;
+    }
+
+    .diagnostico__logistica {
+        display: flex;
+        flex-direction: row;
+        gap: 3rem;
+        border-top: 1px solid var(--border);
+        padding-top: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .diagnostico__dato {
+        display: flex;
+        gap: 1rem;
+        align-items: baseline;
+    }
+
+    .diagnostico__dato-label {
+        font-family: var(--font-body);
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-muted);
+        min-width: 90px;
+        flex-shrink: 0;
+    }
+
+    .diagnostico__dato-valor {
+        font-size: 1.05rem;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+
+    .diagnostico__bloque {
+        background: var(--bg-card);
+        border: 1px solid var(--empresa-dim);
+        border-radius: var(--radius-lg);
+        padding: clamp(1.5rem, 3vw, 2rem);
+        margin-bottom: 1.75rem;
+        transition: border-color var(--t-med) var(--ease);
+    }
+
+    .diagnostico__bloque:hover {
+        border-color: var(--empresa);
+    }
+
+    .diagnostico__bloque-intro {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--empresa);
+        margin-bottom: 1rem;
+    }
+
+    .diagnostico__lista {
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+        list-style: none;
+        padding: 0;
+    }
+
+    .diagnostico__lista li {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        padding-left: 1.4rem;
+        position: relative;
+        line-height: 1.5;
+    }
+
+    .diagnostico__lista li::before {
+        content: "·";
+        position: absolute;
+        left: 0;
+        color: var(--empresa);
+        font-weight: 700;
+        font-size: 1.4em;
+        line-height: 0.9;
+    }
+
+    .diagnostico__conclusion {
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+        line-height: 1.75;
+        margin-bottom: 2rem;
+        font-style: italic;
+    }
+
+    .diagnostico__btn {
+        background: #fff;
+        color: #000;
+        border: none;
+    }
+
+    .diagnostico__btn:hover {
+        background: #fff;
+        border: 2px solid var(--empresa);
+        transform: translateY(-2px);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-image: linear-gradient(90deg, var(--empresa), #ff6b9d);
+    }
+
+    @media (max-width: 600px) {
+        .diagnostico__logistica {
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+    }
+
+    /* SECCIÓN 6 — CIERRE */
+    .cierre-empresas {
+        background: var(--bg-base);
+        padding-block: clamp(5rem, 10vw, 9rem);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cierre-empresas::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 50% 100%, var(--empresa-subtle) 0%, transparent 65%);
+        pointer-events: none;
+    }
+
+    .cierre-empresas__inner {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .cierre-empresas__mensaje {
+        line-height: 1.1;
+        max-width: 18ch;
+        margin-inline: auto;
+    }
+
+    .cierre-empresas__btn {
+        background: #fff;
+        color: #000;
+        border: none;
+        font-size: 1.4rem;
+        padding: 1.4rem 3rem;
+    }
+
+    .cierre-empresas__btn:hover {
+        background: #fff;
+        border: 2px solid var(--empresa);
+        transform: translateY(-2px);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-image: linear-gradient(90deg, var(--empresa), #ff6b9d);
+    }
+</style>
