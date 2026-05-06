@@ -3,7 +3,7 @@
 /* VARIABLES */
 :root {
     /* Fondos */
-    --bg-base: #080810;
+    --bg-base: #050508;
     --bg-surface: #0e0e1a;
     --bg-card: #12121f;
     --bg-card-hover: #181828;
@@ -39,7 +39,7 @@
     --empresa-hover: rgba(224, 0, 79, 0.18);
 
     /* Overlays */
-    --bg-base-scrolled: rgba(8, 8, 16, 0.9);
+    --bg-base-scrolled: rgba(5, 5, 8, 0.9);
     --overlay-bg: rgba(0, 0, 0, 0.7);
 
     /* Tipografía */

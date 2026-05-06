@@ -118,7 +118,7 @@ import {
 
 			<div class="etapas__foto reveal">
 				<img
-					src="/images/InternaArtistas03.jpeg"
+					src="/images/InternaArtistas01.jpeg"
 					alt="Artistas en diferentes etapas"
 					loading="lazy"
 				/>
@@ -126,9 +126,17 @@ import {
 
 			<div class="etapas__grid">
 				<div class="etapa-card reveal">
-					<h3 class="display display--sm etapa-card__titulo">
-						Artistas emergentes
-					</h3>
+					<div class="etapa-card__header">
+						<img
+							src="/images/ArtistasEmergentes.png"
+							alt=""
+							class="etapa-card__icono"
+							aria-hidden="true"
+						/>
+						<h3 class="display display--sm etapa-card__titulo">
+							Artistas<br />emergentes
+						</h3>
+					</div>
 					<ul class="etapa-card__lista">
 						<li>Sacan música, pero nadie la escucha</li>
 						<li>No saben cómo lanzar correctamente</li>
@@ -136,9 +144,17 @@ import {
 					</ul>
 				</div>
 				<div class="etapa-card reveal reveal-delay-1">
-					<h3 class="display display--sm etapa-card__titulo">
-						Artistas en crecimiento
-					</h3>
+					<div class="etapa-card__header">
+						<img
+							src="/images/ArtistasCrecimiento.png"
+							alt=""
+							class="etapa-card__icono"
+							aria-hidden="true"
+						/>
+						<h3 class="display display--sm etapa-card__titulo">
+							Artistas en<br />crecimiento
+						</h3>
+					</div>
 					<ul class="etapa-card__lista">
 						<li>Tienen equipo, pero no hay dirección clara</li>
 						<li>Invierten, pero no ven resultados consistentes</li>
@@ -146,9 +162,17 @@ import {
 					</ul>
 				</div>
 				<div class="etapa-card reveal reveal-delay-2">
-					<h3 class="display display--sm etapa-card__titulo">
-						Equipos y disqueras
-					</h3>
+					<div class="etapa-card__header">
+						<img
+							src="/images/EquiposDisqueras.png"
+							alt=""
+							class="etapa-card__icono"
+							aria-hidden="true"
+						/>
+						<h3 class="display display--sm etapa-card__titulo">
+							Equipos y<br />disqueras
+						</h3>
+					</div>
 					<ul class="etapa-card__lista">
 						<li>Falta de ejecución operativa</li>
 						<li>Procesos desordenados en lanzamientos</li>
@@ -543,14 +567,18 @@ import {
 		<!-- 5C — GUÍA DE PASOS -->
 		<div class="asesoria-pasos">
 			<div class="container">
-
 				<!-- Paso 1: Pago -->
 				<div class="asesoria-paso reveal">
 					<div class="asesoria-paso__num">01</div>
 					<div class="asesoria-paso__contenido">
-						<h3 class="display display--sm asesoria-paso__titulo">Realizar el pago</h3>
+						<h3 class="display display--sm asesoria-paso__titulo">
+							Realizar el pago
+						</h3>
 						<p class="asesoria-paso__desc">
-							Haz clic en el botón de pago y completa la transacción a través de MercadoPago. Aceptamos tarjetas de crédito, débito y otros medios disponibles en la plataforma.
+							Haz clic en el botón de pago y completa la
+							transacción a través de MercadoPago. Aceptamos
+							tarjetas de crédito, débito y otros medios
+							disponibles en la plataforma.
 						</p>
 						<a
 							href={MP_ASESORIA_ARTISTAS}
@@ -567,12 +595,20 @@ import {
 				<div class="asesoria-paso reveal">
 					<div class="asesoria-paso__num">02</div>
 					<div class="asesoria-paso__contenido">
-						<h3 class="display display--sm asesoria-paso__titulo">Revisar tu correo electrónico</h3>
+						<h3 class="display display--sm asesoria-paso__titulo">
+							Revisar tu correo electrónico
+						</h3>
 						<p class="asesoria-paso__desc">
-							Una vez confirmado el pago, recibirás un correo con un enlace personal e intransferible para completar tu agendamiento. Revisa también tu carpeta de spam si no lo encuentras en los primeros minutos.
+							Una vez confirmado el pago, recibirás un correo con
+							un enlace personal e intransferible para completar
+							tu agendamiento. Revisa también tu carpeta de spam
+							si no lo encuentras en los primeros minutos.
 						</p>
 						<div class="asesoria-paso__aviso">
-							<span>Si el correo no llega, escríbenos por WhatsApp y te enviamos el enlace directamente.</span>
+							<span
+								>Si el correo no llega, escríbenos por WhatsApp
+								y te enviamos el enlace directamente.</span
+							>
 						</div>
 					</div>
 				</div>
@@ -581,30 +617,57 @@ import {
 				<div class="asesoria-paso reveal">
 					<div class="asesoria-paso__num">03</div>
 					<div class="asesoria-paso__contenido">
-						<h3 class="display display--sm asesoria-paso__titulo">Completar el formulario previo</h3>
+						<h3 class="display display--sm asesoria-paso__titulo">
+							Completar el formulario previo
+						</h3>
 						<p class="asesoria-paso__desc">
-							Desde el enlace del correo accederás a un formulario donde deberás completar la siguiente información para que podamos preparar tu sesión:
+							Desde el enlace del correo accederás a un formulario
+							donde deberás completar la siguiente información
+							para que podamos preparar tu sesión:
 						</p>
 						<div class="asesoria-form asesoria-form--preview">
 							<div class="asesoria-form__campo">
-								<span class="asesoria-form__label">Nombre artístico</span>
-								<div class="asesoria-form__input-preview">Tu nombre artístico</div>
+								<span class="asesoria-form__label"
+									>Nombre artístico</span
+								>
+								<div class="asesoria-form__input-preview">
+									Tu nombre artístico
+								</div>
 							</div>
 							<div class="asesoria-form__campo">
-								<span class="asesoria-form__label">Redes sociales</span>
-								<div class="asesoria-form__input-preview">Usuarios de Instagram / TikTok</div>
+								<span class="asesoria-form__label"
+									>Redes sociales</span
+								>
+								<div class="asesoria-form__input-preview">
+									Usuarios de Instagram / TikTok
+								</div>
 							</div>
 							<div class="asesoria-form__campo">
-								<span class="asesoria-form__label">Plataformas musicales</span>
-								<div class="asesoria-form__input-preview">Usuarios de YouTube / Spotify</div>
+								<span class="asesoria-form__label"
+									>Plataformas musicales</span
+								>
+								<div class="asesoria-form__input-preview">
+									Usuarios de YouTube / Spotify
+								</div>
 							</div>
 							<div class="asesoria-form__campo">
-								<span class="asesoria-form__label">Descripción del proyecto</span>
-								<div class="asesoria-form__input-preview asesoria-form__input-preview--tall">País, género, tiempo de carrera, logros o avances, entre otros</div>
+								<span class="asesoria-form__label"
+									>Descripción del proyecto</span
+								>
+								<div
+									class="asesoria-form__input-preview asesoria-form__input-preview--tall"
+								>
+									País, género, tiempo de carrera, logros o
+									avances, entre otros
+								</div>
 							</div>
 							<div class="asesoria-form__campo">
-								<span class="asesoria-form__label">Objetivos actuales</span>
-								<div class="asesoria-form__input-preview">¿Qué quieres lograr con tu música?</div>
+								<span class="asesoria-form__label"
+									>Objetivos actuales</span
+								>
+								<div class="asesoria-form__input-preview">
+									¿Qué quieres lograr con tu música?
+								</div>
 							</div>
 						</div>
 					</div>
@@ -614,9 +677,13 @@ import {
 				<div class="asesoria-paso reveal">
 					<div class="asesoria-paso__num">04</div>
 					<div class="asesoria-paso__contenido">
-						<h3 class="display display--sm asesoria-paso__titulo">Agendar tu sesión</h3>
+						<h3 class="display display--sm asesoria-paso__titulo">
+							Agendar tu sesión
+						</h3>
 						<p class="asesoria-paso__desc">
-							Al enviar el formulario serás redirigido automáticamente al calendario para elegir la fecha y hora disponible que mejor se adapte a ti.
+							Al enviar el formulario serás redirigido
+							automáticamente al calendario para elegir la fecha y
+							hora disponible que mejor se adapte a ti.
 						</p>
 					</div>
 				</div>
@@ -625,13 +692,17 @@ import {
 				<div class="asesoria-paso reveal">
 					<div class="asesoria-paso__num">05</div>
 					<div class="asesoria-paso__contenido">
-						<h3 class="display display--sm asesoria-paso__titulo">Recibir confirmación</h3>
+						<h3 class="display display--sm asesoria-paso__titulo">
+							Recibir confirmación
+						</h3>
 						<p class="asesoria-paso__desc">
-							Una vez agendada la sesión recibirás un correo de confirmación con la fecha, hora y enlace de la videollamada. El equipo también quedará notificado y listo para atenderte.
+							Una vez agendada la sesión recibirás un correo de
+							confirmación con la fecha, hora y enlace de la
+							videollamada. El equipo también quedará notificado y
+							listo para atenderte.
 						</p>
 					</div>
 				</div>
-
 			</div>
 		</div>
 
@@ -682,7 +753,6 @@ import {
 		</div>
 	</section>
 </BaseLayout>
-
 
 <style>
 	/* HERO */
@@ -912,6 +982,19 @@ import {
 		border-color: var(--cyan);
 	}
 
+	.etapa-card__header {
+		display: grid;
+		grid-template-columns: 44px 1fr;
+		align-items: center;
+		column-gap: 0.85rem;
+	}
+
+	.etapa-card__icono {
+		width: 44px;
+		height: 44px;
+		object-fit: contain;
+	}
+
 	.etapa-card__titulo {
 		font-family: var(--font-body);
 		font-weight: 700;
@@ -919,6 +1002,7 @@ import {
 		font-size: clamp(1.1rem, 2vw, 1.4rem);
 		text-transform: uppercase;
 		letter-spacing: 0.04em;
+		line-height: 1.3;
 	}
 
 	.etapa-card__lista {
