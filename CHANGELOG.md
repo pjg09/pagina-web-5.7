@@ -1,3 +1,9 @@
+## [1.4.3](https://github.com/pjg09/pagina-web-5.7/compare/v1.4.2...v1.4.3) (2026-05-06)
+
+### Bug Fixes
+
+* header de la seccion 4 de artistas.astro ([95d7db0](https://github.com/pjg09/pagina-web-5.7/commit/95d7db0013063153641f4a5799c7c311b86962ac))
+
 ## [1.4.2](https://github.com/pjg09/pagina-web-5.7/compare/v1.4.1...v1.4.2) (2026-05-06)
 
 ### Bug Fixes
