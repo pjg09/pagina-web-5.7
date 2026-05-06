@@ -1,3 +1,9 @@
+## [1.4.2](https://github.com/pjg09/pagina-web-5.7/compare/v1.4.1...v1.4.2) (2026-05-06)
+
+### Bug Fixes
+
+* seccion 3 de artistas.astro ajustada ([6b9a336](https://github.com/pjg09/pagina-web-5.7/commit/6b9a336c6f4b0cc4b76d694d9bf5d709d8ffa096))
+
 ## [1.4.1](https://github.com/pjg09/pagina-web-5.7/compare/v1.4.0...v1.4.1) (2026-05-04)
 
 ### Bug Fixes
