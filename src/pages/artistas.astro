@@ -97,7 +97,7 @@ import {
 			</p>
 
 			<p class="intro__cta reveal reveal-delay-3">
-				<em>Aquí es donde entramos.</em>
+				<em>Aquí es donde entramos...</em>
 			</p>
 		</div>
 	</section>
@@ -212,11 +212,13 @@ import {
 			</div>
 		</div>
 
-		<!-- 4B — SERVICIO 1: LANZAMIENTO (texto + imagen) -->
-		<div class="servicio-bloque servicio-bloque--imagen-derecha">
-			<div class="container servicio-bloque__inner">
-				<div class="servicio-bloque__texto reveal">
+		<!-- 4B — SERVICIO 1: LANZAMIENTO (dirección B) -->
+		<div class="servicio-bloque servicio-bloque--b reveal">
+			<div class="container sb-b">
+				<div class="sb-b-meta">
 					<span class="servicio-num">01</span>
+				</div>
+				<div class="sb-b-head">
 					<h3 class="display display--md servicio-titulo">
 						LANZAMIENTO Y ESTRATEGIA DIGITAL
 					</h3>
@@ -225,26 +227,6 @@ import {
 						etapa: desde artistas emergentes hasta equipos y
 						disqueras que necesitan apoyo operativo.
 					</p>
-					<div class="servicio-items">
-						<div class="servicio-item">
-							<span class="servicio-item__nombre"
-								>Estrategias de lanzamiento</span
-							>
-							<p class="servicio-item__desc">
-								Creamos el plan completo para lanzar tu tema con
-								dirección y sentido.
-							</p>
-						</div>
-						<div class="servicio-item">
-							<span class="servicio-item__nombre"
-								>Planeación de campañas musicales</span
-							>
-							<p class="servicio-item__desc">
-								Organizamos cada acción del lanzamiento para
-								generar impacto real.
-							</p>
-						</div>
-					</div>
 					<a
 						href={CALENDLY_ARTISTAS}
 						target="_blank"
@@ -253,74 +235,71 @@ import {
 						>Quiero lanzar mi música correctamente</a
 					>
 				</div>
-				<div class="servicio-bloque__imagen reveal reveal-delay-2">
-					<img
-						src="/images/InternaArtistas01.jpeg"
-						alt="Lanzamiento musical con estrategia"
-						loading="lazy"
-					/>
+				<div class="sb-b-items">
+					<div class="sb-b-item">
+						<div class="sb-b-item__header">
+							<img src="/images/EstrategiaLanzamiento.png" alt="" class="sb-b-item__icono" aria-hidden="true" />
+							<span class="servicio-item__nombre">Estrategia de<br />lanzamiento</span>
+						</div>
+						<p class="servicio-item__desc">Creamos el plan completo para lanzar tu tema con dirección y sentido.</p>
+					</div>
+					<div class="sb-b-item">
+						<div class="sb-b-item__header">
+							<img src="/images/PlaneacionCampanas.png" alt="" class="sb-b-item__icono" aria-hidden="true" />
+							<span class="servicio-item__nombre">Planeación de<br />campañas musicales</span>
+						</div>
+						<p class="servicio-item__desc">Organizamos cada acción del lanzamiento para generar impacto real.</p>
+					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- 4C — SERVICIO 2: VISIBILIDAD (ancho completo) -->
-		<div class="servicio-bloque servicio-bloque--full">
+		<!-- 4C — SERVICIO 2: VISIBILIDAD (dirección C) -->
+		<div class="servicio-bloque servicio-bloque--c reveal">
 			<div class="container">
-				<div class="servicio-full__header reveal">
+				<div class="sb-c-header">
 					<span class="servicio-num">02</span>
-					<h3 class="display display--md servicio-titulo">
-						VISIBILIDAD DIGITAL Y PLATAFORMAS
-					</h3>
-					<p class="servicio-desc servicio-desc--wide">
-						Llevamos tu música a más personas con estrategias
-						enfocadas en alcance, tráfico y posicionamiento real.
-					</p>
-				</div>
-				<div class="servicio-full__grid">
-					<div class="servicio-item servicio-item--card reveal">
-						<span class="servicio-item__nombre"
-							>Campañas de promoción en YouTube</span
-						>
-						<p class="servicio-item__desc">
-							Impulsamos tus videos con vistas segmentadas o
-							latinas para aumentar alcance real.
-						</p>
-					</div>
-					<div
-						class="servicio-item servicio-item--card reveal reveal-delay-1"
-					>
-						<span class="servicio-item__nombre"
-							>Estrategias de crecimiento en redes sociales</span
-						>
-						<p class="servicio-item__desc">
-							Desarrollamos acciones para que tu contenido crezca
-							con intención y consistencia.
-						</p>
-					</div>
-					<div
-						class="servicio-item servicio-item--card reveal reveal-delay-2"
-					>
-						<span class="servicio-item__nombre"
-							>Campañas con influencers en TikTok e Instagram</span
-						>
-						<p class="servicio-item__desc">
-							Conectamos tu música con creadores que amplifican tu
-							visibilidad.
-						</p>
-					</div>
-					<div
-						class="servicio-item servicio-item--card reveal reveal-delay-3"
-					>
-						<span class="servicio-item__nombre"
-							>Promoción en páginas temáticas y urbanas</span
-						>
-						<p class="servicio-item__desc">
-							Publicamos tu tema en plataformas que ya tienen
-							audiencia activa en tu género.
+					<div class="sb-c-ht">
+						<h3 class="display display--md servicio-titulo">
+							VISIBILIDAD DIGITAL Y PLATAFORMAS
+						</h3>
+						<p class="servicio-desc">
+							Llevamos tu música a más personas con estrategias
+							enfocadas en alcance, tráfico y posicionamiento real.
 						</p>
 					</div>
 				</div>
-				<div class="servicio-full__cta reveal">
+				<div class="sb-c-grid sb-c-grid--2">
+					<div class="sb-c-card">
+						<div class="sb-b-item__header">
+							<img src="/images/CampanasYoutube.png" alt="" class="sb-b-item__icono" aria-hidden="true" />
+							<span class="servicio-item__nombre">Campañas de<br />promoción en YouTube</span>
+						</div>
+						<p class="servicio-item__desc">Impulsamos tus videos con vistas segmentadas o latinas para aumentar alcance real.</p>
+					</div>
+					<div class="sb-c-card">
+						<div class="sb-b-item__header">
+							<img src="/images/EstrategiasCrecimiento.png" alt="" class="sb-b-item__icono" aria-hidden="true" />
+							<span class="servicio-item__nombre">Estrategias de<br />crecimiento en redes</span>
+						</div>
+						<p class="servicio-item__desc">Desarrollamos acciones para que tu contenido crezca con intención y consistencia.</p>
+					</div>
+					<div class="sb-c-card">
+						<div class="sb-b-item__header">
+							<img src="/images/CampanasInfluencers.png" alt="" class="sb-b-item__icono" aria-hidden="true" />
+							<span class="servicio-item__nombre">Campañas con<br />influencers TikTok & IG</span>
+						</div>
+						<p class="servicio-item__desc">Conectamos tu música con creadores que amplifican tu visibilidad.</p>
+					</div>
+					<div class="sb-c-card">
+						<div class="sb-b-item__header">
+							<img src="/images/PromocionTematicas.png" alt="" class="sb-b-item__icono" aria-hidden="true" />
+							<span class="servicio-item__nombre">Promoción en<br />páginas temáticas</span>
+						</div>
+						<p class="servicio-item__desc">Publicamos tu tema en plataformas que ya tienen audiencia activa en tu género.</p>
+					</div>
+				</div>
+				<div class="sb-c-cta">
 					<a
 						href={CALENDLY_ARTISTAS}
 						target="_blank"
@@ -332,18 +311,13 @@ import {
 			</div>
 		</div>
 
-		<!-- 4D — SERVICIO 3: PRODUCCIÓN (imagen + texto) -->
-		<div class="servicio-bloque servicio-bloque--imagen-izquierda">
-			<div class="container servicio-bloque__inner">
-				<div class="servicio-bloque__imagen reveal">
-					<img
-						src="/images/InternaArtistas02.jpeg"
-						alt="Producción audiovisual para artistas"
-						loading="lazy"
-					/>
-				</div>
-				<div class="servicio-bloque__texto reveal reveal-delay-1">
+		<!-- 4D — SERVICIO 3: PRODUCCIÓN (dirección B) -->
+		<div class="servicio-bloque servicio-bloque--b reveal">
+			<div class="container sb-b">
+				<div class="sb-b-meta">
 					<span class="servicio-num">03</span>
+				</div>
+				<div class="sb-b-head">
 					<h3 class="display display--md servicio-titulo">
 						PRODUCCIÓN AUDIOVISUAL
 					</h3>
@@ -352,44 +326,6 @@ import {
 						profesional, tanto para artistas independientes como
 						para proyectos más estructurados.
 					</p>
-					<div class="servicio-items">
-						<div class="servicio-item">
-							<span class="servicio-item__nombre"
-								>Producción de video oficial</span
-							>
-							<p class="servicio-item__desc">
-								Creamos videos que representan tu música con
-								calidad y dirección.
-							</p>
-						</div>
-						<div class="servicio-item">
-							<span class="servicio-item__nombre"
-								>Producción musical</span
-							>
-							<p class="servicio-item__desc">
-								Trabajamos el sonido de tus temas para lograr un
-								resultado profesional.
-							</p>
-						</div>
-						<div class="servicio-item">
-							<span class="servicio-item__nombre"
-								>Fotografía profesional</span
-							>
-							<p class="servicio-item__desc">
-								Construimos una imagen visual sólida para tu
-								proyecto.
-							</p>
-						</div>
-						<div class="servicio-item">
-							<span class="servicio-item__nombre"
-								>Contenido visual para redes</span
-							>
-							<p class="servicio-item__desc">
-								Generamos piezas listas para publicar y conectar
-								con tu audiencia.
-							</p>
-						</div>
-					</div>
 					<a
 						href={CALENDLY_ARTISTAS}
 						target="_blank"
@@ -398,57 +334,58 @@ import {
 						>Quiero elevar mi proyecto visual</a
 					>
 				</div>
+				<div class="sb-b-items">
+					<div class="sb-b-item">
+						<span class="servicio-item__nombre">Producción de video oficial</span>
+						<p class="servicio-item__desc">Creamos videos que representan tu música con calidad y dirección.</p>
+					</div>
+					<div class="sb-b-item">
+						<span class="servicio-item__nombre">Producción musical</span>
+						<p class="servicio-item__desc">Trabajamos el sonido de tus temas para lograr un resultado profesional.</p>
+					</div>
+					<div class="sb-b-item">
+						<span class="servicio-item__nombre">Fotografía profesional</span>
+						<p class="servicio-item__desc">Construimos una imagen visual sólida para tu proyecto.</p>
+					</div>
+					<div class="sb-b-item">
+						<span class="servicio-item__nombre">Contenido visual para redes</span>
+						<p class="servicio-item__desc">Generamos piezas listas para publicar y conectar con tu audiencia.</p>
+					</div>
+				</div>
 			</div>
 		</div>
 
-		<!-- 4E — SERVICIO 4: MEDIOS (ancho completo) -->
-		<div class="servicio-bloque servicio-bloque--full">
+		<!-- 4E — SERVICIO 4: MEDIOS (dirección C) -->
+		<div class="servicio-bloque servicio-bloque--c reveal">
 			<div class="container">
-				<div class="servicio-full__header reveal">
+				<div class="sb-c-header">
 					<span class="servicio-num">04</span>
-					<h3 class="display display--md servicio-titulo">
-						MEDIOS Y PRESENTACIONES
-					</h3>
-					<p class="servicio-desc servicio-desc--wide">
-						Abrimos espacios de exposición para artistas en
-						crecimiento y en consolidación que necesitan presencia
-						real en escenarios y medios.
-					</p>
-				</div>
-				<div class="servicio-full__grid servicio-full__grid--3col">
-					<div class="servicio-item servicio-item--card reveal">
-						<span class="servicio-item__nombre">Gira de medios</span
-						>
-						<p class="servicio-item__desc">
-							Gestionamos entrevistas y apariciones para darte
-							exposición.
-						</p>
-					</div>
-					<div
-						class="servicio-item servicio-item--card reveal reveal-delay-1"
-					>
-						<span class="servicio-item__nombre"
-							>Presentaciones en discotecas, colegios y eventos
-							comunitarios</span
-						>
-						<p class="servicio-item__desc">
-							Te conectamos con escenarios donde tu música puede
-							crecer.
-						</p>
-					</div>
-					<div
-						class="servicio-item servicio-item--card reveal reveal-delay-2"
-					>
-						<span class="servicio-item__nombre"
-							>Publicidad en salas de cine</span
-						>
-						<p class="servicio-item__desc">
-							Proyectamos tu video musical en pantallas de alto
-							impacto.
+					<div class="sb-c-ht">
+						<h3 class="display display--md servicio-titulo">
+							MEDIOS Y PRESENTACIONES
+						</h3>
+						<p class="servicio-desc">
+							Abrimos espacios de exposición para artistas en
+							crecimiento y en consolidación que necesitan presencia
+							real en escenarios y medios.
 						</p>
 					</div>
 				</div>
-				<div class="servicio-full__cta reveal">
+				<div class="sb-c-grid sb-c-grid--3">
+					<div class="sb-c-card">
+						<span class="servicio-item__nombre">Gira de medios</span>
+						<p class="servicio-item__desc">Gestionamos entrevistas y apariciones para darte exposición.</p>
+					</div>
+					<div class="sb-c-card">
+						<span class="servicio-item__nombre">Presentaciones en discotecas, colegios y eventos comunitarios</span>
+						<p class="servicio-item__desc">Te conectamos con escenarios donde tu música puede crecer.</p>
+					</div>
+					<div class="sb-c-card">
+						<span class="servicio-item__nombre">Publicidad en salas de cine</span>
+						<p class="servicio-item__desc">Proyectamos tu video musical en pantallas de alto impacto.</p>
+					</div>
+				</div>
+				<div class="sb-c-cta">
 					<a
 						href={CALENDLY_ARTISTAS}
 						target="_blank"
@@ -964,7 +901,13 @@ import {
 		text-align: center;
 		display: flex;
 		flex-direction: column;
-		gap: clamp(2rem, 4vw, 3rem);
+		gap: clamp(3.6rem, 7.2vw, 6rem);
+	}
+
+	@media (max-width: 768px) {
+		.servicios-header {
+			padding-bottom: 1rem;
+		}
 	}
 
 	.servicios-header__banner {
@@ -1060,45 +1003,18 @@ import {
 		padding-block: var(--section-gap);
 	}
 
-	.servicio-bloque--imagen-derecha,
-	.servicio-bloque--imagen-izquierda {
+	.servicio-bloque--b {
 		background: var(--bg-base);
 	}
 
-	.servicio-bloque--full {
+	.servicio-bloque--c {
 		background: var(--bg-surface);
-	}
-
-	.servicio-bloque__inner {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: clamp(3rem, 6vw, 6rem);
-		align-items: center;
-	}
-
-	.servicio-bloque__imagen {
-		border-radius: var(--radius-lg);
-		overflow: hidden;
-		aspect-ratio: 4/3;
-	}
-
-	.servicio-bloque__imagen img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		display: block;
-	}
-
-	.servicio-bloque__texto {
-		display: flex;
-		flex-direction: column;
-		gap: 1.25rem;
 	}
 
 	.servicio-num {
 		font-family: var(--font-display);
-		font-size: 4rem;
-		line-height: 1;
+		font-size: clamp(4rem, 6vw, 5.5rem);
+		line-height: 0.85;
 		background: linear-gradient(
 			135deg,
 			#00cfdd 0%,
@@ -1108,89 +1024,184 @@ import {
 		-webkit-background-clip: text;
 		background-clip: text;
 		color: transparent;
+		flex-shrink: 0;
 	}
 
 	.servicio-titulo {
 		color: var(--text-primary);
-		line-height: 1.1;
+		line-height: 1.05;
 	}
 
 	.servicio-desc {
-		font-size: 1.26rem;
+		font-size: 1.15rem;
 		color: var(--text-secondary);
 		line-height: 1.7;
-	}
-
-	.servicio-desc--wide {
-		max-width: 65ch;
-		margin-inline: auto;
-		text-align: center;
-	}
-
-	.servicio-items {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		border-left: 2px solid rgba(0, 194, 255, 0.3);
-		padding-left: 1.25rem;
 	}
 
 	.servicio-item__nombre {
 		display: block;
 		font-weight: 700;
 		color: var(--text-primary);
-		font-size: 1.14rem;
-		letter-spacing: 0.04em;
+		font-size: 0.9rem;
+		letter-spacing: 0.07em;
 		text-transform: uppercase;
-		margin-bottom: 0.25rem;
+		margin-bottom: 0.35rem;
 	}
 
 	.servicio-item__desc {
-		font-size: 1.08rem;
+		font-size: 0.98rem;
 		color: var(--text-secondary);
 		line-height: 1.6;
 	}
 
-	/* Servicio full width */
-	.servicio-full__header {
-		text-align: center;
-		margin-bottom: clamp(2rem, 4vw, 3rem);
+	/* Dirección B — 3 columnas */
+	.sb-b {
+		display: grid;
+		grid-template-columns: 140px 1fr 1fr;
+		gap: clamp(2rem, 5vw, 4.5rem);
+		align-items: start;
+	}
+
+	.sb-b-meta {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		gap: 1rem;
+		gap: 0.75rem;
 	}
 
-	.servicio-full__grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+	.sb-b-cat {
+		font-size: 0.65rem;
+		letter-spacing: 0.22em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		writing-mode: vertical-rl;
+		transform: rotate(180deg);
+		margin-top: 0.5rem;
+	}
+
+	.sb-b-head {
+		display: flex;
+		flex-direction: column;
 		gap: 1.25rem;
-		margin-bottom: 2.5rem;
 	}
 
-	.servicio-full__grid--3col {
-		grid-template-columns: repeat(3, 1fr);
+	.sb-b-items {
+		display: flex;
+		flex-direction: column;
 	}
 
-	.servicio-item--card {
-		background: var(--bg-card);
-		border: 1px solid var(--empresa-dim);
-		border-radius: var(--radius-lg);
-		padding: 1.5rem;
+	.sb-b-item {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 1rem 0 1rem 1.25rem;
+		border-left: 2px solid var(--border-card);
+		margin-bottom: 0.9rem;
 		transition: border-color var(--t-med) var(--ease);
 	}
 
-	.servicio-item--card:hover {
-		border-color: var(--empresa);
+	.sb-b-item:last-child {
+		margin-bottom: 0;
 	}
 
-	.servicio-item--card .servicio-item__nombre {
-		color: var(--text-primary);
+	.sb-b-item:hover {
+		border-color: var(--cyan);
+	}
+
+	.sb-b-item__header {
+		display: grid;
+		grid-template-columns: 44px 1fr;
+		align-items: center;
+		column-gap: 0.85rem;
 		margin-bottom: 0.5rem;
 	}
 
-	.servicio-full__cta {
+	.sb-b-item__icono {
+		width: 44px;
+		height: 44px;
+		max-width: 44px;
+		object-fit: contain;
+	}
+
+	/* Dirección C — header + grid de cards */
+	.sb-c-header {
+		display: flex;
+		align-items: start;
+		gap: 1.5rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.sb-c-ht {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.sb-c-grid {
+		display: grid;
+		gap: 1.15rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.sb-c-grid--2 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.sb-c-grid--3 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.sb-c-grid--4 {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.sb-c-card {
+		background: var(--bg-card);
+		border: 1px solid var(--empresa-dim);
+		border-radius: var(--radius-lg);
+		padding: 1.6rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		transition:
+			border-color var(--t-med) var(--ease),
+			transform var(--t-med) var(--ease);
+	}
+
+	.sb-c-card:hover {
+		border-color: var(--empresa);
+		transform: translateY(-3px);
+	}
+
+	.sb-c-cta {
 		text-align: center;
+	}
+
+	/* Responsive */
+	@media (max-width: 900px) {
+		.sb-b {
+			grid-template-columns: 1fr;
+			gap: 0.5rem;
+		}
+
+		.sb-b-items {
+			margin-top: 1.5rem;
+		}
+
+		.sb-b-cat {
+			writing-mode: horizontal-tb;
+			transform: none;
+		}
+
+		.sb-c-grid--2,
+		.sb-c-grid--3,
+		.sb-c-grid--4 {
+			grid-template-columns: 1fr;
+		}
+
+		.sb-c-header {
+			flex-direction: column;
+			gap: 0.5rem;
+		}
 	}
 
 	.servicio-btn {
@@ -1227,22 +1238,6 @@ import {
 	/* RESPONSIVE */
 	@media (max-width: 900px) {
 		.etapas__grid {
-			grid-template-columns: 1fr;
-		}
-
-		.servicio-bloque__inner {
-			grid-template-columns: 1fr;
-		}
-
-		.servicio-bloque--imagen-izquierda .servicio-bloque__imagen {
-			order: -1;
-		}
-
-		.servicio-full__grid {
-			grid-template-columns: 1fr;
-		}
-
-		.servicio-full__grid--3col {
 			grid-template-columns: 1fr;
 		}
 	}
