@@ -1,3 +1,9 @@
+## [1.4.5](https://github.com/pjg09/pagina-web-5.7/compare/v1.4.4...v1.4.5) (2026-05-29)
+
+### Bug Fixes
+
+* cambios en artistas al 100% de lo solicitado ([ff18b2e](https://github.com/pjg09/pagina-web-5.7/commit/ff18b2e938dd0d05d2da9d76aa847100d45d4d1f))
+
 ## [1.4.4](https://github.com/pjg09/pagina-web-5.7/compare/v1.4.3...v1.4.4) (2026-05-22)
 
 ### Bug Fixes
