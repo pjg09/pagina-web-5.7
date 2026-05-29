@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 import {
 	WHATSAPP_CTA,
 	CALENDLY_ARTISTAS,
@@ -336,19 +337,31 @@ import {
 				</div>
 				<div class="sb-b-items">
 					<div class="sb-b-item">
-						<span class="servicio-item__nombre">Producción de video oficial</span>
+						<div class="sb-b-item__header">
+							<img src="/images/ProduccionVideo.png" alt="" class="sb-b-item__icono" aria-hidden="true" />
+							<span class="servicio-item__nombre">Producción de<br />video oficial</span>
+						</div>
 						<p class="servicio-item__desc">Creamos videos que representan tu música con calidad y dirección.</p>
 					</div>
 					<div class="sb-b-item">
-						<span class="servicio-item__nombre">Producción musical</span>
+						<div class="sb-b-item__header">
+							<img src="/images/ProduccionMusical.png" alt="" class="sb-b-item__icono" aria-hidden="true" />
+							<span class="servicio-item__nombre">Producción<br />musical</span>
+						</div>
 						<p class="servicio-item__desc">Trabajamos el sonido de tus temas para lograr un resultado profesional.</p>
 					</div>
 					<div class="sb-b-item">
-						<span class="servicio-item__nombre">Fotografía profesional</span>
+						<div class="sb-b-item__header">
+							<img src="/images/Fotografia.png" alt="" class="sb-b-item__icono" aria-hidden="true" />
+							<span class="servicio-item__nombre">Fotografía<br />profesional</span>
+						</div>
 						<p class="servicio-item__desc">Construimos una imagen visual sólida para tu proyecto.</p>
 					</div>
 					<div class="sb-b-item">
-						<span class="servicio-item__nombre">Contenido visual para redes</span>
+						<div class="sb-b-item__header">
+							<img src="/images/ContenidoVisual.png" alt="" class="sb-b-item__icono" aria-hidden="true" />
+							<span class="servicio-item__nombre">Contenido visual<br />para redes</span>
+						</div>
 						<p class="servicio-item__desc">Generamos piezas listas para publicar y conectar con tu audiencia.</p>
 					</div>
 				</div>
@@ -373,15 +386,24 @@ import {
 				</div>
 				<div class="sb-c-grid sb-c-grid--3">
 					<div class="sb-c-card">
-						<span class="servicio-item__nombre">Gira de medios</span>
+						<div class="sb-b-item__header">
+							<img src="/images/GiraMedios.png" alt="" class="sb-b-item__icono" aria-hidden="true" />
+							<span class="servicio-item__nombre">Gira de<br />medios</span>
+						</div>
 						<p class="servicio-item__desc">Gestionamos entrevistas y apariciones para darte exposición.</p>
 					</div>
 					<div class="sb-c-card">
-						<span class="servicio-item__nombre">Presentaciones en discotecas, colegios y eventos comunitarios</span>
-						<p class="servicio-item__desc">Te conectamos con escenarios donde tu música puede crecer.</p>
+						<div class="sb-b-item__header">
+							<img src="/images/Presentaciones.png" alt="" class="sb-b-item__icono" aria-hidden="true" />
+							<span class="servicio-item__nombre">Presentaciones<br />en vivo</span>
+						</div>
+						<p class="servicio-item__desc">Te conectamos con escenarios donde tu música puede crecer como discotecas, colegios, eventos y actividades comunitarias.</p>
 					</div>
 					<div class="sb-c-card">
-						<span class="servicio-item__nombre">Publicidad en salas de cine</span>
+						<div class="sb-b-item__header">
+							<img src="/images/Cines.png" alt="" class="sb-b-item__icono" aria-hidden="true" />
+							<span class="servicio-item__nombre">Publicidad en<br />salas de cine</span>
+						</div>
 						<p class="servicio-item__desc">Proyectamos tu video musical en pantallas de alto impacto.</p>
 					</div>
 				</div>
@@ -399,8 +421,8 @@ import {
 
 		<!-- 4F — FRASE FINAL -->
 		<div class="cierre-sec">
-			<div class="container">
-				<p class="cierre-sec__texto reveal">
+			<div class="container cierre-sec__inner">
+				<p class="display display--lg cierre-sec__texto reveal">
 					<span class="gradient-text"
 						>SI TU MÚSICA YA EXISTE, ES MOMENTO<br />DE HACERLA
 						CRECER DE VERDAD</span
@@ -478,6 +500,7 @@ import {
 					alt="Asesoría estratégica para artistas"
 					loading="lazy"
 				/>
+				<div class="asesoria-foto__border"></div>
 			</div>
 		</div>
 
@@ -675,20 +698,15 @@ import {
 
 		<!-- 5E — CTA CIERRE -->
 		<div class="asesoria-cierre">
-			<div class="container asesoria-cierre__inner reveal">
-				<p class="display display--lg asesoria-cierre__titulo">
-					SI TE TOMAS TU MÚSICA EN SERIO,<br />ESTE ES EL <span
-						class="gradient-text">SIGUIENTE PASO</span
+			<div class="container asesoria-cierre__inner">
+				<h2 class="display display--lg asesoria-cierre__titulo reveal">
+					<span class="gradient-text"
+						>SI TE TOMAS TU MÚSICA EN SERIO,<br />ESTE ES EL SIGUIENTE PASO</span
 					>
-				</p>
-				<a
-					href={WHATSAPP_CTA}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="btn btn--primary"
-				>
-					Hablemos por WhatsApp
-				</a>
+				</h2>
+				<div class="reveal reveal-delay-2">
+					<CTAWhatsApp />
+				</div>
 			</div>
 		</div>
 	</section>
@@ -1222,17 +1240,37 @@ import {
 
 	/* FRASE CIERRE */
 	.cierre-sec {
-		padding-block: clamp(4rem, 8vw, 7rem);
-		background: var(--bg-surface);
-		border-top: 1px solid var(--border);
+		padding-block: var(--section-gap);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.cierre-sec::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 600px;
+		height: 600px;
+		background: radial-gradient(
+			ellipse,
+			var(--cyan-subtle) 0%,
+			transparent 70%
+		);
+		pointer-events: none;
+	}
+
+	.cierre-sec__inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		text-align: center;
+		gap: 2.5rem;
 	}
 
 	.cierre-sec__texto {
-		font-family: var(--font-display);
-		font-size: clamp(1.6rem, 4vw, 3rem);
-		letter-spacing: 0.05em;
-		line-height: 1.15;
+		max-width: 18ch;
 	}
 
 	/* RESPONSIVE */
@@ -1292,6 +1330,7 @@ import {
 		height: 100%;
 		min-height: 500px;
 		overflow: hidden;
+		position: relative;
 	}
 
 	.asesoria-foto img {
@@ -1302,12 +1341,24 @@ import {
 		display: block;
 	}
 
+	.asesoria-foto__border {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 6px;
+		background: linear-gradient(to bottom, var(--cyan), var(--magenta));
+		opacity: 0.25;
+		filter: blur(1px);
+		z-index: 2;
+	}
+
 	.asesoria-lista__titulo {
 		font-family: var(--font-body);
 		font-weight: 700;
 		color: var(--text-primary);
 		margin-bottom: 1rem;
-		font-size: 0.8rem;
+		font-size: 1.2rem;
 		text-transform: uppercase;
 		letter-spacing: 0.04em;
 		padding-bottom: 0.6rem;
@@ -1358,19 +1409,13 @@ import {
 		display: grid;
 		grid-template-columns: 1fr auto 1fr auto 1fr;
 		align-items: center;
-		max-width: 860px;
-		margin-inline: auto;
 	}
 
 	.asesoria-pricing__divider {
-		width: 1px;
-		height: 70px;
-		background: linear-gradient(
-			to bottom,
-			transparent,
-			var(--border),
-			transparent
-		);
+		width: 2px;
+		height: 110px;
+		background: linear-gradient(to bottom, var(--cyan), var(--magenta));
+		border-radius: 2px;
 		flex-shrink: 0;
 		margin-inline: 3rem;
 	}
@@ -1393,7 +1438,7 @@ import {
 	}
 
 	.asesoria-pricing__valor {
-		font-size: 2rem;
+		font-size: 2.6rem;
 		font-weight: 700;
 		color: var(--text-primary);
 		line-height: 1;
@@ -1615,10 +1660,9 @@ import {
 
 	/* 5E — CIERRE */
 	.asesoria-cierre {
-		padding-block: clamp(5rem, 10vw, 9rem);
+		padding-top: clamp(2rem, 4vw, 3.5rem);
+		padding-bottom: var(--section-gap);
 		background: var(--bg-base);
-		text-align: center;
-		border-top: 1px solid var(--border);
 		position: relative;
 		overflow: hidden;
 	}
@@ -1626,11 +1670,15 @@ import {
 	.asesoria-cierre::before {
 		content: "";
 		position: absolute;
-		inset: 0;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 600px;
+		height: 600px;
 		background: radial-gradient(
-			ellipse at 50% 100%,
-			rgba(181, 0, 95, 0.07) 0%,
-			transparent 65%
+			ellipse,
+			var(--cyan-subtle) 0%,
+			transparent 70%
 		);
 		pointer-events: none;
 	}
@@ -1641,13 +1689,13 @@ import {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 3rem;
+		text-align: center;
+		gap: 2.5rem;
 	}
 
 	.asesoria-cierre__titulo {
 		line-height: 1.1;
-		max-width: 20ch;
-		margin-inline: auto;
+		max-width: 18ch;
 	}
 
 	@media (max-width: 900px) {
@@ -1676,8 +1724,9 @@ import {
 		}
 
 		.asesoria-pricing__divider {
-			width: 60px;
-			height: 1px;
+			width: 160px;
+			height: 2px;
+			background: linear-gradient(90deg, var(--cyan), var(--magenta));
 			margin: 1.5rem auto;
 		}
 
