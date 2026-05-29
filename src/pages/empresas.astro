@@ -767,6 +767,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
         border-radius: var(--radius-lg);
         overflow: hidden;
         border: 1px solid var(--empresa-dim);
+        transition: border-color var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease);
     }
 
     .base__img {
@@ -780,6 +781,11 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
 
     .base__visual:hover .base__img {
         transform: scale(1.03);
+    }
+
+    .base__visual:hover .base__img-wrapper {
+        border-color: var(--empresa);
+        box-shadow: 0 0 24px rgba(181, 0, 95, 0.4);
     }
 
     .base__img-overlay {
@@ -807,6 +813,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
     }
 
     .base__body {
+        font-size: clamp(1.15rem, 1.75vw, 1.3rem);
         color: var(--text-secondary);
         max-width: 48ch;
         line-height: 1.7;
@@ -853,12 +860,11 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
         gap: 1rem;
         list-style: none;
         padding: 0;
-        border-left: 2px solid var(--empresa-dim);
         padding-left: 1.5rem;
     }
 
     .problema__lista li {
-        font-size: 1.15rem;
+        font-size: clamp(1.32rem, 2vw, 1.5rem);
         color: var(--text-secondary);
         line-height: 1.5;
         font-weight: 500;
@@ -976,7 +982,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
     }
 
     .sol-intro__texto {
-        font-size: 1.2rem;
+        font-size: clamp(1.38rem, 2.1vw, 1.56rem);
         color: var(--text-secondary);
         line-height: 1.7;
         max-width: 55ch;
@@ -1066,7 +1072,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
     }
 
     .sol-cat__desc {
-        font-size: 1.15rem;
+        font-size: clamp(1.32rem, 2vw, 1.5rem);
         color: var(--text-secondary);
         line-height: 1.7;
         max-width: 62ch;
@@ -1145,7 +1151,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
 
     .sol-item__titulo {
         font-family: var(--font-body);
-        font-size: 1rem;
+        font-size: clamp(1.1rem, 1.6vw, 1.2rem);
         font-weight: 700;
         color: var(--text-primary);
         text-transform: uppercase;
@@ -1157,7 +1163,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
     }
 
     .sol-item__desc {
-        font-size: 0.95rem;
+        font-size: clamp(1.09rem, 1.65vw, 1.24rem);
         color: var(--text-secondary);
         line-height: 1.65;
         grid-column: 1 / -1;
@@ -1235,7 +1241,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
     }
 
     .diagnostico__intro {
-        font-size: 1.15rem;
+        font-size: clamp(1.32rem, 2vw, 1.5rem);
         color: var(--text-secondary);
         line-height: 1.75;
         margin-bottom: 2rem;
@@ -1258,7 +1264,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
 
     .diagnostico__dato-label {
         font-family: var(--font-body);
-        font-size: 0.78rem;
+        font-size: clamp(0.86rem, 1.25vw, 0.94rem);
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.1em;
@@ -1268,7 +1274,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
     }
 
     .diagnostico__dato-valor {
-        font-size: 1.05rem;
+        font-size: clamp(1.21rem, 1.85vw, 1.37rem);
         color: var(--text-primary);
         font-weight: 500;
     }
@@ -1288,7 +1294,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
 
     .diagnostico__bloque-intro {
         font-family: var(--font-body);
-        font-size: 0.85rem;
+        font-size: clamp(0.94rem, 1.35vw, 1.02rem);
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.06em;
@@ -1305,7 +1311,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
     }
 
     .diagnostico__lista li {
-        font-size: 1.1rem;
+        font-size: clamp(1.27rem, 1.9vw, 1.43rem);
         color: var(--text-secondary);
         padding-left: 1.4rem;
         position: relative;
@@ -1323,7 +1329,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
     }
 
     .diagnostico__conclusion {
-        font-size: 1.05rem;
+        font-size: clamp(1.21rem, 1.85vw, 1.37rem);
         color: var(--text-secondary);
         line-height: 1.75;
         margin-bottom: 2rem;

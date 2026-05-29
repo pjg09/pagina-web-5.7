@@ -130,25 +130,25 @@ ol {
 }
 
 .display--md {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
 }
 
 .display--sm {
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-size: clamp(1.65rem, 3.6vw, 2.64rem);
 }
 
 .body--lg {
-    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    font-size: clamp(1.21rem, 2.5vw, 1.56rem);
     font-weight: 300;
 }
 
 .body--md {
-    font-size: 1rem;
+    font-size: clamp(1.15rem, 2vw, 1.3rem);
     font-weight: 400;
 }
 
 .body--sm {
-    font-size: 1.1rem;
+    font-size: clamp(1.27rem, 2.2vw, 1.43rem);
     font-weight: 400;
     color: var(--text-secondary);
 }
@@ -210,7 +210,7 @@ ol {
 .label {
     display: inline-block;
     font-family: var(--font-body);
-    font-size: 0.7rem;
+    font-size: clamp(0.77rem, 1.2vw, 0.84rem);
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;

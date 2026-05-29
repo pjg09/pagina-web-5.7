@@ -25,6 +25,22 @@ No hay tests, linter configurado, ni CI propio. El deploy ocurre en Vercel autom
 
 Sitio estático con Astro. Sin backend propio, sin base de datos. Decisión consciente para este momento del negocio.
 
+**Estructura:**
+```
+src/
+  components/   CTAWhatsApp, Header, Footer, Hero, ServiceCard
+  data/         constantes.ts (URLs externas), servicios.ts (pendiente)
+  layouts/      BaseLayout.astro
+  pages/        index, artistas, empresas, formulario, resumen, agendamientos, contacto, seguridad-movilidad
+  styles/       global.css
+```
+
+**Componentes existentes (no usar sin leer su CSS primero):**
+- `Header.astro` — navegación fija con clase `scrolled` al hacer scroll, menú mobile con `aria-*`
+- `Footer.astro` — pie de página global
+- `Hero.astro` — componente hero (las páginas actuales definen su hero inline, no lo usan)
+- `ServiceCard.astro` — card de servicio reutilizable (las páginas actuales tampoco lo usan)
+
 **Flujo de datos:**
 - `src/data/constantes.ts` — fuente única de verdad para todas las URLs externas (WhatsApp, Calendly, MercadoPago, Make webhook) y textos/precios globales. Cualquier URL que salga del sitio vive aquí.
 - `src/data/servicios.ts` — datos de servicios (pendiente). Mismo patrón: los componentes solo presentan, no tienen datos hardcodeados.
@@ -71,8 +87,17 @@ Agregadas a `global.css`. Usar siempre estas variables para cards/bordes empresa
 
 - Los componentes solo presentan — sin lógica de negocio ni datos hardcodeados.
 - Cada página define su hero **inline** (no como componente separado). Patrón estándar: `section.hero` con `.hero__bg` (img + overlay), `.hero__content` (container con título + subtítulo + CTAs) y `.hero__scroll`.
-- `CTAWhatsApp.astro` acepta props `label` y `variant`; aparece en todas las páginas.
+- `CTAWhatsApp.astro` acepta props `label` y `variant`; aparece en todas las páginas. Requiere import explícito en el frontmatter de cada página: `import CTAWhatsApp from "../components/CTAWhatsApp.astro"`.
 - El header agrega clase `scrolled` (fondo blur) al hacer scroll, y maneja menú mobile con atributos `aria-*` correctos.
+
+**Patrón item de servicio con icono (`.sb-b-item__header`):** Estándar en todas las secciones de servicios de artistas y empresas:
+```html
+<div class="sb-b-item__header">
+  <img src="/images/Icono.png" alt="" class="sb-b-item__icono" aria-hidden="true" />
+  <span class="servicio-item__nombre">Título en<br />dos líneas</span>
+</div>
+```
+CSS: `grid-template-columns: 44px 1fr; align-items: center; column-gap: 0.85rem`. Icono siempre 44×44px.
 
 ## Diseño responsive
 
@@ -93,18 +118,29 @@ Están marcados como comentarios `// TODO:` en el código:
 - Cards artistas / lado derecho: `rgba(0,194,255,0.25)` → hover `var(--cyan)`
 - Cards empresas / lado izquierdo: `var(--empresa-dim)` → hover `var(--empresa)`
 
+**Escala tipográfica responsive (convención):** Body text: `clamp(B×1.15, vw, B×1.30)` (+15% mobile, +30% desktop). Subtítulos: `clamp(B×1.10, vw, B×1.20)`. El vw ≈ `desktop_rem / 0.75` para que el máximo se alcance a ~1200px. Las clases globales `.body--lg/md/sm`, `.display--md/sm`, `.label` ya aplican estos valores — páginas futuras deben usarlas en vez de hardcodear `font-size`.
+
+**Cards de igual altura en grid de 2 columnas:** Añadir `flex: 1` a la card dentro de un outer wrapper con `display: flex; flex-direction: column`. El grid ya aplica `align-items: stretch` al outer por defecto; sin `flex: 1` la card no crece para llenarlo.
+
 ## Imágenes disponibles en public/images/
 
 - `HeroIndex.jpeg`, `HeroArtistas.jpeg`, `HeroEmpresas.jpg` — heroes por página
 - `InternaEmpresas01–05.jpeg` — imágenes para secciones internas de empresas
 - `InternaArtistas01–04.jpeg` — imágenes para secciones internas de artistas
 - Íconos de servicios empresas: `PaginaWeb.png`, `LandingPage.png`, `BioLink.png`, `GoogleProfile.png`, `WhatsappBusiness.png`, `PortafolioDigital.png`, `AuditoriaDigital.png`, `AdministrarRedes.png`, `PautaPublicitaria.png`
+- Íconos etapas artistas: `ArtistasEmergentes.png`, `ArtistasCrecimiento.png`, `EquiposDisqueras.png`
+- Íconos servicios artistas: `EstrategiaLanzamiento.png`, `PlaneacionCampanas.png`, `CampanasYoutube.png`, `EstrategiasCrecimiento.png`, `CampanasInfluencers.png`, `PromocionTematicas.png`, `ProduccionVideo.png`, `ProduccionMusical.png`, `Fotografia.png`, `ContenidoVisual.png`, `GiraMedios.png`, `Presentaciones.png`, `Cines.png`
+- Imágenes de secciones: `Artistas01–03.jpeg`, `Empresas01–03.jpeg`, `Referencia01.jpeg`
+- UI: `BotonArtista.png`, `BotonEmpresa.png`, `logo.png`, `LogoFenalco.png`
+- Íconos sociales: `Facebook.png`, `Instagram.png`, `Tiktok.png`, `Whatsapp.png`, `Email.png`
+- Íconos adicionales artistas: `Colaboraciones.png`, `GestionInfluencers.png`
+- Íconos adicionales producción: `VideosCorporativos.png`, `VideosRedes.png`
 
 ## Gotchas técnicos
 
 **`transform` + `.reveal` conflict (producción vs dev):** El bundle CSS en producción puede ordenar `.reveal.visible { transform: translateY(0) }` DESPUÉS del scoped CSS del componente, pisando transforms custom. Fix: añadir selector de mayor especificidad `.parent .element.visible { transform: <valor-original> }` para forzar que gane el scoped CSS.
 
-**Linter reformatea entre operaciones:** El formatter de Astro reindenta el HTML después de cada save. Si el Edit tool falla con "old_string not found", usar Python `content.replace(old, new)` via Bash — es inmune a cambios de indentación.
+**Linter reformatea entre operaciones:** El formatter de Astro reindenta el HTML después de cada save. Si el Edit tool falla con "old_string not found", usar Python `content.replace(old, new)` via Bash — es inmune a cambios de indentación. Para cambios masivos de CSS (múltiples valores en distintas clases), usar un script Python que haga todos los replaces de una sola pasada en lugar de múltiples operaciones Edit.
 
 **`.btn--primary` / `.btn--outline` en Astro scoped CSS:** Los overrides de clases globales en `<style>` de una página solo afectan elementos de ESA página, no los de componentes hijos (como `CTAWhatsApp.astro`). Para cambiar el estilo del botón en un componente hijo, modificar el CSS del componente directamente.
 
@@ -114,6 +150,7 @@ Están marcados como comentarios `// TODO:` en el código:
 - `empresas.astro` — completa (secciones 1–6): hero, propósito, problema, soluciones (4 categorías con imágenes), diagnóstico, cierre.
 - `index.astro` — completa (secciones 1–6).
 - `formulario.astro`, `resumen.astro`, `agendamientos.astro`, `contacto.astro` — pendientes de diseño.
+- `seguridad-movilidad.astro` — existe en repo, estado de diseño desconocido.
 
 ## Perfil del desarrollador
 

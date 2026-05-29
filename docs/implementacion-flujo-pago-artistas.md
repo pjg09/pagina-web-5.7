@@ -1,3 +1,7 @@
+> [!WARNING]
+> **DESACTUALIZADO — requiere revisión**
+> Este documento es una guía de implementación aún no ejecutada. Ningún paso ha sido completado: no existe el Google Sheets, no están configurados los escenarios de Make, y las constantes en `constantes.ts` siguen siendo placeholders. Usar como punto de partida, no como estado actual.
+
 # Implementación del flujo de pago y agendamiento — Asesoría artistas
 
 ## Prerrequisitos antes de empezar

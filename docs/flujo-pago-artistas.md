@@ -1,3 +1,7 @@
+> [!WARNING]
+> **DESACTUALIZADO — requiere revisión**
+> Este documento refleja el diseño propuesto, no el estado de implementación real. Las páginas `/formulario`, `/resumen` y `/agendamientos` están pendientes de construcción. Los webhooks de Make y las URLs de MercadoPago/Calendly aún no existen. Verificar contra el código y `constantes.ts` antes de usar como referencia.
+
 # Flujo de pago y agendamiento — Asesoría estratégica para artistas
 
 ## Resumen del flujo
