@@ -1,3 +1,9 @@
+## [1.4.6](https://github.com/pjg09/pagina-web-5.7/compare/v1.4.5...v1.4.6) (2026-05-29)
+
+### Bug Fixes
+
+* aumento del tama;o de todos los textos ([08dc624](https://github.com/pjg09/pagina-web-5.7/commit/08dc6240289e563a873930cdae927593b050f5ce))
+
 ## [1.4.5](https://github.com/pjg09/pagina-web-5.7/compare/v1.4.4...v1.4.5) (2026-05-29)
 
 ### Bug Fixes
