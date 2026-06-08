@@ -79,6 +79,8 @@ Agregadas a `global.css`. Usar siempre estas variables para cards/bordes empresa
 
 **Clases utilitarias clave:** `.display`, `.display--xl/lg/md/sm`, `.btn`, `.btn--primary/outline/ghost`, `.label`, `.divider`, `.reveal`, `.reveal-delay-1/2/3/4`, `.gradient-text`, `.section-line`, `.container`
 
+**Variables de texto completas:** `--text-high` (0.95 opacidad), `--text-secondary` (0.9), `--text-dim` (0.7), `--text-muted` (#55556a). `--text-mid` NO existe — no usarla.
+
 **Scroll reveal:** agregar clase `.reveal` a cualquier elemento para animación de entrada. El observer está en `BaseLayout.astro` y se aplica globalmente. Usar `.reveal-delay-N` para escalonar elementos.
 
 **Gradient text:** `.gradient-text` usa gradiente cyan → azul → rojo. El gradiente original cyan→magenta está comentado en el CSS.
@@ -88,6 +90,7 @@ Agregadas a `global.css`. Usar siempre estas variables para cards/bordes empresa
 - Los componentes solo presentan — sin lógica de negocio ni datos hardcodeados.
 - Cada página define su hero **inline** (no como componente separado). Patrón estándar: `section.hero` con `.hero__bg` (img + overlay), `.hero__content` (container con título + subtítulo + CTAs) y `.hero__scroll`.
 - `CTAWhatsApp.astro` acepta props `label` y `variant`; aparece en todas las páginas. Requiere import explícito en el frontmatter de cada página: `import CTAWhatsApp from "../components/CTAWhatsApp.astro"`.
+- **CTAWhatsApp siempre renderiza blanco:** su CSS interno pisa ambas variantes. Para normalizar tamaño en contexto (ej. hero junto a otro `.btn`), usar `.parent :global(.cta-whatsapp) { font-size: 1.1rem; padding: 0.85rem 2rem; }`. Para igualar ancho en mobile stacked: `width: 100%; justify-content: center` en el mismo selector `:global` dentro de un `@media`.
 - El header agrega clase `scrolled` (fondo blur) al hacer scroll, y maneja menú mobile con atributos `aria-*` correctos.
 
 **Patrón item de servicio con icono (`.sb-b-item__header`):** Estándar en todas las secciones de servicios de artistas y empresas:
@@ -114,6 +117,10 @@ Están marcados como comentarios `// TODO:` en el código:
 
 **Botones del sitio (patrón establecido):** Todos los botones de contenido usan fondo blanco + texto negro + hover con gradiente `var(--cyan) → var(--magenta)` y borde cyan. NO usar `btn--primary`/`btn--outline` en páginas — esas clases se overridean con CSS scoped. `CTAWhatsApp.astro` tiene su propio CSS inline.
 
+**Posicionamiento horizontal en hero:** NO usar `grid-column: N` dentro de `.container` para ubicar el bloque de texto. Usar `display: flex; flex-direction: column; align-items: flex-end` en `.hero__content` y `max-width: 50%` en `.hero__text` para empujar a la derecha (o `align-items: flex-start` + `max-width: 55%; margin-left: 8%` para izquierda, como en artistas).
+
+**`object-position` para imágenes con zona oscura:** si la imagen tiene un área oscura en un lado (para texto encima), anclar `object-position` a ESE lado (`right center` si la zona oscura es derecha). Con `object-fit: cover`, el recorte ocurrirá por el lado opuesto preservando siempre la zona de legibilidad.
+
 **Colores de borde por tipo de card:**
 - Cards artistas / lado derecho: `rgba(0,194,255,0.25)` → hover `var(--cyan)`
 - Cards empresas / lado izquierdo: `var(--empresa-dim)` → hover `var(--empresa)`
@@ -124,13 +131,13 @@ Están marcados como comentarios `// TODO:` en el código:
 
 ## Imágenes disponibles en public/images/
 
-- `HeroIndex.jpeg`, `HeroArtistas.jpeg`, `HeroEmpresas.jpg` — heroes por página
+- `HeroIndex.jpeg`, `HeroArtistas.jpeg`, `HeroEmpresas.jpg`, `HeroSeguridad.jpeg` — heroes por página (`HeroSeguridad.jpeg` tiene zona oscura natural a la derecha para texto)
 - `InternaEmpresas01–05.jpeg` — imágenes para secciones internas de empresas
 - `InternaArtistas01–04.jpeg` — imágenes para secciones internas de artistas
 - Íconos de servicios empresas: `PaginaWeb.png`, `LandingPage.png`, `BioLink.png`, `GoogleProfile.png`, `WhatsappBusiness.png`, `PortafolioDigital.png`, `AuditoriaDigital.png`, `AdministrarRedes.png`, `PautaPublicitaria.png`
 - Íconos etapas artistas: `ArtistasEmergentes.png`, `ArtistasCrecimiento.png`, `EquiposDisqueras.png`
 - Íconos servicios artistas: `EstrategiaLanzamiento.png`, `PlaneacionCampanas.png`, `CampanasYoutube.png`, `EstrategiasCrecimiento.png`, `CampanasInfluencers.png`, `PromocionTematicas.png`, `ProduccionVideo.png`, `ProduccionMusical.png`, `Fotografia.png`, `ContenidoVisual.png`, `GiraMedios.png`, `Presentaciones.png`, `Cines.png`
-- Imágenes de secciones: `Artistas01–03.jpeg`, `Empresas01–03.jpeg`, `Referencia01.jpeg`
+- Imágenes de secciones: `Artistas01–03.jpeg`, `Empresas01–03.jpeg`, `Referencia01.jpeg`, `InternaSeguridad01.jpeg`
 - UI: `BotonArtista.png`, `BotonEmpresa.png`, `logo.png`, `LogoFenalco.png`
 - Íconos sociales: `Facebook.png`, `Instagram.png`, `Tiktok.png`, `Whatsapp.png`, `Email.png`
 - Íconos adicionales artistas: `Colaboraciones.png`, `GestionInfluencers.png`
@@ -150,7 +157,7 @@ Están marcados como comentarios `// TODO:` en el código:
 - `empresas.astro` — completa (secciones 1–6): hero, propósito, problema, soluciones (4 categorías con imágenes), diagnóstico, cierre.
 - `index.astro` — completa (secciones 1–6).
 - `formulario.astro`, `resumen.astro`, `agendamientos.astro`, `contacto.astro` — pendientes de diseño.
-- `seguridad-movilidad.astro` — existe en repo, estado de diseño desconocido.
+- `seguridad-movilidad.astro` — en construcción (secciones 1–3): hero con imagen, propósito (texto centrado), problema (grid imagen+lista + cierre gradient). Patrón "problema" reutiliza estructura de empresas.astro sección 3.
 
 ## Perfil del desarrollador
 

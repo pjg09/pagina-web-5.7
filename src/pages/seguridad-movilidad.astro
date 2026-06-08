@@ -4,32 +4,142 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 ---
 
 <BaseLayout
-	title="Seguridad y Movilidad"
-	description="Soluciones de seguridad y movilidad para empresas y artistas con estructura y dirección."
+	title="Seguridad y Movilidad VIP"
+	description="Protección y logística de movilidad para artistas y ejecutivos que necesitan operar con discreción, orden y respaldo."
 >
-	<!-- HERO -->
-	<section class="hero" aria-label="Seguridad y Movilidad">
+	<!-- SECCIÓN 1 — HERO -->
+	<section class="hero" aria-label="Hero Seguridad y Movilidad VIP">
 		<div class="hero__bg">
+			<img
+				src="/images/HeroSeguridad.jpeg"
+				alt="Seguridad y movilidad VIP para artistas y empresarios"
+				class="hero__img"
+				fetchpriority="high"
+			/>
 			<div class="hero__overlay"></div>
 		</div>
 
 		<div class="container hero__content">
-			<span class="label reveal">Seguridad y Movilidad</span>
-			<h1 class="display display--xl hero__title reveal reveal-delay-1">
-				Seguridad<br />
-				<span class="gradient-text">y Movilidad</span>
-			</h1>
-			<p class="body--lg hero__sub reveal reveal-delay-2">
-				Próximamente disponible.
-			</p>
-			<div class="reveal reveal-delay-3">
-				<CTAWhatsApp label="Quiero más información" />
+			<div class="hero__text">
+				<h1 class="display display--xl hero__title reveal reveal-delay-2">
+					MOVILIDAD,<br />
+					SEGURIDAD<br />
+					Y CONTROL<br />
+					A LA ALTURA DE<br />
+					<span class="gradient-text">TU NIVEL</span>
+				</h1>
+				<p class="body--lg hero__sub reveal reveal-delay-3">
+					Soluciones profesionales para artistas, equipos y empresarios que
+					requieren protección, organización y presencia en cada
+					desplazamiento o evento.
+				</p>
+				<div class="hero__ctas reveal reveal-delay-4">
+					<a href="#servicios" class="btn hero__btn">
+						Coordinar servicio
+					</a>
+					<CTAWhatsApp label="Hablar por WhatsApp" />
+				</div>
+				<a
+					href="#servicios"
+					class="hero__scroll reveal"
+					aria-label="Ver servicios de seguridad y movilidad"
+				>
+					<span>Conocer más</span>
+					<svg
+						width="16"
+						height="16"
+						viewBox="0 0 16 16"
+						fill="none"
+						aria-hidden="true"
+					>
+						<path
+							d="M8 3v10M3 8l5 5 5-5"
+							stroke="currentColor"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"></path>
+					</svg>
+				</a>
 			</div>
 		</div>
 	</section>
+
+	<div class="section-line"></div>
+
+	<!-- SECCIÓN 2 — PROPÓSITO -->
+	<section class="proposito" aria-label="Por qué importa">
+		<div class="container proposito__inner">
+			<h2 class="display display--xl proposito__titulo reveal reveal-delay-1">
+				NO SE TRATA<br />
+				SOLO DE MOVERSE.<br />
+				SE TRATA DE<br />
+				<span class="gradient-text">HACERLO BIEN</span>
+			</h2>
+			<div class="proposito__rule reveal reveal-delay-2"></div>
+			<div class="proposito__body">
+				<p class="body--lg proposito__p reveal reveal-delay-2">
+					Cuando hay exposición, eventos o figuras públicas
+					involucradas, la logística no puede improvisarse.
+				</p>
+				<p class="body--lg proposito__p reveal reveal-delay-3">
+					Se necesita estructura, seguridad y control
+					en cada movimiento.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<div class="section-line"></div>
+
+	<!-- SECCIÓN 3 — EL PROBLEMA -->
+	<section class="problema" aria-label="El problema">
+		<div class="container">
+			<div class="problema__split">
+				<div class="problema__imagen reveal">
+					<img
+						src="/images/InternaSeguridad01.jpeg"
+						alt="Seguridad en eventos y movilidad"
+						loading="lazy"
+					/>
+					<div class="problema__imagen-overlay"></div>
+				</div>
+				<div class="problema__content reveal reveal-delay-1">
+					<span class="label">El problema</span>
+					<h2 class="display display--lg problema__titulo">
+						CUANDO NO HAY<br />
+						ESTRUCTURA,<br />
+						TODO SE <span class="gradient-text">EXPONE</span>
+					</h2>
+					<p class="problema__intro">
+						Muchos artistas, equipos y empresarios enfrentan:
+					</p>
+					<ul class="problema__lista">
+						<li>Falta de seguridad en eventos</li>
+						<li>Traslados sin planificación ni respaldo</li>
+						<li>Riesgos en exposición pública</li>
+						<li>Logística improvisada</li>
+						<li>Mala experiencia en movilidad</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="problema__cierre">
+			<div class="container">
+				<p class="problema__mensaje reveal">
+					<span class="gradient-text"
+						>LA EXPOSICIÓN SIN CONTROL ES UN RIESGO.<br />
+						EL NIVEL TAMBIÉN SE PROTEGE</span
+					>
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<div class="section-line"></div>
 </BaseLayout>
 
 <style>
+	/* ─── HERO ─────────────────────────────────────────────── */
 	.hero {
 		position: relative;
 		min-height: 100svh;
@@ -46,14 +156,31 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 		inset: 0;
 	}
 
+	.hero__img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: right center;
+		display: block;
+	}
+
+	/* El overlay oscurece el lado izquierdo (sujeto visual) y el borde inferior.
+	   El área derecha de la imagen ya es oscura de forma natural. */
 	.hero__overlay {
 		position: absolute;
 		inset: 0;
-		background: radial-gradient(
-			ellipse at 60% 50%,
-			var(--cyan-subtle) 0%,
-			transparent 70%
-		);
+		background:
+			linear-gradient(
+				to right,
+				rgba(8, 8, 16, 0.75) 0%,
+				rgba(8, 8, 16, 0.45) 45%,
+				rgba(8, 8, 16, 0.05) 70%
+			),
+			linear-gradient(
+				to top,
+				rgba(8, 8, 16, 0.65) 0%,
+				transparent 38%
+			);
 	}
 
 	.hero__content {
@@ -62,7 +189,22 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		gap: 1.5rem;
+	}
+
+	.hero__text {
+		max-width: 55%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1.25rem;
+	}
+
+	/* Línea de acento táctica sobre el label */
+	.hero__rule {
+		width: 2.5rem;
+		height: 1px;
+		background: var(--cyan);
+		opacity: 0.65;
 	}
 
 	.hero__title {
@@ -71,14 +213,265 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 
 	.hero__sub {
 		color: var(--text-high);
-		font-size: 1.55rem;
-		max-width: 52ch;
-		font-weight: 500;
+		max-width: 42ch;
+		font-weight: 400;
 	}
 
-	@media (max-width: 768px) {
-		.hero__sub {
-			font-size: 1.2rem;
+	.hero__ctas {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
+	.hero__ctas :global(.cta-whatsapp) {
+		font-size: 1.1rem;
+		padding: 0.85rem 2rem;
+	}
+
+	.hero__btn {
+		background: #fff;
+		color: #000;
+		font-weight: 700;
+		border: 1.5px solid transparent;
+		transition: background 0.22s, color 0.22s, border-color 0.22s;
+	}
+
+	.hero__btn:hover {
+		background: transparent;
+		color: var(--cyan);
+		border-color: var(--cyan);
+	}
+
+	.hero__scroll {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--text-mid);
+		font-size: 0.8rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		text-decoration: none;
+		margin-top: 0.25rem;
+		transition: color 0.2s;
+	}
+
+	.hero__scroll:hover {
+		color: var(--cyan);
+	}
+
+	/* ─── RESPONSIVE ────────────────────────────────────────── */
+	@media (max-width: 900px) {
+		.hero__content {
+			align-items: flex-start;
+		}
+
+		.hero__text {
+			max-width: 100%;
+		}
+
+		.hero__overlay {
+			background: linear-gradient(
+				to top,
+				rgba(8, 8, 16, 0.88) 0%,
+				rgba(8, 8, 16, 0.55) 55%,
+				rgba(8, 8, 16, 0.25) 100%
+			);
+		}
+	}
+
+	@media (max-width: 540px) {
+		.hero__ctas {
+			flex-direction: column;
+		}
+
+		.hero__ctas .hero__btn,
+		.hero__ctas :global(.cta-whatsapp) {
+			width: 100%;
+			justify-content: center;
+		}
+	}
+
+	/* ─── PROPÓSITO ─────────────────────────────────────────── */
+	.proposito {
+		padding: clamp(5rem, 10vw, 9rem) 0;
+		background: var(--bg-surface);
+	}
+
+	.proposito__inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 1.5rem;
+	}
+
+	.proposito__titulo {
+		line-height: 0.9;
+	}
+
+	.proposito__rule {
+		width: 3rem;
+		height: 1px;
+		background: var(--cyan);
+		opacity: 0.45;
+		margin: 0.5rem 0;
+	}
+
+	.proposito__body {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		max-width: 52ch;
+	}
+
+	.proposito__p {
+		color: var(--text-dim);
+		line-height: 1.7;
+		font-weight: 400;
+	}
+
+	/* ─── PROBLEMA ──────────────────────────────────────────── */
+	.problema {
+		background: var(--bg-base);
+		padding-top: clamp(4rem, 8vw, 7rem);
+		padding-bottom: 0;
+	}
+
+	.problema__split {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0;
+		min-height: 520px;
+		align-items: stretch;
+	}
+
+	.problema__imagen {
+		position: relative;
+		overflow: hidden;
+	}
+
+	.problema__imagen img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center 30%;
+		display: block;
+		transition: transform 0.8s var(--ease);
+	}
+
+	.problema__split:hover .problema__imagen img {
+		transform: scale(1.03);
+	}
+
+	.problema__imagen-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			to right,
+			transparent 60%,
+			var(--bg-base) 100%
+		);
+	}
+
+	.problema__content {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		padding: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 4vw, 3.5rem);
+		background: var(--bg-base);
+	}
+
+	.problema__titulo {
+		line-height: 0.95;
+	}
+
+	.problema__intro {
+		color: var(--text-dim);
+		font-size: 1rem;
+		font-weight: 500;
+		letter-spacing: 0.02em;
+	}
+
+	.problema__lista {
+		display: flex;
+		flex-direction: column;
+		gap: 0.85rem;
+		list-style: none;
+		padding: 0;
+		padding-left: 1.5rem;
+	}
+
+	.problema__lista li {
+		font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+		color: var(--text-secondary);
+		line-height: 1.5;
+		font-weight: 500;
+		position: relative;
+		transition: color var(--t-fast) var(--ease);
+	}
+
+	.problema__lista li::before {
+		content: "·";
+		position: absolute;
+		left: -1.5rem;
+		color: var(--cyan);
+		font-size: 1.5em;
+		line-height: 0.85;
+		font-weight: 700;
+	}
+
+	.problema__lista li:hover {
+		color: var(--text-primary);
+	}
+
+	.problema__cierre {
+		background: var(--bg-surface);
+		padding-block: clamp(4rem, 8vw, 6rem);
+		margin-top: clamp(3rem, 6vw, 5rem);
+		border-top: 1px solid var(--border);
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.problema__cierre::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(
+			ellipse at 50% 100%,
+			var(--cyan-subtle) 0%,
+			transparent 65%
+		);
+		pointer-events: none;
+	}
+
+	.problema__mensaje {
+		font-family: var(--font-display);
+		font-size: clamp(1.5rem, 3.5vw, 3rem);
+		letter-spacing: 0.05em;
+		position: relative;
+		z-index: 1;
+		line-height: 1.15;
+	}
+
+	@media (max-width: 900px) {
+		.problema__split {
+			grid-template-columns: 1fr;
+			min-height: unset;
+		}
+
+		.problema__imagen {
+			height: 280px;
+		}
+
+		.problema__imagen-overlay {
+			background: linear-gradient(
+				to bottom,
+				transparent 60%,
+				var(--bg-base) 100%
+			);
 		}
 	}
 </style>
