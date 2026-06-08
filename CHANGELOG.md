@@ -1,3 +1,9 @@
+## [1.5.2](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.1...v1.5.2) (2026-06-08)
+
+### Bug Fixes
+
+* **artistas:** refine visual design across all sections ([d65407c](https://github.com/pjg09/pagina-web-5.7/commit/d65407c805706f25c40df70139113108152c0c0b))
+
 ## [1.5.1](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.0...v1.5.1) (2026-06-08)
 
 ## [1.5.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.4.6...v1.5.0) (2026-06-08)
