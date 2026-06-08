@@ -1,3 +1,9 @@
+## [1.5.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.4.6...v1.5.0) (2026-06-08)
+
+### Features
+
+* inicio del desarrollo de la pagina de seguridad ([5850406](https://github.com/pjg09/pagina-web-5.7/commit/5850406aebf0b7256864a61aca1b27259fc27922))
+
 ## [1.4.6](https://github.com/pjg09/pagina-web-5.7/compare/v1.4.5...v1.4.6) (2026-05-29)
 
 ### Bug Fixes
