@@ -1,3 +1,9 @@
+## [1.5.4](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.3...v1.5.4) (2026-06-09)
+
+### Bug Fixes
+
+* **empresas:** rediseño secciones 3 y 4 ([52fede9](https://github.com/pjg09/pagina-web-5.7/commit/52fede972663806f558cd9c70ea25dc6fd9fe722))
+
 ## [1.5.3](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.2...v1.5.3) (2026-06-09)
 
 ### Bug Fixes
