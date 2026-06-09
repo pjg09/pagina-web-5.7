@@ -85,6 +85,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
                         />
                         <div class="base__img-overlay"></div>
                     </div>
+                    <div class="base__img-border"></div>
                 </div>
 
                 <div class="base__text reveal reveal-delay-2">
@@ -112,16 +113,21 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
         class="problema"
         aria-label="Lo que frena el crecimiento de tu marca"
     >
-        <!-- 3A — Texto centrado, sin imagen -->
+        <!-- 3A — Dos columnas: título | lista -->
         <div class="container">
-            <div class="problema__content">
+            <div class="problema__grid">
                 <div class="reveal">
-                    <h2 class="display display--lg problema__titulo">
-                        LO QUE ESTÁ FRENANDO<br />
-                        EL CRECIMIENTO DE<br />
-                        TU <span class="gradient-text">MARCA</span>
+                    <div class="divider"></div>
+                    <h2 class="problema__titulo">
+                        LO QUE ESTÁ<br />
+                        FRENANDO<br />
+                        EL CRECIMIENTO<br />
+                        DE TU <span class="gradient-text">MARCA</span>
                     </h2>
                 </div>
+
+                <div class="problema__sep" aria-hidden="true"></div>
+
                 <ul class="problema__lista reveal reveal-delay-1">
                     <li>Presencia digital débil o desordenada</li>
                     <li>Redes sociales sin dirección estratégica</li>
@@ -146,16 +152,23 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
 
     <!-- SECCIÓN 4 — SOLUCIONES -->
     <section class="soluciones" aria-label="Soluciones para tu marca">
-        <!-- 4A — HEADER SIN IMAGEN -->
+        <!-- 4A — HEADER CON IMAGEN -->
         <div class="sol-intro">
-            <div class="container sol-intro__inner">
+            <div class="sol-intro__imagen reveal">
+                <img
+                    src="/images/InternaEmpresas02.jpeg"
+                    alt="Soluciones para tu marca"
+                    loading="lazy"
+                />
+            </div>
+            <div class="sol-intro__content">
                 <h2 class="display display--lg reveal reveal-delay-1">
                     SOLUCIONES QUE <br />HACEN QUE TU <br /><span
                         class="gradient-text">MARCA</span
                     > AVANCE
                 </h2>
                 <p class="sol-intro__texto reveal reveal-delay-2">
-                    Esto es lo que construimos para que tu marca crezca con
+                    Esto es lo que construimos para que tu marca<br class="br-desktop" />crezca con
                     dirección:
                 </p>
             </div>
@@ -175,136 +188,109 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
                         de forma profesional.
                     </p>
                 </div>
-                <div class="sol-cat__layout">
-                    <div class="sol-cat__services">
-                        <div class="sol-grid sol-grid--2">
-                            <div class="sol-item reveal">
-                                <img
-                                    src="/images/PaginaWeb.png"
-                                    alt=""
-                                    class="sol-item__icono"
-                                    aria-hidden="true"
-                                />
-                                <h4 class="sol-item__titulo">
-                                    Diseño y creación<br />de páginas web
-                                </h4>
-                                <p class="sol-item__desc">
-                                    Desarrollamos tu página web profesional para
-                                    que tu marca tenga presencia sólida, clara y
-                                    confiable en internet.
-                                </p>
-                            </div>
-                            <div class="sol-item reveal reveal-delay-1">
-                                <img
-                                    src="/images/LandingPage.png"
-                                    alt=""
-                                    class="sol-item__icono"
-                                    aria-hidden="true"
-                                />
-                                <h4 class="sol-item__titulo">
-                                    Diseño y creación<br />de landing pages
-                                </h4>
-                                <p class="sol-item__desc">
-                                    Creamos páginas enfocadas en convertir
-                                    visitas en contactos o ventas de forma
-                                    directa.
-                                </p>
-                            </div>
-                            <div class="sol-item reveal reveal-delay-2">
-                                <img
-                                    src="/images/BioLink.png"
-                                    alt=""
-                                    class="sol-item__icono"
-                                    aria-hidden="true"
-                                />
-                                <h4 class="sol-item__titulo">
-                                    Bio link<br />profesional
-                                </h4>
-                                <p class="sol-item__desc">
-                                    Organizamos todos tus enlaces en un solo
-                                    lugar con una imagen limpia y estratégica.
-                                </p>
-                            </div>
-                            <div class="sol-item reveal">
-                                <img
-                                    src="/images/GoogleProfile.png"
-                                    alt=""
-                                    class="sol-item__icono"
-                                    aria-hidden="true"
-                                />
-                                <h4 class="sol-item__titulo">
-                                    Google Business<br />Profile
-                                </h4>
-                                <p class="sol-item__desc">
-                                    Creamos u optimizamos tu negocio para que
-                                    aparezcas en búsquedas y mapas, facilitando
-                                    que te encuentren.
-                                </p>
-                            </div>
-                            <div class="sol-item reveal reveal-delay-1">
-                                <img
-                                    src="/images/WhatsappBusiness.png"
-                                    alt=""
-                                    class="sol-item__icono"
-                                    aria-hidden="true"
-                                />
-                                <h4 class="sol-item__titulo">
-                                    WhatsApp<br />Business
-                                </h4>
-                                <p class="sol-item__desc">
-                                    Configuramos tu canal de contacto para
-                                    atención rápida, organizada y profesional.
-                                </p>
-                            </div>
-                            <div class="sol-item reveal reveal-delay-2">
-                                <img
-                                    src="/images/PortafolioDigital.png"
-                                    alt=""
-                                    class="sol-item__icono"
-                                    aria-hidden="true"
-                                />
-                                <h4 class="sol-item__titulo">
-                                    Diseño de portafolios<br />comerciales
-                                    digitales
-                                </h4>
-                                <p class="sol-item__desc">
-                                    Creamos presentaciones claras y bien
-                                    estructuradas para mostrar tus servicios o
-                                    productos.
-                                </p>
-                            </div>
-                            <div class="sol-item reveal">
-                                <img
-                                    src="/images/AuditoriaDigital.png"
-                                    alt=""
-                                    class="sol-item__icono"
-                                    aria-hidden="true"
-                                />
-                                <h4 class="sol-item__titulo">
-                                    Auditoría de<br />Presencia Digital
-                                </h4>
-                                <p class="sol-item__desc">
-                                    Analizamos tu estado actual y detectamos
-                                    oportunidades claras de mejora.
-                                </p>
-                            </div>
+                <div class="sol-cat__services">
+                    <div class="sol-grid sol-grid--2">
+                        <div class="sol-item reveal">
+                            <img
+                                src="/images/PaginaWeb.png"
+                                alt=""
+                                class="sol-item__icono"
+                                aria-hidden="true"
+                            />
+                            <h4 class="sol-item__titulo">
+                                Diseño y creación<br />de páginas web
+                            </h4>
+                            <p class="sol-item__desc">
+                                Desarrollamos tu página web profesional para que
+                                tu marca tenga presencia sólida, clara y
+                                confiable en internet.
+                            </p>
                         </div>
-                        <div class="sol-cat__cta reveal">
-                            <a
-                                href={CALENDLY_EMPRESAS}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="btn sol-btn"
-                                >Quiero estructurar mi marca</a
-                            >
+                        <div class="sol-item reveal reveal-delay-1">
+                            <img
+                                src="/images/LandingPage.png"
+                                alt=""
+                                class="sol-item__icono"
+                                aria-hidden="true"
+                            />
+                            <h4 class="sol-item__titulo">
+                                Diseño y creación<br />de landing pages
+                            </h4>
+                            <p class="sol-item__desc">
+                                Creamos páginas enfocadas en convertir visitas
+                                en contactos o ventas de forma directa.
+                            </p>
+                        </div>
+                        <div class="sol-item reveal reveal-delay-2">
+                            <img
+                                src="/images/BioLink.png"
+                                alt=""
+                                class="sol-item__icono"
+                                aria-hidden="true"
+                            />
+                            <h4 class="sol-item__titulo">
+                                Bio link<br />profesional
+                            </h4>
+                            <p class="sol-item__desc">
+                                Organizamos todos tus enlaces en un solo lugar
+                                con una imagen limpia y estratégica.
+                            </p>
+                        </div>
+                        <div class="sol-item reveal">
+                            <img
+                                src="/images/GoogleProfile.png"
+                                alt=""
+                                class="sol-item__icono"
+                                aria-hidden="true"
+                            />
+                            <h4 class="sol-item__titulo">
+                                Google Business<br />Profile
+                            </h4>
+                            <p class="sol-item__desc">
+                                Creamos u optimizamos tu negocio para que
+                                aparezcas en búsquedas y mapas, facilitando que
+                                te encuentren.
+                            </p>
+                        </div>
+                        <div class="sol-item reveal reveal-delay-2">
+                            <img
+                                src="/images/PortafolioDigital.png"
+                                alt=""
+                                class="sol-item__icono"
+                                aria-hidden="true"
+                            />
+                            <h4 class="sol-item__titulo">
+                                Diseño de portafolios<br />comerciales digitales
+                            </h4>
+                            <p class="sol-item__desc">
+                                Creamos presentaciones claras y bien
+                                estructuradas para mostrar tus servicios o
+                                productos.
+                            </p>
+                        </div>
+                        <div class="sol-item reveal">
+                            <img
+                                src="/images/AuditoriaDigital.png"
+                                alt=""
+                                class="sol-item__icono"
+                                aria-hidden="true"
+                            />
+                            <h4 class="sol-item__titulo">
+                                Auditoría de<br />Presencia Digital
+                            </h4>
+                            <p class="sol-item__desc">
+                                Analizamos tu estado actual y detectamos
+                                oportunidades claras de mejora.
+                            </p>
                         </div>
                     </div>
-                    <div class="sol-cat__imagen reveal reveal-delay-2">
-                        <img
-                            src="/images/InternaEmpresas02.jpeg"
-                            alt="Infraestructura digital para marcas"
-                            loading="lazy"
-                        />
+                    <div class="sol-cat__cta reveal">
+                        <a
+                            href={CALENDLY_EMPRESAS}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn sol-btn">Quiero estructurar mi marca</a
+                        >
                     </div>
                 </div>
             </div>
@@ -323,14 +309,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
                         dirección, conectando con tu audiencia.
                     </p>
                 </div>
-                <div class="sol-cat__layout sol-cat__layout--reverse">
-                    <div class="sol-cat__imagen reveal">
-                        <img
-                            src="/images/InternaEmpresas03.jpeg"
-                            alt="Redes sociales con estrategia"
-                            loading="lazy"
-                        />
-                    </div>
+                <div class="sol-cat__layout">
                     <div class="sol-cat__services">
                         <div class="sol-grid sol-grid--1">
                             <div class="sol-item sol-item--card reveal">
@@ -375,6 +354,13 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
                             >
                         </div>
                     </div>
+                    <div class="sol-cat__imagen reveal reveal-delay-1">
+                        <img
+                            src="/images/InternaEmpresas03.jpeg"
+                            alt="Redes sociales con estrategia"
+                            loading="lazy"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -392,9 +378,8 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
                         marca y transmite confianza.
                     </p>
                 </div>
-                <div class="sol-cat__layout">
-                    <div class="sol-cat__services">
-                        <div class="sol-grid sol-grid--1">
+                <div class="sol-cat__services">
+                        <div class="sol-grid sol-grid--3">
                             <div class="sol-item reveal">
                                 <img
                                     src="/images/Fotografia.png"
@@ -450,14 +435,6 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
                                 class="btn sol-btn">Quiero mejorar mi imagen</a
                             >
                         </div>
-                    </div>
-                    <div class="sol-cat__imagen reveal reveal-delay-2">
-                        <img
-                            src="/images/InternaEmpresas04.jpeg"
-                            alt="Producción audiovisual profesional"
-                            loading="lazy"
-                        />
-                    </div>
                 </div>
             </div>
         </div>
@@ -646,18 +623,11 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center top;
+        object-position: right center;
     }
 
     .hero__overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-            to right,
-            rgba(8, 8, 16, 0.92) 0%,
-            rgba(8, 8, 16, 0.65) 50%,
-            rgba(8, 8, 16, 0.1) 100%
-        );
+        display: none;
     }
 
     .hero__content {
@@ -759,15 +729,33 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: clamp(3rem, 6vw, 6rem);
+        align-items: stretch;
+    }
+
+    .base__visual {
+        display: flex;
         align-items: center;
+        position: relative;
     }
 
     .base__img-wrapper {
         position: relative;
         border-radius: var(--radius-lg);
         overflow: hidden;
-        border: 1px solid var(--empresa-dim);
-        transition: border-color var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease);
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .base__img-border {
+        position: absolute;
+        inset: -6px;
+        border-radius: calc(var(--radius-lg) + 6px);
+        background: linear-gradient(135deg, var(--cyan), var(--magenta));
+        z-index: 0;
+        opacity: 0.25;
+        filter: blur(1px);
+        transition: opacity var(--t-med) var(--ease);
     }
 
     .base__img {
@@ -775,7 +763,6 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
         height: 100%;
         object-fit: cover;
         display: block;
-        aspect-ratio: 4 / 5;
         transition: transform 0.8s var(--ease);
     }
 
@@ -783,9 +770,8 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
         transform: scale(1.03);
     }
 
-    .base__visual:hover .base__img-wrapper {
-        border-color: var(--empresa);
-        box-shadow: 0 0 24px rgba(181, 0, 95, 0.4);
+    .base__visual:hover .base__img-border {
+        opacity: 0.5;
     }
 
     .base__img-overlay {
@@ -802,6 +788,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+        padding-block: 5%;
     }
 
     .base__title {
@@ -823,10 +810,24 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
         .base__grid {
             grid-template-columns: 1fr;
             gap: 2.5rem;
+            align-items: start;
+        }
+
+        .base__visual {
+            display: block;
+        }
+
+        .base__img-wrapper {
+            height: auto;
         }
 
         .base__img {
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 16 / 10.8;
+            height: auto;
+        }
+
+        .base__text {
+            padding-block: 0;
         }
 
         .base__body {
@@ -836,54 +837,68 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
 
     /* SECCIÓN 3 — EL PROBLEMA */
     .problema {
-        background: var(--bg-surface);
+        background: var(--bg-base);
         padding-top: var(--section-gap);
         padding-bottom: 0;
         padding-top: clamp(3rem, 6vw, 5rem);
     }
 
-    .problema__content {
-        display: flex;
-        flex-direction: column;
-        gap: 2.5rem;
-        max-width: 760px;
+    .problema__grid {
+        display: grid;
+        grid-template-columns: 0.6fr 2px 1fr;
+        gap: 0 clamp(2.5rem, 5vw, 5rem);
+        align-items: center;
+    }
+
+    .problema__sep {
+        align-self: stretch;
+        background: linear-gradient(
+            to bottom,
+            transparent,
+            var(--cyan) 25%,
+            var(--magenta) 75%,
+            transparent
+        );
+        opacity: 0.35;
     }
 
     .problema__titulo {
-        line-height: 1.05;
-        margin-top: 0.75rem;
+        font-family: var(--font-display);
+        font-size: clamp(2.6rem, 4vw, 4rem);
+        line-height: 1;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
     }
 
     .problema__lista {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 0;
         list-style: none;
         padding: 0;
-        padding-left: 1.5rem;
     }
 
     .problema__lista li {
-        font-size: clamp(1.32rem, 2vw, 1.5rem);
+        display: grid;
+        grid-template-columns: 1.5rem 1fr;
+        column-gap: 0.75rem;
+        align-items: baseline;
+        padding-block: 1.1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        font-size: clamp(1.1rem, 1.7vw, 1.25rem);
         color: var(--text-secondary);
         line-height: 1.5;
-        font-weight: 500;
-        position: relative;
-        transition: color var(--t-fast) var(--ease);
+    }
+
+    .problema__lista li:first-child {
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
     }
 
     .problema__lista li::before {
-        content: "·";
-        position: absolute;
-        left: -1.5rem;
-        color: var(--empresa);
-        font-size: 1.5em;
-        line-height: 0.85;
-        font-weight: 700;
-    }
-
-    .problema__lista li:hover {
-        color: var(--text-primary);
+        content: "—";
+        color: var(--cyan);
+        font-size: 0.9em;
+        line-height: 1.6;
     }
 
     .problema__imagen {
@@ -917,9 +932,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
     /* 3B — Cierre */
     .problema__cierre {
         background: var(--bg-base);
-        padding-block: clamp(4rem, 8vw, 6rem);
-        margin-top: clamp(3rem, 6vw, 5rem);
-        border-top: 1px solid var(--border);
+        padding-block: clamp(2rem, 4vw, 3rem) clamp(4rem, 8vw, 6rem);
         text-align: center;
         position: relative;
         overflow: hidden;
@@ -960,6 +973,15 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
             aspect-ratio: 16 / 9;
             height: auto;
         }
+
+        .problema__grid {
+            grid-template-columns: 1fr;
+            gap: 2rem 0;
+        }
+
+        .problema__sep {
+            display: none;
+        }
     }
 
     /* SECCIÓN 4 — SOLUCIONES */
@@ -967,18 +989,43 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
         background: var(--bg-base);
     }
 
-    /* Header sin imagen */
+    /* Header con imagen full-bleed */
     .sol-intro {
         background: var(--bg-surface);
-        padding-block: clamp(3.5rem, 7vw, 6rem);
         border-top: 1px solid var(--border);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 
-    .sol-intro__inner {
+    .sol-intro__imagen {
+        overflow: hidden;
+        min-height: 400px;
+    }
+
+    .sol-intro__imagen img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.8s var(--ease);
+    }
+
+    .sol-intro:hover .sol-intro__imagen img {
+        transform: scale(1.03);
+    }
+
+    .sol-intro__content {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 1.25rem;
-        max-width: 700px;
+        padding: clamp(3.5rem, 7vw, 6rem) clamp(2rem, 5vw, 4rem);
+        padding-right: max(
+            clamp(2rem, 5vw, 4rem),
+            calc(
+                (100vw - var(--container-width)) / 2 + clamp(1.25rem, 5vw, 3rem)
+            )
+        );
     }
 
     .sol-intro__texto {
@@ -991,13 +1038,13 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
     /* Layout imagen + servicios dentro de cada subsección */
     .sol-cat__layout {
         display: grid;
-        grid-template-columns: 1fr 380px;
+        grid-template-columns: 1fr 460px;
         gap: clamp(2.5rem, 5vw, 4rem);
-        align-items: start;
+        align-items: stretch;
     }
 
     .sol-cat__layout--reverse {
-        grid-template-columns: 380px 1fr;
+        grid-template-columns: 460px 1fr;
     }
 
     .sol-cat__services {
@@ -1009,7 +1056,6 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
     .sol-cat__imagen {
         border-radius: var(--radius-lg);
         overflow: hidden;
-        aspect-ratio: 3/4;
     }
 
     .sol-cat__imagen img {
@@ -1052,7 +1098,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
 
     .sol-cat__num {
         font-family: var(--font-display);
-        font-size: 4.5rem;
+        font-size: 5.5rem;
         line-height: 0.85;
         background: linear-gradient(
             135deg,
@@ -1062,8 +1108,10 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
         );
         -webkit-background-clip: text;
         background-clip: text;
+        -webkit-text-fill-color: transparent;
         color: transparent;
         display: block;
+        width: fit-content;
     }
 
     .sol-cat__titulo {
@@ -1206,6 +1254,15 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
             position: static;
             aspect-ratio: 16 / 9;
         }
+
+        .sol-intro {
+            grid-template-columns: 1fr;
+        }
+
+        .sol-intro__imagen {
+            min-height: unset;
+            aspect-ratio: 16 / 9;
+        }
     }
 
     @media (max-width: 600px) {
@@ -1218,6 +1275,12 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
             grid-column: auto;
             max-width: none;
             margin-inline: 0;
+        }
+    }
+
+    @media (max-width: 900px) {
+        .br-desktop {
+            display: none;
         }
     }
 

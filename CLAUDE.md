@@ -157,14 +157,22 @@ Están marcados como comentarios `// TODO:` en el código:
 
 **`<br>` en Astro no es confiable para layout:** Los void elements pueden no recibir el atributo de scoping de Astro, y `display: block` en un `<br>` suprime su salto de línea. Para ajustes de alineación vertical (ej. igualar altura de títulos en dos columnas), usar `padding-top` en el elemento afectado en lugar de `<br>` con CSS.
 
+**`<br>` responsive (solo desktop/solo mobile):** No usar `display: none` en `<br>` — suprime el salto. En su lugar, usar `<br class="br-desktop" />` y en CSS: `@media (max-width: 900px) { .br-desktop { display: none; } }`. Mismo patrón con `.br-mobile` para el caso inverso.
+
 **`background-clip: text` + SVG `fill="currentColor"`:** Al aplicar gradiente de texto con `color: transparent`, los íconos SVG que usan `fill="currentColor"` quedan invisibles. Fix: agregar `fill: var(--cyan)` explícito al SVG via `:global(.componente svg)`.
+
+**`background-clip: text` + `display: block` → agregar `width: fit-content`:** Al aplicar gradiente de texto a un elemento `display: block`, el elemento ocupa el ancho completo del contenedor y el texto corto (ej. "01") solo muestra el primer color del gradiente. Fix: añadir `width: fit-content` para restringir el gradiente al ancho del texto.
+
+**Imagen full-bleed en sección con layout de columnas:** Para que una imagen ocupe toda una columna sin padding del `.container`, sacar la imagen del `.container` y convertir el elemento padre de la sección directamente en el grid. La columna de contenido gestiona su propio padding interno calculado para alinearse con el container.
+
+**Grid de dos columnas imagen+servicios — orden HTML y dirección:** Con `grid-template-columns: 1fr 460px` (imagen derecha), el HTML debe ir servicios primero, imagen después. Con `--reverse` (`460px 1fr`, imagen izquierda), imagen primero. Cambiar de `--reverse` a normal requiere también invertir el orden HTML, no solo quitar la clase.
 
 **Bebas Neue solo carga en peso 400:** La importación `family=Bebas+Neue` de Google Fonts trae únicamente regular. Los `h2` generan bold sintético (más grueso) por el `font-weight: 700` del navegador. Para igualar visualmente un `<p>` a un `<h2>` con Bebas Neue, agregar `font-weight: 700` explícito al `<p>`.
 
 ## Estado actual de páginas
 
 - `artistas.astro` — completa (secciones 1–5): hero, intro, etapas, servicios (4 categorías con imágenes), asesoría estratégica con formulario ilustrativo.
-- `empresas.astro` — completa (secciones 1–6): hero, propósito, problema, soluciones (4 categorías con imágenes), diagnóstico, cierre.
+- `empresas.astro` — completa (secciones 1–6): hero, propósito, problema (dos columnas título|lista + mensaje cierre), soluciones (4A header con imagen full-bleed; 01 sin imagen; 02 imagen derecha; 03 tres columnas; 04 imagen izquierda), diagnóstico, cierre.
 - `index.astro` — completa (secciones 1–6).
 - `formulario.astro`, `resumen.astro`, `agendamientos.astro`, `contacto.astro` — pendientes de diseño.
 - `seguridad-movilidad.astro` — en construcción (secciones 1–3): hero con imagen, propósito (texto centrado), problema (grid imagen+lista + cierre gradient). Patrón "problema" reutiliza estructura de empresas.astro sección 3.
