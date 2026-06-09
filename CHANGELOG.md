@@ -1,3 +1,9 @@
+## [1.5.3](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.2...v1.5.3) (2026-06-09)
+
+### Bug Fixes
+
+* **artistas:** modal de condiciones antes del pago de asesoría ([856e679](https://github.com/pjg09/pagina-web-5.7/commit/856e6790de918dfb52c9f404718206b55e054b0a))
+
 ## [1.5.2](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.1...v1.5.2) (2026-06-08)
 
 ### Bug Fixes
