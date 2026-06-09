@@ -33,6 +33,10 @@ src/
   layouts/      BaseLayout.astro
   pages/        index, artistas, empresas, formulario, resumen, agendamientos, contacto, seguridad-movilidad
   styles/       global.css
+docs/
+  decisiones-arquitectura.md          (ADR-1 a ADR-4: por qué Astro estático, Make, token UUID, MercadoPago)
+  flujo-pago-artistas.md              (diagrama del flujo de pago — desactualizado, pendiente revisión)
+  implementacion-flujo-pago-artistas.md  (guía de implementación — pendiente)
 ```
 
 **Componentes existentes (no usar sin leer su CSS primero):**
@@ -115,7 +119,7 @@ Están marcados como comentarios `// TODO:` en el código:
 
 ## Patrones CSS críticos
 
-**Botones del sitio (patrón establecido):** Todos los botones de contenido usan fondo blanco + texto negro + hover con gradiente `var(--cyan) → var(--magenta)` y borde cyan. NO usar `btn--primary`/`btn--outline` en páginas — esas clases se overridean con CSS scoped. `CTAWhatsApp.astro` tiene su propio CSS inline.
+**Botones del sitio (patrón base):** El patrón global usa fondo blanco + texto negro + hover con gradiente `var(--cyan) → var(--magenta)` y borde cyan. **artistas.astro usa una variante:** `.servicio-btn` y `.asesoria-paso__btn` tienen gradiente cyan→magenta como estado **default** y `filter: brightness(1.2)` en hover. NO usar `btn--primary`/`btn--outline` en páginas — esas clases se overridean con CSS scoped. `CTAWhatsApp.astro` tiene su propio CSS inline.
 
 **Posicionamiento horizontal en hero:** NO usar `grid-column: N` dentro de `.container` para ubicar el bloque de texto. Usar `display: flex; flex-direction: column; align-items: flex-end` en `.hero__content` y `max-width: 50%` en `.hero__text` para empujar a la derecha (o `align-items: flex-start` + `max-width: 55%; margin-left: 8%` para izquierda, como en artistas).
 
@@ -150,6 +154,12 @@ Están marcados como comentarios `// TODO:` en el código:
 **Linter reformatea entre operaciones:** El formatter de Astro reindenta el HTML después de cada save. Si el Edit tool falla con "old_string not found", usar Python `content.replace(old, new)` via Bash — es inmune a cambios de indentación. Para cambios masivos de CSS (múltiples valores en distintas clases), usar un script Python que haga todos los replaces de una sola pasada en lugar de múltiples operaciones Edit.
 
 **`.btn--primary` / `.btn--outline` en Astro scoped CSS:** Los overrides de clases globales en `<style>` de una página solo afectan elementos de ESA página, no los de componentes hijos (como `CTAWhatsApp.astro`). Para cambiar el estilo del botón en un componente hijo, modificar el CSS del componente directamente.
+
+**`<br>` en Astro no es confiable para layout:** Los void elements pueden no recibir el atributo de scoping de Astro, y `display: block` en un `<br>` suprime su salto de línea. Para ajustes de alineación vertical (ej. igualar altura de títulos en dos columnas), usar `padding-top` en el elemento afectado en lugar de `<br>` con CSS.
+
+**`background-clip: text` + SVG `fill="currentColor"`:** Al aplicar gradiente de texto con `color: transparent`, los íconos SVG que usan `fill="currentColor"` quedan invisibles. Fix: agregar `fill: var(--cyan)` explícito al SVG via `:global(.componente svg)`.
+
+**Bebas Neue solo carga en peso 400:** La importación `family=Bebas+Neue` de Google Fonts trae únicamente regular. Los `h2` generan bold sintético (más grueso) por el `font-weight: 700` del navegador. Para igualar visualmente un `<p>` a un `<h2>` con Bebas Neue, agregar `font-weight: 700` explícito al `<p>`.
 
 ## Estado actual de páginas
 
