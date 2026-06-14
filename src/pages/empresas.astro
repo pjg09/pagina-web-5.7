@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
+import CTAWhatsApp from "../components/CTAWhatsApp.astro";
+import { CALENDLY_EMPRESAS } from "../data/constantes";
 ---
 
 <BaseLayout
@@ -589,14 +590,7 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
                 >
             </p>
             <div class="reveal reveal-delay-2">
-                <a
-                    href={WHATSAPP_CTA}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn cierre-empresas__btn"
-                >
-                    Hablemos por WhatsApp
-                </a>
+                <CTAWhatsApp />
             </div>
         </div>
     </section>
@@ -1220,19 +1214,16 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
 
     /* Botón CTA servicios */
     .sol-btn {
-        background: #fff;
-        color: #000;
-        border: none;
-    }
-
-    .sol-btn:hover {
-        background: #fff;
-        border: 2px solid var(--empresa);
-        transform: translateY(-2px);
+        background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
-        background-image: linear-gradient(90deg, var(--empresa), #ff6b9d);
+        border: 2px solid var(--cyan);
+    }
+
+    .sol-btn:hover {
+        filter: brightness(1.2);
+        transform: translateY(-2px);
     }
 
     /* Responsive */
@@ -1400,19 +1391,16 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
     }
 
     .diagnostico__btn {
-        background: #fff;
-        color: #000;
-        border: none;
-    }
-
-    .diagnostico__btn:hover {
-        background: #fff;
-        border: 2px solid var(--empresa);
-        transform: translateY(-2px);
+        background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
-        background-image: linear-gradient(90deg, var(--empresa), #ff6b9d);
+        border: 2px solid var(--cyan);
+    }
+
+    .diagnostico__btn:hover {
+        filter: brightness(1.2);
+        transform: translateY(-2px);
     }
 
     @media (max-width: 600px) {
@@ -1458,21 +1446,21 @@ import { WHATSAPP_CTA, CALENDLY_EMPRESAS } from "../data/constantes";
         margin-inline: auto;
     }
 
-    .cierre-empresas__btn {
-        background: #fff;
-        color: #000;
-        border: none;
-        font-size: 1.4rem;
-        padding: 1.4rem 3rem;
-    }
-
-    .cierre-empresas__btn:hover {
-        background: #fff;
-        border: 2px solid var(--empresa);
-        transform: translateY(-2px);
+    .cierre-empresas :global(.cta-whatsapp) {
+        background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
-        background-image: linear-gradient(90deg, var(--empresa), #ff6b9d);
+        border: 2px solid var(--cyan);
+        background-color: transparent;
+    }
+
+    .cierre-empresas :global(.cta-whatsapp svg) {
+        fill: var(--cyan);
+    }
+
+    .cierre-empresas :global(.cta-whatsapp):hover {
+        filter: brightness(1.2);
+        transform: translateY(-2px);
     }
 </style>
