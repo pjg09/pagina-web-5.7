@@ -1,3 +1,9 @@
+## [1.5.6](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.5...v1.5.6) (2026-06-14)
+
+### Bug Fixes
+
+* **empresas:** ajustar orden mobile de servicios y rediseñar sección de diagnóstico ([c6fc980](https://github.com/pjg09/pagina-web-5.7/commit/c6fc9806bc4975b4fdac7b6aef46e5efe0ebeb0c))
+
 ## [1.5.5](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.4...v1.5.5) (2026-06-14)
 
 ### Bug Fixes
