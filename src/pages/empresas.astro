@@ -169,8 +169,9 @@ import { CALENDLY_EMPRESAS } from "../data/constantes";
                     > AVANCE
                 </h2>
                 <p class="sol-intro__texto reveal reveal-delay-2">
-                    Esto es lo que construimos para que tu marca<br class="br-desktop" />crezca con
-                    dirección:
+                    Esto es lo que construimos para que tu marca<br
+                        class="br-desktop"
+                    />crezca con dirección:
                 </p>
             </div>
         </div>
@@ -380,62 +381,61 @@ import { CALENDLY_EMPRESAS } from "../data/constantes";
                     </p>
                 </div>
                 <div class="sol-cat__services">
-                        <div class="sol-grid sol-grid--3">
-                            <div class="sol-item reveal">
-                                <img
-                                    src="/images/Fotografia.png"
-                                    alt=""
-                                    class="sol-item__icono"
-                                    aria-hidden="true"
-                                />
-                                <h4 class="sol-item__titulo">
-                                    Fotografía<br />profesional
-                                </h4>
-                                <p class="sol-item__desc">
-                                    Imágenes que transmiten calidad y elevan la
-                                    percepción de tu marca.
-                                </p>
-                            </div>
-                            <div class="sol-item reveal reveal-delay-1">
-                                <img
-                                    src="/images/VideosCorporativos.png"
-                                    alt=""
-                                    class="sol-item__icono"
-                                    aria-hidden="true"
-                                />
-                                <h4 class="sol-item__titulo">
-                                    Videos<br />corporativos
-                                </h4>
-                                <p class="sol-item__desc">
-                                    Contenido que presenta tu marca de forma
-                                    clara, profesional y confiable.
-                                </p>
-                            </div>
-                            <div class="sol-item reveal reveal-delay-2">
-                                <img
-                                    src="/images/VideosRedes.png"
-                                    alt=""
-                                    class="sol-item__icono"
-                                    aria-hidden="true"
-                                />
-                                <h4 class="sol-item__titulo">
-                                    Videos<br />para redes
-                                </h4>
-                                <p class="sol-item__desc">
-                                    Piezas diseñadas para captar atención y
-                                    generar interacción en plataformas
-                                    digitales.
-                                </p>
-                            </div>
+                    <div class="sol-grid sol-grid--3">
+                        <div class="sol-item reveal">
+                            <img
+                                src="/images/Fotografia.png"
+                                alt=""
+                                class="sol-item__icono"
+                                aria-hidden="true"
+                            />
+                            <h4 class="sol-item__titulo">
+                                Fotografía<br />profesional
+                            </h4>
+                            <p class="sol-item__desc">
+                                Imágenes que transmiten calidad y elevan la
+                                percepción de tu marca.
+                            </p>
                         </div>
-                        <div class="sol-cat__cta reveal">
-                            <a
-                                href={CALENDLY_EMPRESAS}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="btn sol-btn">Quiero mejorar mi imagen</a
-                            >
+                        <div class="sol-item reveal reveal-delay-1">
+                            <img
+                                src="/images/VideosCorporativos.png"
+                                alt=""
+                                class="sol-item__icono"
+                                aria-hidden="true"
+                            />
+                            <h4 class="sol-item__titulo">
+                                Videos<br />corporativos
+                            </h4>
+                            <p class="sol-item__desc">
+                                Contenido que presenta tu marca de forma clara,
+                                profesional y confiable.
+                            </p>
                         </div>
+                        <div class="sol-item reveal reveal-delay-2">
+                            <img
+                                src="/images/VideosRedes.png"
+                                alt=""
+                                class="sol-item__icono"
+                                aria-hidden="true"
+                            />
+                            <h4 class="sol-item__titulo">
+                                Videos<br />para redes
+                            </h4>
+                            <p class="sol-item__desc">
+                                Piezas diseñadas para captar atención y generar
+                                interacción en plataformas digitales.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="sol-cat__cta reveal">
+                        <a
+                            href={CALENDLY_EMPRESAS}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn sol-btn">Quiero mejorar mi imagen</a
+                        >
+                    </div>
                 </div>
             </div>
         </div>
@@ -518,63 +518,77 @@ import { CALENDLY_EMPRESAS } from "../data/constantes";
         class="diagnostico"
         aria-label="Diagnóstico estratégico para tu empresa"
     >
-        <div class="container diagnostico__inner">
-            <!-- Lado izquierdo: título + textos + logística -->
-            <div class="diagnostico__texto reveal">
-                <h2 class="display display--lg diagnostico__titulo">
-                    DIAGNÓSTICO ESTRATÉGICO<br />
-                    PARA TU <span class="gradient-text">EMPRESA</span>
-                </h2>
-                <p class="diagnostico__intro">
-                    Si sabes que tu marca puede crecer más, pero no tienes claro
-                    cómo estructurarla correctamente, esta reunión es el
-                    siguiente paso.
-                </p>
+        <!-- 5A — DESCRIPCIÓN + IMAGEN -->
+        <div class="diagnostico-header">
+            <!-- Texto -->
+            <div class="diagnostico-body">
+                <div class="container">
+                    <div class="diagnostico-body__intro reveal">
+                        <h2 class="display display--lg diagnostico__titulo">
+                            DIAGNÓSTICO ESTRATÉGICO<br />
+                            PARA TU <span class="gradient-text">EMPRESA</span>
+                        </h2>
+                        <p class="diagnostico__intro">
+                            Si sabes que tu marca puede crecer más, pero no
+                            tienes claro cómo estructurarla correctamente, esta
+                            reunión es el siguiente paso.
+                        </p>
+                    </div>
 
-                <div class="diagnostico__logistica">
-                    <div class="diagnostico__dato">
-                        <span class="diagnostico__dato-label">Duración</span>
-                        <span class="diagnostico__dato-valor"
-                            >40–50 minutos</span
-                        >
+                    <div class="diagnostico-lista reveal reveal-delay-1">
+                        <p class="diagnostico-lista__titulo">
+                            Durante esta conversación evaluaremos:
+                        </p>
+                        <ul>
+                            <li>Presencia digital actual</li>
+                            <li>Canales de contacto</li>
+                            <li>Comunicación visual de la marca</li>
+                            <li>Oportunidades de mejora</li>
+                        </ul>
                     </div>
-                    <div class="diagnostico__dato">
-                        <span class="diagnostico__dato-label">Modalidad</span>
-                        <span class="diagnostico__dato-valor"
-                            >Virtual o presencial</span
-                        >
-                    </div>
+
+                    <p class="diagnostico__conclusion reveal reveal-delay-2">
+                        Al finalizar la reunión podremos definir si existe una
+                        oportunidad real de trabajo conjunto y qué soluciones
+                        serían más adecuadas para tu empresa.
+                    </p>
+
+                    <a
+                        href={CALENDLY_EMPRESAS}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn diagnostico__btn reveal reveal-delay-2"
+                    >
+                        Agendar reunión
+                    </a>
                 </div>
             </div>
 
-            <!-- Lado derecho: evaluación + conclusión + botón -->
-            <div class="diagnostico__contenido reveal reveal-delay-1">
-                <div class="diagnostico__bloque">
-                    <p class="diagnostico__bloque-intro">
-                        Durante esta conversación evaluaremos:
-                    </p>
-                    <ul class="diagnostico__lista">
-                        <li>Presencia digital actual</li>
-                        <li>Canales de contacto</li>
-                        <li>Comunicación visual de la marca</li>
-                        <li>Oportunidades de mejora</li>
-                    </ul>
+            <!-- Imagen como bloque fotográfico independiente -->
+            <div class="diagnostico-foto reveal">
+                <img
+                    src="/images/InternaEmpresas06.jpeg"
+                    alt="Diagnóstico estratégico para tu empresa"
+                    loading="lazy"
+                />
+                <div class="diagnostico-foto__border"></div>
+            </div>
+        </div>
+
+        <!-- 5B — DURACIÓN Y MODALIDAD -->
+        <div class="diagnostico-info">
+            <div class="container diagnostico-info__inner">
+                <div class="diagnostico-info__item reveal">
+                    <span class="diagnostico-info__label">Duración</span>
+                    <span class="diagnostico-info__valor">40–50 minutos</span>
                 </div>
-
-                <p class="diagnostico__conclusion">
-                    Al finalizar la reunión podremos definir si existe una
-                    oportunidad real de trabajo conjunto y qué soluciones serían
-                    más adecuadas para tu empresa.
-                </p>
-
-                <a
-                    href={CALENDLY_EMPRESAS}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn diagnostico__btn"
-                >
-                    Agendar reunión
-                </a>
+                <div class="diagnostico-info__divider"></div>
+                <div class="diagnostico-info__item reveal reveal-delay-1">
+                    <span class="diagnostico-info__label">Modalidad</span>
+                    <span class="diagnostico-info__valor"
+                        >Virtual o Presencial</span
+                    >
+                </div>
             </div>
         </div>
     </section>
@@ -1237,7 +1251,7 @@ import { CALENDLY_EMPRESAS } from "../data/constantes";
             grid-template-columns: 1fr;
         }
 
-        .sol-cat__layout--reverse .sol-cat__imagen {
+        .sol-cat__layout .sol-cat__imagen {
             order: -1;
         }
 
@@ -1277,109 +1291,82 @@ import { CALENDLY_EMPRESAS } from "../data/constantes";
 
     /* SECCIÓN 5 — DIAGNÓSTICO */
     .diagnostico {
-        background: var(--bg-surface);
-        padding-block: var(--section-gap);
+        background: var(--bg-base);
     }
 
-    .diagnostico__inner {
+    /* 5A — HEADER: texto izquierda / foto derecha */
+    .diagnostico-header {
+        display: grid;
+        grid-template-columns: 55% 45%;
+        min-height: 80vh;
+        border-top: 1px solid var(--border);
+    }
+
+    .diagnostico-body {
+        background: var(--bg-surface);
         display: flex;
-        flex-direction: column;
-        gap: 2.5rem;
-        max-width: 860px;
+        align-items: center;
+        padding-block: clamp(4rem, 8vw, 7rem);
+    }
+
+    .diagnostico-body__intro {
+        margin-bottom: 3rem;
     }
 
     .diagnostico__titulo {
+        font-size: clamp(1.8rem, 4vw, 3.4rem);
         line-height: 1.05;
         margin-top: 0.75rem;
         margin-bottom: 1.5rem;
     }
 
     .diagnostico__intro {
-        font-size: clamp(1.32rem, 2vw, 1.5rem);
+        font-size: clamp(1.45rem, 2.2vw, 1.64rem);
         color: var(--text-secondary);
         line-height: 1.75;
-        margin-bottom: 2rem;
+        max-width: 58ch;
     }
 
-    .diagnostico__logistica {
-        display: flex;
-        flex-direction: row;
-        gap: 3rem;
-        border-top: 1px solid var(--border);
-        padding-top: 1.5rem;
-        flex-wrap: wrap;
+    .diagnostico-lista {
+        margin-bottom: 2.5rem;
     }
 
-    .diagnostico__dato {
-        display: flex;
-        gap: 1rem;
-        align-items: baseline;
-    }
-
-    .diagnostico__dato-label {
+    .diagnostico-lista__titulo {
         font-family: var(--font-body);
-        font-size: clamp(0.86rem, 1.25vw, 0.94rem);
         font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--text-muted);
-        min-width: 90px;
-        flex-shrink: 0;
-    }
-
-    .diagnostico__dato-valor {
-        font-size: clamp(1.21rem, 1.85vw, 1.37rem);
-        color: var(--text-primary);
-        font-weight: 500;
-    }
-
-    .diagnostico__bloque {
-        background: var(--bg-card);
-        border: 1px solid var(--empresa-dim);
-        border-radius: var(--radius-lg);
-        padding: clamp(1.5rem, 3vw, 2rem);
-        margin-bottom: 1.75rem;
-        transition: border-color var(--t-med) var(--ease);
-    }
-
-    .diagnostico__bloque:hover {
-        border-color: var(--empresa);
-    }
-
-    .diagnostico__bloque-intro {
-        font-family: var(--font-body);
-        font-size: clamp(0.94rem, 1.35vw, 1.02rem);
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
         color: var(--empresa);
         margin-bottom: 1rem;
+        font-size: clamp(1.32rem, 1.9vw, 1.44rem);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        padding-bottom: 0.6rem;
+        border-bottom: 1px solid var(--border);
     }
 
-    .diagnostico__lista {
+    .diagnostico-lista ul {
         display: flex;
         flex-direction: column;
-        gap: 0.65rem;
-        list-style: none;
+        gap: 0.6rem;
         padding: 0;
+        list-style: none;
     }
 
-    .diagnostico__lista li {
-        font-size: clamp(1.27rem, 1.9vw, 1.43rem);
+    .diagnostico-lista ul li {
+        font-size: clamp(1.31rem, 2vw, 1.48rem);
         color: var(--text-secondary);
         padding-left: 1.4rem;
         position: relative;
-        line-height: 1.5;
+        line-height: 1.55;
     }
 
-    .diagnostico__lista li::before {
+    .diagnostico-lista ul li::before {
         content: "·";
         position: absolute;
         left: 0;
         color: var(--empresa);
         font-weight: 700;
-        font-size: 1.4em;
-        line-height: 0.9;
+        font-size: 1.3em;
+        line-height: 1.1;
     }
 
     .diagnostico__conclusion {
@@ -1388,6 +1375,7 @@ import { CALENDLY_EMPRESAS } from "../data/constantes";
         line-height: 1.75;
         margin-bottom: 2rem;
         font-style: italic;
+        max-width: 58ch;
     }
 
     .diagnostico__btn {
@@ -1403,10 +1391,107 @@ import { CALENDLY_EMPRESAS } from "../data/constantes";
         transform: translateY(-2px);
     }
 
-    @media (max-width: 600px) {
-        .diagnostico__logistica {
-            flex-direction: column;
-            gap: 0.85rem;
+    .diagnostico-foto {
+        width: 100%;
+        height: 100%;
+        min-height: 500px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .diagnostico-foto img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+
+    .diagnostico-foto__border {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 6px;
+        background: linear-gradient(to bottom, var(--cyan), var(--magenta));
+        opacity: 0.25;
+        filter: blur(1px);
+        z-index: 2;
+    }
+
+    /* 5B — DURACIÓN Y MODALIDAD */
+    .diagnostico-info {
+        background: var(--bg-base);
+        padding-block: clamp(3rem, 5vw, 4.5rem);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .diagnostico-info__inner {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+    }
+
+    .diagnostico-info__divider {
+        width: 2px;
+        height: 110px;
+        background: linear-gradient(to bottom, var(--cyan), var(--magenta));
+        border-radius: 2px;
+        flex-shrink: 0;
+        margin-inline: 3rem;
+    }
+
+    .diagnostico-info__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .diagnostico-info__label {
+        font-family: var(--font-display);
+        font-size: clamp(0.86rem, 1.25vw, 0.94rem);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+    }
+
+    .diagnostico-info__valor {
+        font-size: 2.6rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        line-height: 1;
+    }
+
+    @media (max-width: 900px) {
+        .diagnostico-header {
+            grid-template-columns: 1fr;
+        }
+
+        .diagnostico-foto {
+            min-height: unset;
+            aspect-ratio: 16/9;
+            height: auto;
+        }
+
+        .diagnostico__titulo {
+            font-size: 1.62rem;
+        }
+
+        .diagnostico-info__inner {
+            grid-template-columns: 1fr;
+            justify-items: center;
+            gap: 0;
+        }
+
+        .diagnostico-info__divider {
+            width: 160px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--cyan), var(--magenta));
+            margin: 1.5rem auto;
         }
     }
 

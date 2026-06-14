@@ -63,7 +63,7 @@ Todo en `src/styles/global.css` como variables CSS en `:root`. No usar valores m
 
 | Token | Valor |
 |---|---|
-| `--bg-base` | `#080810` |
+| `--bg-base` | `#050508` |
 | `--bg-surface` | `#0e0e1a` |
 | `--cyan` | `#00c2ff` |
 | `--magenta` | `#d400ff` |
@@ -115,7 +115,6 @@ Mobile-first. Todo cambio de layout se piensa primero en mobile y escala a deskt
 Están marcados como comentarios `// TODO:` en el código:
 - `BaseLayout.astro` — reemplazar `G-XXXXXXXXXX` con el ID real de GA4
 - `constantes.ts` — reemplazar URLs placeholder de Calendly, MercadoPago y Make webhook
-- `astro.config.mjs` — reemplazar `site` con el dominio real de producción
 
 ## Patrones CSS críticos
 
@@ -133,10 +132,14 @@ Están marcados como comentarios `// TODO:` en el código:
 
 **Cards de igual altura en grid de 2 columnas:** Añadir `flex: 1` a la card dentro de un outer wrapper con `display: flex; flex-direction: column`. El grid ya aplica `align-items: stretch` al outer por defecto; sin `flex: 1` la card no crece para llenarlo.
 
+**Patrón "header con foto y borde lateral" (`asesoria-header`/`diagnostico-header`):** Grid `55% 45%` (texto | foto), `min-height: 80vh`. Columna texto en `--bg-surface`; columna foto con `__border` — barra vertical 6px, `linear-gradient(to bottom, var(--cyan), var(--magenta))`, `opacity: 0.25`, `filter: blur(1px)`. Mobile (`≤900px`): 1 columna, foto `aspect-ratio: 16/9`. Usado en artistas (5A) y empresas (diagnóstico).
+
+**Patrón "banda de datos con divisor degradado" (`asesoria-pricing`/`diagnostico-info`):** Grid `1fr auto 1fr` (+ `auto 1fr` por columna extra), divisor vertical `2px × 110px` con `linear-gradient(to bottom, var(--cyan), var(--magenta))`. Mobile (`≤900px`): grid a 1 columna + `justify-items: center`, divisor horizontal `160px × 2px` con `linear-gradient(90deg, ...)`. Usado en artistas (pricing) y empresas (diagnóstico).
+
 ## Imágenes disponibles en public/images/
 
 - `HeroIndex.jpeg`, `HeroArtistas.jpeg`, `HeroEmpresas.jpg`, `HeroSeguridad.jpeg` — heroes por página (`HeroSeguridad.jpeg` tiene zona oscura natural a la derecha para texto)
-- `InternaEmpresas01–05.jpeg` — imágenes para secciones internas de empresas
+- `InternaEmpresas01–06.jpeg` — imágenes para secciones internas de empresas
 - `InternaArtistas01–04.jpeg` — imágenes para secciones internas de artistas
 - Íconos de servicios empresas: `PaginaWeb.png`, `LandingPage.png`, `BioLink.png`, `GoogleProfile.png`, `WhatsappBusiness.png`, `PortafolioDigital.png`, `AuditoriaDigital.png`, `AdministrarRedes.png`, `PautaPublicitaria.png`
 - Íconos etapas artistas: `ArtistasEmergentes.png`, `ArtistasCrecimiento.png`, `EquiposDisqueras.png`
@@ -155,17 +158,21 @@ Están marcados como comentarios `// TODO:` en el código:
 
 **`.btn--primary` / `.btn--outline` en Astro scoped CSS:** Los overrides de clases globales en `<style>` de una página solo afectan elementos de ESA página, no los de componentes hijos (como `CTAWhatsApp.astro`). Para cambiar el estilo del botón en un componente hijo, modificar el CSS del componente directamente.
 
+**`CTAWhatsApp` conserva el glow de `.btn--primary` aunque se pise su estilo:** la clase default `btn--primary` aporta `box-shadow: var(--cyan-glow)` (`--cyan-glow-strong` en hover). Los overrides `:global(.cta-whatsapp)` no tocan `box-shadow`, así que el resplandor cyan persiste — es el "brillo" característico del CTA de WhatsApp en cierres de página.
+
 **`<br>` en Astro no es confiable para layout:** Los void elements pueden no recibir el atributo de scoping de Astro, y `display: block` en un `<br>` suprime su salto de línea. Para ajustes de alineación vertical (ej. igualar altura de títulos en dos columnas), usar `padding-top` en el elemento afectado en lugar de `<br>` con CSS.
 
 **`<br>` responsive (solo desktop/solo mobile):** No usar `display: none` en `<br>` — suprime el salto. En su lugar, usar `<br class="br-desktop" />` y en CSS: `@media (max-width: 900px) { .br-desktop { display: none; } }`. Mismo patrón con `.br-mobile` para el caso inverso.
 
 **`background-clip: text` + SVG `fill="currentColor"`:** Al aplicar gradiente de texto con `color: transparent`, los íconos SVG que usan `fill="currentColor"` quedan invisibles. Fix: agregar `fill: var(--cyan)` explícito al SVG via `:global(.componente svg)`.
 
+**`CTAWhatsApp.astro` pierde su ícono en `:hover`:** el propio `:hover` del componente aplica `color: transparent`, por lo que el SVG `fill="currentColor"` desaparece al pasar el mouse, incluso si la página no define ningún override. Fix: `.seccion :global(.cta-whatsapp:hover svg) { fill: var(--cyan); }`.
+
 **`background-clip: text` + `display: block` → agregar `width: fit-content`:** Al aplicar gradiente de texto a un elemento `display: block`, el elemento ocupa el ancho completo del contenedor y el texto corto (ej. "01") solo muestra el primer color del gradiente. Fix: añadir `width: fit-content` para restringir el gradiente al ancho del texto.
 
 **Imagen full-bleed en sección con layout de columnas:** Para que una imagen ocupe toda una columna sin padding del `.container`, sacar la imagen del `.container` y convertir el elemento padre de la sección directamente en el grid. La columna de contenido gestiona su propio padding interno calculado para alinearse con el container.
 
-**Grid de dos columnas imagen+servicios — orden HTML y dirección:** Con `grid-template-columns: 1fr 460px` (imagen derecha), el HTML debe ir servicios primero, imagen después. Con `--reverse` (`460px 1fr`, imagen izquierda), imagen primero. Cambiar de `--reverse` a normal requiere también invertir el orden HTML, no solo quitar la clase.
+**Grid de dos columnas imagen+servicios — orden HTML y dirección:** Con `grid-template-columns: 1fr 460px` (imagen derecha), el HTML debe ir servicios primero, imagen después. Con `--reverse` (`460px 1fr`, imagen izquierda), imagen primero. Cambiar de `--reverse` a normal requiere también invertir el orden HTML, no solo quitar la clase. En mobile (`≤900px`), `.sol-cat__imagen` siempre recibe `order: -1` (imagen primero) sin importar `--reverse` ni el orden HTML — el orden mobile es independiente del desktop.
 
 **Bebas Neue solo carga en peso 400:** La importación `family=Bebas+Neue` de Google Fonts trae únicamente regular. Los `h2` generan bold sintético (más grueso) por el `font-weight: 700` del navegador. Para igualar visualmente un `<p>` a un `<h2>` con Bebas Neue, agregar `font-weight: 700` explícito al `<p>`.
 
