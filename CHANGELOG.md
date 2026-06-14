@@ -1,3 +1,9 @@
+## [1.5.5](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.4...v1.5.5) (2026-06-14)
+
+### Bug Fixes
+
+* **empresas:** unificar estilo de botones con artistas ([73a5711](https://github.com/pjg09/pagina-web-5.7/commit/73a57114e85710de849e58a40f2839a31270052e))
+
 ## [1.5.4](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.3...v1.5.4) (2026-06-09)
 
 ### Bug Fixes
