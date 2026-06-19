@@ -24,11 +24,20 @@ import {
                 />
             </a>
             <p class="footer__tagline">Construimos marcas con dirección.</p>
+        </div>
+
+        <!-- Afiliaciones -->
+        <div class="footer__afiliaciones">
             <p class="footer__afiliados">Afiliados a:</p>
+            <img
+                src="/images/LogoCamaraComercio.png"
+                alt="Cámara de Comercio"
+                class="footer__logo-afiliado footer__logo-camara"
+            />
             <img
                 src="/images/LogoFenalco.png"
                 alt="Fenalco"
-                class="footer__fenalco"
+                class="footer__logo-afiliado footer__logo-fenalco"
             />
         </div>
 
@@ -55,33 +64,87 @@ import {
                 <!-- Grupo horizontal: Instagram + Facebook + WhatsApp -->
                 <div class="footer__social-group">
                     <div class="footer__social-row">
-                        <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" class="footer__social-icon-wrap" aria-label="Instagram">
-                            <img src="/images/Instagram.png" alt="Instagram" class="footer__social-icon" />
+                        <a
+                            href={INSTAGRAM}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="footer__social-icon-wrap"
+                            aria-label="Instagram"
+                        >
+                            <img
+                                src="/images/Instagram.png"
+                                alt="Instagram"
+                                class="footer__social-icon"
+                            />
                         </a>
-                        <a href={FACEBOOK} target="_blank" rel="noopener noreferrer" class="footer__social-icon-wrap" aria-label="Facebook">
-                            <img src="/images/Facebook.png" alt="Facebook" class="footer__social-icon" />
+                        <a
+                            href={FACEBOOK}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="footer__social-icon-wrap"
+                            aria-label="Facebook"
+                        >
+                            <img
+                                src="/images/Facebook.png"
+                                alt="Facebook"
+                                class="footer__social-icon"
+                            />
                         </a>
-                        <a href={TIKTOK} target="_blank" rel="noopener noreferrer" class="footer__social-icon-wrap" aria-label="TikTok">
-                            <img src="/images/Tiktok.png" alt="TikTok" class="footer__social-icon" />
+                        <a
+                            href={TIKTOK}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="footer__social-icon-wrap"
+                            aria-label="TikTok"
+                        >
+                            <img
+                                src="/images/Tiktok.png"
+                                alt="TikTok"
+                                class="footer__social-icon"
+                            />
                         </a>
                     </div>
-                    <span class="footer__social-label">@ondacreativalaunch5.7</span>
+                    <span class="footer__social-label"
+                        >@ondacreativalaunch5.7</span
+                    >
                 </div>
-                <a href={`https://wa.me/${WHATSAPP_1.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                <a
+                    href={`https://wa.me/${WHATSAPP_1.replace(/\D/g, "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer__social-link"
+                >
                     <div class="footer__social-icon-wrap">
-                        <img src="/images/Whatsapp.png" alt="WhatsApp" class="footer__social-icon" />
+                        <img
+                            src="/images/Whatsapp.png"
+                            alt="WhatsApp"
+                            class="footer__social-icon"
+                        />
                     </div>
                     <span class="footer__social-label">+57 321 286 5200</span>
                 </a>
-                <a href={`https://wa.me/${WHATSAPP_2.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                <a
+                    href={`https://wa.me/${WHATSAPP_2.replace(/\D/g, "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer__social-link"
+                >
                     <div class="footer__social-icon-wrap">
-                        <img src="/images/Whatsapp.png" alt="WhatsApp" class="footer__social-icon" />
+                        <img
+                            src="/images/Whatsapp.png"
+                            alt="WhatsApp"
+                            class="footer__social-icon"
+                        />
                     </div>
                     <span class="footer__social-label">+57 312 544 8302</span>
                 </a>
                 <a href={`mailto:${EMAIL}`} class="footer__social-link">
                     <div class="footer__social-icon-wrap">
-                        <img src="/images/Email.png" alt="Email" class="footer__social-icon" />
+                        <img
+                            src="/images/Email.png"
+                            alt="Email"
+                            class="footer__social-icon"
+                        />
                     </div>
                     <span class="footer__social-label">{EMAIL}</span>
                 </a>
@@ -107,7 +170,7 @@ import {
 
     .footer__inner {
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
         gap: 3rem;
         padding-bottom: clamp(2.5rem, 5vw, 4rem);
     }
@@ -118,10 +181,23 @@ import {
         gap: 1rem;
     }
 
-    .footer__fenalco {
-        max-width: 160px;
+    .footer__afiliaciones {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .footer__logo-afiliado {
         height: auto;
         align-self: flex-start;
+    }
+
+    .footer__logo-camara {
+        max-width: 120px;
+    }
+
+    .footer__logo-fenalco {
+        max-width: 140px;
     }
 
     .footer__afiliados {
@@ -129,8 +205,6 @@ import {
         font-weight: 700;
         color: #ffffff;
         letter-spacing: 0.04em;
-        margin-top: 1.4rem;
-        margin-bottom: -0.25rem;
     }
 
     .footer__tagline {
@@ -234,7 +308,8 @@ import {
         background: var(--bg-card-hover);
     }
 
-    .footer__social-group:has(.footer__social-icon-wrap:hover) .footer__social-label {
+    .footer__social-group:has(.footer__social-icon-wrap:hover)
+        .footer__social-label {
         color: var(--cyan);
     }
 
