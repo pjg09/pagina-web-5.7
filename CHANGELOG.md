@@ -1,3 +1,9 @@
+## [1.5.7](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.6...v1.5.7) (2026-06-19)
+
+### Bug Fixes
+
+* **index:** ajustes visuales globales de UI en index, footer y empresas ([2bbe7cb](https://github.com/pjg09/pagina-web-5.7/commit/2bbe7cb0abc21ac63febc75d10915146d8511f37))
+
 ## [1.5.6](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.5...v1.5.6) (2026-06-14)
 
 ### Bug Fixes
