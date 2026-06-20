@@ -1,3 +1,9 @@
+## [1.5.10](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.9...v1.5.10) (2026-06-20)
+
+### Bug Fixes
+
+* rediseña sección de problema en seguridad-movilidad y matchea tipografía de contenido en artistas con empresas ([7ea0426](https://github.com/pjg09/pagina-web-5.7/commit/7ea04268ec5837382d3def1b147fabceb7978296))
+
 ## [1.5.9](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.8...v1.5.9) (2026-06-20)
 
 ### Bug Fixes
