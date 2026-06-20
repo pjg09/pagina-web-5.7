@@ -1,3 +1,9 @@
+## [1.5.8](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.7...v1.5.8) (2026-06-20)
+
+### Bug Fixes
+
+* tipografía, bordes gradiente y layout en index, empresas, artistas y seguridad-movilidad ([f8183de](https://github.com/pjg09/pagina-web-5.7/commit/f8183dee52ca07b5ea71ade21b651912697d1e8b))
+
 ## [1.5.7](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.6...v1.5.7) (2026-06-19)
 
 ### Bug Fixes
