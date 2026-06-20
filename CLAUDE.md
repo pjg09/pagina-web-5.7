@@ -75,9 +75,9 @@ Agregadas a `global.css`. Usar siempre estas variables para cards/bordes empresa
 
 | Token | Valor | Uso |
 |---|---|---|
-| `--border-card` | `rgba(0, 194, 255, 0.25)` | Borde default de todas las cards |
+| `--border-card` | `rgba(0, 194, 255, 0.25)` | Legacy — casi sin uso real (1 sola referencia en el repo, no es borde de card). La mayoría de cards ahora usan el patrón de borde gradiente `::before` (ver Gotchas técnicos) |
 | `--empresa` | `#b5005f` | Color principal empresas (hover + texto) |
-| `--empresa-dim` | `rgba(181, 0, 95, 0.35)` | Borde default cards empresa |
+| `--empresa-dim` | `rgba(181, 0, 95, 0.35)` | Borde sólido — sobrevive solo en `.sol-item` (variante sin fondo, 4B/4D empresas). Las cards con fondo (`sol-item--card`, `sb-c-card`, etc.) ya no usan borde sólido |
 | `--empresa-subtle` | `rgba(181, 0, 95, 0.1)` | Fondo sutil badge empresa |
 | `--empresa-hover` | `rgba(224, 0, 79, 0.18)` | Fondo hover badge empresa |
 
@@ -122,11 +122,11 @@ Están marcados como comentarios `// TODO:` en el código:
 
 **Posicionamiento horizontal en hero:** NO usar `grid-column: N` dentro de `.container` para ubicar el bloque de texto. Usar `display: flex; flex-direction: column; align-items: flex-end` en `.hero__content` y `max-width: 50%` en `.hero__text` para empujar a la derecha (o `align-items: flex-start` + `max-width: 55%; margin-left: 8%` para izquierda, como en artistas).
 
-**`object-position` para imágenes con zona oscura:** si la imagen tiene un área oscura en un lado (para texto encima), anclar `object-position` a ESE lado (`right center` si la zona oscura es derecha). Con `object-fit: cover`, el recorte ocurrirá por el lado opuesto preservando siempre la zona de legibilidad.
+**`object-position` para imágenes con zona oscura:** si la imagen tiene un área oscura en un lado (para texto encima), anclar `object-position` a ESE lado (`right center` si la zona oscura es derecha). Con `object-fit: cover`, el recorte ocurrirá por el lado opuesto preservando siempre la zona de legibilidad. `HeroSeguridad.jpeg` tiene esa zona oscura natural a la derecha.
 
 **Colores de borde por tipo de card:**
-- Cards artistas / lado derecho: `rgba(0,194,255,0.25)` → hover `var(--cyan)`
-- Cards empresas / lado izquierdo: `var(--empresa-dim)` → hover `var(--empresa)`
+- Patrón vigente para la mayoría de cards (index, empresas 4C/4E, artistas 4C/4E): borde gradiente difuminado `::before` con `isolation: isolate` — ver Gotchas técnicos.
+- Borde sólido (legacy) sobrevive solo en `.sol-item` sin fondo (4B/4D empresas): `var(--empresa-dim)` → hover `var(--empresa)`.
 
 **Escala tipográfica responsive (convención):** Body text: `clamp(B×1.15, vw, B×1.30)` (+15% mobile, +30% desktop). Subtítulos: `clamp(B×1.10, vw, B×1.20)`. El vw ≈ `desktop_rem / 0.75` para que el máximo se alcance a ~1200px. Las clases globales `.body--lg/md/sm`, `.display--md/sm`, `.label` ya aplican estos valores — páginas futuras deben usarlas en vez de hardcodear `font-size`.
 
@@ -135,20 +135,6 @@ Están marcados como comentarios `// TODO:` en el código:
 **Patrón "header con foto y borde lateral" (`asesoria-header`/`diagnostico-header`):** Grid `55% 45%` (texto | foto), `min-height: 80vh`. Columna texto en `--bg-surface`; columna foto con `__border` — barra vertical 6px, `linear-gradient(to bottom, var(--cyan), var(--magenta))`, `opacity: 0.25`, `filter: blur(1px)`. Mobile (`≤900px`): 1 columna, foto `aspect-ratio: 16/9`. Usado en artistas (5A) y empresas (diagnóstico).
 
 **Patrón "banda de datos con divisor degradado" (`asesoria-pricing`/`diagnostico-info`):** Grid `1fr auto 1fr` (+ `auto 1fr` por columna extra), divisor vertical `2px × 110px` con `linear-gradient(to bottom, var(--cyan), var(--magenta))`. Mobile (`≤900px`): grid a 1 columna + `justify-items: center`, divisor horizontal `160px × 2px` con `linear-gradient(90deg, ...)`. Usado en artistas (pricing) y empresas (diagnóstico).
-
-## Imágenes disponibles en public/images/
-
-- `HeroIndex.jpeg`, `HeroArtistas.jpeg`, `HeroEmpresas.jpg`, `HeroSeguridad.jpeg` — heroes por página (`HeroSeguridad.jpeg` tiene zona oscura natural a la derecha para texto)
-- `InternaEmpresas01–06.jpeg` — imágenes para secciones internas de empresas
-- `InternaArtistas01–04.jpeg` — imágenes para secciones internas de artistas
-- Íconos de servicios empresas: `PaginaWeb.png`, `LandingPage.png`, `BioLink.png`, `GoogleProfile.png`, `WhatsappBusiness.png`, `PortafolioDigital.png`, `AuditoriaDigital.png`, `AdministrarRedes.png`, `PautaPublicitaria.png`
-- Íconos etapas artistas: `ArtistasEmergentes.png`, `ArtistasCrecimiento.png`, `EquiposDisqueras.png`
-- Íconos servicios artistas: `EstrategiaLanzamiento.png`, `PlaneacionCampanas.png`, `CampanasYoutube.png`, `EstrategiasCrecimiento.png`, `CampanasInfluencers.png`, `PromocionTematicas.png`, `ProduccionVideo.png`, `ProduccionMusical.png`, `Fotografia.png`, `ContenidoVisual.png`, `GiraMedios.png`, `Presentaciones.png`, `Cines.png`
-- Imágenes de secciones: `Artistas01–03.jpeg`, `Empresas01–03.jpeg`, `Referencia01.jpeg`, `InternaSeguridad01.jpeg`
-- UI: `BotonArtista.png`, `BotonEmpresa.png`, `logo.png`, `LogoFenalco.png`, `LogoCamaraComercio.png`
-- Íconos sociales: `Facebook.png`, `Instagram.png`, `Tiktok.png`, `Whatsapp.png`, `Email.png`
-- Íconos adicionales artistas: `Colaboraciones.png`, `GestionInfluencers.png`
-- Íconos adicionales producción: `VideosCorporativos.png`, `VideosRedes.png`
 
 ## Gotchas técnicos
 
@@ -179,6 +165,12 @@ Están marcados como comentarios `// TODO:` en el código:
 **Grid de dos columnas imagen+servicios — orden HTML y dirección:** Con `grid-template-columns: 1fr 460px` (imagen derecha), el HTML debe ir servicios primero, imagen después. Con `--reverse` (`460px 1fr`, imagen izquierda), imagen primero. Cambiar de `--reverse` a normal requiere también invertir el orden HTML, no solo quitar la clase. En mobile (`≤900px`), `.sol-cat__imagen` siempre recibe `order: -1` (imagen primero) sin importar `--reverse` ni el orden HTML — el orden mobile es independiente del desktop.
 
 **Bebas Neue solo carga en peso 400:** La importación `family=Bebas+Neue` de Google Fonts trae únicamente regular. Los `h2` generan bold sintético (más grueso) por el `font-weight: 700` del navegador. Para igualar visualmente un `<p>` a un `<h2>` con Bebas Neue, agregar `font-weight: 700` explícito al `<p>`.
+
+**`flex: 1` no iguala anchos en contenedores shrink-to-fit:** Si el padre no tiene ancho definido (auto), `flex:1` no tiene espacio extra que repartir y cada item conserva su ancho de contenido — no iguala nada. Para forzar el mismo ancho en botones/items vecinos, medir el ancho real (Playwright) y usar `min-width` explícito igual en ambos.
+
+**CSS "muerto" tras renombrar una clase en el HTML:** Antes de editar una regla CSS por nombre de clase, `grep` el HTML para confirmar que esa clase sigue usándose — una edición previa pudo haber cambiado la clase del elemento (ej. `.proposito__rule` → `.divider`) sin borrar la regla vieja, que queda huérfana y cualquier cambio sobre ella no tiene efecto visible.
+
+**Tinte `rgba` se lava sobre gradiente/blur detrás:** Un fondo de baja opacidad (ej. `var(--cyan-dim)`) pensado para verse sobre `--bg-base` se mezcla con cualquier `::before` con blur que quede detrás (como el borde glow), perdiendo su color. Fix: `background: linear-gradient(var(--tinte), var(--tinte)), var(--bg-base);` — la segunda capa actúa de base opaca fija.
 
 ## Estado actual de páginas
 

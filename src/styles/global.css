@@ -284,6 +284,16 @@ body::before {
     background-clip: text;
 }
 
+/* FRASE DESTACADA — usada en index, empresas, artistas y seguridad-movilidad */
+.frase-destacada {
+    font-family: var(--font-display);
+    font-size: clamp(1.28rem, 3.2vw, 2.56rem);
+    font-style: italic;
+    letter-spacing: 0.06em;
+    line-height: 1.15;
+    color: #ffffff;
+}
+
 /* LÍNEA DECORATIVA */
 .section-line {
     width: 100%;

@@ -161,8 +161,8 @@ import { WHATSAPP_CTA } from "../data/constantes";
 			</div>
 
 			<div class="id-frase reveal">
-				<p class="id-frase__texto">
-					<span class="gradient-text"
+				<p class="id-frase__texto frase-destacada">
+					<span
 						>NO IMPORTA EN QUÉ PUNTO ESTÉS. LO IMPORTANTE ES TENER
 						DIRECCIÓN PARA EL SIGUIENTE NIVEL</span
 					>
@@ -672,17 +672,9 @@ import { WHATSAPP_CTA } from "../data/constantes";
 
 	/* FRASE — debajo de las tarjetas */
 	.id-frase {
-		margin-top: 3rem;
+		margin-top: 4.125rem;
+		margin-bottom: clamp(0.40625rem, 0.8125vw, 0.725rem);
 		text-align: center;
-	}
-
-	.id-frase__texto {
-		font-family: var(--font-display);
-		font-size: clamp(1.6rem, 4vw, 3.2rem);
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		line-height: 1.15;
-		font-style: italic;
 	}
 
 	/* QUÉ HACEMOS */
