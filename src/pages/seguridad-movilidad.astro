@@ -21,7 +21,9 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 
 		<div class="container hero__content">
 			<div class="hero__text">
-				<h1 class="display display--xl hero__title reveal reveal-delay-2">
+				<h1
+					class="display display--xl hero__title reveal reveal-delay-2"
+				>
 					MOVILIDAD,<br />
 					SEGURIDAD<br />
 					Y CONTROL<br />
@@ -29,9 +31,9 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 					<span class="gradient-text">TU NIVEL</span>
 				</h1>
 				<p class="body--lg hero__sub reveal reveal-delay-3">
-					Soluciones profesionales para artistas, equipos y empresarios que
-					requieren protección, organización y presencia en cada
-					desplazamiento o evento.
+					Soluciones profesionales para artistas, equipos y
+					empresarios que requieren protección, organización y
+					presencia en cada desplazamiento o evento.
 				</p>
 				<div class="hero__ctas reveal reveal-delay-4">
 					<a href="#servicios" class="btn hero__btn">
@@ -69,21 +71,21 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 	<!-- SECCIÓN 2 — PROPÓSITO -->
 	<section class="proposito" aria-label="Por qué importa">
 		<div class="container proposito__inner">
-			<h2 class="display display--xl proposito__titulo reveal reveal-delay-1">
-				NO SE TRATA<br />
-				SOLO DE MOVERSE.<br />
-				SE TRATA DE<br />
+			<h2
+				class="display display--xl proposito__titulo reveal reveal-delay-1"
+			>
+				NO SE TRATA SOLO DE<br />MOVERSE. SE TRATA<br />DE
 				<span class="gradient-text">HACERLO BIEN</span>
 			</h2>
-			<div class="proposito__rule reveal reveal-delay-2"></div>
+			<div class="divider"></div>
 			<div class="proposito__body">
 				<p class="body--lg proposito__p reveal reveal-delay-2">
 					Cuando hay exposición, eventos o figuras públicas
 					involucradas, la logística no puede improvisarse.
 				</p>
 				<p class="body--lg proposito__p reveal reveal-delay-3">
-					Se necesita estructura, seguridad y control
-					en cada movimiento.
+					Se necesita estructura, seguridad y control en cada
+					movimiento.
 				</p>
 			</div>
 		</div>
@@ -104,7 +106,6 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 					<div class="problema__imagen-overlay"></div>
 				</div>
 				<div class="problema__content reveal reveal-delay-1">
-					<span class="label">El problema</span>
 					<h2 class="display display--lg problema__titulo">
 						CUANDO NO HAY<br />
 						ESTRUCTURA,<br />
@@ -176,11 +177,7 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 				rgba(8, 8, 16, 0.45) 45%,
 				rgba(8, 8, 16, 0.05) 70%
 			),
-			linear-gradient(
-				to top,
-				rgba(8, 8, 16, 0.65) 0%,
-				transparent 38%
-			);
+			linear-gradient(to top, rgba(8, 8, 16, 0.65) 0%, transparent 38%);
 	}
 
 	.hero__content {
@@ -213,6 +210,7 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 
 	.hero__sub {
 		color: var(--text-high);
+		font-size: 1.8rem;
 		max-width: 42ch;
 		font-weight: 400;
 	}
@@ -224,6 +222,12 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 		align-items: center;
 	}
 
+	.hero__ctas .hero__btn,
+	.hero__ctas :global(.cta-whatsapp) {
+		min-width: 15rem;
+		justify-content: center;
+	}
+
 	.hero__ctas :global(.cta-whatsapp) {
 		font-size: 1.1rem;
 		padding: 0.85rem 2rem;
@@ -232,9 +236,11 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 	.hero__btn {
 		background: #fff;
 		color: #000;
-		font-weight: 700;
 		border: 1.5px solid transparent;
-		transition: background 0.22s, color 0.22s, border-color 0.22s;
+		transition:
+			background 0.22s,
+			color 0.22s,
+			border-color 0.22s;
 	}
 
 	.hero__btn:hover {
@@ -310,23 +316,21 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 		line-height: 0.9;
 	}
 
-	.proposito__rule {
-		width: 3rem;
-		height: 1px;
-		background: var(--cyan);
-		opacity: 0.45;
-		margin: 0.5rem 0;
+	.proposito__inner .divider {
+		margin-top: 1.5rem;
 	}
 
 	.proposito__body {
 		display: flex;
 		flex-direction: column;
 		gap: 1.25rem;
-		max-width: 52ch;
+		max-width: 33.5rem;
+		text-align: justify;
 	}
 
 	.proposito__p {
 		color: var(--text-dim);
+		font-size: clamp(1.58rem, 2.4vw, 1.78rem);
 		line-height: 1.7;
 		font-weight: 400;
 	}
@@ -388,7 +392,7 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 
 	.problema__intro {
 		color: var(--text-dim);
-		font-size: 1rem;
+		font-size: clamp(1.58rem, 2.4vw, 1.78rem);
 		font-weight: 500;
 		letter-spacing: 0.02em;
 	}
@@ -403,7 +407,7 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 	}
 
 	.problema__lista li {
-		font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+		font-size: clamp(1.58rem, 2.4vw, 1.78rem);
 		color: var(--text-secondary);
 		line-height: 1.5;
 		font-weight: 500;

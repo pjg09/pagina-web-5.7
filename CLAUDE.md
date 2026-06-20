@@ -145,12 +145,16 @@ Están marcados como comentarios `// TODO:` en el código:
 - Íconos etapas artistas: `ArtistasEmergentes.png`, `ArtistasCrecimiento.png`, `EquiposDisqueras.png`
 - Íconos servicios artistas: `EstrategiaLanzamiento.png`, `PlaneacionCampanas.png`, `CampanasYoutube.png`, `EstrategiasCrecimiento.png`, `CampanasInfluencers.png`, `PromocionTematicas.png`, `ProduccionVideo.png`, `ProduccionMusical.png`, `Fotografia.png`, `ContenidoVisual.png`, `GiraMedios.png`, `Presentaciones.png`, `Cines.png`
 - Imágenes de secciones: `Artistas01–03.jpeg`, `Empresas01–03.jpeg`, `Referencia01.jpeg`, `InternaSeguridad01.jpeg`
-- UI: `BotonArtista.png`, `BotonEmpresa.png`, `logo.png`, `LogoFenalco.png`
+- UI: `BotonArtista.png`, `BotonEmpresa.png`, `logo.png`, `LogoFenalco.png`, `LogoCamaraComercio.png`
 - Íconos sociales: `Facebook.png`, `Instagram.png`, `Tiktok.png`, `Whatsapp.png`, `Email.png`
 - Íconos adicionales artistas: `Colaboraciones.png`, `GestionInfluencers.png`
 - Íconos adicionales producción: `VideosCorporativos.png`, `VideosRedes.png`
 
 ## Gotchas técnicos
+
+**`::before` borde gradiente + clase `.reveal` — stacking context bug:** Cuando un wrapper usa `::before { position: absolute; z-index: -1 }` para un borde de gradiente, poner `.reveal` en el WRAPPER EXTERNO, no en la card interior. Si `.reveal` está en la card interior, su `opacity: 0 → 1` crea un stacking context que hace que el gradiente se vea a través de la card semi-transparente durante la animación. Patrón de referencia: `.problema-card-outer` en `index.astro` (el `.reveal` está en el outer, la `.problema-card` interior no tiene `.reveal`).
+
+**`z-index: -1` NO va detrás del background del propio elemento padre:** Un `::before { z-index: -1 }` dentro de `isolation: isolate` pinta en el paso 2 del stacking order — DESPUÉS del paso 1 (background del propio elemento). El gradiente aparece ENCIMA del fondo oscuro de la card, no detrás. Fix: poner `::before` en un div WRAPPER SIN background; la card interior (con su `background: var(--bg-card)` opaco) actúa como máscara cubriendo el centro del gradiente. Solo funciona si el wrapper no tiene background propio.
 
 **`transform` + `.reveal` conflict (producción vs dev):** El bundle CSS en producción puede ordenar `.reveal.visible { transform: translateY(0) }` DESPUÉS del scoped CSS del componente, pisando transforms custom. Fix: añadir selector de mayor especificidad `.parent .element.visible { transform: <valor-original> }` para forzar que gane el scoped CSS.
 
