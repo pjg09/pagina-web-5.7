@@ -1,3 +1,9 @@
+## [1.5.9](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.8...v1.5.9) (2026-06-20)
+
+### Bug Fixes
+
+* **frases-destacadas:** unifica estilo de frases en cursiva y ajusta espaciado en index ([8b70973](https://github.com/pjg09/pagina-web-5.7/commit/8b70973670a5deac4771a055f3cb56ba61afa7e3))
+
 ## [1.5.8](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.7...v1.5.8) (2026-06-20)
 
 ### Bug Fixes
