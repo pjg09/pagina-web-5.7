@@ -95,17 +95,16 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 
 	<!-- SECCIÓN 3 — EL PROBLEMA -->
 	<section class="problema" aria-label="El problema">
-		<div class="container">
-			<div class="problema__split">
-				<div class="problema__imagen reveal">
-					<img
-						src="/images/InternaSeguridad01.jpeg"
-						alt="Seguridad en eventos y movilidad"
-						loading="lazy"
-					/>
-					<div class="problema__imagen-overlay"></div>
-				</div>
-				<div class="problema__content reveal reveal-delay-1">
+		<div class="problema__split">
+			<div class="problema__imagen reveal">
+				<img
+					src="/images/InternaSeguridad01.jpeg"
+					alt="Seguridad en eventos y movilidad"
+					loading="lazy"
+				/>
+			</div>
+			<div class="problema__content reveal reveal-delay-1">
+				<div class="container">
 					<h2 class="display display--lg problema__titulo">
 						CUANDO NO HAY<br />
 						ESTRUCTURA,<br />
@@ -115,11 +114,26 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 						Muchos artistas, equipos y empresarios enfrentan:
 					</p>
 					<ul class="problema__lista">
-						<li>Falta de seguridad en eventos</li>
-						<li>Traslados sin planificación ni respaldo</li>
-						<li>Riesgos en exposición pública</li>
-						<li>Logística improvisada</li>
-						<li>Mala experiencia en movilidad</li>
+						<li>
+							<span class="problema__lista-num">01</span>Falta de
+							seguridad en eventos
+						</li>
+						<li>
+							<span class="problema__lista-num">02</span>Traslados
+							sin planificación ni respaldo
+						</li>
+						<li>
+							<span class="problema__lista-num">03</span>Riesgos
+							en exposición pública
+						</li>
+						<li>
+							<span class="problema__lista-num">04</span>Logística
+							improvisada
+						</li>
+						<li>
+							<span class="problema__lista-num">05</span>Mala
+							experiencia en movilidad
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -338,16 +352,21 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 	/* ─── PROBLEMA ──────────────────────────────────────────── */
 	.problema {
 		background: var(--bg-base);
-		padding-top: clamp(4rem, 8vw, 7rem);
+		padding-top: 0;
 		padding-bottom: 0;
 	}
 
 	.problema__split {
+		position: relative;
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 0;
-		min-height: 520px;
-		align-items: stretch;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		gap: 6px;
+		min-height: 70vh;
+		background: linear-gradient(
+			to bottom,
+			rgba(0, 194, 255, 0.5),
+			rgba(212, 0, 255, 0.5)
+		);
 	}
 
 	.problema__imagen {
@@ -368,22 +387,20 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 		transform: scale(1.03);
 	}
 
-	.problema__imagen-overlay {
-		position: absolute;
-		inset: 0;
-		background: linear-gradient(
-			to right,
-			transparent 60%,
-			var(--bg-base) 100%
-		);
+	.problema__content {
+		position: relative;
+		z-index: 2;
+		background: var(--bg-base);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 
-	.problema__content {
+	.problema__content .container {
 		display: flex;
 		flex-direction: column;
 		gap: 1.5rem;
-		padding: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 4vw, 3.5rem);
-		background: var(--bg-base);
+		padding-block: clamp(2.5rem, 5vw, 4rem);
 	}
 
 	.problema__titulo {
@@ -400,29 +417,42 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 	.problema__lista {
 		display: flex;
 		flex-direction: column;
-		gap: 0.85rem;
+		gap: 0;
 		list-style: none;
 		padding: 0;
-		padding-left: 1.5rem;
 	}
 
 	.problema__lista li {
+		display: grid;
+		grid-template-columns: 2.4rem 1fr;
+		align-items: baseline;
+		column-gap: 0.6rem;
 		font-size: clamp(1.58rem, 2.4vw, 1.78rem);
 		color: var(--text-secondary);
 		line-height: 1.5;
 		font-weight: 500;
-		position: relative;
+		padding-block: 0.7rem;
+		border-bottom: 1px solid var(--border);
 		transition: color var(--t-fast) var(--ease);
 	}
 
-	.problema__lista li::before {
-		content: "·";
-		position: absolute;
-		left: -1.5rem;
-		color: var(--cyan);
-		font-size: 1.5em;
-		line-height: 0.85;
-		font-weight: 700;
+	.problema__lista li:first-child {
+		border-top: 1px solid var(--border);
+	}
+
+	.problema__lista-num {
+		font-family: var(--font-display);
+		font-size: inherit;
+		letter-spacing: 0.02em;
+		background: linear-gradient(
+			135deg,
+			#00cfdd 0%,
+			#0a2fa8 35%,
+			#ff0035 100%
+		);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 
 	.problema__lista li:hover {
@@ -430,10 +460,8 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 	}
 
 	.problema__cierre {
-		background: var(--bg-surface);
-		padding-block: clamp(4rem, 8vw, 6rem);
-		margin-top: clamp(3rem, 6vw, 5rem);
-		border-top: 1px solid var(--border);
+		background: var(--bg-base);
+		padding-block: 6.80625rem;
 		text-align: center;
 		position: relative;
 		overflow: hidden;
@@ -459,19 +487,23 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 	@media (max-width: 900px) {
 		.problema__split {
 			grid-template-columns: 1fr;
+			gap: 0;
 			min-height: unset;
+			background: none;
 		}
 
 		.problema__imagen {
-			height: 280px;
+			min-height: unset;
+			aspect-ratio: 16/9;
+			height: auto;
 		}
 
-		.problema__imagen-overlay {
-			background: linear-gradient(
-				to bottom,
-				transparent 60%,
-				var(--bg-base) 100%
-			);
+		.problema__content .container {
+			padding-bottom: 0;
+		}
+
+		.problema__lista li {
+			grid-template-columns: 2rem 1fr;
 		}
 	}
 </style>
