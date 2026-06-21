@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTAWhatsApp from "../components/CTAWhatsApp.astro";
+import { WHATSAPP_CTA } from "../data/constantes.ts";
 ---
 
 <BaseLayout
@@ -151,10 +152,143 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 	</section>
 
 	<div class="section-line"></div>
+
+	<!-- SECCIÓN 4 — SOLUCIONES -->
+	<section
+		class="soluciones-seg"
+		id="servicios"
+		aria-label="Soluciones de seguridad y movilidad"
+	>
+		<div class="container soluciones-seg__header">
+			<h2 class="display display--lg soluciones-seg__titulo reveal">
+				SOLUCIONES PARA MOVERTE CON <span class="gradient-text"
+					>SEGURIDAD</span
+				> Y <span class="gradient-text">NIVEL</span>
+			</h2>
+			<div class="divider reveal reveal-delay-1"></div>
+			<p class="soluciones-seg__sub reveal reveal-delay-1">
+				Esto es lo que coordinamos para que cada movimiento esté bajo
+				control:
+			</p>
+		</div>
+
+		<div class="soluciones-seg__imagen reveal reveal-delay-2">
+			<img
+				src="/images/InternaSeguridad02.jpeg"
+				alt="Movilidad y seguridad ejecutiva"
+				loading="lazy"
+			/>
+		</div>
+
+		<div class="container">
+			<div class="soluciones-seg__grid">
+				<div class="soluciones-seg__card-outer reveal">
+					<article class="soluciones-seg__card">
+						<div class="sb-b-item__header">
+							<img
+								src="/images/Escudo.png"
+								alt=""
+								class="sb-b-item__icono"
+								aria-hidden="true"
+							/>
+							<span class="servicio-item__nombre"
+								>SEGURIDAD<br />VIP</span
+							>
+						</div>
+						<p class="servicio-item__desc">
+							Protección profesional para artistas, empresarios y
+							equipos en eventos, desplazamientos y exposiciones
+							públicas.
+						</p>
+					</article>
+				</div>
+
+				<div class="soluciones-seg__card-outer reveal reveal-delay-1">
+					<article class="soluciones-seg__card">
+						<div class="sb-b-item__header">
+							<img
+								src="/images/Armor.png"
+								alt=""
+								class="sb-b-item__icono"
+								aria-hidden="true"
+							/>
+							<span class="servicio-item__nombre"
+								>VEHÍCULOS BLINDADOS<br />Y CONVENCIONALES</span
+							>
+						</div>
+						<p class="servicio-item__desc">
+							Opciones de transporte seguras, discretas y
+							adaptadas al nivel de exposición.
+						</p>
+					</article>
+				</div>
+
+				<div class="soluciones-seg__card-outer reveal reveal-delay-2">
+					<article class="soluciones-seg__card">
+						<div class="sb-b-item__header">
+							<img
+								src="/images/Van.png"
+								alt=""
+								class="sb-b-item__icono"
+								aria-hidden="true"
+							/>
+							<span class="servicio-item__nombre"
+								>VANS EJECUTIVAS<br />Y BUSES</span
+							>
+						</div>
+						<p class="servicio-item__desc">
+							Movilidad organizada para equipos de trabajo, giras
+							y producción.
+						</p>
+					</article>
+				</div>
+
+				<div class="soluciones-seg__card-outer reveal reveal-delay-3">
+					<article class="soluciones-seg__card">
+						<div class="sb-b-item__header">
+							<img
+								src="/images/Bus.png"
+								alt=""
+								class="sb-b-item__icono"
+								aria-hidden="true"
+							/>
+							<span class="servicio-item__nombre"
+								>LIMOBUSES PARA<br />EVENTOS ESPECIALES</span
+							>
+						</div>
+						<p class="servicio-item__desc">
+							Experiencias de alto impacto para eventos,
+							lanzamientos y celebraciones.
+						</p>
+					</article>
+				</div>
+			</div>
+
+			<div class="soluciones-seg__cta reveal">
+				<a
+					href={WHATSAPP_CTA}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn soluciones-seg__btn"
+					>Coordinar servicio ejecutivo</a
+				>
+			</div>
+
+			<div class="soluciones-seg__frase reveal">
+				<h2 class="display display--lg soluciones-seg__frase-titulo">
+					<span class="gradient-text"
+						>CÓMO TE MUEVES TAMBIÉN DEFINE TU NIVEL</span
+					>
+				</h2>
+			</div>
+		</div>
+	</section>
+
+	<div class="section-line"></div>
 </BaseLayout>
 
 <style>
-	/* ─── HERO ─────────────────────────────────────────────── */
+	/* HERO */
 	.hero {
 		position: relative;
 		min-height: 100svh;
@@ -280,7 +414,7 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 		color: var(--cyan);
 	}
 
-	/* ─── RESPONSIVE ────────────────────────────────────────── */
+	/* RESPONSIVE */
 	@media (max-width: 900px) {
 		.hero__content {
 			align-items: flex-start;
@@ -312,7 +446,7 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 		}
 	}
 
-	/* ─── PROPÓSITO ─────────────────────────────────────────── */
+	/* PROPÓSITO */
 	.proposito {
 		padding: clamp(5rem, 10vw, 9rem) 0;
 		background: var(--bg-surface);
@@ -349,7 +483,7 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 		font-weight: 400;
 	}
 
-	/* ─── PROBLEMA ──────────────────────────────────────────── */
+	/* PROBLEMA */
 	.problema {
 		background: var(--bg-base);
 		padding-top: 0;
@@ -504,6 +638,179 @@ import CTAWhatsApp from "../components/CTAWhatsApp.astro";
 
 		.problema__lista li {
 			grid-template-columns: 2rem 1fr;
+		}
+	}
+
+	/* SOLUCIONES */
+	.soluciones-seg {
+		background: var(--bg-surface);
+		padding-top: clamp(5rem, 10vw, 9rem);
+		padding-bottom: clamp(4rem, 8vw, 6rem);
+		scroll-margin-top: 100px;
+	}
+
+	.soluciones-seg__header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 1.5rem;
+		margin-bottom: clamp(3rem, 6vw, 4.5rem);
+	}
+
+	.soluciones-seg__titulo {
+		line-height: 0.95;
+	}
+
+	.soluciones-seg__header .divider {
+		margin-bottom: 0;
+	}
+
+	.soluciones-seg__sub {
+		color: var(--text-dim);
+		font-size: clamp(1.58rem, 2.4vw, 1.78rem);
+		font-weight: 500;
+		letter-spacing: 0.02em;
+		max-width: 40ch;
+	}
+
+	.soluciones-seg__imagen {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 16/6;
+		overflow: hidden;
+		margin-bottom: clamp(3rem, 6vw, 4.5rem);
+	}
+
+	.soluciones-seg__imagen img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	.soluciones-seg__imagen::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			to bottom,
+			var(--bg-surface) 0%,
+			transparent 18%,
+			transparent 82%,
+			var(--bg-surface) 100%
+		);
+		pointer-events: none;
+	}
+
+	.soluciones-seg__grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.5rem;
+		align-items: stretch;
+	}
+
+	.soluciones-seg__card-outer {
+		position: relative;
+		isolation: isolate;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.soluciones-seg__card-outer::before {
+		content: "";
+		position: absolute;
+		inset: -6px;
+		border-radius: calc(var(--radius-lg) + 6px);
+		background: linear-gradient(135deg, var(--cyan), var(--magenta));
+		z-index: -1;
+		opacity: 0.25;
+		filter: blur(1px);
+		transition: opacity var(--t-med) var(--ease);
+	}
+
+	.soluciones-seg__card-outer:hover::before {
+		opacity: 0.55;
+	}
+
+	.soluciones-seg__card {
+		background: var(--bg-card);
+		border-radius: var(--radius-lg);
+		padding: clamp(2rem, 3vw, 2.5rem);
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		flex: 1;
+	}
+
+	.sb-b-item__header {
+		display: grid;
+		grid-template-columns: 44px 1fr;
+		align-items: center;
+		column-gap: 0.85rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.sb-b-item__icono {
+		width: 44px;
+		height: 44px;
+		max-width: 44px;
+		object-fit: contain;
+	}
+
+	.servicio-item__nombre {
+		display: block;
+		font-weight: 700;
+		color: var(--text-primary);
+		font-size: clamp(1.1rem, 1.6vw, 1.2rem);
+		letter-spacing: 0.07em;
+		text-transform: uppercase;
+	}
+
+	.servicio-item__desc {
+		color: var(--text-secondary);
+		font-size: clamp(1.58rem, 2.4vw, 1.78rem);
+		line-height: 1.5;
+		font-weight: 400;
+	}
+
+	.soluciones-seg__cta {
+		display: flex;
+		justify-content: center;
+		margin-top: clamp(3rem, 6vw, 4rem);
+	}
+
+	.soluciones-seg__btn {
+		background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		border: 2px solid var(--cyan);
+	}
+
+	.soluciones-seg__btn:hover {
+		filter: brightness(1.2);
+		transform: translateY(-2px);
+	}
+
+	.soluciones-seg__frase {
+		margin-top: 6.80625rem;
+		display: flex;
+		justify-content: center;
+		text-align: center;
+	}
+
+	.soluciones-seg__frase-titulo {
+		max-width: 18ch;
+	}
+
+	@media (max-width: 900px) {
+		.soluciones-seg__grid {
+			grid-template-columns: 1fr;
+		}
+
+		.soluciones-seg__imagen {
+			aspect-ratio: 16/9;
 		}
 	}
 </style>

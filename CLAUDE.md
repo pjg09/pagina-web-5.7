@@ -19,7 +19,9 @@ pnpm build        # build estático en dist/
 pnpm preview      # preview del build en local
 ```
 
-No hay tests, linter configurado, ni CI propio. El deploy ocurre en Vercel automáticamente al pushear a `main`.
+No hay tests ni linter configurado. El deploy ocurre en Vercel automáticamente al pushear a `main`.
+
+**CI: release automático por commit prefix.** `.github/workflows/release.yml` corre `semantic-release` en cada push a `main` (ver `.releaserc.json`). El prefijo del commit determina el bump de versión: `fix:`→patch, `feat:`→minor, `chore:`/`docs:`→patch, `BREAKING CHANGE`→major. Genera automáticamente un commit `chore(release): X.X.X [skip ci]` + entrada en `CHANGELOG.md` — no son commits manuales, no los repitas ni los reviertas.
 
 ## Arquitectura
 
@@ -81,7 +83,7 @@ Agregadas a `global.css`. Usar siempre estas variables para cards/bordes empresa
 | `--empresa-subtle` | `rgba(181, 0, 95, 0.1)` | Fondo sutil badge empresa |
 | `--empresa-hover` | `rgba(224, 0, 79, 0.18)` | Fondo hover badge empresa |
 
-**Clases utilitarias clave:** `.display`, `.display--xl/lg/md/sm`, `.btn`, `.btn--primary/outline/ghost`, `.label`, `.divider`, `.reveal`, `.reveal-delay-1/2/3/4`, `.gradient-text`, `.section-line`, `.container`
+**Clases utilitarias clave:** `.display`, `.display--xl/lg/md/sm`, `.btn`, `.btn--primary/outline/ghost`, `.label`, `.divider`, `.reveal`, `.reveal-delay-1/2/3/4`, `.gradient-text`, `.section-line`, `.container`, `.frase-destacada` (frase en cursiva blanca, tamaño unificado — usada en index/empresas/artistas/seguridad-movilidad, no duplicar su CSS por página)
 
 **Variables de texto completas:** `--text-high` (0.95 opacidad), `--text-secondary` (0.9), `--text-dim` (0.7), `--text-muted` (#55556a). `--text-mid` NO existe — no usarla.
 
@@ -130,6 +132,8 @@ Están marcados como comentarios `// TODO:` en el código:
 
 **Escala tipográfica responsive (convención):** Body text: `clamp(B×1.15, vw, B×1.30)` (+15% mobile, +30% desktop). Subtítulos: `clamp(B×1.10, vw, B×1.20)`. El vw ≈ `desktop_rem / 0.75` para que el máximo se alcance a ~1200px. Las clases globales `.body--lg/md/sm`, `.display--md/sm`, `.label` ya aplican estos valores — páginas futuras deben usarlas en vez de hardcodear `font-size`.
 
+**Instancia concreta ya en uso para contenido informativo:** `clamp(1.58rem, 2.4vw, 1.78rem)` — aplicado a párrafos/descripciones/`<li>` en empresas.astro, artistas.astro y seguridad-movilidad.astro. Reusar este valor exacto al "matchear" tamaños entre páginas en vez de re-derivarlo.
+
 **Cards de igual altura en grid de 2 columnas:** Añadir `flex: 1` a la card dentro de un outer wrapper con `display: flex; flex-direction: column`. El grid ya aplica `align-items: stretch` al outer por defecto; sin `flex: 1` la card no crece para llenarlo.
 
 **Patrón "header con foto y borde lateral" (`asesoria-header`/`diagnostico-header`):** Grid `55% 45%` (texto | foto), `min-height: 80vh`. Columna texto en `--bg-surface`; columna foto con `__border` — barra vertical 6px, `linear-gradient(to bottom, var(--cyan), var(--magenta))`, `opacity: 0.25`, `filter: blur(1px)`. Mobile (`≤900px`): 1 columna, foto `aspect-ratio: 16/9`. Usado en artistas (5A) y empresas (diagnóstico).
@@ -172,13 +176,19 @@ Están marcados como comentarios `// TODO:` en el código:
 
 **Tinte `rgba` se lava sobre gradiente/blur detrás:** Un fondo de baja opacidad (ej. `var(--cyan-dim)`) pensado para verse sobre `--bg-base` se mezcla con cualquier `::before` con blur que quede detrás (como el borde glow), perdiendo su color. Fix: `background: linear-gradient(var(--tinte), var(--tinte)), var(--bg-base);` — la segunda capa actúa de base opaca fija.
 
+**Espaciado "simétrico arriba/abajo" ≠ igualar solo el margin del bloque:** si el bloque es vecino de una sección que también aporta padding (ej. `padding-top` de la siguiente sección o `padding-bottom` de la contenedora), ese padding se suma de un solo lado y rompe la simetría aunque el margin sea idéntico en ambos lados. Hay que poner a 0 los paddings vecinos que compitan y dejar un solo valor al mando (visto en `.id-frase` de index.astro y `.problema__cierre` de seguridad-movilidad.astro).
+
+**Comentario CSS cerrado con `-->` en vez de `*/`:** error de copy-paste desde HTML. El parser no encuentra el cierre y trata todo como comentario hasta el PRÓXIMO `*/` real del archivo, tragándose reglas completas sin error visible (fondo no aplica, tipografía cae a serif por defecto). Si una página/demo no aplica ningún estilo, contar `/*` vs `*/` en el `<style>`.
+
+**Divisor de acento vía `gap` + background del grid (sin pseudo-elemento):** en un grid de 2 columnas con `gap: 6px`, poner el gradiente cyan→magenta como `background` del propio contenedor — el gap deja ver una franja fina de ese fondo entre las columnas opacas. Mobile: cambiar a `linear-gradient(90deg, ...)` para que la franja (ahora horizontal, en el row-gap) se vea como degradado izquierda→derecha. Usado en `.problema__split` de seguridad-movilidad.astro.
+
 ## Estado actual de páginas
 
 - `artistas.astro` — completa (secciones 1–5): hero, intro, etapas, servicios (4 categorías con imágenes), asesoría estratégica con formulario ilustrativo.
 - `empresas.astro` — completa (secciones 1–6): hero, propósito, problema (dos columnas título|lista + mensaje cierre), soluciones (4A header con imagen full-bleed; 01 sin imagen; 02 imagen derecha; 03 tres columnas; 04 imagen izquierda), diagnóstico, cierre.
 - `index.astro` — completa (secciones 1–6).
 - `formulario.astro`, `resumen.astro`, `agendamientos.astro`, `contacto.astro` — pendientes de diseño.
-- `seguridad-movilidad.astro` — en construcción (secciones 1–3): hero con imagen, propósito (texto centrado), problema (grid imagen+lista + cierre gradient). Patrón "problema" reutiliza estructura de empresas.astro sección 3.
+- `seguridad-movilidad.astro` — en construcción (secciones 1–3): hero con imagen, propósito (texto centrado), problema (layout asimétrico imagen/lista 50%/50% con divisor de acento entre columnas — ya no replica el grid simple de empresas.astro sección 3 + cierre con frase destacada).
 
 ## Perfil del desarrollador
 
