@@ -1,3 +1,9 @@
+## [1.5.11](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.10...v1.5.11) (2026-06-21)
+
+### Bug Fixes
+
+* agrega sección de soluciones a seguridad-movilidad con tarjetas de servicio y CTA ([ace2202](https://github.com/pjg09/pagina-web-5.7/commit/ace2202d1bf7c46d7f0bbf6b62a5f2d621002ab8)), closes [#servicios](https://github.com/pjg09/pagina-web-5.7/issues/servicios)
+
 ## [1.5.10](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.9...v1.5.10) (2026-06-20)
 
 ### Bug Fixes
