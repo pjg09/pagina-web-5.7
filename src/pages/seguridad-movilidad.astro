@@ -26,9 +26,9 @@ import { WHATSAPP_CTA } from "../data/constantes.ts";
 					class="display display--xl hero__title reveal reveal-delay-2"
 				>
 					MOVILIDAD,<br />
-					SEGURIDAD<br />
-					Y CONTROL<br />
-					A LA ALTURA DE<br />
+					SEGURIDAD Y<br />
+					CONTROL A LA<br />
+					ALTURA DE
 					<span class="gradient-text">TU NIVEL</span>
 				</h1>
 				<p class="body--lg hero__sub reveal reveal-delay-3">
@@ -75,18 +75,16 @@ import { WHATSAPP_CTA } from "../data/constantes.ts";
 			<h2
 				class="display display--xl proposito__titulo reveal reveal-delay-1"
 			>
-				NO SE TRATA SOLO DE<br />MOVERSE. SE TRATA<br />DE
+				NO SE TRATA SOLO DE MOVERSE. <br class="br-desktop" />SE TRATA
+				DE
 				<span class="gradient-text">HACERLO BIEN</span>
 			</h2>
 			<div class="divider"></div>
 			<div class="proposito__body">
 				<p class="body--lg proposito__p reveal reveal-delay-2">
 					Cuando hay exposición, eventos o figuras públicas
-					involucradas, la logística no puede improvisarse.
-				</p>
-				<p class="body--lg proposito__p reveal reveal-delay-3">
-					Se necesita estructura, seguridad y control en cada
-					movimiento.
+					involucradas, la logística no puede improvisarse. Se
+					necesita estructura, seguridad y control en cada movimiento.
 				</p>
 			</div>
 		</div>
@@ -472,7 +470,7 @@ import { WHATSAPP_CTA } from "../data/constantes.ts";
 		display: flex;
 		flex-direction: column;
 		gap: 1.25rem;
-		max-width: 33.5rem;
+		max-width: 50.3rem;
 		text-align: justify;
 	}
 
@@ -481,6 +479,12 @@ import { WHATSAPP_CTA } from "../data/constantes.ts";
 		font-size: clamp(1.58rem, 2.4vw, 1.78rem);
 		line-height: 1.7;
 		font-weight: 400;
+	}
+
+	@media (max-width: 900px) {
+		.proposito .br-desktop {
+			display: none;
+		}
 	}
 
 	/* PROBLEMA */
