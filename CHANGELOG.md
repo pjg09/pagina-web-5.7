@@ -1,3 +1,9 @@
+## [1.6.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.12...v1.6.0) (2026-06-23)
+
+### Features
+
+* agrega secciones de la página de agendamientos ([46830f3](https://github.com/pjg09/pagina-web-5.7/commit/46830f30cbbf71caa13c668b2df4b4792079e665))
+
 ## [1.5.12](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.11...v1.5.12) (2026-06-23)
 
 ### Bug Fixes
