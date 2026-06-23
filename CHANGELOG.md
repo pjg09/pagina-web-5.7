@@ -1,3 +1,9 @@
+## [1.5.12](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.11...v1.5.12) (2026-06-23)
+
+### Bug Fixes
+
+* ajusta hero y sección propósito en seguridad-movilidad ([321a9ad](https://github.com/pjg09/pagina-web-5.7/commit/321a9ad3c6289ca448d9b5a15ae8b6895dbafa2f))
+
 ## [1.5.11](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.10...v1.5.11) (2026-06-21)
 
 ### Bug Fixes
