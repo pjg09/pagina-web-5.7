@@ -1,0 +1,800 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+	WHATSAPP_1,
+	WHATSAPP_2,
+	WHATSAPP_DEFAULT_MSG,
+	EMAIL,
+	INSTAGRAM,
+	FACEBOOK,
+	TIKTOK,
+} from "../data/constantes";
+---
+
+<BaseLayout
+	title="Contacto"
+	description="Síguenos en redes, escríbenos por correo o contacta directamente a nuestro equipo por WhatsApp."
+>
+	<!-- SECCIÓN 1 — FORMAS DE CONTACTO -->
+	<section class="contacto-sec" aria-label="Formas de contacto">
+		<div class="container">
+			<div class="contacto-header reveal">
+				<h1 class="display display--lg contacto-header__titulo">
+					ELIGE CÓMO QUIERES <span class="gradient-text"
+						>HABLAR CON NOSOTROS</span
+					>
+				</h1>
+				<p class="contacto-header__sub">
+					Síguenos en redes, escríbenos por correo o contacta
+					directamente a nuestro equipo por WhatsApp.
+				</p>
+			</div>
+
+			<!-- Redes + correo -->
+			<div class="contacto-redes-outer reveal reveal-delay-1">
+				<div class="contacto-redes">
+					<a
+						href={INSTAGRAM}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="contacto-redes__item"
+					>
+						<span class="contacto-redes__icon-wrap">
+							<img
+								src="/images/Instagram.png"
+								alt=""
+								class="contacto-redes__icon"
+								aria-hidden="true"
+							/>
+						</span>
+						<span class="contacto-redes__label">Instagram</span>
+						<span class="contacto-redes__handle"
+							>@ondacreativalaunch5.7</span
+						>
+					</a>
+					<a
+						href={FACEBOOK}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="contacto-redes__item"
+					>
+						<span class="contacto-redes__icon-wrap">
+							<img
+								src="/images/Facebook.png"
+								alt=""
+								class="contacto-redes__icon"
+								aria-hidden="true"
+							/>
+						</span>
+						<span class="contacto-redes__label">Facebook</span>
+						<span class="contacto-redes__handle"
+							>@ondacreativalaunch5.7</span
+						>
+					</a>
+					<a
+						href={TIKTOK}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="contacto-redes__item"
+					>
+						<span class="contacto-redes__icon-wrap">
+							<img
+								src="/images/Tiktok.png"
+								alt=""
+								class="contacto-redes__icon"
+								aria-hidden="true"
+							/>
+						</span>
+						<span class="contacto-redes__label">TikTok</span>
+						<span class="contacto-redes__handle"
+							>@ondacreativalaunch5.7</span
+						>
+					</a>
+					<a href={`mailto:${EMAIL}`} class="contacto-redes__item">
+						<span class="contacto-redes__icon-wrap">
+							<img
+								src="/images/Email.png"
+								alt=""
+								class="contacto-redes__icon"
+								aria-hidden="true"
+							/>
+						</span>
+						<span class="contacto-redes__label">Correo</span>
+						<span class="contacto-redes__handle">{EMAIL}</span>
+					</a>
+				</div>
+			</div>
+
+			<!-- Equipo — WhatsApp directo -->
+			<div class="contacto-equipo">
+				<p class="label contacto-equipo__label">
+					Escríbele a nuestro equipo
+				</p>
+				<div class="contacto-equipo__grid">
+					<div class="contacto-rep-outer reveal reveal-delay-2">
+						<article class="contacto-rep">
+							<div class="contacto-rep__foto">
+								<img
+									src="/images/FotoJess.jpg"
+									alt="Jessmar, representante de 5.7 Onda Creativa Launch"
+									loading="lazy"
+								/>
+								<div class="contacto-rep__overlay"></div>
+							</div>
+							<div class="contacto-rep__body">
+								<h3
+									class="display display--sm contacto-rep__nombre"
+								>
+									Jessmar
+								</h3>
+								<p class="contacto-rep__telefono">
+									+57 321 286 5200
+								</p>
+								<a
+									href={`${WHATSAPP_1}?text=${WHATSAPP_DEFAULT_MSG}`}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="btn contacto-rep__btn"
+								>
+									<svg
+										width="20"
+										height="20"
+										viewBox="0 0 24 24"
+										fill="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+										></path>
+										<path
+											d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.524 5.849L.057 23.625a.5.5 0 0 0 .614.633l5.9-1.545A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.792 9.792 0 0 1-5.007-1.373l-.36-.214-3.724.976.994-3.624-.235-.374A9.786 9.786 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"
+										></path>
+									</svg>
+									Hablar con Jessmar
+								</a>
+							</div>
+						</article>
+					</div>
+
+					<div class="contacto-rep-outer reveal reveal-delay-3">
+						<article class="contacto-rep">
+							<div class="contacto-rep__foto">
+								<img
+									src="/images/FotoAdrian.jpg"
+									alt="Adrián, representante de 5.7 Onda Creativa Launch"
+									loading="lazy"
+								/>
+								<div
+									class="contacto-rep__overlay contacto-rep__overlay--magenta"
+								>
+								</div>
+							</div>
+							<div class="contacto-rep__body">
+								<h3
+									class="display display--sm contacto-rep__nombre"
+								>
+									Adrián
+								</h3>
+								<p class="contacto-rep__telefono">
+									+57 312 544 8302
+								</p>
+								<a
+									href={`${WHATSAPP_2}?text=${WHATSAPP_DEFAULT_MSG}`}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="btn contacto-rep__btn"
+								>
+									<svg
+										width="20"
+										height="20"
+										viewBox="0 0 24 24"
+										fill="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+										></path>
+										<path
+											d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.524 5.849L.057 23.625a.5.5 0 0 0 .614.633l5.9-1.545A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.792 9.792 0 0 1-5.007-1.373l-.36-.214-3.724.976.994-3.624-.235-.374A9.786 9.786 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"
+										></path>
+									</svg>
+									Hablar con Adrián
+								</a>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="section-line"></div>
+
+	<!-- SECCIÓN 2 — FORMULARIO DE CONTACTO -->
+	<section class="contacto-form-sec" aria-label="Formulario de contacto">
+		<div class="container">
+			<div class="contacto-form-header reveal">
+				<h2 class="display display--lg contacto-form-header__titulo">
+					CUÉNTANOS SOBRE TU <span class="gradient-text"
+						>PROYECTO</span
+					>
+				</h2>
+				<p class="contacto-form-header__sub">
+					Completa el formulario y te responderemos lo más pronto
+					posible por correo electrónico.
+				</p>
+			</div>
+
+			<div class="contacto-form-outer reveal reveal-delay-1">
+				<form class="contacto-form" id="contacto-form" novalidate>
+					<div class="contacto-form__grid">
+						<div class="contacto-form__campo">
+							<label for="cf-nombre" class="contacto-form__label"
+								>Nombre</label
+							>
+							<input
+								type="text"
+								id="cf-nombre"
+								name="nombre"
+								class="contacto-form__input"
+								placeholder="Tu nombre completo"
+								required
+							/>
+						</div>
+
+						<div class="contacto-form__campo">
+							<label for="cf-email" class="contacto-form__label"
+								>Correo electrónico</label
+							>
+							<input
+								type="email"
+								id="cf-email"
+								name="email"
+								class="contacto-form__input"
+								placeholder="tucorreo@ejemplo.com"
+								required
+							/>
+						</div>
+
+						<div class="contacto-form__campo">
+							<label
+								for="cf-telefono"
+								class="contacto-form__label">Teléfono</label
+							>
+							<input
+								type="tel"
+								id="cf-telefono"
+								name="telefono"
+								class="contacto-form__input"
+								placeholder="+57 300 000 0000"
+								required
+							/>
+						</div>
+
+						<div class="contacto-form__campo">
+							<label for="cf-empresa" class="contacto-form__label"
+								>Empresa / Razón Social / Nombre Artístico</label
+							>
+							<input
+								type="text"
+								id="cf-empresa"
+								name="empresa"
+								class="contacto-form__input"
+								placeholder="¿Cómo se llama tu marca o proyecto?"
+								required
+							/>
+						</div>
+
+						<div class="contacto-form__campo">
+							<span class="contacto-form__label"
+								>Línea de producto</span
+							>
+							<div
+								class="contacto-form__toggle"
+								role="radiogroup"
+								aria-label="Línea de producto"
+							>
+								<label class="contacto-form__toggle-option">
+									<input
+										type="radio"
+										name="linea"
+										value="marca"
+										required
+									/>
+									<span>Marca</span>
+								</label>
+								<label class="contacto-form__toggle-option">
+									<input
+										type="radio"
+										name="linea"
+										value="artista"
+										required
+									/>
+									<span>Artista</span>
+								</label>
+							</div>
+						</div>
+
+						<div class="contacto-form__campo">
+							<label
+								for="cf-instagram"
+								class="contacto-form__label"
+								>Usuario de Instagram</label
+							>
+							<input
+								type="text"
+								id="cf-instagram"
+								name="instagram"
+								class="contacto-form__input"
+								placeholder="@tuusuario"
+								required
+							/>
+						</div>
+					</div>
+
+					<div class="contacto-form__campo">
+						<label for="cf-necesidad" class="contacto-form__label"
+							>Descripción de tu necesidad</label
+						>
+						<textarea
+							id="cf-necesidad"
+							name="necesidad"
+							class="contacto-form__input contacto-form__textarea"
+							rows="5"
+							placeholder="Cuéntanos qué necesitas y cómo podemos ayudarte..."
+							required></textarea>
+					</div>
+
+					<button
+						type="submit"
+						id="contacto-form__submit"
+						class="btn contacto-form__btn"
+						disabled
+					>
+						Enviar solicitud
+					</button>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		const contactForm = document.getElementById("contacto-form");
+		const submitBtn = document.getElementById("contacto-form__submit");
+
+		function validateContactForm() {
+			const requiredFields = contactForm.querySelectorAll("[required]");
+			let allFilled = true;
+
+			requiredFields.forEach((field) => {
+				if (field.type === "radio") {
+					const checked = contactForm.querySelector(
+						`input[name="${field.name}"]:checked`,
+					);
+					if (!checked) allFilled = false;
+				} else if (!field.value.trim()) {
+					allFilled = false;
+				}
+			});
+
+			const email = contactForm.querySelector("#cf-email").value.trim();
+			const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+			submitBtn.disabled = !(allFilled && emailValid);
+		}
+
+		contactForm.addEventListener("input", validateContactForm);
+		contactForm.addEventListener("change", validateContactForm);
+		validateContactForm();
+	</script>
+</BaseLayout>
+
+<style>
+	/* CONTACTO — SECCIÓN 1 */
+	.contacto-sec {
+		padding-top: calc(140px + var(--section-gap));
+		padding-bottom: var(--section-gap);
+		background: var(--bg-base);
+	}
+
+	.contacto-header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 1.5rem;
+		margin-bottom: clamp(3.5rem, 7vw, 5.5rem);
+	}
+
+	.contacto-header__titulo {
+		max-width: 26ch;
+		line-height: 1.05;
+	}
+
+	.contacto-header__sub {
+		color: var(--text-dim);
+		font-size: clamp(1.58rem, 2.4vw, 1.78rem);
+		max-width: 48ch;
+	}
+
+	/* REDES + CORREO */
+	.contacto-redes-outer {
+		position: relative;
+		isolation: isolate;
+		margin-bottom: clamp(4rem, 8vw, 6rem);
+	}
+	.contacto-redes-outer::before {
+		content: "";
+		position: absolute;
+		inset: -6.5px;
+		border-radius: calc(var(--radius-lg) + 6.5px);
+		background: linear-gradient(135deg, var(--cyan), var(--magenta));
+		z-index: -1;
+		opacity: 0.25;
+		filter: blur(1px);
+		transition: opacity var(--t-med) var(--ease);
+	}
+	.contacto-redes-outer:hover::before {
+		opacity: 0.55;
+	}
+
+	.contacto-redes {
+		background: var(--bg-card);
+		border-radius: var(--radius-lg);
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 2rem;
+		padding: clamp(2rem, 4vw, 3rem);
+	}
+
+	.contacto-redes__item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 0.6rem;
+		min-width: 0;
+	}
+
+	.contacto-redes__icon-wrap {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 64px;
+		height: 64px;
+		border-radius: 50%;
+		background: var(--bg-base);
+		border: 1px solid var(--border);
+		transition:
+			border-color var(--t-fast) var(--ease),
+			background var(--t-fast) var(--ease),
+			transform var(--t-fast) var(--ease);
+	}
+	.contacto-redes__item:hover .contacto-redes__icon-wrap {
+		border-color: var(--cyan);
+		background: var(--bg-card-hover);
+		transform: translateY(-4px);
+	}
+
+	.contacto-redes__icon {
+		width: 28px;
+		height: 28px;
+		object-fit: contain;
+	}
+
+	.contacto-redes__label {
+		font-family: var(--font-display);
+		font-size: 1.3rem;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--text-primary);
+		transition: color var(--t-fast) var(--ease);
+	}
+	.contacto-redes__item:hover .contacto-redes__label {
+		color: var(--cyan);
+	}
+
+	.contacto-redes__handle {
+		font-size: 1.05rem;
+		color: var(--text-secondary);
+		overflow-wrap: anywhere;
+		max-width: 100%;
+	}
+
+	/* EQUIPO — WHATSAPP */
+	.contacto-equipo__label {
+		display: block;
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+
+	.contacto-equipo__grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.5rem;
+		max-width: 52.8rem;
+		margin-inline: auto;
+	}
+
+	.contacto-rep-outer {
+		position: relative;
+		isolation: isolate;
+	}
+	.contacto-rep-outer::before {
+		content: "";
+		position: absolute;
+		inset: -6.5px;
+		border-radius: calc(var(--radius-lg) + 6.5px);
+		background: linear-gradient(135deg, var(--cyan), var(--magenta));
+		z-index: -1;
+		opacity: 0.25;
+		filter: blur(1px);
+		transition: opacity var(--t-med) var(--ease);
+	}
+	.contacto-rep-outer:hover::before {
+		opacity: 0.55;
+	}
+
+	.contacto-rep {
+		background: var(--bg-card);
+		border-radius: var(--radius-lg);
+		overflow: hidden;
+	}
+
+	.contacto-rep__foto {
+		position: relative;
+		aspect-ratio: 4/5;
+		overflow: hidden;
+	}
+	.contacto-rep__foto img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center top;
+		transition: transform 0.6s var(--ease);
+	}
+	.contacto-rep:hover .contacto-rep__foto img {
+		transform: scale(1.04);
+	}
+	.contacto-rep__overlay {
+		position: absolute;
+		inset: 0;
+		background:
+			linear-gradient(to bottom, transparent 55%, var(--bg-card) 100%),
+			linear-gradient(135deg, var(--cyan-dim) 0%, transparent 70%);
+	}
+	.contacto-rep__overlay--magenta {
+		background:
+			linear-gradient(to bottom, transparent 55%, var(--bg-card) 100%),
+			linear-gradient(135deg, var(--magenta-dim) 0%, transparent 70%);
+	}
+
+	.contacto-rep__body {
+		padding: clamp(1.5rem, 3vw, 2rem);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 0.4rem;
+	}
+
+	.contacto-rep__nombre {
+		letter-spacing: 0.1em;
+	}
+
+	.contacto-rep__telefono {
+		color: var(--text-dim);
+		font-size: 1.3rem;
+		font-weight: 600;
+	}
+
+	.contacto-rep__btn {
+		margin-top: 0.75rem;
+		background: #fff;
+		color: #000;
+		border: none;
+	}
+	.contacto-rep__btn:hover {
+		background: #fff;
+		border: 2px solid var(--cyan);
+		transform: translateY(-2px);
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
+	}
+	.contacto-rep__btn:hover svg {
+		fill: var(--cyan);
+	}
+
+	@media (max-width: 768px) {
+		.contacto-header__sub {
+			align-self: flex-start;
+			text-align: left;
+		}
+
+		.contacto-redes {
+			grid-template-columns: 1fr;
+		}
+
+		.contacto-equipo__grid {
+			grid-template-columns: 1fr;
+			max-width: 26.4rem;
+		}
+	}
+
+	/* FORMULARIO DE CONTACTO */
+	.contacto-form-sec {
+		padding-block: var(--section-gap);
+		background: var(--bg-surface);
+	}
+
+	.contacto-form-header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 1.5rem;
+		margin-bottom: clamp(3rem, 6vw, 4.5rem);
+	}
+
+	.contacto-form-header__titulo {
+		max-width: 24ch;
+		line-height: 1.05;
+	}
+
+	.contacto-form-header__sub {
+		color: var(--text-dim);
+		font-size: clamp(1.58rem, 2.4vw, 1.78rem);
+		max-width: 46ch;
+	}
+
+	.contacto-form-outer {
+		position: relative;
+		isolation: isolate;
+		max-width: 64rem;
+		margin-inline: auto;
+	}
+	.contacto-form-outer::before {
+		content: "";
+		position: absolute;
+		inset: -6.5px;
+		border-radius: calc(var(--radius-lg) + 6.5px);
+		background: linear-gradient(135deg, var(--cyan), var(--magenta));
+		z-index: -1;
+		opacity: 0.25;
+		filter: blur(1px);
+		transition: opacity var(--t-med) var(--ease);
+	}
+	.contacto-form-outer:focus-within::before {
+		opacity: 0.55;
+	}
+
+	.contacto-form {
+		background: var(--bg-card);
+		border-radius: var(--radius-lg);
+		padding: clamp(2rem, 4vw, 3rem);
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.contacto-form__grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.5rem 2rem;
+	}
+
+	.contacto-form__campo {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.contacto-form__label {
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: var(--text-secondary);
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.contacto-form__input {
+		width: 100%;
+		background: var(--bg-base);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		padding: 0.85rem 1.1rem;
+		font-family: var(--font-body);
+		font-size: 1rem;
+		color: var(--text-primary);
+		transition:
+			border-color var(--t-fast) var(--ease),
+			box-shadow var(--t-fast) var(--ease);
+	}
+	.contacto-form__input::placeholder {
+		color: var(--text-muted);
+		font-style: italic;
+	}
+	.contacto-form__input:focus {
+		outline: none;
+		border-color: var(--cyan);
+		box-shadow: 0 0 0 3px var(--cyan-subtle);
+	}
+
+	.contacto-form__textarea {
+		resize: vertical;
+		min-height: 140px;
+		font-family: var(--font-body);
+		line-height: 1.5;
+	}
+
+	.contacto-form__toggle {
+		display: flex;
+		gap: 0.75rem;
+	}
+
+	.contacto-form__toggle-option {
+		position: relative;
+		cursor: pointer;
+	}
+	.contacto-form__toggle-option input[type="radio"] {
+		position: absolute;
+		inset: 0;
+		opacity: 0;
+		cursor: pointer;
+		margin: 0;
+	}
+	.contacto-form__toggle-option span {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.85rem 1.75rem;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		background: var(--bg-base);
+		color: var(--text-secondary);
+		font-family: var(--font-display);
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		font-size: 0.95rem;
+		transition: all var(--t-fast) var(--ease);
+	}
+	.contacto-form__toggle-option input[type="radio"]:checked + span {
+		border-color: var(--cyan);
+		color: var(--text-primary);
+		background: linear-gradient(90deg, var(--cyan-dim), var(--magenta-dim));
+	}
+	.contacto-form__toggle-option input[type="radio"]:focus-visible + span {
+		outline: 2px solid var(--cyan);
+		outline-offset: 2px;
+	}
+
+	.contacto-form__btn {
+		align-self: center;
+		margin-top: 0.5rem;
+		background: #fff;
+		color: #000;
+		border: none;
+	}
+	.contacto-form__btn:not(:disabled):hover {
+		background: #fff;
+		border: 2px solid var(--cyan);
+		transform: translateY(-2px);
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
+	}
+	.contacto-form__btn:disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
+		filter: grayscale(0.4);
+	}
+
+	@media (max-width: 768px) {
+		.contacto-form__grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

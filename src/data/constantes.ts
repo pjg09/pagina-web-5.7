@@ -17,9 +17,9 @@ export const WHATSAPP_CTA = `${WHATSAPP_1}?text=${WHATSAPP_DEFAULT_MSG}`;
 export const CALENDLY_ARTISTAS = "https://calendly.com/TU_USUARIO/asesoria-artistas";
 export const CALENDLY_EMPRESAS = "https://calendly.com/TU_USUARIO/diagnostico-empresas";
 
-// MERCADOPAGO
-// TODO: reemplazar con link real de pago al configurar MercadoPago
-export const MP_ASESORIA_ARTISTAS = "https://mpago.la/TU_LINK_DE_PAGO";
+// WOMPI
+// TODO: reemplazar con link real de pago al configurar Wompi
+export const WOMPI_ASESORIA_ARTISTAS = "https://checkout.wompi.co/l/TU_LINK_DE_PAGO";
 
 // PRECIOS 
 export const PRECIO_COP = "$150.000 COP";
@@ -35,6 +35,6 @@ export const NAV_LINKS = [
     { label: "Contacto", href: "/contacto" },
 ];
 
-// MAKE WEBHOOK 
-// TODO: reemplazar con URL real del webhook de Make al configurar
-export const MAKE_WEBHOOK_FORMULARIO = "https://hook.make.com/TU_WEBHOOK_FORMULARIO";
+// APPS SCRIPT WEBHOOK
+// TODO: reemplazar con la URL real del Web App al publicarlo en Apps Script
+export const APPSCRIPT_WEBHOOK_FORMULARIO = "https://script.google.com/macros/s/TU_DEPLOYMENT_ID/exec?origen=formulario";

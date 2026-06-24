@@ -11,14 +11,14 @@ Sitio web institucional y de conversión para **5.7 / Onda Creativa Launch**, ag
 | Framework | Astro (sitio estático) |
 | Hosting | Vercel |
 | Agendamientos | Calendly |
-| Pagos | MercadoPago (lanzamiento) — Stripe internacional (evaluación futura según volumen) |
+| Pagos | Wompi (pasarela colombiana) |
 | Analytics | Google Analytics 4 |
-| Automatización | Make (webhooks MercadoPago + formulario + Calendly → notificaciones al equipo) |
+| Automatización | Google Apps Script (Web App que recibe webhooks de Wompi + formulario + Calendly → Google Sheets + notificaciones al equipo) |
 | Email marketing | Brevo o Mailchimp (implementación futura) |
 | Gestor de paquetes | pnpm |
 | Lenguaje | TypeScript |
 
-> **Nota:** aunque no hay backend propio, Make actúa como middleware externo. Requiere credenciales de Google Sheets y configuración de webhooks. No es infraestructura de código, pero sí es infraestructura operativa que el equipo debe mantener.
+> **Nota:** aunque no hay backend propio, Apps Script actúa como middleware externo, publicado como Web App dentro de la cuenta de Google del cliente. No requiere crear una cuenta nueva (corre en la misma cuenta dueña del Google Sheets), pero sí es infraestructura operativa — código que alguien debe escribir y mantener fuera de este repositorio.
 
 ---
 
@@ -35,7 +35,7 @@ pagina-web-5.7/
 │   │   ├── Hero.astro
 │   │   └── ServiceCard.astro
 │   ├── data/                   # Datos del sitio separados de los componentes
-│   │   ├── constantes.ts       # URLs, teléfonos, links de Calendly, precios, links de MercadoPago
+│   │   ├── constantes.ts       # URLs, teléfonos, links de Calendly, precios, links de Wompi
 │   │   └── servicios.ts        # Listado de servicios para artistas y empresas
 │   ├── layouts/
 │   │   └── BaseLayout.astro    # Estructura HTML base heredada por todas las páginas
@@ -72,61 +72,54 @@ pagina-web-5.7/
 
 ## Flujo de pago — Asesoría artistas
 
-**Flujo automatizado vía Make con token por email. Sin backend propio. Compatible con MercadoPago y Stripe.**
+**Flujo automatizado vía Google Apps Script con token por email. Sin backend propio. Pasarela de pago: Wompi.**
 
 ```
 Artista
   → clic en "Pagar asesoría"
-  → procesador de pago (MercadoPago COP / Stripe internacional)
+  → Wompi (pago en COP)
   → pago aprobado
-  → Make detecta el pago vía webhook
-  → Make genera token único (UUID) y lo guarda en Google Sheets con el payment_id
-  → Make envía correo al artista con enlace personalizado: /formulario?token=UUID
+  → Apps Script detecta el pago vía webhook (doPost)
+  → Apps Script genera token único (UUID) y lo guarda en Google Sheets con el payment_id
+  → Apps Script envía correo al artista con enlace personalizado: /formulario?token=UUID
   → artista abre el correo y hace clic en el enlace
   → /formulario valida que el token exista en Google Sheets
   → artista llena el formulario (proyecto, redes, plataformas, objetivos)
-  → formulario POST a Make webhook con datos + token
-  → Make registra el formulario en Google Sheets cruzando con el pago
+  → formulario POST al Web App de Apps Script con datos + token
+  → Apps Script registra el formulario en Google Sheets cruzando con el pago
   → artista es redirigido a Calendly con token como parámetro de correlación
   → artista agenda su sesión
-  → Calendly notifica a Make (webhook)
-  → Make cruza los tres registros (pago + formulario + agendamiento) en Google Sheets
-  → Make envía correo de confirmación automático al artista
-  → Make envía notificación consolidada al equipo
+  → Calendly notifica a Apps Script (webhook)
+  → Apps Script cruza los tres registros (pago + formulario + agendamiento) en Google Sheets
+  → Apps Script envía correo de confirmación automático al artista
+  → Apps Script envía notificación consolidada al equipo
   → artista llega a /resumen con resumen de su sesión agendada
 ```
 
 **Por qué token en lugar de payment_id directo:**
-Usar el `payment_id` crudo en la URL permite que cualquier persona que conozca la estructura acceda al formulario sin haber pagado. El token UUID generado por Make es de un solo uso, no predecible, y se puede invalidar desde Google Sheets.
+Usar el `payment_id` crudo en la URL permite que cualquier persona que conozca la estructura acceda al formulario sin haber pagado. El token UUID generado por Apps Script (`Utilities.getUuid()`) es de un solo uso, no predecible, y se puede invalidar desde Google Sheets.
 
-**Notificaciones al equipo vía Make:**
+**Notificaciones al equipo vía Apps Script:**
 
-Make escucha tres webhooks y correlaciona todo por `token`:
+Un solo Web App de Apps Script recibe tres webhooks (diferenciados por origen) y correlaciona todo por `token`:
 
-- **Webhook 1 — Procesador de pago:** pago aprobado → genera token UUID → guarda en Sheets → envía correo al artista con enlace
+- **Webhook 1 — Wompi:** pago aprobado → genera token UUID → guarda en Sheets → envía correo al artista con enlace
 - **Webhook 2 — Formulario:** recibe datos del artista + token → valida token → registra en Sheets cruzando con el pago
 - **Webhook 3 — Calendly:** recibe datos del agendamiento + token → cruza los tres registros → envía correo de confirmación al artista + notificación al equipo
 
-**Compatibilidad con procesadores de pago:**
-El flujo es idéntico para MercadoPago y Stripe. Solo cambia el trigger del Webhook 1 en Make. Al agregar Stripe se añade un segundo trigger apuntando al mismo escenario de Make.
-
 **Caso edge — artista paga pero abandona el flujo:**
-Make recibe el pago y genera el token. Si el artista no abre el correo, no llena el formulario o no agenda, el equipo recibe igual la notificación del pago y gestiona el caso manualmente (reenvío del correo o contacto directo).
+Apps Script recibe el pago y genera el token. Si el artista no abre el correo, no llena el formulario o no agenda, el equipo recibe igual la notificación del pago y gestiona el caso manualmente (reenvío del correo o contacto directo).
 
-**Evolución futura:** reemplazar Make con webhooks directos a funciones serverless en Vercel cuando el volumen lo justifique. Los links de pago y Calendly están aislados en `constantes.ts` para facilitar ese cambio sin tocar componentes.
+**Evolución futura:** reemplazar Apps Script con webhooks directos a funciones serverless en Vercel cuando el volumen lo justifique (las cuotas diarias de Apps Script — envíos de Gmail, tiempo de ejecución — son la señal de cuándo migrar). Los links de pago y Calendly están aislados en `constantes.ts` para facilitar ese cambio sin tocar componentes.
 
 ---
 
 ## Precios — Asesoría artistas
 
-Se muestran ambos precios de forma informativa. Un solo botón de pago apunta al link de MercadoPago en COP. El artista internacional paga con su tarjeta y su banco hace la conversión.
-
 ```
 $150.000 COP  /  ~$50 USD (referencial)
-[Pagar asesoría]  →  MercadoPago (COP)
+[Pagar asesoría]  →  Wompi (COP)
 ```
-
-Stripe se evalúa para clientes internacionales después del lanzamiento, según volumen.
 
 ---
 
@@ -144,8 +137,8 @@ Se muestran en `/artistas`, dentro de la sección de asesoría, **antes del bot�
 ## Servicios externos
 
 - **Calendly** — un calendario con dos tipos de evento: diagnóstico gratuito para empresas, asesoría paga para artistas (acceso vía formulario después del pago, con `utm_content=payment_id`)
-- **MercadoPago** — cobro de asesoría estratégica para artistas ($150.000 COP). Stripe se evalúa para clientes internacionales después del lanzamiento
-- **Make** — automatización de notificaciones: escucha webhooks de MercadoPago, formulario y Calendly; correlaciona eventos en Google Sheets por `payment_id`; envía correo consolidado al equipo
+- **Wompi** — cobro de asesoría estratégica para artistas ($150.000 COP)
+- **Google Apps Script** — Web App propio que recibe los webhooks de Wompi, formulario y Calendly; correlaciona eventos en Google Sheets por `payment_id`/token; envía correo consolidado al equipo (`MailApp`)
 - **Google Analytics 4** — tracking de visitas y eventos (clics artistas vs empresas)
 - **Brevo o Mailchimp** — formulario de captura de email (implementación futura)
 
@@ -155,7 +148,7 @@ Se muestran en `/artistas`, dentro de la sección de asesoría, **antes del bot�
 
 - Los componentes solo presentan, no tienen lógica de negocio
 - Todos los datos (textos, precios, URLs, servicios) viven en `src/data/`, no hardcodeados en componentes
-- Constantes centralizadas en `constantes.ts`: WhatsApp, Calendly, MercadoPago, precios
+- Constantes centralizadas en `constantes.ts`: WhatsApp, Calendly, Wompi, precios
 - Sin abstracciones anticipadas — YAGNI. Estructura suficiente para ser mantenible, no arquitectura para impresionar
 - Arquitectura abierta a CMS headless futuro (Contentful o Sanity) sin necesidad de reescribir componentes
 - **Mobile-first**: todo componente se diseña primero para móvil y escala a desktop. El tráfico esperado es mayoritariamente desde celular
@@ -166,8 +159,8 @@ Se muestran en `/artistas`, dentro de la sección de asesoría, **antes del bot�
 
 - [ ] Ítems del formulario previo al agendamiento de artistas (pendiente del cliente)
 - [ ] Formulario de captura email marketing (post-lanzamiento)
-- [ ] Stripe para clientes internacionales (se evalúa según volumen post-lanzamiento)
-- [ ] Automatización avanzada del flujo de pago: webhook + función serverless en Vercel (reemplaza Make cuando el volumen lo justifique)
+- [ ] Evaluar una segunda pasarela de pago si aparece demanda concreta de clientes internacionales que Wompi no cubra bien (post-lanzamiento, según volumen)
+- [ ] Automatización avanzada del flujo de pago: webhook + función serverless en Vercel (reemplaza Apps Script cuando el volumen lo justifique)
 
 ---
 
@@ -193,4 +186,4 @@ pnpm preview
 
 El sitio se despliega automáticamente en Vercel al hacer push a `main`.
 
-**Variables de entorno:** ninguna en el sitio estático. Los links de MercadoPago, Calendly y WhatsApp son públicos y viven en `src/data/constantes.ts`. Las credenciales de Make y Google Sheets se configuran directamente en Make, no en el repositorio.
+**Variables de entorno:** ninguna en el sitio estático. Los links de Wompi, Calendly y WhatsApp son públicos y viven en `src/data/constantes.ts`. El script de Apps Script y el acceso a Google Sheets se configuran directamente en la cuenta de Google del cliente, no en el repositorio.

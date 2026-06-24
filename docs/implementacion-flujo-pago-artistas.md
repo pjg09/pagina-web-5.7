@@ -1,15 +1,15 @@
 > [!WARNING]
 > **DESACTUALIZADO — requiere revisión**
-> Este documento es una guía de implementación aún no ejecutada. Ningún paso ha sido completado: no existe el Google Sheets, no están configurados los escenarios de Make, y las constantes en `constantes.ts` siguen siendo placeholders. Usar como punto de partida, no como estado actual.
+> Este documento es una guía de implementación aún no ejecutada. Ningún paso ha sido completado: no existe el Google Sheets, no está publicado el Web App de Apps Script, y las constantes en `constantes.ts` siguen siendo placeholders. Usar como punto de partida, no como estado actual.
 
 # Implementación del flujo de pago y agendamiento — Asesoría artistas
 
 ## Prerrequisitos antes de empezar
 
-- [ ] Cuenta de Make activa con plan que permita webhooks
-- [ ] Cuenta de MercadoPago del cliente con acceso al panel
+- [ ] Cuenta de Google del cliente (la misma que es dueña del Google Sheets) con acceso a Apps Script
+- [ ] Cuenta de Wompi del cliente con acceso al panel de comercio
 - [ ] Cuenta de Calendly del cliente con el evento de asesoría creado
-- [ ] Google Sheets creado y compartido con Make
+- [ ] Google Sheets creado, en la misma cuenta de Google donde se publicará el script
 - [ ] Dominio real configurado en Vercel (necesario para las URLs de redirección)
 
 ---
@@ -36,77 +36,68 @@ El campo `estado` tendrá estos valores posibles:
 3. Ir a **"Confirmation page"** → seleccionar **"Redirect to an external website"**
 4. Ingresar la URL: `https://DOMINIO.com/resumen`
 5. En **"Notification and cancellation policy"** → activar webhook
-6. Copiar la URL del webhook (se usará en Make en el Paso 4)
+6. Copiar la URL del webhook (se usará en el Paso 4, apuntando al Web App de Apps Script)
 
 ---
 
-## Paso 3 — Configurar MercadoPago
+## Paso 3 — Configurar Wompi
 
-1. Ingresar al panel de MercadoPago del cliente
-2. Ir a **"Tu negocio" → "Cobros" → "Links de pago"**
-3. Crear o editar el link de asesoría estratégica:
+1. Ingresar al panel de comercio de Wompi del cliente
+2. Crear el link/widget de pago para la asesoría estratégica:
    - Monto: $150.000 COP
    - Descripción: "Asesoría estratégica 5.7 / Onda Creativa Launch"
-   - **"¿Qué pasa después del pago?"** → Seleccionar "Redirigir a una URL externa"
-   - URL de redirección: dejar vacía por ahora (Make maneja el correo)
-4. Copiar el link de pago generado (ej: `https://mpago.la/XXXXX`)
-5. Ir a **"Tu negocio" → "Configuración" → "Webhooks"**
-6. Crear webhook apuntando a la URL que generará Make en el Paso 4
-7. Seleccionar el evento: `payment`
+   - Referencia: usar un identificador propio que luego llegue como `payment_id`
+3. Copiar el link de pago generado
+4. Ir a la sección de **eventos/webhooks** del panel de Wompi
+5. Crear un webhook apuntando a la URL que generará el Web App de Apps Script (Paso 4)
+6. Confirmar contra la documentación oficial de Wompi el nombre exacto del evento de pago aprobado (se documentó como `transaction.updated` con estado `APPROVED`, pero debe verificarse al momento de implementar)
 
 ---
 
-## Paso 4 — Configurar Make (tres escenarios)
+## Paso 4 — Construir y publicar el Web App de Apps Script
 
-### Escenario 1: Pago aprobado → generar token → enviar correo
+A diferencia de una herramienta no-code, Apps Script no tiene conectores visuales por proveedor — todo el ruteo y la lógica se escriben a mano en un único proyecto de Apps Script, publicado como **un solo Web App** con una sola función `doPost(e)` de entrada.
 
-1. Crear nuevo escenario en Make
-2. **Trigger:** módulo "MercadoPago" → evento "Watch Payments"
-   - Filtrar: solo pagos con `status = approved`
-3. **Módulo 2:** "Tools" → "Set Variable"
-   - Nombre: `token`
-   - Valor: usar función `uuid()` de Make para generar UUID único
-4. **Módulo 3:** "Google Sheets" → "Add a Row"
-   - Hoja: `agendamientos_artistas`
-   - Mapear columnas: `token`, `payment_id`, `email`, `monto`, `estado: pendiente_formulario`, `timestamp_pago`
-5. **Módulo 4:** "Email" (o Gmail) → "Send an Email"
-   - Para: email del comprador (del paso del pago)
+### Estructura general del script
+
+1. Crear el proyecto de Apps Script desde el propio Google Sheets (`Extensiones → Apps Script`), para que tenga acceso directo a la hoja sin configurar credenciales.
+2. En `doPost(e)`, identificar el origen de la llamada (Wompi, formulario del sitio, o Calendly) — por un parámetro en la URL (`?origen=wompi`, `?origen=formulario`, `?origen=calendly`) o por la forma del payload JSON recibido.
+3. Enrutar a una función distinta según el origen: `procesarPagoWompi(payload)`, `procesarFormulario(payload)`, `procesarAgendamiento(payload)`.
+4. Publicar como Web App: `Implementar → Nueva implementación → Aplicación web` — ejecutar como "Yo" (el propietario), acceso "Cualquier usuario" (necesario para que Wompi/Calendly puedan llamarlo desde fuera).
+5. Copiar la URL del Web App generada — es la misma URL que se usa en los tres webhooks (Wompi, formulario del sitio, Calendly), diferenciados por el parámetro `?origen=`.
+
+### Función 1: Pago aprobado → generar token → enviar correo
+
+`procesarPagoWompi(payload)` debe:
+1. Verificar que el estado de la transacción sea aprobado
+2. Extraer: `payment_id`, email del comprador, monto
+3. Generar el token con `Utilities.getUuid()`
+4. Escribir una fila nueva en `agendamientos_artistas` (`SpreadsheetApp.openById(...).appendRow(...)`): `token`, `payment_id`, `email`, `monto`, `estado: pendiente_formulario`, `timestamp_pago`
+5. Enviar correo al artista con `MailApp.sendEmail()`:
    - Asunto: "Tu pago fue recibido — Completa tu agendamiento"
-   - Cuerpo: incluir enlace `https://DOMINIO.com/formulario?token={{token}}`
-6. Guardar y **activar** el escenario
-7. Copiar la URL del webhook de Make y pegarla en el panel de MercadoPago (Paso 3)
+   - Cuerpo: incluir enlace `https://DOMINIO.com/formulario?token={token}`
 
-### Escenario 2: Formulario enviado → registrar datos
+### Función 2: Formulario enviado → registrar datos
 
-1. Crear nuevo escenario en Make
-2. **Trigger:** "Webhooks" → "Custom webhook"
-   - Copiar la URL generada — esta es `MAKE_WEBHOOK_FORMULARIO` que va en `constantes.ts`
-3. **Módulo 2:** "Google Sheets" → "Search Rows"
-   - Buscar la fila donde `token = {{token del webhook}}`
-   - Verificar que `estado = pendiente_formulario`
-4. **Módulo 3:** "Google Sheets" → "Update a Row"
-   - Actualizar la fila encontrada con: nombre_artistico, redes, plataformas, descripcion, objetivos
-   - Cambiar `estado` a `pendiente_agendamiento`
-   - Registrar `timestamp_formulario`
-5. Guardar y activar el escenario
+`procesarFormulario(payload)` debe:
+1. Recibir `token` + campos del formulario
+2. Buscar en la hoja la fila donde `token` coincida y `estado = pendiente_formulario`
+3. Si no existe o el estado no coincide, devolver un error (el frontend debe mostrarlo)
+4. Actualizar la fila encontrada con: nombre_artistico, redes, plataformas, descripcion, objetivos
+5. Cambiar `estado` a `pendiente_agendamiento` y registrar `timestamp_formulario`
 
-### Escenario 3: Sesión agendada → confirmar y notificar
+### Función 3: Sesión agendada → confirmar y notificar
 
-1. Crear nuevo escenario en Make
-2. **Trigger:** "Calendly" → "Watch Events" → evento `invitee.created`
-3. **Módulo 2:** "Google Sheets" → "Search Rows"
-   - Buscar la fila donde `token = {{utm_content del evento de Calendly}}`
-4. **Módulo 3:** "Google Sheets" → "Update a Row"
-   - Actualizar con: `fecha_sesion`, `enlace_sesion`
-   - Cambiar `estado` a `completo`
-   - Registrar `timestamp_agendamiento`
-5. **Módulo 4:** "Email" → enviar correo de confirmación al artista
+`procesarAgendamiento(payload)` debe:
+1. Recibir los datos del evento de Calendly, incluyendo el token (vía `utm_content`)
+2. Buscar la fila donde `token` coincida
+3. Actualizar con `fecha_sesion`, `enlace_sesion`; cambiar `estado` a `completo`; registrar `timestamp_agendamiento`
+4. Enviar correo de confirmación al artista (`MailApp.sendEmail()`):
    - Asunto: "Tu sesión está confirmada — Asesoría estratégica 5.7"
    - Incluir: fecha, hora y enlace de la videollamada
-6. **Módulo 5:** "Email" → enviar notificación al equipo
-   - Asunto: "Nueva asesoría agendada — {{nombre_artistico}}"
-   - Incluir: todos los datos del Google Sheets (pago + formulario + agendamiento)
-7. Guardar y activar el escenario
+5. Enviar notificación al equipo (`MailApp.sendEmail()` a la dirección interna, o integrarlo con WhatsApp/Slack más adelante si se necesita):
+   - Asunto: "Nueva asesoría agendada — {nombre_artistico}"
+   - Incluir: todos los datos de la fila (pago + formulario + agendamiento)
 
 ---
 
@@ -115,14 +106,14 @@ El campo `estado` tendrá estos valores posibles:
 Con los links ya generados, actualizar `src/data/constantes.ts`:
 
 ```typescript
-// MercadoPago — reemplazar con el link real del Paso 3
-export const MP_ASESORIA_ARTISTAS = "https://mpago.la/LINK_REAL";
+// Wompi — reemplazar con el link real del Paso 3
+export const WOMPI_ASESORIA_ARTISTAS = "https://checkout.wompi.co/l/LINK_REAL";
 
 // Calendly — reemplazar con el link real del evento
 export const CALENDLY_ARTISTAS = "https://calendly.com/USUARIO/asesoria-artistas";
 
-// Make webhook — reemplazar con la URL del Escenario 2
-export const MAKE_WEBHOOK_FORMULARIO = "https://hook.make.com/WEBHOOK_REAL";
+// Apps Script Web App — reemplazar con la URL publicada en el Paso 4
+export const APPSCRIPT_WEBHOOK_FORMULARIO = "https://script.google.com/macros/s/DEPLOYMENT_ID/exec?origen=formulario";
 ```
 
 ---
@@ -134,11 +125,11 @@ La página `/formulario` debe:
 1. Leer el parámetro `token` de la URL
 2. Si no hay token o el token es inválido → mostrar mensaje de error con opción de contactar al equipo
 3. Si el token es válido → mostrar el formulario con los campos del proyecto
-4. Al enviar → hacer POST al `MAKE_WEBHOOK_FORMULARIO` con token + datos
+4. Al enviar → hacer POST al `APPSCRIPT_WEBHOOK_FORMULARIO` con token + datos
 5. Al recibir respuesta exitosa → redirigir a Calendly con el token: `CALENDLY_ARTISTAS?utm_content=TOKEN`
 
 **Validación del token desde el frontend:**
-Sin backend, la validación real del token ocurre en Make (Escenario 2). El frontend solo verifica que el parámetro `token` exista en la URL antes de mostrar el formulario. La validación de que el token es legítimo la hace Make al procesar el POST.
+Sin backend, la validación real del token ocurre en Apps Script (Función 2). El frontend solo verifica que el parámetro `token` exista en la URL antes de mostrar el formulario. La validación de que el token es legítimo la hace Apps Script al procesar el POST.
 
 **Campos del formulario:**
 - Nombre artístico (texto, requerido)
@@ -174,15 +165,15 @@ El formulario en la sección 5C de artistas.astro pasa a ser **informativo**, no
 
 Ejecutar el flujo de prueba en este orden:
 
-1. [ ] Hacer un pago de prueba en MercadoPago (sandbox)
-2. [ ] Verificar que Make crea la fila en Google Sheets
+1. [ ] Hacer un pago de prueba en Wompi (entorno sandbox/pruebas de Wompi)
+2. [ ] Verificar que Apps Script crea la fila en Google Sheets
 3. [ ] Verificar que el correo llega con el enlace correcto
 4. [ ] Abrir el enlace → verificar que `/formulario?token=UUID` carga correctamente
 5. [ ] Llenar y enviar el formulario
-6. [ ] Verificar que Make actualiza la fila en Google Sheets
+6. [ ] Verificar que Apps Script actualiza la fila en Google Sheets
 7. [ ] Verificar que la redirección a Calendly incluye el token en `utm_content`
 8. [ ] Agendar una sesión de prueba en Calendly
-9. [ ] Verificar que Make recibe el webhook de Calendly y completa la fila
+9. [ ] Verificar que Apps Script recibe el webhook de Calendly y completa la fila
 10. [ ] Verificar que el artista recibe el correo de confirmación
 11. [ ] Verificar que el equipo recibe la notificación consolidada
 12. [ ] Verificar que `/resumen` carga correctamente
@@ -193,12 +184,12 @@ Ejecutar el flujo de prueba en este orden:
 
 | Variable | Dónde vive | Estado |
 |----------|-----------|--------|
-| `MP_ASESORIA_ARTISTAS` | `constantes.ts` | Pendiente — necesita link real de MercadoPago |
+| `WOMPI_ASESORIA_ARTISTAS` | `constantes.ts` | Pendiente — necesita link real de Wompi |
 | `CALENDLY_ARTISTAS` | `constantes.ts` | Pendiente — necesita link real de Calendly |
-| `MAKE_WEBHOOK_FORMULARIO` | `constantes.ts` | Pendiente — se genera al crear el Escenario 2 en Make |
-| Webhook MercadoPago → Make | Panel de MercadoPago | Pendiente — se configura con la URL del Escenario 1 |
-| Webhook Calendly → Make | Panel de Calendly | Pendiente — se configura con la URL del Escenario 3 |
-| Google Sheets ID | Make (interno) | Pendiente — se crea en el Paso 1 |
+| `APPSCRIPT_WEBHOOK_FORMULARIO` | `constantes.ts` | Pendiente — se genera al publicar el Web App en el Paso 4 |
+| Webhook Wompi → Apps Script | Panel de Wompi | Pendiente — se configura con la URL del Web App (`?origen=wompi`) |
+| Webhook Calendly → Apps Script | Panel de Calendly | Pendiente — se configura con la URL del Web App (`?origen=calendly`) |
+| Google Sheets ID | Apps Script (`SpreadsheetApp.openById`) | Pendiente — se crea en el Paso 1 |
 
 ---
 
@@ -206,12 +197,12 @@ Ejecutar el flujo de prueba en este orden:
 
 1. Google Sheets (Paso 1) — sin dependencias
 2. Calendly (Paso 2) — sin dependencias de código
-3. Make Escenario 2 (Paso 4) — genera la URL del webhook del formulario
-4. Actualizar `constantes.ts` con la URL del webhook (Paso 5)
+3. Web App de Apps Script, Función 2 (Paso 4) — genera la URL del webhook del formulario
+4. Actualizar `constantes.ts` con la URL del Web App (Paso 5)
 5. Construir `formulario.astro` (Paso 6)
 6. Construir `resumen.astro` (Paso 7)
-7. MercadoPago (Paso 3) — necesita el dominio real en producción
-8. Make Escenario 1 (Paso 4) — necesita el webhook de MercadoPago
-9. Make Escenario 3 (Paso 4) — necesita el webhook de Calendly
+7. Wompi (Paso 3) — necesita el dominio real en producción
+8. Apps Script Función 1 (Paso 4) — necesita el webhook de Wompi configurado
+9. Apps Script Función 3 (Paso 4) — necesita el webhook de Calendly configurado
 10. Actualizar artistas.astro (Paso 8)
 11. Prueba completa (Paso 9)

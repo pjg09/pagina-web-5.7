@@ -1,6 +1,6 @@
 > [!WARNING]
 > **DESACTUALIZADO — requiere revisión**
-> Este documento refleja el diseño propuesto, no el estado de implementación real. Las páginas `/formulario`, `/resumen` y `/agendamientos` están pendientes de construcción. Los webhooks de Make y las URLs de MercadoPago/Calendly aún no existen. Verificar contra el código y `constantes.ts` antes de usar como referencia.
+> Este documento refleja el diseño propuesto, no el estado de implementación real. Las páginas `/formulario`, `/resumen` y `/agendamientos` están pendientes de construcción. El script de Apps Script y las URLs de Wompi/Calendly aún no existen. Verificar contra el código y `constantes.ts` antes de usar como referencia.
 
 # Flujo de pago y agendamiento — Asesoría estratégica para artistas
 
@@ -17,42 +17,42 @@ El artista paga, recibe un correo con un enlace personal, llena un formulario co
     ↓
 Artista hace clic en "Pagar asesoría"
     ↓
-Procesador de pago (MercadoPago o Stripe)
+Procesador de pago (Wompi)
     ↓
 Pago aprobado
     ↓
-Make detecta el pago (webhook del procesador)
+Apps Script detecta el pago (webhook de Wompi → doPost)
     ↓
-Make genera token único (UUID) y lo guarda en Google Sheets
+Apps Script genera token único (UUID) y lo guarda en Google Sheets
 junto con: payment_id, email del artista, monto, timestamp
     ↓
-Make envía correo al artista:
+Apps Script envía correo al artista (MailApp):
 "Tu pago fue recibido. Accede aquí para completar tu agendamiento"
 Enlace: https://sitio.com/formulario?token=UUID
     ↓
 Artista abre el correo y hace clic
     ↓
 [/formulario?token=UUID]
-Make valida que el token existe y no fue usado antes
+Apps Script valida que el token existe y no fue usado antes
     ↓
 Artista llena el formulario:
 nombre artístico, redes sociales, plataformas musicales,
 descripción del proyecto, objetivos actuales
     ↓
-Formulario envía datos + token al webhook de Make
-Make registra en Google Sheets cruzando con el pago
+Formulario envía datos + token al webhook de Apps Script
+Apps Script registra en Google Sheets cruzando con el pago
     ↓
 Artista es redirigido a Calendly con token como parámetro
     ↓
 Artista elige fecha y hora disponible → agenda su sesión
     ↓
-Calendly notifica a Make (webhook de Calendly)
-Make cruza los tres registros: pago + formulario + agendamiento
+Calendly notifica a Apps Script (webhook de Calendly → doPost)
+Apps Script cruza los tres registros: pago + formulario + agendamiento
     ↓
-Make envía correo de confirmación al artista con:
+Apps Script envía correo de confirmación al artista con:
 fecha, hora y enlace de la sesión
     ↓
-Make envía notificación al equipo con:
+Apps Script envía notificación al equipo con:
 datos del formulario + comprobante de pago + comprobante de reserva
     ↓
 [/resumen]
@@ -66,9 +66,9 @@ Artista ve el resumen de su sesión agendada y se le abre un CTA a WhatsApp opci
 | Actor | Qué hace |
 |-------|----------|
 | **Artista** | Paga, abre el correo, llena el formulario, elige fecha |
-| **Make** | Detecta el pago, genera el token, envía correos, correlaciona datos, notifica al equipo |
-| **Procesador de pago** | Cobra y notifica el pago aprobado a Make |
-| **Calendly** | Muestra disponibilidad, registra el agendamiento, notifica a Make |
+| **Apps Script** | Detecta el pago, genera el token, envía correos, correlaciona datos, notifica al equipo |
+| **Wompi** | Cobra y notifica el pago aprobado a Apps Script |
+| **Calendly** | Muestra disponibilidad, registra el agendamiento, notifica a Apps Script |
 | **Google Sheets** | Almacena y correlaciona todos los registros del flujo |
 | **Equipo 5.7** | Recibe notificación y conduce la sesión — no interviene en el proceso |
 
@@ -84,30 +84,32 @@ Artista ve el resumen de su sesión agendada y se le abre un CTA a WhatsApp opci
 
 ---
 
-## Webhooks en Make (tres escenarios)
+## Webhooks recibidos por Apps Script (un solo Web App, tres flujos)
+
+Apps Script se publica como **un único Web App** (una sola URL de `doPost`). Como no tiene conectores nativos por proveedor, el propio script debe identificar de cuál de los tres orígenes viene cada llamada — por la forma del payload JSON o por un parámetro distinto en la URL de cada webhook (ej. `?origen=wompi`, `?origen=formulario`, `?origen=calendly`) — y ejecutar la lógica correspondiente.
 
 ### Webhook 1 — Pago aprobado
-**Trigger:** MercadoPago (`payment.created` con status `approved`) o Stripe (`checkout.session.completed`)
+**Origen:** Wompi (evento `transaction.updated`, `data.transaction.status = "APPROVED"` — confirmar nombre exacto del evento contra la documentación oficial de Wompi al implementar)
 
-**Acciones de Make:**
-1. Extrae: `payment_id`, email del comprador, monto, timestamp
-2. Genera UUID único (token)
+**Acciones del script:**
+1. Extrae: `payment_id` (referencia de transacción de Wompi), email del comprador, monto, timestamp
+2. Genera UUID único (token) con `Utilities.getUuid()`
 3. Guarda en Google Sheets: `token | payment_id | email | monto | timestamp | estado: pendiente_formulario`
-4. Envía correo al artista con el enlace `/formulario?token=UUID`
+4. Envía correo al artista con el enlace `/formulario?token=UUID` vía `MailApp.sendEmail()`
 
 ### Webhook 2 — Formulario enviado
-**Trigger:** POST del formulario al webhook de Make
+**Origen:** POST del formulario del sitio al Web App de Apps Script
 
-**Acciones de Make:**
+**Acciones del script:**
 1. Recibe: `token` + campos del formulario
 2. Busca el token en Google Sheets → valida que exista y esté en estado `pendiente_formulario`
 3. Actualiza el registro con los datos del formulario y cambia estado a `pendiente_agendamiento`
 4. Redirige al artista a Calendly con el token como parámetro
 
 ### Webhook 3 — Sesión agendada en Calendly
-**Trigger:** Calendly (`invitee.created`)
+**Origen:** Calendly (`invitee.created`)
 
-**Acciones de Make:**
+**Acciones del script:**
 1. Recibe: datos del agendamiento + token (vía `utm_content`)
 2. Busca el token en Google Sheets → cruza con pago y formulario
 3. Actualiza el registro con fecha, hora y enlace de la sesión. Estado: `completo`
@@ -121,23 +123,10 @@ Artista ve el resumen de su sesión agendada y se le abre un CTA a WhatsApp opci
 El token UUID reemplaza al `payment_id` crudo en la URL por tres razones:
 
 1. **No predecible:** un UUID aleatorio no puede adivinarse ni construirse
-2. **De un solo uso:** Make lo invalida después de que el formulario es enviado
+2. **De un solo uso:** Apps Script lo invalida después de que el formulario es enviado
 3. **Trazable:** cada token está vinculado a un pago real en Google Sheets
 
 Si alguien intenta acceder a `/formulario` sin un token válido, la página muestra un mensaje de error y no permite continuar.
-
----
-
-## Compatibilidad con procesadores de pago
-
-El flujo es idéntico para MercadoPago y Stripe. La única diferencia está en el trigger del Webhook 1 en Make:
-
-| Procesador | Trigger en Make | Evento |
-|------------|----------------|--------|
-| MercadoPago | Módulo MercadoPago nativo | `payment.created` (status: approved) |
-| Stripe | Módulo Stripe nativo | `checkout.session.completed` |
-
-Al agregar Stripe en el futuro, se añade un segundo trigger en el mismo escenario de Make. El resto del flujo no cambia.
 
 ---
 
@@ -145,9 +134,9 @@ Al agregar Stripe en el futuro, se añade un segundo trigger en el mismo escenar
 
 | Situación | Qué ocurre |
 |-----------|-----------|
-| Artista paga pero no abre el correo | Make tiene el registro del pago. El equipo puede reenviar el correo manualmente o contactar al artista |
+| Artista paga pero no abre el correo | Apps Script tiene el registro del pago. El equipo puede reenviar el correo manualmente o contactar al artista |
 | Artista abre el formulario pero no lo completa | El token sigue válido. El artista puede volver al enlace del correo y retomar |
-| Artista llena el formulario pero no agenda en Calendly | Make tiene pago + formulario. El equipo agenda manualmente o reenvía el link de Calendly |
+| Artista llena el formulario pero no agenda en Calendly | Apps Script tiene pago + formulario. El equipo agenda manualmente o reenvía el link de Calendly |
 | El correo llega a spam | El artista puede escribir al equipo por WhatsApp para recibir el enlace directamente |
 | Token inválido o expirado | La página `/formulario` muestra mensaje de error con opción de contactar al equipo |
 
@@ -155,14 +144,14 @@ Al agregar Stripe en el futuro, se añade un segundo trigger en el mismo escenar
 
 ## Datos que fluyen por el sistema
 
-### Del procesador de pago a Make
+### De Wompi a Apps Script
 - `payment_id` — identificador único del pago
 - Email del comprador
 - Monto pagado
 - Timestamp del pago
 - Estado del pago
 
-### Del formulario a Make
+### Del formulario a Apps Script
 - Token UUID
 - Nombre artístico
 - Redes sociales (Instagram, TikTok)
@@ -170,7 +159,7 @@ Al agregar Stripe en el futuro, se añade un segundo trigger en el mismo escenar
 - Descripción del proyecto (país, género, trayectoria, logros)
 - Objetivos actuales
 
-### De Calendly a Make
+### De Calendly a Apps Script
 - Token UUID (vía `utm_content`)
 - Fecha y hora de la sesión
 - Enlace de la videollamada
@@ -184,4 +173,4 @@ Cada fila en Google Sheets representa un artista que completó (o intentó) el f
 
 | token | payment_id | email | monto | nombre_artistico | redes | plataformas | descripcion | objetivos | fecha_sesion | enlace_sesion | estado |
 |-------|-----------|-------|-------|-----------------|-------|-------------|-------------|-----------|-------------|--------------|--------|
-| UUID | MP-XXX | arte@... | 150000 | DJ Ejemplo | @djej | Spotify/... | Artista de... | Crecer en... | 2026-05-10 10:00 | meet.google... | completo |
+| UUID | WOMPI-XXX | arte@... | 150000 | DJ Ejemplo | @djej | Spotify/... | Artista de... | Crecer en... | 2026-05-10 10:00 | meet.google... | completo |

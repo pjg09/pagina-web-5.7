@@ -36,9 +36,10 @@ src/
   pages/        index, artistas, empresas, formulario, resumen, agendamientos, contacto, seguridad-movilidad
   styles/       global.css
 docs/
-  decisiones-arquitectura.md          (ADR-1 a ADR-4: por qué Astro estático, Make, token UUID, MercadoPago)
+  decisiones-arquitectura.md          (ADR-1 a ADR-4: por qué Astro estático, Apps Script, token UUID, Wompi)
   flujo-pago-artistas.md              (diagrama del flujo de pago — desactualizado, pendiente revisión)
   implementacion-flujo-pago-artistas.md  (guía de implementación — pendiente)
+  flujo-agendamiento-empresas.md      (plan vivo del flujo empresas sin pago — Calendly embed, notificación al equipo por confirmar)
 ```
 
 **Componentes existentes (no usar sin leer su CSS primero):**
@@ -48,16 +49,16 @@ docs/
 - `ServiceCard.astro` — card de servicio reutilizable (las páginas actuales tampoco lo usan)
 
 **Flujo de datos:**
-- `src/data/constantes.ts` — fuente única de verdad para todas las URLs externas (WhatsApp, Calendly, MercadoPago, Make webhook) y textos/precios globales. Cualquier URL que salga del sitio vive aquí.
+- `src/data/constantes.ts` — fuente única de verdad para todas las URLs externas (WhatsApp, Calendly, Wompi, Apps Script webhook) y textos/precios globales. Cualquier URL que salga del sitio vive aquí.
 - `src/data/servicios.ts` — datos de servicios (pendiente). Mismo patrón: los componentes solo presentan, no tienen datos hardcodeados.
 - `src/layouts/BaseLayout.astro` — layout base con SEO (canonical, OG, Twitter Card), GA4, y el observer de scroll reveal. Todas las páginas lo usan.
 
 **Por qué este patrón:** cuando se integre un CMS headless (Contentful o Sanity, evaluado post-lanzamiento), `constantes.ts` y `servicios.ts` se reemplazan por llamadas a API sin tocar los componentes.
 
 **Integraciones externas (fuera del repo):**
-- **Make** — middleware para notificaciones al equipo. Escucha webhooks de MercadoPago, del formulario `/formulario`, y de Calendly. Cruza datos por `payment_id` y consolida en Google Sheets. Las credenciales viven en Make, no en el repo.
+- **Google Apps Script** — Web App propio (`doPost`) para notificaciones al equipo. Recibe webhooks de Wompi, del formulario `/formulario`, y de Calendly, diferenciados por parámetro `?origen=`. Cruza datos por token UUID y consolida en Google Sheets. Corre en la misma cuenta de Google que el Sheets — sin credenciales adicionales, pero sin conectores no-code (el JSON de cada webhook se parsea a mano).
 - **Calendly** — agendamientos. Recibe `utm_content=TRANSACTION_ID` para correlación con el pago.
-- **MercadoPago** — único procesador de pago al lanzamiento (Stripe evaluado post-lanzamiento para clientes internacionales). El flujo real usa **token UUID generado por Make**, no `payment_id` crudo. Ver `docs/flujo-pago-artistas.md` para el diagrama completo.
+- **Wompi** — único procesador de pago (pasarela colombiana). El flujo real usa **token UUID generado por Apps Script** (`Utilities.getUuid()`), no `payment_id` crudo. Ver `docs/flujo-pago-artistas.md` para el diagrama completo.
 
 ## Sistema de diseño
 
@@ -97,6 +98,7 @@ Agregadas a `global.css`. Usar siempre estas variables para cards/bordes empresa
 - Cada página define su hero **inline** (no como componente separado). Patrón estándar: `section.hero` con `.hero__bg` (img + overlay), `.hero__content` (container con título + subtítulo + CTAs) y `.hero__scroll`.
 - `CTAWhatsApp.astro` acepta props `label` y `variant`; aparece en todas las páginas. Requiere import explícito en el frontmatter de cada página: `import CTAWhatsApp from "../components/CTAWhatsApp.astro"`.
 - **CTAWhatsApp siempre renderiza blanco:** su CSS interno pisa ambas variantes. Para normalizar tamaño en contexto (ej. hero junto a otro `.btn`), usar `.parent :global(.cta-whatsapp) { font-size: 1.1rem; padding: 0.85rem 2rem; }`. Para igualar ancho en mobile stacked: `width: 100%; justify-content: center` en el mismo selector `:global` dentro de un `@media`.
+- **Replicar la estética de CTAWhatsApp fuera del componente:** si una página necesita un botón con apariencia de WhatsApp pero no puede usar `CTAWhatsApp.astro` directamente (ej. tarjetas con foto + CTA propio en `contacto.astro`), copiar el SVG exacto del componente (`fill="currentColor"`) en vez de un ícono verde de WhatsApp — el ícono verde rompe la estética monocromática del sitio.
 - El header agrega clase `scrolled` (fondo blur) al hacer scroll, y maneja menú mobile con atributos `aria-*` correctos.
 
 **Patrón item de servicio con icono (`.sb-b-item__header`):** Estándar en todas las secciones de servicios de artistas y empresas:
@@ -116,7 +118,7 @@ Mobile-first. Todo cambio de layout se piensa primero en mobile y escala a deskt
 
 Están marcados como comentarios `// TODO:` en el código:
 - `BaseLayout.astro` — reemplazar `G-XXXXXXXXXX` con el ID real de GA4
-- `constantes.ts` — reemplazar URLs placeholder de Calendly, MercadoPago y Make webhook
+- `constantes.ts` — reemplazar URLs placeholder de Calendly, Wompi (`WOMPI_ASESORIA_ARTISTAS`) y Apps Script (`APPSCRIPT_WEBHOOK_FORMULARIO`)
 
 ## Patrones CSS críticos
 
@@ -182,12 +184,16 @@ Están marcados como comentarios `// TODO:` en el código:
 
 **Divisor de acento vía `gap` + background del grid (sin pseudo-elemento):** en un grid de 2 columnas con `gap: 6px`, poner el gradiente cyan→magenta como `background` del propio contenedor — el gap deja ver una franja fina de ese fondo entre las columnas opacas. Mobile: cambiar a `linear-gradient(90deg, ...)` para que la franja (ahora horizontal, en el row-gap) se vea como degradado izquierda→derecha. Usado en `.problema__split` de seguridad-movilidad.astro.
 
+**`.btn` global tiene `white-space: nowrap` (global.css:168):** botones con texto largo (ej. "Solicitar asesoría estratégica") provocan overflow horizontal en mobile. Fix: override puntual `white-space: normal` en la página que lo necesite — no tocar la clase global porque otros usos cortos dependen del nowrap.
+
 ## Estado actual de páginas
 
 - `artistas.astro` — completa (secciones 1–5): hero, intro, etapas, servicios (4 categorías con imágenes), asesoría estratégica con formulario ilustrativo.
 - `empresas.astro` — completa (secciones 1–6): hero, propósito, problema (dos columnas título|lista + mensaje cierre), soluciones (4A header con imagen full-bleed; 01 sin imagen; 02 imagen derecha; 03 tres columnas; 04 imagen izquierda), diagnóstico, cierre.
 - `index.astro` — completa (secciones 1–6).
-- `formulario.astro`, `resumen.astro`, `agendamientos.astro`, `contacto.astro` — pendientes de diseño.
+- `agendamientos.astro` — completa (secciones 1–4): hero (variante del de index sin botones), dos agenda-cards comparativas (Empresas/Artistas) con CTA a sub-rutas de agendamiento, asesoría estratégica (layout 5A/5B de artistas.astro), cierre "no estás seguro" con CTAWhatsApp.
+- `contacto.astro` — completa (secciones 1–2): redes/email + dos tarjetas de representantes (WhatsApp Jessmar/Adrián con foto y CTA), formulario de contacto de 7 campos con validación cliente (botón disabled hasta llenar todo + regex de email) — **sin conexión a backend todavía, eso queda para una sesión futura**.
+- `formulario.astro`, `resumen.astro` — pendientes de diseño.
 - `seguridad-movilidad.astro` — en construcción (secciones 1–3): hero con imagen, propósito (texto centrado), problema (layout asimétrico imagen/lista 50%/50% con divisor de acento entre columnas — ya no replica el grid simple de empresas.astro sección 3 + cierre con frase destacada).
 
 ## Perfil del desarrollador
