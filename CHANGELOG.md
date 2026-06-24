@@ -1,3 +1,9 @@
+## [1.7.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.6.0...v1.7.0) (2026-06-24)
+
+### Features
+
+* migra integraciones a Apps Script/Wompi y construye contacto.astro ([2367215](https://github.com/pjg09/pagina-web-5.7/commit/23672152bf58a7404a0f2b00942bdb8d7c00a5be))
+
 ## [1.6.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.5.12...v1.6.0) (2026-06-23)
 
 ### Features
