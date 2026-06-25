@@ -1,3 +1,9 @@
+## [1.7.1](https://github.com/pjg09/pagina-web-5.7/compare/v1.7.0...v1.7.1) (2026-06-25)
+
+### Bug Fixes
+
+* oculta ruta /agendamientos y rediseña contacto.astro con secciones de representantes y redes sociales ([90643a1](https://github.com/pjg09/pagina-web-5.7/commit/90643a1d4206d4aa603b1015aa68b7ca544b3ca6))
+
 ## [1.7.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.6.0...v1.7.0) (2026-06-24)
 
 ### Features
