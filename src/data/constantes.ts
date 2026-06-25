@@ -38,3 +38,7 @@ export const NAV_LINKS = [
 // APPS SCRIPT WEBHOOK
 // TODO: reemplazar con la URL real del Web App al publicarlo en Apps Script
 export const APPSCRIPT_WEBHOOK_FORMULARIO = "https://script.google.com/macros/s/TU_DEPLOYMENT_ID/exec?origen=formulario";
+
+// Web App dedicado al formulario de contacto.astro (script independiente del de arriba)
+// TODO: reemplazar con la URL real del Web App al publicarlo en Apps Script
+export const APPSCRIPT_WEBHOOK_CONTACTO = "https://script.google.com/macros/s/TU_DEPLOYMENT_ID/exec";
