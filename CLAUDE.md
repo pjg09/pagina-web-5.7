@@ -33,7 +33,7 @@ src/
   components/   CTAWhatsApp, Header, Footer, Hero, ServiceCard
   data/         constantes.ts (URLs externas), servicios.ts (pendiente)
   layouts/      BaseLayout.astro
-  pages/        index, artistas, empresas, formulario, resumen, agendamientos, contacto, seguridad-movilidad
+  pages/        index, artistas, empresas, formulario, resumen, _agendamientos (oculta), contacto, seguridad-movilidad
   styles/       global.css
 docs/
   decisiones-arquitectura.md          (ADR-1 a ADR-4: por qué Astro estático, Apps Script, token UUID, Wompi)
@@ -54,6 +54,10 @@ docs/
 - `src/layouts/BaseLayout.astro` — layout base con SEO (canonical, OG, Twitter Card), GA4, y el observer de scroll reveal. Todas las páginas lo usan.
 
 **Por qué este patrón:** cuando se integre un CMS headless (Contentful o Sanity, evaluado post-lanzamiento), `constantes.ts` y `servicios.ts` se reemplazan por llamadas a API sin tocar los componentes.
+
+**Ocultar una página sin eliminarla:** renombrar el archivo con prefijo `_` (ej. `_agendamientos.astro`) — Astro lo excluye del routing pero el contenido queda intacto.
+
+**Íconos y fotos en `/public/images/`:** `Instagram.png`, `Facebook.png`, `Tiktok.png`, `Whatsapp.png`, `Email.png` (íconos — usar `<img>` en lugar de SVG inline), `FotoJess.jpg`, `FotoAdrian.jpg` (fotos de representantes).
 
 **Integraciones externas (fuera del repo):**
 - **Google Apps Script** — Web App propio (`doPost`) para notificaciones al equipo. Recibe webhooks de Wompi, del formulario `/formulario`, y de Calendly, diferenciados por parámetro `?origen=`. Cruza datos por token UUID y consolida en Google Sheets. Corre en la misma cuenta de Google que el Sheets — sin credenciales adicionales, pero sin conectores no-code (el JSON de cada webhook se parsea a mano).
@@ -186,13 +190,15 @@ Están marcados como comentarios `// TODO:` en el código:
 
 **`.btn` global tiene `white-space: nowrap` (global.css:168):** botones con texto largo (ej. "Solicitar asesoría estratégica") provocan overflow horizontal en mobile. Fix: override puntual `white-space: normal` en la página que lo necesite — no tocar la clase global porque otros usos cortos dependen del nowrap.
 
+**`min-width: 0` en items de grid para evitar overflow:** los items de CSS Grid no se contraen por debajo de su `min-content` width. Si una card contiene un botón con `white-space: nowrap`, el grid no puede comprimirla y desborda el viewport. Fix: añadir `min-width: 0` al wrapper del item (ej. `.rep-outer`, `.red-outer`).
+
 ## Estado actual de páginas
 
 - `artistas.astro` — completa (secciones 1–5): hero, intro, etapas, servicios (4 categorías con imágenes), asesoría estratégica con formulario ilustrativo.
 - `empresas.astro` — completa (secciones 1–6): hero, propósito, problema (dos columnas título|lista + mensaje cierre), soluciones (4A header con imagen full-bleed; 01 sin imagen; 02 imagen derecha; 03 tres columnas; 04 imagen izquierda), diagnóstico, cierre.
 - `index.astro` — completa (secciones 1–6).
-- `agendamientos.astro` — completa (secciones 1–4): hero (variante del de index sin botones), dos agenda-cards comparativas (Empresas/Artistas) con CTA a sub-rutas de agendamiento, asesoría estratégica (layout 5A/5B de artistas.astro), cierre "no estás seguro" con CTAWhatsApp.
-- `contacto.astro` — completa (secciones 1–2): redes/email + dos tarjetas de representantes (WhatsApp Jessmar/Adrián con foto y CTA), formulario de contacto de 7 campos con validación cliente (botón disabled hasta llenar todo + regex de email) — **sin conexión a backend todavía, eso queda para una sesión futura**.
+- `_agendamientos.astro` — completa (secciones 1–4) pero **oculta del routing** (prefijo `_`): hero, dos agenda-cards comparativas (Empresas/Artistas), asesoría estratégica, cierre con CTAWhatsApp. Renombrar a `agendamientos.astro` para reactivar.
+- `contacto.astro` — completa (secciones 1–4): formulario de contacto de 7 campos con validación cliente, cards WhatsApp/Correo, tarjetas de representantes Jessmar/Adrián (foto circular + datos + CTA WhatsApp), redes sociales (Instagram/Facebook/TikTok con PNGs de `/public/images/`) — **formulario sin conexión a backend todavía**.
 - `formulario.astro`, `resumen.astro` — pendientes de diseño.
 - `seguridad-movilidad.astro` — en construcción (secciones 1–3): hero con imagen, propósito (texto centrado), problema (layout asimétrico imagen/lista 50%/50% con divisor de acento entre columnas — ya no replica el grid simple de empresas.astro sección 3 + cierre con frase destacada).
 

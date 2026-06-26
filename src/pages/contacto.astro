@@ -187,32 +187,27 @@ import {
 
 			<div class="otras-cards">
 
-				<!-- Tarjeta WhatsApp -->
-				<div class="otras-card-outer reveal reveal-delay-1">
-					<div class="otras-card">
-						<div class="otras-card__head">
-							<div class="otras-card__icon-row">
-								<span class="otras-card__icon">
-									<svg width="18" height="18" viewBox="0 0 24 24" fill="var(--cyan)" aria-hidden="true">
-								<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path>
-								<path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.524 5.849L.057 23.625a.5.5 0 0 0 .614.633l5.9-1.545A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.792 9.792 0 0 1-5.007-1.373l-.36-.214-3.724.976.994-3.624-.235-.374A9.786 9.786 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"></path>
-									</svg>
-								</span>
-								<h3 class="display otras-card__titulo">WhatsApp</h3>
-							</div>
-							<p class="otras-card__sub">Atención directa para consultas, información comercial y acompañamiento.</p>
+				<!-- WhatsApp -->
+				<div class="rep-outer reveal reveal-delay-1">
+					<div class="rep">
+						<div class="rep__icono-circle">
+							<svg width="48" height="48" viewBox="0 0 24 24" fill="var(--cyan)" aria-hidden="true">
+								<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+								<path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.524 5.849L.057 23.625a.5.5 0 0 0 .614.633l5.9-1.545A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.792 9.792 0 0 1-5.007-1.373l-.36-.214-3.724.976.994-3.624-.235-.374A9.786 9.786 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
+							</svg>
 						</div>
-
-						<div class="otras-card__footer">
+						<div class="rep__info">
+							<span class="rep__nombre">WHATSAPP</span>
+							<span class="rep__desc">Atención directa para consultas, información comercial y acompañamiento.</span>
 							<a
 								href={`${WHATSAPP_1}?text=${WHATSAPP_DEFAULT_MSG}`}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="otras-card__cta"
+								class="rep__btn"
 							>
-								<svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-								<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path>
-								<path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.524 5.849L.057 23.625a.5.5 0 0 0 .614.633l5.9-1.545A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.792 9.792 0 0 1-5.007-1.373l-.36-.214-3.724.976.994-3.624-.235-.374A9.786 9.786 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"></path>
+								<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+									<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+									<path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.524 5.849L.057 23.625a.5.5 0 0 0 .614.633l5.9-1.545A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.792 9.792 0 0 1-5.007-1.373l-.36-.214-3.724.976.994-3.624-.235-.374A9.786 9.786 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
 								</svg>
 								Hablar por WhatsApp
 							</a>
@@ -220,32 +215,21 @@ import {
 					</div>
 				</div>
 
-				<!-- Tarjeta Correo -->
-				<div class="otras-card-outer reveal reveal-delay-2">
-					<div class="otras-card">
-						<div class="otras-card__head">
-							<div class="otras-card__icon-row">
-								<span class="otras-card__icon">
-									<svg width="18" height="18" viewBox="0 0 24 24" fill="var(--cyan)" aria-hidden="true">
-						<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
-									</svg>
-								</span>
-								<h3 class="display otras-card__titulo">Correo electrónico</h3>
-							</div>
-							<p class="otras-card__sub">Envíanos tu consulta y te responderemos a la mayor brevedad posible.</p>
-						</div>
-
-						<div class="otras-email-dato">
-							<svg width="16" height="16" viewBox="0 0 24 24" fill="rgba(0,194,255,0.55)" aria-hidden="true" style="flex-shrink:0">
-								<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+				<!-- Correo -->
+				<div class="rep-outer reveal reveal-delay-2">
+					<div class="rep">
+						<div class="rep__icono-circle">
+							<svg width="48" height="48" viewBox="0 0 24 24" fill="var(--cyan)" aria-hidden="true">
+								<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
 							</svg>
-							<span class="otras-email-dato__text">{EMAIL}</span>
 						</div>
-
-						<div class="otras-card__footer">
-							<a href={`mailto:${EMAIL}`} class="otras-card__cta">
+						<div class="rep__info">
+							<span class="rep__nombre">CORREO ELECTRÓNICO</span>
+							<span class="rep__desc">Envíanos tu consulta y te responderemos a la mayor brevedad posible.</span>
+							<span class="rep__tel">{EMAIL}</span>
+							<a href={`mailto:${EMAIL}`} class="rep__btn">
 								<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-								<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+									<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
 								</svg>
 								Enviar correo
 							</a>
@@ -281,7 +265,7 @@ import {
 						</div>
 						<div class="rep__info">
 							<span class="rep__nombre">Jessmar</span>
-							<span class="rep__cargo rep__cargo--cyan">Directora General</span>
+							<span class="rep__cargo rep__cargo--magenta">Directora General</span>
 							<span class="rep__tel">+57 321 286 5200</span>
 							<a
 								href={`${WHATSAPP_1}?text=${WHATSAPP_DEFAULT_MSG}`}
@@ -307,7 +291,7 @@ import {
 						</div>
 						<div class="rep__info">
 							<span class="rep__nombre">Adrián</span>
-							<span class="rep__cargo rep__cargo--magenta">Subdirector General</span>
+							<span class="rep__cargo rep__cargo--cyan">Subdirector General</span>
 							<span class="rep__tel">+57 312 544 8302</span>
 							<a
 								href={`${WHATSAPP_2}?text=${WHATSAPP_DEFAULT_MSG}`}
@@ -496,126 +480,57 @@ import {
 	}
 
 	.otras-cards {
-		display: flex;
-		flex-direction: column;
-		gap: 1.25rem;
-		width: fit-content;
-		margin-inline: auto;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
 	}
 
-	/* borde gradiente */
-	.otras-card-outer {
-		position: relative;
-		isolation: isolate;
-	}
-	.otras-card-outer::before {
-		content: "";
-		position: absolute;
-		inset: -5px;
-		border-radius: calc(var(--radius-lg) + 5px);
-		background: linear-gradient(135deg, var(--cyan), var(--magenta));
-		z-index: -1;
-		opacity: 0.22;
-		filter: blur(1px);
-		transition: opacity var(--t-med) var(--ease);
-	}
-	.otras-card-outer:hover::before {
-		opacity: 0.46;
-	}
-
-	.otras-card {
-		background: var(--bg-card);
-		border-radius: var(--radius-lg);
-		padding: clamp(1.6rem, 3.2vw, 2.2rem) clamp(1.6rem, 3.2vw, 2.4rem);
-	}
-
-	.otras-card__head {
-		margin-bottom: 1.75rem;
-	}
-
-	.otras-card__icon-row {
-		display: flex;
-		align-items: center;
-		gap: 0.7rem;
-		margin-bottom: 0.45rem;
-	}
-
-	.otras-card__icon {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 34px;
-		height: 34px;
-		border-radius: 8px;
-		background: rgba(0, 194, 255, 0.1);
+	.rep__icono-circle {
+		width: 105px;
+		height: 105px;
+		border-radius: 50%;
 		flex-shrink: 0;
+		border: 2px solid rgba(0, 194, 255, 0.25);
+		background: var(--bg-base);
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
-	.otras-card__titulo {
-		font-size: clamp(1.45rem, 2.4vw, 1.75rem);
-		letter-spacing: 0.06em;
-	}
-
-	.otras-card__sub {
+	.rep__desc {
+		font-size: 1.08rem;
 		color: var(--text-dim);
-		font-size: clamp(1.56rem, 2.38vw, 1.73rem);
-		line-height: 1.55;
-		white-space: nowrap;
+		line-height: 1.5;
+		margin-top: 0.2rem;
+		text-wrap: pretty;
 	}
 
-	.otras-card__footer {
-		display: flex;
-		justify-content: center;
-		margin-top: 1.5rem;
-	}
-
-	.otras-card__cta {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.55rem;
-		padding: 0.7rem 1.65rem;
-		border-radius: 8px;
-		background: #fff;
-		color: #000;
-		border: 2px solid transparent;
-		font-family: var(--font-body);
-		font-size: 0.97rem;
-		font-weight: 700;
-		letter-spacing: 0.03em;
-		cursor: pointer;
-		text-decoration: none;
-		transition: all var(--t-fast) var(--ease);
-		white-space: nowrap;
-	}
-	.otras-card__cta:hover {
-		background: transparent;
-		border-color: var(--cyan);
-		background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-	}
-	.otras-card__cta:hover svg {
-		fill: var(--cyan);
-	}
-
-	.otras-email-dato {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.75rem;
-		margin-bottom: 1.4rem;
-		padding: 1rem 1.2rem;
-		background: rgba(255, 255, 255, 0.03);
-		border: 1px solid var(--border);
-		border-radius: var(--radius);
-	}
-
-	.otras-email-dato__text {
-		font-size: clamp(1rem, 1.8vw, 1.1rem);
-		font-weight: 600;
-		color: var(--text-secondary);
-		letter-spacing: 0.01em;
+	@media (min-width: 769px) {
+		.otras-cards .rep-outer {
+			display: flex;
+			flex-direction: column;
+		}
+		.otras-cards .rep {
+			flex: 1;
+			align-items: stretch;
+		}
+		.otras-cards .rep__icono-circle {
+			align-self: center;
+		}
+		/* WhatsApp: desc centrado entre título y btn; btn al fondo */
+		.otras-cards .rep__btn {
+			margin-top: auto;
+		}
+		.otras-cards .rep:not(:has(.rep__tel)) .rep__desc {
+			margin-top: auto;
+		}
+		/* Correo: tel+btn se empujan juntos al fondo; espacio fijo entre tel y btn */
+		.otras-cards .rep:has(.rep__tel) .rep__tel {
+			margin-top: auto;
+		}
+		.otras-cards .rep:has(.rep__tel) .rep__btn {
+			margin-top: 1.35rem;
+		}
 	}
 
 	@media (max-width: 768px) {
@@ -624,11 +539,7 @@ import {
 		}
 
 		.otras-cards {
-			width: 100%;
-		}
-
-		.otras-card__sub {
-			white-space: normal;
+			grid-template-columns: 1fr;
 		}
 	}
 
@@ -943,9 +854,11 @@ import {
 		margin-top: 0.6rem;
 		padding: 0.42rem 0.9rem;
 		border-radius: 6px;
-		background: #fff;
-		color: #000;
-		border: 1.5px solid transparent;
+		background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		border: 2px solid var(--cyan);
 		font-family: var(--font-body);
 		font-size: 1.17rem;
 		font-weight: 700;
@@ -956,16 +869,12 @@ import {
 		white-space: nowrap;
 		align-self: flex-start;
 	}
-	.rep__btn:hover {
-		background: transparent;
-		border-color: var(--cyan);
-		background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-	}
-	.rep__btn:hover svg {
+	.rep__btn svg {
 		fill: var(--cyan);
+	}
+	.rep__btn:hover {
+		filter: brightness(1.2);
+		transform: translateY(-2px);
 	}
 
 	@media (max-width: 768px) {
@@ -1059,10 +968,8 @@ import {
 		align-items: center;
 		gap: 1rem;
 		text-align: center;
-		transition: transform var(--t-fast) var(--ease);
 		height: 100%;
 	}
-	.red-outer:hover .red { transform: translateY(-3px); }
 
 	.red__icono-wrap {
 		width: 64px;
@@ -1071,9 +978,7 @@ import {
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
-		transition: transform var(--t-fast) var(--ease);
 	}
-	.red-outer:hover .red__icono-wrap { transform: scale(1.08); }
 
 	.red__icono-img {
 		width: 100%;
