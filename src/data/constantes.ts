@@ -40,4 +40,4 @@ export const NAV_LINKS = [
 export const APPSCRIPT_WEBHOOK_FORMULARIO = "https://script.google.com/macros/s/TU_DEPLOYMENT_ID/exec?origen=formulario";
 
 // Web App dedicado al formulario de contacto.astro (script independiente del de arriba)
-export const URL_APP_WEB_CONTACTO = "https://script.google.com/macros/s/AKfycbyJDWeZOHuDDD82Mqrr7EZfiarIAQvJGIOtmT4VWwrJht2fIfaIm5fvupr_iW1KeKXC/exec";
+export const URL_APP_WEB_CONTACTO = "https://script.google.com/macros/s/AKfycby7zbVXA097bnT7gLBtjgoGiGPN7tjaKtaC2QmcthytIbkzF3J5pRI1v0WfR47Gysub/exec";
