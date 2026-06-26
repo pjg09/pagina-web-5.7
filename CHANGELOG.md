@@ -1,3 +1,9 @@
+## [1.8.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.7.2...v1.8.0) (2026-06-26)
+
+### Features
+
+* conecta formulario de contacto con Apps Script ([63cb555](https://github.com/pjg09/pagina-web-5.7/commit/63cb5551b4f5c9d1ac4c951ecdcb0d480465f15a))
+
 ## [1.7.2](https://github.com/pjg09/pagina-web-5.7/compare/v1.7.1...v1.7.2) (2026-06-26)
 
 ### Bug Fixes
