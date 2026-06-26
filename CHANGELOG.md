@@ -1,3 +1,9 @@
+## [1.8.1](https://github.com/pjg09/pagina-web-5.7/compare/v1.8.0...v1.8.1) (2026-06-26)
+
+### Bug Fixes
+
+* corrige CORS en fetch a Apps Script y actualiza URL de webhook ([6963e8d](https://github.com/pjg09/pagina-web-5.7/commit/6963e8dca8b44098bab931ddb92d4fbb3545ffea))
+
 ## [1.8.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.7.2...v1.8.0) (2026-06-26)
 
 ### Features
