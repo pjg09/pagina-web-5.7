@@ -1,3 +1,9 @@
+## [1.7.2](https://github.com/pjg09/pagina-web-5.7/compare/v1.7.1...v1.7.2) (2026-06-26)
+
+### Bug Fixes
+
+* unifica diseño de cards y botones en contacto.astro ([7c88cd0](https://github.com/pjg09/pagina-web-5.7/commit/7c88cd08ceaa3bfa066c6a214a95c50ccfb0160d))
+
 ## [1.7.1](https://github.com/pjg09/pagina-web-5.7/compare/v1.7.0...v1.7.1) (2026-06-25)
 
 ### Bug Fixes
