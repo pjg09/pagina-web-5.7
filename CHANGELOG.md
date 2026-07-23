@@ -1,3 +1,9 @@
+## [1.9.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.8.1...v1.9.0) (2026-07-23)
+
+### Features
+
+* agrega documentos legales, actualiza números de WhatsApp y rediseña atención directa ([d69e747](https://github.com/pjg09/pagina-web-5.7/commit/d69e747c041a9d83626886df43cd87fdeb9261af))
+
 ## [1.8.1](https://github.com/pjg09/pagina-web-5.7/compare/v1.8.0...v1.8.1) (2026-06-26)
 
 ### Bug Fixes
