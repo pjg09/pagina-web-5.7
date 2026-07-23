@@ -32,7 +32,7 @@ Sitio estático con Astro. Sin backend propio, sin base de datos. Decisión cons
 src/
   components/   CTAWhatsApp, Header, Footer, Hero, ServiceCard
   data/         constantes.ts (URLs externas), servicios.ts (pendiente)
-  layouts/      BaseLayout.astro
+  layouts/      BaseLayout.astro, LegalLayout.astro
   pages/        index, artistas, empresas, formulario, resumen, _agendamientos (oculta), contacto, seguridad-movilidad
   styles/       global.css
 docs/
@@ -55,12 +55,15 @@ docs/
 
 **Por qué este patrón:** cuando se integre un CMS headless (Contentful o Sanity, evaluado post-lanzamiento), `constantes.ts` y `servicios.ts` se reemplazan por llamadas a API sin tocar los componentes.
 
+**Consentimiento de datos (Ley 1581 de 2012):** todo formulario que recolecte nombre, email, teléfono, empresa o WhatsApp debe llevar checkbox `required` **no premarcado** con `TEXTO_AUTORIZACION_DATOS` + link a `RUTA_POLITICA_DATOS`. La evidencia (`consentimiento`, `version_politica`, `user_agent`) se envía en el payload y se guarda en el Sheet. Al cambiar el fondo de la política, actualizar `VERSION_POLITICA_DATOS` y `FECHA_ACTUALIZACION_LEGAL` en `constantes.ts`. Ojo: en `validateContactForm` un checkbox sin marcar tiene `value === "on"`, por eso se valida con `field.checked`, no con `field.value.trim()`.
+
 **Ocultar una página sin eliminarla:** renombrar el archivo con prefijo `_` (ej. `_agendamientos.astro`) — Astro lo excluye del routing pero el contenido queda intacto.
 
-**Íconos y fotos en `/public/images/`:** `Instagram.png`, `Facebook.png`, `Tiktok.png`, `Whatsapp.png`, `Email.png` (íconos — usar `<img>` en lugar de SVG inline), `FotoJess.jpg`, `FotoAdrian.jpg` (fotos de representantes).
+**Íconos y fotos en `/public/images/`:** `Instagram.png`, `Facebook.png`, `Tiktok.png`, `Whatsapp.png`, `Email.png` (íconos — usar `<img>` en lugar de SVG inline), `FotoJess.jpg`, `FotoAdrian.jpg` (fotos de representantes — ya no referenciadas por ninguna página).
 
 **Integraciones externas (fuera del repo):**
-- **Google Apps Script** — Web App propio (`doPost`) para notificaciones al equipo. Recibe webhooks de Wompi, del formulario `/formulario`, y de Calendly, diferenciados por parámetro `?origen=`. Cruza datos por token UUID y consolida en Google Sheets. Corre en la misma cuenta de Google que el Sheets — sin credenciales adicionales, pero sin conectores no-code (el JSON de cada webhook se parsea a mano).
+- **Google Apps Script** — Web App propio (`doPost`) para notificaciones al equipo. Recibe webhooks de Wompi, del formulario `/formulario`, y de Calendly, diferenciados por parámetro `?origen=`. Cruza datos por token UUID y consolida en Google Sheets. Corre en la misma cuenta de Google que el Sheets — sin credenciales adicionales, pero sin conectores no-code (el JSON de cada webhook se parsea a mano). **Script dedicado para `contacto.astro`** (independiente del anterior): código espejo en `docs/apps-script-contacto.gs`, URL en `constantes.ts` (`URL_APP_WEB_CONTACTO`). **Tras editar el código, siempre crear una nueva versión de despliegue** (Implementar → Administrar implementaciones → editar → Nueva versión) — guardar el script no actualiza el Web App publicado.
+- **DNS real de ocl57group.com:** el A record `@` apunta a Vercel (no a cPanel). El servidor web de cPanel tiene IP `198.54.120.142` (mismo que `mail` y `webmail`). PHP y archivos de hosting NO son accesibles en `ocl57group.com` — esa URL llega al sitio Astro estático en Vercel. Para acceder a cPanel por web se necesita un subdominio con A record apuntando a `198.54.120.142` y el subdominio registrado en cPanel (Dominios → Create a New Domain).
 - **Calendly** — agendamientos. Recibe `utm_content=TRANSACTION_ID` para correlación con el pago.
 - **Wompi** — único procesador de pago (pasarela colombiana). El flujo real usa **token UUID generado por Apps Script** (`Utilities.getUuid()`), no `payment_id` crudo. Ver `docs/flujo-pago-artistas.md` para el diagrama completo.
 
@@ -192,13 +195,22 @@ Están marcados como comentarios `// TODO:` en el código:
 
 **`min-width: 0` en items de grid para evitar overflow:** los items de CSS Grid no se contraen por debajo de su `min-content` width. Si una card contiene un botón con `white-space: nowrap`, el grid no puede comprimirla y desborda el viewport. Fix: añadir `min-width: 0` al wrapper del item (ej. `.rep-outer`, `.red-outer`).
 
+**`fetch` a Apps Script Web App requiere `mode: 'no-cors'`:** Apps Script no retorna `Access-Control-Allow-Origin`. El navegador bloquea la lectura de la respuesta y `catch` dispara aunque el script sí procesó la petición. Fix: `mode: 'no-cors'` en el `fetch` — la respuesta es opaca pero el POST llega y se ejecuta. Consecuencia: no se puede leer la respuesta ni distinguir error de red de éxito; asumir éxito si no hay excepción de red.
+
+**`GmailApp.sendEmail` con `from: alias` causa fallo SPF silencioso:** pasar `from: "contacto@ocl57group.com"` envía desde los servidores de Gmail (no del servidor externo del alias), por lo que SPF falla para ese dominio. El correo aparece en "Enviados" de Gmail pero es descartado silenciosamente por el receptor. Fix: omitir `from`; usar solo `name` (nombre visible del remitente) y `replyTo` (dirección a la que responder). El correo sale desde la cuenta `@gmail.com` que ejecuta el script pero el Reply-To apunta al alias.
+
+**Cambio de scope en Apps Script no se toma sin revocar el token:** modificar `appsscript.json` con nuevos `oauthScopes` no reactiva el consentimiento OAuth. El script sigue corriendo con el token anterior (scopes viejos) y lanza `Exception: You do not have permission`. Fix: (1) agregar el scope a `oauthScopes` en `appsscript.json`, (2) revocar el acceso en `myaccount.google.com/permissions` → buscar "Apps Script" y revocar, (3) re-ejecutar cualquier función desde el editor para disparar el nuevo consentimiento. Scopes requeridos para contacto: `gmail.send`, `spreadsheets`, `script.external_request`.
+
+**`define:vars` para pasar constantes de Astro a scripts cliente:** las variables del frontmatter (`.ts`) no están disponibles en `<script>` de Astro porque el script se empaqueta con Vite y no tiene acceso al scope de servidor. Fix: `<script define:vars={{ MI_CONSTANTE }}>` — Astro serializa las variables como literales JS al inicio del bloque del script. Solo funciona con tipos primitivos (string, number, boolean); no serializa funciones ni clases.
+
 ## Estado actual de páginas
 
 - `artistas.astro` — completa (secciones 1–5): hero, intro, etapas, servicios (4 categorías con imágenes), asesoría estratégica con formulario ilustrativo.
 - `empresas.astro` — completa (secciones 1–6): hero, propósito, problema (dos columnas título|lista + mensaje cierre), soluciones (4A header con imagen full-bleed; 01 sin imagen; 02 imagen derecha; 03 tres columnas; 04 imagen izquierda), diagnóstico, cierre.
 - `index.astro` — completa (secciones 1–6).
 - `_agendamientos.astro` — completa (secciones 1–4) pero **oculta del routing** (prefijo `_`): hero, dos agenda-cards comparativas (Empresas/Artistas), asesoría estratégica, cierre con CTAWhatsApp. Renombrar a `agendamientos.astro` para reactivar.
-- `contacto.astro` — completa (secciones 1–4): formulario de contacto de 7 campos con validación cliente, cards WhatsApp/Correo, tarjetas de representantes Jessmar/Adrián (foto circular + datos + CTA WhatsApp), redes sociales (Instagram/Facebook/TikTok con PNGs de `/public/images/`) — **formulario sin conexión a backend todavía**.
+- `contacto.astro` — completa (secciones 1–4): formulario de contacto de 7 campos con validación cliente, cards WhatsApp/Correo, tarjetas de líneas comerciales 1 y 2 (ícono WhatsApp en círculo + número + CTA, layout centrado — ya no hay fotos ni cargos de representantes), redes sociales (Instagram/Facebook/TikTok con PNGs de `/public/images/`). **Formulario conectado a Apps Script** (`URL_APP_WEB_CONTACTO` en `constantes.ts`): inserta en Google Sheets, notifica al equipo vía GmailApp (llega a Roundcube), envía confirmación al usuario (puede llegar a spam — nota incluida en el cuerpo del correo).
+- `politica-de-tratamiento-de-datos.astro`, `terminos-y-condiciones.astro`, `politica-de-cookies.astro` — documentos legales. Usan `LegalLayout.astro` (caja tipográfica de 70ch + estilos `:global` para `h2/h3/p/ul/a`); el contenido va como HTML plano en el slot. Los datos de la empresa y la fecha de actualización salen de `constantes.ts`. **Pendiente de revisión por abogado.**
 - `formulario.astro`, `resumen.astro` — pendientes de diseño.
 - `seguridad-movilidad.astro` — en construcción (secciones 1–3): hero con imagen, propósito (texto centrado), problema (layout asimétrico imagen/lista 50%/50% con divisor de acento entre columnas — ya no replica el grid simple de empresas.astro sección 3 + cierre con frase destacada).
 

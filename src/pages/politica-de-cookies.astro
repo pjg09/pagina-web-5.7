@@ -1,0 +1,79 @@
+---
+import LegalLayout from "../layouts/LegalLayout.astro";
+import { RAZON_SOCIAL, EMAIL, RUTA_POLITICA_DATOS } from "../data/constantes";
+---
+
+<LegalLayout
+	title="Política de Cookies"
+	description="Información sobre el uso de cookies y tecnologías de seguimiento en el sitio web de Onda Creativa Launch 5.7 S.A.S."
+	titulo="POLÍTICA DE COOKIES"
+>
+	<h2>1. Qué son las cookies</h2>
+	<p>
+		Las cookies son pequeños archivos de texto que los sitios web almacenan en el
+		navegador del usuario. Permiten recordar información sobre la visita, como el
+		idioma preferido, y obtener estadísticas de uso del sitio.
+	</p>
+
+	<h2>2. Cookies que utilizamos</h2>
+	<p>
+		Este sitio no requiere registro ni sesión de usuario, por lo que no utiliza
+		cookies de autenticación ni de personalización. Las cookies presentes
+		corresponden a las siguientes categorías:
+	</p>
+
+	<h3>Cookies analíticas (Google Analytics 4)</h3>
+	<p>
+		Utilizamos Google Analytics 4, servicio de analítica web prestado por Google
+		LLC, para entender cómo se usa el sitio: páginas visitadas, tiempo de
+		permanencia, origen del tráfico y tipo de dispositivo. Esta información se
+		procesa de forma agregada y se emplea para mejorar el contenido y la
+		experiencia de navegación.
+	</p>
+	<p>
+		Google puede almacenar y procesar estos datos en servidores ubicados fuera de
+		Colombia. Puede consultar el tratamiento que Google da a esta información en
+		sus propias políticas de privacidad.
+	</p>
+
+	<h3>Cookies de terceros incorporados</h3>
+	<p>
+		Algunas secciones del sitio pueden integrar servicios externos, como
+		calendarios de agendamiento o pasarelas de pago. Dichos servicios pueden
+		instalar sus propias cookies, sujetas a las políticas de cada proveedor.
+	</p>
+
+	<h2>3. Cómo desactivar las cookies</h2>
+	<p>
+		Puede configurar su navegador para bloquear o eliminar las cookies en
+		cualquier momento. La mayoría de navegadores permite hacerlo desde el menú de
+		configuración, en la sección de privacidad o seguridad. Bloquear las cookies
+		analíticas no afecta el funcionamiento del sitio.
+	</p>
+	<p>
+		Adicionalmente, Google ofrece un complemento de inhabilitación para
+		navegadores que impide que Google Analytics recopile información sobre su
+		visita.
+	</p>
+
+	<h2>4. Datos personales</h2>
+	<p>
+		El tratamiento de los datos personales que usted suministra voluntariamente a
+		través de nuestros formularios se rige por la
+		<a href={RUTA_POLITICA_DATOS}
+			>Política de Tratamiento de Datos Personales</a
+		> de {RAZON_SOCIAL}.
+	</p>
+
+	<h2>5. Cambios en esta política</h2>
+	<p>
+		Esta política podrá actualizarse cuando incorporemos nuevas herramientas o
+		servicios. Cualquier modificación será publicada en esta misma página.
+	</p>
+
+	<h2>6. Contacto</h2>
+	<p>
+		Para cualquier duda sobre el uso de cookies en este sitio, escríbanos a
+		<a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
+	</p>
+</LegalLayout>

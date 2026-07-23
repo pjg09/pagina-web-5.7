@@ -1,0 +1,179 @@
+---
+import LegalLayout from "../layouts/LegalLayout.astro";
+import {
+	RAZON_SOCIAL,
+	NIT,
+	DOMICILIO,
+	SITIO_WEB,
+	EMAIL,
+	RUTA_COOKIES,
+} from "../data/constantes";
+---
+
+<LegalLayout
+	title="Política de Tratamiento de Datos Personales"
+	description="Política de tratamiento de datos personales de Onda Creativa Launch 5.7 S.A.S., conforme a la Ley 1581 de 2012."
+	titulo="POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES"
+>
+	<p>
+		En cumplimiento de la Ley 1581 de 2012, el Decreto 1074 de 2015 y demás
+		normas concordantes sobre protección de datos personales en Colombia, {
+			RAZON_SOCIAL
+		} adopta la presente política.
+	</p>
+
+	<h2>1. Responsable del tratamiento de datos</h2>
+	<p>
+		<strong>{RAZON_SOCIAL}</strong>, identificada con NIT {NIT}, con domicilio
+		en {DOMICILIO}, es responsable del tratamiento de los datos personales
+		recolectados a través de sus canales digitales, formularios, plataformas web
+		y demás medios autorizados.
+	</p>
+	<p>Canales de contacto:</p>
+	<ul>
+		<li>Correo electrónico: <a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+		<li>Sitio web: {SITIO_WEB}</li>
+	</ul>
+
+	<h2>2. Datos que recolectamos</h2>
+	<p>Podemos recolectar información como:</p>
+	<ul>
+		<li>Nombre y apellidos</li>
+		<li>Correo electrónico</li>
+		<li>Número telefónico / WhatsApp</li>
+		<li>Empresa o marca</li>
+		<li>Redes sociales</li>
+		<li>Información comercial o contractual</li>
+		<li>Datos suministrados en formularios o reuniones</li>
+	</ul>
+	<p>
+		<strong>No recolectamos datos sensibles</strong> (aquellos que afectan la
+		intimidad o cuyo uso indebido puede generar discriminación, como origen
+		racial o étnico, convicciones religiosas, datos de salud o datos
+		biométricos), ni datos de niñas, niños y adolescentes. Si detectamos que se
+		han suministrado datos de esta naturaleza sin que sean necesarios para la
+		prestación del servicio, procederemos a su eliminación.
+	</p>
+
+	<h2>3. Finalidad del tratamiento</h2>
+	<p>Los datos personales podrán ser utilizados para:</p>
+	<ul>
+		<li>Responder solicitudes de contacto</li>
+		<li>Elaborar propuestas comerciales</li>
+		<li>Prestar servicios contratados</li>
+		<li>Realizar seguimiento comercial</li>
+		<li>Compartir promociones, novedades y campañas</li>
+		<li>Mejorar nuestros servicios y experiencia de usuario</li>
+		<li>Cumplir obligaciones contractuales y legales</li>
+	</ul>
+
+	<h2>4. Autorización del titular</h2>
+	<p>
+		La recolección de datos a través de nuestros formularios web requiere la
+		autorización previa, expresa e informada del titular, manifestada mediante
+		una casilla de aceptación que no viene marcada por defecto. Conservamos
+		registro de la fecha, hora y versión de esta política vigente al momento de
+		otorgarse cada autorización.
+	</p>
+
+	<h2>5. Derechos del titular</h2>
+	<p>Como titular de los datos personales, usted podrá:</p>
+	<ul>
+		<li>Conocer, actualizar y rectificar sus datos personales</li>
+		<li>
+			Solicitar prueba de la autorización otorgada, salvo en los casos exceptuados
+			por la ley
+		</li>
+		<li>
+			Ser informado sobre el uso que se ha dado a sus datos personales, previa
+			solicitud
+		</li>
+		<li>
+			Revocar la autorización y/o solicitar la supresión de sus datos, cuando no
+			exista un deber legal o contractual que lo impida
+		</li>
+		<li>Acceder de forma gratuita a sus datos personales</li>
+		<li>
+			Presentar quejas ante la Superintendencia de Industria y Comercio (SIC) por
+			infracciones a la normativa vigente
+		</li>
+	</ul>
+
+	<h2>6. Procedimiento para ejercer sus derechos</h2>
+	<p>
+		Las consultas y reclamos pueden presentarse al correo electrónico
+		<a href={`mailto:${EMAIL}`}>{EMAIL}</a>, indicando el nombre del titular,
+		la descripción de los hechos y los datos de contacto para la respuesta.
+	</p>
+	<ul>
+		<li>
+			<strong>Consultas:</strong> serán atendidas en un término máximo de diez (10)
+			días hábiles contados a partir de su recepción. Cuando no sea posible
+			atenderlas dentro de dicho término, se informará al interesado los motivos
+			y la fecha en que se atenderá, que en ningún caso superará los cinco (5)
+			días hábiles siguientes al vencimiento del primer plazo.
+		</li>
+		<li>
+			<strong>Reclamos:</strong> serán atendidos en un término máximo de quince
+			(15) días hábiles contados a partir del día siguiente a su recepción. Cuando
+			no sea posible atenderlos dentro de dicho término, se informará al
+			interesado los motivos y la fecha en que se atenderá, que en ningún caso
+			superará los ocho (8) días hábiles siguientes al vencimiento del primer
+			plazo.
+		</li>
+	</ul>
+	<p>
+		El titular podrá acudir ante la Superintendencia de Industria y Comercio
+		únicamente una vez haya agotado el trámite de consulta o reclamo ante {
+			RAZON_SOCIAL
+		}.
+	</p>
+
+	<h2>7. Seguridad de la información</h2>
+	<p>
+		{RAZON_SOCIAL} adopta medidas técnicas, administrativas y organizacionales
+		razonables para proteger la información contra acceso no autorizado,
+		pérdida, alteración o uso indebido.
+	</p>
+
+	<h2>8. Almacenamiento, transferencia y transmisión de datos</h2>
+	<p>
+		La información podrá almacenarse en sistemas internos, plataformas CRM,
+		servicios cloud, herramientas de email marketing y bases de datos utilizadas
+		por {RAZON_SOCIAL} para la operación de sus servicios.
+	</p>
+	<p>
+		Algunos de estos proveedores tienen su infraestructura fuera de Colombia, por
+		lo que <strong
+			>sus datos podrán ser objeto de transferencia y transmisión internacional</strong
+		>, principalmente hacia los Estados Unidos de América. Entre estos
+		proveedores se encuentran servicios de correo electrónico, hojas de cálculo y
+		almacenamiento en la nube, plataformas de agendamiento de reuniones y
+		pasarelas de pago. Al aceptar esta política, el titular autoriza dicha
+		transferencia, la cual se realiza bajo condiciones que procuran garantizar la
+		seguridad y confidencialidad de la información.
+	</p>
+
+	<h2>9. Cookies y tecnologías de seguimiento</h2>
+	<p>
+		Este sitio utiliza cookies y herramientas de analítica web. El detalle sobre
+		su uso se encuentra en nuestra <a href={RUTA_COOKIES}
+			>Política de Cookies</a
+		>.
+	</p>
+
+	<h2>10. Vigencia</h2>
+	<p>
+		La presente política rige desde su publicación y podrá ser modificada en
+		cualquier momento. Cualquier actualización será publicada en este sitio web.
+	</p>
+	<p>
+		Las bases de datos administradas por {RAZON_SOCIAL} tendrán una vigencia
+		igual al término de la relación comercial con el titular y, con posterioridad
+		a esta, durante el tiempo necesario para atender las finalidades descritas en
+		esta política y para cumplir las obligaciones legales, contables y fiscales
+		aplicables. Cumplido dicho término, los datos serán suprimidos o
+		anonimizados, salvo que el titular haya autorizado su conservación para
+		comunicaciones comerciales y no haya revocado dicha autorización.
+	</p>
+</LegalLayout>

@@ -3,12 +3,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import {
 	WHATSAPP_1,
 	WHATSAPP_2,
+	WHATSAPP_1_DISPLAY,
+	WHATSAPP_2_DISPLAY,
 	WHATSAPP_DEFAULT_MSG,
 	EMAIL,
 	INSTAGRAM,
 	FACEBOOK,
 	TIKTOK,
 	URL_APP_WEB_CONTACTO,
+	RUTA_POLITICA_DATOS,
+	TEXTO_AUTORIZACION_DATOS,
+	VERSION_POLITICA_DATOS,
 } from "../data/constantes";
 ---
 
@@ -150,6 +155,27 @@ import {
 							required></textarea>
 					</div>
 
+					<div class="contacto-form__consentimiento">
+						<label class="contacto-form__check">
+							<input
+								type="checkbox"
+								id="cf-consentimiento"
+								name="consentimiento"
+								required
+							/>
+							<span class="contacto-form__check-texto">
+								{TEXTO_AUTORIZACION_DATOS}
+								<a
+									href={RUTA_POLITICA_DATOS}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="contacto-form__check-link"
+									>Política de Tratamiento de Datos Personales</a
+								>.
+							</span>
+						</label>
+					</div>
+
 					<button
 						type="submit"
 						id="contacto-form__submit"
@@ -251,65 +277,64 @@ import {
 					ATENCIÓN <span class="gradient-text">DIRECTA</span>
 				</h2>
 				<p class="atencion-header__sub">
-					Si ya conoces nuestros servicios y deseas hablar directamente con uno de nuestros representantes, puedes comunicarte por WhatsApp.
+					Escríbenos por WhatsApp a cualquiera de nuestras líneas comerciales y te atenderemos de inmediato.
 				</p>
 			</div>
 
 			<div class="atencion-grid">
 
-				<!-- Jessmar -->
-				<div class="rep-outer reveal reveal-delay-1">
-					<div class="rep">
-						<div class="rep__foto">
-							<img src="/images/FotoJess.jpg" alt="Jessmar" />
-						</div>
-						<div class="rep__info">
-							<span class="rep__nombre">Jessmar</span>
-							<span class="rep__cargo rep__cargo--magenta">Directora General</span>
-							<span class="rep__tel">+57 321 286 5200</span>
-							<a
-								href={`${WHATSAPP_1}?text=${WHATSAPP_DEFAULT_MSG}`}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="rep__btn"
-							>
-								<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+				<!-- Línea comercial 1 -->
+				<div class="linea-outer reveal reveal-delay-1">
+					<div class="linea">
+						<div class="linea__icono-circle">
+							<svg width="48" height="48" viewBox="0 0 24 24" fill="var(--cyan)" aria-hidden="true">
 									<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
 									<path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.524 5.849L.057 23.625a.5.5 0 0 0 .614.633l5.9-1.545A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.792 9.792 0 0 1-5.007-1.373l-.36-.214-3.724.976.994-3.624-.235-.374A9.786 9.786 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
-								</svg>
-								Contactar Directora
-							</a>
+							</svg>
 						</div>
+						<span class="linea__titulo">LÍNEA COMERCIAL 1</span>
+						<span class="linea__tel">{WHATSAPP_1_DISPLAY}</span>
+						<a
+							href={`${WHATSAPP_1}?text=${WHATSAPP_DEFAULT_MSG}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="linea__btn"
+						>
+							<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+									<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+									<path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.524 5.849L.057 23.625a.5.5 0 0 0 .614.633l5.9-1.545A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.792 9.792 0 0 1-5.007-1.373l-.36-.214-3.724.976.994-3.624-.235-.374A9.786 9.786 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
+							</svg>
+							Hablar por WhatsApp
+						</a>
 					</div>
 				</div>
 
-				<!-- Adrián -->
-				<div class="rep-outer reveal reveal-delay-2">
-					<div class="rep">
-						<div class="rep__foto">
-							<img src="/images/FotoAdrian.jpg" alt="Adrián" />
-						</div>
-						<div class="rep__info">
-							<span class="rep__nombre">Adrián</span>
-							<span class="rep__cargo rep__cargo--cyan">Subdirector General</span>
-							<span class="rep__tel">+57 312 544 8302</span>
-							<a
-								href={`${WHATSAPP_2}?text=${WHATSAPP_DEFAULT_MSG}`}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="rep__btn"
-							>
-								<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+				<!-- Línea comercial 2 -->
+				<div class="linea-outer reveal reveal-delay-2">
+					<div class="linea">
+						<div class="linea__icono-circle">
+							<svg width="48" height="48" viewBox="0 0 24 24" fill="var(--cyan)" aria-hidden="true">
 									<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
 									<path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.524 5.849L.057 23.625a.5.5 0 0 0 .614.633l5.9-1.545A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.792 9.792 0 0 1-5.007-1.373l-.36-.214-3.724.976.994-3.624-.235-.374A9.786 9.786 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
-								</svg>
-								Contactar Subdirector
-							</a>
+							</svg>
 						</div>
+						<span class="linea__titulo">LÍNEA COMERCIAL 2</span>
+						<span class="linea__tel">{WHATSAPP_2_DISPLAY}</span>
+						<a
+							href={`${WHATSAPP_2}?text=${WHATSAPP_DEFAULT_MSG}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="linea__btn"
+						>
+							<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+									<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+									<path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.524 5.849L.057 23.625a.5.5 0 0 0 .614.633l5.9-1.545A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.792 9.792 0 0 1-5.007-1.373l-.36-.214-3.724.976.994-3.624-.235-.374A9.786 9.786 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
+							</svg>
+							Hablar por WhatsApp
+						</a>
 					</div>
 				</div>
 
-			</div>
 		</div>
 	</section>
 
@@ -382,7 +407,7 @@ import {
 		</div>
 	</section>
 
-	<script define:vars={{ URL_APP_WEB_CONTACTO }}>
+	<script define:vars={{ URL_APP_WEB_CONTACTO, VERSION_POLITICA_DATOS }}>
 		const contactForm = document.getElementById("contacto-form");
 		const submitBtn = document.getElementById("contacto-form__submit");
 		const feedbackEl = document.getElementById("contacto-form__feedback");
@@ -392,7 +417,9 @@ import {
 			let allFilled = true;
 
 			requiredFields.forEach((field) => {
-				if (field.type === "radio") {
+				if (field.type === "checkbox") {
+					if (!field.checked) allFilled = false;
+				} else if (field.type === "radio") {
 					const checked = contactForm.querySelector(
 						`input[name="${field.name}"]:checked`,
 					);
@@ -417,6 +444,15 @@ import {
 
 			const formData = new FormData(contactForm);
 			const payload = Object.fromEntries(formData.entries());
+
+			// Evidencia del consentimiento: el checkbox llega como "on" (o ausente),
+			// así que se normaliza y se acompaña de la versión de la política aceptada.
+			payload.consentimiento = contactForm.querySelector("#cf-consentimiento")
+				.checked
+				? "true"
+				: "false";
+			payload.version_politica = VERSION_POLITICA_DATOS;
+			payload.user_agent = navigator.userAgent;
 
 			submitBtn.disabled = true;
 			submitBtn.textContent = "Enviando...";
@@ -484,6 +520,88 @@ import {
 		gap: 1rem;
 	}
 
+	/* Cards .rep — usadas por la sección 2 (Otras formas de contacto) */
+	.rep-outer {
+		position: relative;
+		isolation: isolate;
+		min-width: 0;
+	}
+	.rep-outer::before {
+		content: "";
+		position: absolute;
+		inset: -5px;
+		border-radius: calc(var(--radius-lg) + 5px);
+		background: linear-gradient(135deg, var(--cyan), var(--magenta));
+		z-index: -1;
+		opacity: 0.22;
+		filter: blur(1px);
+		transition: opacity var(--t-med) var(--ease);
+	}
+	.rep-outer:hover::before {
+		opacity: 0.45;
+	}
+
+	.rep {
+		background: var(--bg-card);
+		border-radius: var(--radius-lg);
+		padding: 0.9rem 1.1rem;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.rep__info {
+		display: flex;
+		flex-direction: column;
+		gap: 0.08rem;
+		flex: 1;
+		min-width: 0;
+	}
+
+	.rep__nombre {
+		font-family: var(--font-display);
+		font-size: 1.8rem;
+		letter-spacing: 0.08em;
+		line-height: 1.1;
+	}
+
+	.rep__tel {
+		font-size: 1.32rem;
+		font-weight: 600;
+		color: var(--text-dim);
+		margin-top: 0.22rem;
+	}
+
+	.rep__btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		margin-top: 0.6rem;
+		padding: 0.42rem 0.9rem;
+		border-radius: 6px;
+		background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		border: 2px solid var(--cyan);
+		font-family: var(--font-body);
+		font-size: 1.17rem;
+		font-weight: 700;
+		letter-spacing: 0.03em;
+		cursor: pointer;
+		text-decoration: none;
+		transition: all var(--t-fast) var(--ease);
+		white-space: nowrap;
+		align-self: flex-start;
+	}
+	.rep__btn svg {
+		fill: var(--cyan);
+	}
+	.rep__btn:hover {
+		filter: brightness(1.2);
+		transform: translateY(-2px);
+	}
+
 	.rep__icono-circle {
 		width: 105px;
 		height: 105px;
@@ -539,6 +657,19 @@ import {
 
 		.otras-cards {
 			grid-template-columns: 1fr;
+		}
+		.rep {
+			gap: 0.75rem;
+		}
+		.rep__nombre {
+			font-size: 1.25rem;
+		}
+		.rep__tel {
+			font-size: 0.9rem;
+		}
+		.rep__btn {
+			font-size: 0.82rem;
+			white-space: normal;
 		}
 	}
 
@@ -690,6 +821,45 @@ import {
 		outline-offset: 2px;
 	}
 
+	/* Consentimiento de datos — la casilla nunca viene marcada por defecto */
+	.contacto-form__consentimiento {
+		margin-top: 0.4rem;
+	}
+
+	.contacto-form__check {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 0.7rem;
+		align-items: start;
+		cursor: pointer;
+	}
+
+	.contacto-form__check input[type="checkbox"] {
+		width: 1.15rem;
+		height: 1.15rem;
+		margin-top: 0.15rem;
+		flex-shrink: 0;
+		accent-color: var(--cyan);
+		cursor: pointer;
+	}
+
+	.contacto-form__check-texto {
+		font-size: 0.95rem;
+		line-height: 1.55;
+		color: var(--text-dim);
+		text-wrap: pretty;
+	}
+
+	.contacto-form__check-link {
+		color: var(--cyan);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.contacto-form__check-link:hover {
+		filter: brightness(1.25);
+	}
+
 	.contacto-form__btn {
 		align-self: center;
 		margin-top: 0.5rem;
@@ -769,12 +939,14 @@ import {
 		gap: 1rem;
 	}
 
-	.rep-outer {
+	.linea-outer {
 		position: relative;
 		isolation: isolate;
 		min-width: 0;
+		display: flex;
+		flex-direction: column;
 	}
-	.rep-outer::before {
+	.linea-outer::before {
 		content: "";
 		position: absolute;
 		inset: -5px;
@@ -785,72 +957,54 @@ import {
 		filter: blur(1px);
 		transition: opacity var(--t-med) var(--ease);
 	}
-	.rep-outer:hover::before {
+	.linea-outer:hover::before {
 		opacity: 0.45;
 	}
 
-	.rep {
+	.linea {
+		flex: 1;
 		background: var(--bg-card);
 		border-radius: var(--radius-lg);
-		padding: 0.9rem 1.1rem;
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-	}
-
-	.rep__foto {
-		width: 131px;
-		height: 131px;
-		border-radius: 50%;
-		flex-shrink: 0;
-		overflow: hidden;
-		border: 2px solid rgba(0, 194, 255, 0.25);
-		background: var(--bg-base);
-	}
-	.rep__foto img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: center top;
-	}
-
-	.rep__info {
+		padding: 2.4rem 1.6rem 2.2rem;
 		display: flex;
 		flex-direction: column;
-		gap: 0.08rem;
-		flex: 1;
-		min-width: 0;
+		align-items: center;
+		text-align: center;
+		gap: 0.65rem;
 	}
 
-	.rep__nombre {
+	.linea__icono-circle {
+		width: 105px;
+		height: 105px;
+		border-radius: 50%;
+		flex-shrink: 0;
+		border: 2px solid rgba(0, 194, 255, 0.25);
+		background: var(--bg-base);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 0.35rem;
+	}
+
+	.linea__titulo {
 		font-family: var(--font-display);
 		font-size: 1.8rem;
 		letter-spacing: 0.08em;
 		line-height: 1.1;
 	}
 
-	.rep__cargo {
-		font-size: 1.08rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.09em;
-		line-height: 1.3;
-	}
-	.rep__cargo--cyan { color: var(--cyan); }
-	.rep__cargo--magenta { color: var(--magenta); }
-
-	.rep__tel {
-		font-size: 1.32rem;
+	.linea__tel {
+		font-size: 1.5rem;
 		font-weight: 600;
 		color: var(--text-dim);
-		margin-top: 0.22rem;
+		letter-spacing: 0.02em;
 	}
 
-	.rep__btn {
+	.linea__btn {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.35rem;
-		margin-top: 0.6rem;
+		margin-top: 0.75rem;
 		padding: 0.42rem 0.9rem;
 		border-radius: 6px;
 		background-image: linear-gradient(90deg, var(--cyan), var(--magenta));
@@ -866,12 +1020,11 @@ import {
 		text-decoration: none;
 		transition: all var(--t-fast) var(--ease);
 		white-space: nowrap;
-		align-self: flex-start;
 	}
-	.rep__btn svg {
+	.linea__btn svg {
 		fill: var(--cyan);
 	}
-	.rep__btn:hover {
+	.linea__btn:hover {
 		filter: brightness(1.2);
 		transform: translateY(-2px);
 	}
@@ -883,24 +1036,22 @@ import {
 		.atencion-grid {
 			grid-template-columns: 1fr;
 		}
-		.rep {
-			gap: 0.75rem;
+		.linea {
+			padding: 1.9rem 1.2rem 1.7rem;
+			gap: 0.5rem;
 		}
-		.rep__foto {
-			width: 111px;
-			height: 111px;
+		.linea__icono-circle {
+			width: 84px;
+			height: 84px;
 		}
-		.rep__nombre {
-			font-size: 1.25rem;
+		.linea__titulo {
+			font-size: 1.45rem;
 		}
-		.rep__cargo {
-			font-size: 0.72rem;
+		.linea__tel {
+			font-size: 1.2rem;
 		}
-		.rep__tel {
-			font-size: 0.9rem;
-		}
-		.rep__btn {
-			font-size: 0.82rem;
+		.linea__btn {
+			font-size: 0.95rem;
 			white-space: normal;
 		}
 	}

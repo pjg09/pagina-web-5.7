@@ -1,0 +1,92 @@
+---
+import LegalLayout from "../layouts/LegalLayout.astro";
+import {
+	RAZON_SOCIAL,
+	SITIO_WEB,
+	EMAIL,
+	RUTA_POLITICA_DATOS,
+} from "../data/constantes";
+---
+
+<LegalLayout
+	title="Términos y Condiciones de Uso"
+	description="Términos y condiciones de uso del sitio web de Onda Creativa Launch 5.7 S.A.S."
+	titulo="TÉRMINOS Y CONDICIONES DE USO"
+>
+	<h2>1. Objeto</h2>
+	<p>
+		El presente documento regula el acceso y uso del sitio web {SITIO_WEB} y sus
+		plataformas asociadas. Al acceder o utilizar este sitio, el usuario acepta
+		los presentes términos y condiciones.
+	</p>
+
+	<h2>2. Servicios</h2>
+	<p>{RAZON_SOCIAL} ofrece servicios relacionados con:</p>
+	<ul>
+		<li>Estrategia creativa</li>
+		<li>Branding</li>
+		<li>Marketing digital</li>
+		<li>Producción audiovisual</li>
+		<li>Servicios para marcas y artistas</li>
+		<li>Consultoría y asesoría especializada</li>
+	</ul>
+	<p>Los servicios ofrecidos pueden modificarse sin previo aviso.</p>
+
+	<h2>3. Propiedad intelectual</h2>
+	<p>
+		Todo contenido del sitio, incluyendo textos, diseños, logotipos, imágenes,
+		videos, materiales descargables y elementos gráficos, es propiedad de {
+			RAZON_SOCIAL
+		} o cuenta con autorización de uso.
+	</p>
+	<p>
+		Queda prohibida su reproducción, distribución o explotación sin autorización
+		escrita.
+	</p>
+
+	<h2>4. Cotizaciones y propuestas</h2>
+	<p>
+		Toda propuesta comercial emitida por {RAZON_SOCIAL} tiene carácter
+		informativo y podrá estar sujeta a ajustes según alcance, requerimientos y
+		condiciones particulares del proyecto.
+	</p>
+	<p>
+		Los precios no se consideran definitivos hasta la formalización contractual o
+		aceptación escrita.
+	</p>
+
+	<h2>5. Pagos</h2>
+	<p>
+		Los pagos realizados por asesorías, consultorías o servicios contratados
+		estarán sujetos a las condiciones particulares informadas en cada oferta
+		comercial. {RAZON_SOCIAL} podrá utilizar plataformas de pago de terceros
+		autorizadas.
+	</p>
+
+	<h2>6. Responsabilidad</h2>
+	<p>
+		{RAZON_SOCIAL} no garantiza resultados específicos derivados del uso de
+		estrategias, campañas o recomendaciones, ya que estos dependen de múltiples
+		factores externos.
+	</p>
+
+	<h2>7. Tratamiento de datos personales</h2>
+	<p>
+		Los datos personales suministrados a través de este sitio se tratan conforme
+		a nuestra <a href={RUTA_POLITICA_DATOS}
+			>Política de Tratamiento de Datos Personales</a
+		>.
+	</p>
+
+	<h2>8. Modificaciones</h2>
+	<p>
+		{RAZON_SOCIAL} podrá actualizar estos términos en cualquier momento. Las
+		modificaciones entrarán en vigencia una vez publicadas.
+	</p>
+
+	<h2>9. Contacto</h2>
+	<p>
+		Cualquier consulta sobre estos términos puede dirigirse a
+		<a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
+	</p>
+</LegalLayout>
