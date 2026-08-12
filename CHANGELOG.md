@@ -1,3 +1,9 @@
+## [1.10.1](https://github.com/pjg09/pagina-web-5.7/compare/v1.10.0...v1.10.1) (2026-08-12)
+
+### Bug Fixes
+
+* usa www.ocl57group.com como dominio canónico en sitemap y canonical ([c4b9a47](https://github.com/pjg09/pagina-web-5.7/commit/c4b9a470abc0bdfdb8062c3f7d36fe90cdd5ab57))
+
 ## [1.10.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.9.0...v1.10.0) (2026-08-12)
 
 ### Features
