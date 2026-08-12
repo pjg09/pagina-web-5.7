@@ -21,9 +21,7 @@ export const WHATSAPP_CTA = `${WHATSAPP_1}?text=${WHATSAPP_DEFAULT_MSG}`;
 // DATOS LEGALES DE LA EMPRESA
 export const RAZON_SOCIAL = "ONDA CREATIVA LAUNCH 5.7 S.A.S.";
 export const NIT = "901890578";
-export const DIRECCION = "CL 80C # 72C - 33";
 export const CIUDAD = "Medellín, Colombia";
-export const DOMICILIO = `${DIRECCION}, ${CIUDAD}`;
 export const SITIO_WEB = "ocl57group.com";
 
 // Rutas de los documentos legales (enlazadas desde el footer y el formulario de contacto)
