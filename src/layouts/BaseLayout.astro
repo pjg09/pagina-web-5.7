@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import CookieConsent from "../components/CookieConsent.astro";
 import { ID_GTM } from "../data/constantes";
 import "../styles/global.css";
 
@@ -48,6 +49,37 @@ const canonicalURL = Astro.site
         <link rel="icon" href="/favicon.ico" />
         <title>{title} | 5.7 Onda Creativa Launch</title>
 
+        <!-- Consent Mode v2: estado por defecto DENEGADO antes de cargar GTM.
+             Debe ir SIEMPRE antes del snippet de GTM. Si el usuario ya aceptó
+             en una visita previa, se re-aplica su elección guardada. -->
+        {
+            gtmActivo && (
+                <script is:inline>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag() {
+                        dataLayer.push(arguments);
+                    }
+                    gtag("consent", "default", {
+                        ad_storage: "denied",
+                        ad_user_data: "denied",
+                        ad_personalization: "denied",
+                        analytics_storage: "denied",
+                        wait_for_update: 500,
+                    });
+                    try {
+                        if (
+                            localStorage.getItem("ocl_cookie_consent") ===
+                            "granted"
+                        ) {
+                            gtag("consent", "update", {
+                                analytics_storage: "granted",
+                            });
+                        }
+                    } catch (e) {}
+                </script>
+            )
+        }
+
         <!-- Google Tag Manager (GA4 se configura dentro del contenedor) -->
         {
             gtmActivo && (
@@ -92,6 +124,8 @@ const canonicalURL = Astro.site
         </main>
 
         <Footer />
+
+        {gtmActivo && <CookieConsent />}
 
         <!-- Scroll reveal observer -->
         <script>

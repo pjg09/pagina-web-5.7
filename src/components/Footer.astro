@@ -12,7 +12,12 @@ import {
     RUTA_POLITICA_DATOS,
     RUTA_TERMINOS,
     RUTA_COOKIES,
+    ID_GTM,
 } from "../data/constantes";
+
+// El enlace para reabrir el banner de cookies solo tiene sentido si GTM
+// está activo (es el mismo criterio con el que BaseLayout renderiza el banner).
+const gtmActivo = ID_GTM && !ID_GTM.includes("XXXX");
 ---
 
 <footer class="footer">
@@ -175,10 +180,35 @@ import {
                 <a href={RUTA_COOKIES} class="footer__legal-link">
                     Política de Cookies
                 </a>
+                {
+                    gtmActivo && (
+                        <>
+                            <span class="footer__legal-sep" aria-hidden="true">
+                                ·
+                            </span>
+                            <button
+                                type="button"
+                                id="cookie-prefs-link"
+                                class="footer__legal-link footer__legal-btn"
+                            >
+                                Preferencias de cookies
+                            </button>
+                        </>
+                    )
+                }
             </nav>
         </div>
     </div>
 </footer>
+
+<script>
+    // Reabre el banner de cookies. openCookiePreferences la define CookieConsent.astro.
+    document
+        .getElementById("cookie-prefs-link")
+        ?.addEventListener("click", () => {
+            (window as any).openCookiePreferences?.();
+        });
+</script>
 
 <style>
     .footer {
@@ -366,6 +396,15 @@ import {
     .footer__legal-sep {
         font-size: 0.75rem;
         color: var(--text-muted);
+    }
+
+    /* El enlace de preferencias es un <button> por accesibilidad; se ve como link */
+    .footer__legal-btn {
+        background: none;
+        border: none;
+        padding: 0;
+        font-family: inherit;
+        cursor: pointer;
     }
 
     @media (max-width: 768px) {
