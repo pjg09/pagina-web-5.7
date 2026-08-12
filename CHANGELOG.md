@@ -1,3 +1,15 @@
+## [1.10.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.9.0...v1.10.0) (2026-08-12)
+
+### Features
+
+* instala Google Tag Manager y genera sitemap con el dominio de producción ([b0fd662](https://github.com/pjg09/pagina-web-5.7/commit/b0fd6623b7dadc7f57593ce66dfd9a8ce432437b))
+* reactiva la página de agendamientos en el routing ([237f495](https://github.com/pjg09/pagina-web-5.7/commit/237f495c0c586db5059c0f030423442bfe4009a9))
+
+### Bug Fixes
+
+* el botón "Agendar diagnóstico sin costo" de empresas redirige a WhatsApp ([4141375](https://github.com/pjg09/pagina-web-5.7/commit/41413756890ab448011869523dec287d079139ae))
+* reescribe términos y condiciones y elimina la dirección física de los documentos legales ([d6af96d](https://github.com/pjg09/pagina-web-5.7/commit/d6af96dd150dff7c3578758d771ce39da9537a1b))
+
 ## [1.9.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.8.1...v1.9.0) (2026-07-23)
 
 ### Features
