@@ -1,3 +1,9 @@
+## [1.11.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.10.1...v1.11.0) (2026-08-12)
+
+### Features
+
+* agrega banner de consentimiento de cookies con Consent Mode v2 ([b45bacf](https://github.com/pjg09/pagina-web-5.7/commit/b45bacf508603da9117186e80cddb22a9ba2b947))
+
 ## [1.10.1](https://github.com/pjg09/pagina-web-5.7/compare/v1.10.0...v1.10.1) (2026-08-12)
 
 ### Bug Fixes
