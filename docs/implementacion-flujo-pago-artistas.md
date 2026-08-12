@@ -1,6 +1,14 @@
 > [!WARNING]
 > **DESACTUALIZADO — requiere revisión**
 > Este documento es una guía de implementación aún no ejecutada. Ningún paso ha sido completado: no existe el Google Sheets, no está publicado el Web App de Apps Script, y las constantes en `constantes.ts` siguen siendo placeholders. Usar como punto de partida, no como estado actual.
+>
+> **⚠️ Correcciones vigentes que priman sobre estos pasos** (ver `flujo-pago-artistas.md` → "Ajustes por plan gratuito de Calendly", y el mapa en `flujo-agendamientos.md`):
+> - **Calendly está en plan GRATUITO → no hay webhook.** Ignorar los pasos de "activar webhook" de Calendly (Paso 2, puntos 5–6) y la Función 3 basada en `invitee.created`. El agendamiento se detecta por **trigger temporal que parsea el correo de notificación** de Calendly.
+> - **Token vía pregunta custom `a1=TOKEN`**, no `utm_content`.
+> - **`GmailApp`** (sin `from` alias, con `replyTo`), no `MailApp`.
+> - **Ruta de entrada:** `/agendamientos-artistas-estrategica` (no la sección de `/artistas`).
+> - **Sheet:** archivo `artistas`, pestaña `estrategica`. Constante `CALENDLY_ARTISTAS_ESTRATEGICA`.
+> - **Evento de Wompi:** `transaction.updated`/`APPROVED` sigue **sin confirmar** contra la doc oficial — es el próximo paso acordado.
 
 # Implementación del flujo de pago y agendamiento — Asesoría artistas
 

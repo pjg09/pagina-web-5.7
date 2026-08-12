@@ -1,8 +1,27 @@
 > [!WARNING]
-> **DESACTUALIZADO — requiere revisión**
-> Este documento refleja el diseño propuesto, no el estado de implementación real. Las páginas `/formulario`, `/resumen` y `/agendamientos` están pendientes de construcción. El script de Apps Script y las URLs de Wompi/Calendly aún no existen. Verificar contra el código y `constantes.ts` antes de usar como referencia.
+> **DISEÑO PROPUESTO — no implementado.** Las páginas `/formulario`, `/resumen` y las de embed están pendientes; el script de Apps Script y las URLs de Wompi/Calendly aún no existen (son placeholders en `constantes.ts`). Verificar contra el código antes de usar como referencia.
+>
+> **Este es el evento 3 de 3** — ver el mapa en [`flujo-agendamientos.md`](./flujo-agendamientos.md). Es el único evento **de pago**, y es de **artistas** (no de empresas). Los otros dos son gratuitos: [`flujo-agendamiento-empresas.md`](./flujo-agendamiento-empresas.md) y [`flujo-agendamiento-artistas-comercial.md`](./flujo-agendamiento-artistas-comercial.md).
+>
+> **⚠️ LEER LA SECCIÓN "Ajustes por plan gratuito de Calendly" ANTES que el resto.** El diagrama y los "webhooks" originales de más abajo asumían un webhook server-side de Calendly (`invitee.created`) que **NO es viable en plan gratuito**. Esa parte está corregida en la sección de ajustes; el resto del documento (Wompi, token, formulario, seguridad) sigue vigente.
 
 # Flujo de pago y agendamiento — Asesoría estratégica para artistas
+
+## Ajustes por plan gratuito de Calendly (correcciones que priman sobre el diseño original)
+
+El diseño original de este documento se escribió antes de fijar que **Calendly opera en plan gratuito** (decisión transversal de todos los flujos de agendamiento). Eso invalida el paso "Webhook 3 — Calendly → `doPost`". Correcciones vigentes:
+
+| Punto del diseño original | Corrección |
+|---|---|
+| Entrada desde la sección de `/artistas` | La entrada es la **ruta dedicada `/agendamientos-artistas-estrategica`** (CTA "Solicitar asesoría estratégica" del hub `/agendamientos`). Esa página conduce al pago. |
+| Calendly notifica a Apps Script vía webhook `invitee.created` | **No existe** en plan gratuito. La confirmación del agendamiento se resuelve por **parseo del correo de notificación de Calendly** (Opción B), igual que en los flujos gratuitos. Ver `flujo-agendamiento-empresas.md` → "Opción B". |
+| Token viaja a Calendly en `utm_content=TOKEN` | El `utm_content` no llega de forma fiable al correo de notificación. En su lugar, el token se pasa como **respuesta prellenada de una pregunta personalizada de Calendly** (`a1=TOKEN` en la URL del embed). Las respuestas custom **sí** aparecen en el correo de notificación → el parser extrae el token y correlaciona con la fila del pago. |
+| Correos con `MailApp` | Usar **`GmailApp`** sin `from` alias (`name` + `replyTo`), por el fallo SPF documentado en CLAUDE.md. Unifica el criterio con el resto del proyecto. |
+| Estructura del script | El script de este evento es **híbrido**: (a) un **Web App** que recibe el webhook de Wompi (Wompi **sí** tiene webhooks reales) y el POST del `/formulario`; y (b) un **trigger temporal** que parsea el correo de Calendly. No es solo `doPost`. |
+| Sheet | Archivo **`artistas`**, **pestaña `estrategica`** (la pestaña `comercial` es del evento gratuito de artistas). Sheet por audiencia, pestaña por evento. |
+| Constante de Calendly | Nueva `CALENDLY_ARTISTAS_ESTRATEGICA` en `constantes.ts` (desambiguar de `CALENDLY_ARTISTAS`). La URL del embed lleva `?a1={token}` para inyectar el token. |
+
+**Lo que NO cambia:** el cobro con Wompi y su webhook real, la generación del token UUID (ADR-3), el `/formulario?token=…` con validación en Apps Script, la seguridad del token, los casos edge de pago/formulario, y `/resumen`. Todo eso sigue como está descrito abajo.
 
 ## Resumen del flujo
 
@@ -26,7 +45,7 @@ Apps Script detecta el pago (webhook de Wompi → doPost)
 Apps Script genera token único (UUID) y lo guarda en Google Sheets
 junto con: payment_id, email del artista, monto, timestamp
     ↓
-Apps Script envía correo al artista (MailApp):
+Apps Script envía correo al artista (GmailApp — ver Ajustes):
 "Tu pago fue recibido. Accede aquí para completar tu agendamiento"
 Enlace: https://sitio.com/formulario?token=UUID
     ↓
@@ -95,7 +114,7 @@ Apps Script se publica como **un único Web App** (una sola URL de `doPost`). Co
 1. Extrae: `payment_id` (referencia de transacción de Wompi), email del comprador, monto, timestamp
 2. Genera UUID único (token) con `Utilities.getUuid()`
 3. Guarda en Google Sheets: `token | payment_id | email | monto | timestamp | estado: pendiente_formulario`
-4. Envía correo al artista con el enlace `/formulario?token=UUID` vía `MailApp.sendEmail()`
+4. Envía correo al artista con el enlace `/formulario?token=UUID` vía `GmailApp.sendEmail()` (ver Ajustes: `GmailApp`, no `MailApp`, sin `from` alias)
 
 ### Webhook 2 — Formulario enviado
 **Origen:** POST del formulario del sitio al Web App de Apps Script
@@ -107,10 +126,12 @@ Apps Script se publica como **un único Web App** (una sola URL de `doPost`). Co
 4. Redirige al artista a Calendly con el token como parámetro
 
 ### Webhook 3 — Sesión agendada en Calendly
-**Origen:** Calendly (`invitee.created`)
+> ⚠️ **SUPERADO** por la sección "Ajustes por plan gratuito de Calendly". En plan gratuito NO hay webhook `invitee.created`: este paso se hace por **trigger temporal que parsea el correo de notificación de Calendly**, y el token llega vía **pregunta personalizada (`a1=TOKEN`)**, no `utm_content`. La lógica de correlación (buscar la fila del token y completarla) se mantiene; solo cambia el disparador y el transporte del token.
+
+**Origen (diseño original, no viable en gratuito):** Calendly (`invitee.created`)
 
 **Acciones del script:**
-1. Recibe: datos del agendamiento + token (vía `utm_content`)
+1. Recibe: datos del agendamiento + token (vía `utm_content` en el diseño original; **realmente vía pregunta custom `a1`**)
 2. Busca el token en Google Sheets → cruza con pago y formulario
 3. Actualiza el registro con fecha, hora y enlace de la sesión. Estado: `completo`
 4. Envía correo de confirmación al artista
@@ -160,7 +181,7 @@ Si alguien intenta acceder a `/formulario` sin un token válido, la página mues
 - Objetivos actuales
 
 ### De Calendly a Apps Script
-- Token UUID (vía `utm_content`)
+- Token UUID (vía pregunta custom `a1` de Calendly — ver Ajustes; el `utm_content` del diseño original no es fiable)
 - Fecha y hora de la sesión
 - Enlace de la videollamada
 - Nombre e email del invitado

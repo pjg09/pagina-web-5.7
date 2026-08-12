@@ -1,7 +1,9 @@
 > [!NOTE]
 > Plan de trabajo vivo. Se actualiza a medida que se construye cada paso — no es un registro histórico como los ADR de `decisiones-arquitectura.md`, sino el estado actual de la implementación de este flujo específico.
+>
+> **Este es 1 de los 3 eventos de agendamiento.** Ver el mapa general en [`flujo-agendamientos.md`](./flujo-agendamientos.md). Su gemelo gratuito para artistas es [`flujo-agendamiento-artistas-comercial.md`](./flujo-agendamiento-artistas-comercial.md) (misma arquitectura Opción B, script y Sheet propios). El flujo de pago es [`flujo-pago-artistas.md`](./flujo-pago-artistas.md). **Esta sección "Opción B" es la referencia canónica de la mecánica de parseo** que reusan los otros dos.
 
-# Flujo de agendamiento — Empresas (sin pago)
+# Flujo de agendamiento — Empresas comercial (sin pago)
 
 ## Resumen del flujo
 
@@ -11,7 +13,9 @@ A diferencia del flujo de artistas (que requiere pago previo y token UUID de App
 
 | Decisión | Valor | Por qué |
 |---|---|---|
-| Página del calendario | `/agendamientos-empresas` (nueva) | `/agendamientos` se reserva como página "hub" futura que listará todos los eventos/flujos para que el cliente elija. No se construye todavía. |
+| Página del calendario | `/agendamientos-empresas` (ruta fija, ya enlazada) | Es la ruta que usa el CTA de la card "Empresas y marcas" del hub `/agendamientos`. El hub **ya está construido** (secciones 1–4, `src/pages/agendamientos.astro`) — ya no es "futuro". |
+| Sheet destino | Archivo **`empresas`** (audiencia empresas), 1 pestaña | Decisión transversal: Sheet por audiencia. Este flujo escribe en su propio archivo, distinto del de artistas. |
+| Script de Apps Script | **Propio de este evento** (no compartido) | Decisión transversal: script por evento. Parsea solo el correo de Calendly de empresas. |
 | Tipo de embed | **Inline widget** de Calendly (no popup, no redirect externo) | El usuario nunca sale del sitio; ve la disponibilidad real dentro de una página propia. |
 | CTAs que redirigen al calendario | Solo 2: botón del hero ("Agendar diagnóstico sin costo") y botón de la sección 5 — Diagnóstico ("Agendar reunión") | El resto de los CTAs de la sección de soluciones (4 botones: "Quiero estructurar mi marca", "Quiero activar mis redes", "Quiero mejorar mi imagen", "Quiero más alcance") apuntan a WhatsApp (`WHATSAPP_CTA`), no al calendario. |
 | Comprobante del usuario | Nativo de Calendly | Pantalla de confirmación dentro del propio embed + email automático con `.ics`. No se construye nada custom para esto. |
@@ -25,14 +29,15 @@ A diferencia del flujo de artistas (que requiere pago previo y token UUID de App
 - [x] CTAs de `empresas.astro` redirigidos: hero y sección 5 (Diagnóstico) → `/agendamientos-empresas`; los 4 CTAs de la sección de soluciones → WhatsApp (`WHATSAPP_CTA`).
 - [x] Decisión de arquitectura de persistencia/notificación: **Opción B** (Apps Script por parseo de email). Se descarta leer el iframe y se descarta la ruta de API de Calendly.
 - [ ] Construir `/agendamientos-empresas.astro`: header propio (consistente con el sistema de diseño) + inline widget de Calendly. **Sin JS custom** — la página solo embebe el widget; todo lo demás corre del lado servidor.
-- [ ] Definir nombre final de la ruta (`/agendamientos-empresas` vs. `/agendamientos-empresas-comercial` u otro). Si cambia, actualizar los CTAs ya redirigidos en `empresas.astro`.
+- [x] Ruta fija: `/agendamientos-empresas` (usada por el hub `/agendamientos` y por `empresas.astro`).
 - [ ] Definir si el embed se tiñe con los colores del sitio vía parámetros de URL de Calendly (`background_color`, `text_color`, `primary_color`) para no romper la estética oscura.
 - [ ] Reemplazar el placeholder `CALENDLY_EMPRESAS` en `constantes.ts` con el link real una vez exista el event type configurado en Calendly.
 - [ ] Configurar el event type de Calendly: preguntas del formulario (nombre de empresa, qué quiere lograr, etc.) y agregar el Gmail backup como recipiente de notificación (para que el correo llegue a la cuenta donde corre el script).
 - [ ] Crear el script de Apps Script (Opción B): trigger temporal + parseo del correo de Calendly + escritura en Sheet + correo branding al cliente. Código espejo en `docs/` (pendiente, análogo a `docs/apps-script-contacto.gs`).
 - [ ] Crear la Google Sheet destino con las columnas definidas (ver Opción B).
-- [ ] Página `/agendamientos` (hub) — futura, fuera de alcance de este plan.
-- [ ] Flujo de artistas (con pago) — bloqueado, fuera de alcance de este plan. Ver `docs/flujo-pago-artistas.md`.
+- [x] Página `/agendamientos` (hub) — **construida** (secciones 1–4, `src/pages/agendamientos.astro`). Lista los tres eventos.
+- [ ] Flujo de artistas comercial (gratis) — gemelo de este. Ver `docs/flujo-agendamiento-artistas-comercial.md`.
+- [ ] Flujo de artistas estratégica (con pago) — ver `docs/flujo-pago-artistas.md`.
 
 ## Opción B — Apps Script por parseo de email (decidida)
 
@@ -128,7 +133,7 @@ Scopes requeridos en `appsscript.json`: `gmail.readonly` (o `gmail.modify` si se
 
 ## Qué falta decidir / confirmar con el usuario
 
-1. **Nombre final de la ruta** — `/agendamientos-empresas` (actual, ya enlazada desde `empresas.astro`) vs. `/agendamientos-empresas-comercial` u otro. Si cambia, actualizar los CTAs.
+1. ~~Nombre final de la ruta~~ — **resuelto:** `/agendamientos-empresas` (fija).
 2. **Link real de Calendly para empresas** — hoy `CALENDLY_EMPRESAS` en `constantes.ts` es un placeholder (`https://calendly.com/TU_USUARIO/diagnostico-empresas`). Se necesita el event type real configurado en la cuenta de Calendly antes de que el embed funcione de verdad.
 3. **Preguntas personalizadas del formulario de Calendly** — qué campos pedirá Calendly al agendar (nombre de empresa, qué quiere lograr, etc.) se configura del lado de Calendly, no en este repo. **Definen las columnas de la Sheet y las anclas del parser** (ver Opción B). Decidir antes de escribir el script.
 4. **Cuenta Gmail backup y entrega de la notificación** — confirmar a qué Gmail llega el correo de notificación de Calendly (cuenta donde correrá el script) y si se configura como recipiente directo en el event type o llega vía forwarder desde el webmail.
