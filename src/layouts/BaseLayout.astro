@@ -1,7 +1,11 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { ID_GTM } from "../data/constantes";
 import "../styles/global.css";
+
+// GTM solo se inyecta cuando hay un ID real (el placeholder contiene "XXXX").
+const gtmActivo = ID_GTM && !ID_GTM.includes("XXXX");
 
 interface Props {
     title: string;
@@ -44,23 +48,43 @@ const canonicalURL = Astro.site
         <link rel="icon" href="/favicon.ico" />
         <title>{title} | 5.7 Onda Creativa Launch</title>
 
-        <!-- Google Analytics 4 -->
-        <!-- TODO: reemplazar G-XXXXXXXXXX con el ID real de GA4 -->
-        <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-        ></script>
-        <script is:inline>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                window.dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
-            gtag("config", "G-XXXXXXXXXX");
-        </script>
+        <!-- Google Tag Manager (GA4 se configura dentro del contenedor) -->
+        {
+            gtmActivo && (
+                <script is:inline define:vars={{ ID_GTM }}>
+                    (function (w, d, s, l, i) {
+                        w[l] = w[l] || [];
+                        w[l].push({
+                            "gtm.start": new Date().getTime(),
+                            event: "gtm.js",
+                        });
+                        var f = d.getElementsByTagName(s)[0],
+                            j = d.createElement(s),
+                            dl = l != "dataLayer" ? "&l=" + l : "";
+                        j.async = true;
+                        j.src =
+                            "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+                        f.parentNode.insertBefore(j, f);
+                    })(window, document, "script", "dataLayer", ID_GTM);
+                </script>
+            )
+        }
     </head>
 
     <body>
+        <!-- Google Tag Manager (noscript) -->
+        {
+            gtmActivo && (
+                <noscript>
+                    <iframe
+                        src={`https://www.googletagmanager.com/ns.html?id=${ID_GTM}`}
+                        height="0"
+                        width="0"
+                        style="display:none;visibility:hidden"
+                    />
+                </noscript>
+            )
+        }
         <Header />
 
         <main>

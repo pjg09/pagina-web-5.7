@@ -1,5 +1,13 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-    site: 'https://pagina-web-5-7.vercel.app',
+    site: 'https://ocl57group.com',
+    integrations: [
+        sitemap({
+            // Excluir del sitemap las páginas aún no listas para indexar.
+            filter: (page) =>
+                !page.includes('/formulario') && !page.includes('/resumen'),
+        }),
+    ],
 });

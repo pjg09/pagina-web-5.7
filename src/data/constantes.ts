@@ -42,6 +42,13 @@ export const TEXTO_AUTORIZACION_DATOS =
     "almacenar y tratar mis datos personales con fines de contacto comercial, envío de " +
     "propuestas, seguimiento de servicios y comunicaciones relacionadas, conforme a su";
 
+// MEDICIÓN
+// Contenedor de Google Tag Manager. GA4 se configura DENTRO de GTM (no como gtag.js
+// separado) para no duplicar el conteo. Mientras el valor contenga "XXXX", el snippet
+// de GTM no se inyecta (ver BaseLayout.astro), así no se hacen peticiones a un
+// contenedor inexistente. Al crear el contenedor real, reemplazar por el ID GTM-XXXXXXX.
+export const ID_GTM = "GTM-PRZLSD9T";
+
 // CALENDLY
 // TODO: reemplazar con links reales de Calendly al configurar
 export const CALENDLY_ARTISTAS = "https://calendly.com/TU_USUARIO/asesoria-artistas";

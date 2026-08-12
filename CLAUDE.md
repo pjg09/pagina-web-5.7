@@ -2,15 +2,6 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Comportamiento esperado
-
-Reta la forma de pensar del desarrollador, no la valides. Cuando se proponga un plan o decisión técnica:
-- Señala fallas, casos límite y puntos ciegos
-- Discrepa cuando la lógica sea débil o haya suposiciones sin sustento
-- Di directamente cuando algo es mala idea, en lugar de hacerla funcionar igual
-
-No se necesita ánimo ni positividad. Se necesita pensamiento crítico y correcciones directas.
-
 ## Comandos
 
 ```bash
@@ -51,7 +42,7 @@ docs/
 **Flujo de datos:**
 - `src/data/constantes.ts` — fuente única de verdad para todas las URLs externas (WhatsApp, Calendly, Wompi, Apps Script webhook) y textos/precios globales. Cualquier URL que salga del sitio vive aquí.
 - `src/data/servicios.ts` — datos de servicios (pendiente). Mismo patrón: los componentes solo presentan, no tienen datos hardcodeados.
-- `src/layouts/BaseLayout.astro` — layout base con SEO (canonical, OG, Twitter Card), GA4, y el observer de scroll reveal. Todas las páginas lo usan.
+- `src/layouts/BaseLayout.astro` — layout base con SEO (canonical, OG, Twitter Card), **Google Tag Manager** (GA4 se configura dentro del contenedor, no como gtag.js separado) y el observer de scroll reveal. Todas las páginas lo usan. El snippet de GTM (head + noscript) solo se inyecta si `ID_GTM` de `constantes.ts` no contiene `XXXX` (`gtmActivo`); con el placeholder no se hace ninguna petición.
 
 **Por qué este patrón:** cuando se integre un CMS headless (Contentful o Sanity, evaluado post-lanzamiento), `constantes.ts` y `servicios.ts` se reemplazan por llamadas a API sin tocar los componentes.
 
@@ -124,7 +115,7 @@ Mobile-first. Todo cambio de layout se piensa primero en mobile y escala a deskt
 ## TODOs bloqueantes antes de producción
 
 Están marcados como comentarios `// TODO:` en el código:
-- `BaseLayout.astro` — reemplazar `G-XXXXXXXXXX` con el ID real de GA4
+- `constantes.ts` — reemplazar `ID_GTM` (`GTM-XXXXXXX`) con el ID real del contenedor de Google Tag Manager. Al hacerlo, GTM se activa automáticamente en todas las páginas (ver `gtmActivo` en `BaseLayout.astro`). GA4 se configura **dentro** de GTM, no en el código.
 - `constantes.ts` — reemplazar URLs placeholder de Calendly, Wompi (`WOMPI_ASESORIA_ARTISTAS`) y Apps Script (`APPSCRIPT_WEBHOOK_FORMULARIO`)
 
 ## Patrones CSS críticos
