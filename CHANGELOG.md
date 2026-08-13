@@ -1,3 +1,5 @@
+## [1.11.1](https://github.com/pjg09/pagina-web-5.7/compare/v1.11.0...v1.11.1) (2026-08-13)
+
 ## [1.11.0](https://github.com/pjg09/pagina-web-5.7/compare/v1.10.1...v1.11.0) (2026-08-12)
 
 ### Features
